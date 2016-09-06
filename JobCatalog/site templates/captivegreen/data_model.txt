@@ -1,0 +1,23 @@
+----- Actions
+
+1.   Create company
+     - Add description
+1.1. List companies
+1.2. Edit/Remove company
+
+2.   Create position
+     - Choose company
+     - Add description
+     - Add obtained skills
+2.1. List positions (all) - Filter By Pages
+2.2. Find position by criteria
+
+3.   Create skill
+3.1. List skills
+3.2. Edit/Remove skill
+
+
+
+
+
+
