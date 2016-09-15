@@ -1,8 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="springform" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page session="false" %>
+<%--<%@ page session="false" %>--%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -16,7 +17,7 @@
 <link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
-<link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 <div id="wrapper">
@@ -26,15 +27,28 @@
 				<h1><a href="#">Job <span>Catalog</span></a></h1>
 			</div>
 			<div id="menu">
-				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
-					<li><a href="#">Top Companies</a></li>
-					<<li><a href="#">Top Positions</a></li>
-					<li><a href="#">Top skills</a></li>
-				</ul>
+                <ul>
+                    <li class="current_page_item"><a href="#"><spring:message code="menu.top.homepage"/></a></li>
+                    <li><a href="#"><spring:message code="menu.top.topcompanies"/></a></li>
+                    <li><a href="#"><spring:message code="menu.top.toppositions"/></a></li>
+                    <li><a href="#"><spring:message code="menu.top.topskills"/></a></li>
+                </ul>
 			</div>
 		</div>
-		<div id="banner"></div>
+        <div id="banner">
+            <div id="lang">
+                <c:set var="currentLang">
+                    <spring:message code="global.current.locale"/>
+                </c:set>
+                <%--<c:out value="${currentLang}"/>--%>
+                <c:if test="${currentLang eq 'RU'}">
+                    <a href="../company/list?lang=en_US" title="<spring:message code="global.flag.alt"/>"><img src="<spring:message code="global.flag.en"/>"/></a>
+                </c:if>
+                <c:if test="${currentLang eq 'EN'}">
+                    <a href="../company/list?lang=ru_RU" title="<spring:message code="global.flag.alt"/>"><img src="<spring:message code="global.flag.ru"/>"/></a>
+                </c:if>
+            </div>
+        </div>
 		<!-- end #header -->
 		<div id="page">
 			<div id="content">
@@ -65,7 +79,7 @@
 
                 <c:if test="${editMode}">
                     <h1>Edit Company Details</h1>
-                    <c:url var="editCompanyAction" value="/company/edit/" />
+                    <c:url var="editCompanyAction" value="../company/edit" />
                     <springform:form action="${editCompanyAction}" commandName="company">
                         <table>
                             <tr>
@@ -144,34 +158,34 @@
 						</div>
 						<div style="clear: both;">&nbsp;</div>
 					</li>-->
-					<!--<li>
-						<h2>Aliquam tempus</h2>
-						<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
-					</li>-->
-					<li>
-						<h2>Company</h2>
-						<ul>
-							<li><a href="../../company/add">Create company account</a></li>
-                            <li><a href="../../company/list">List all companies</a></li>
-							<li><a href="#">Edit/Remove company(TODO)</a></li>
-						</ul>
-					</li>
-					<li>
-						<h2>Position</h2>
-						<ul>
-							<li><a href="#">Create position</a></li>
-                            <li><a href="#">List all positions</a></li>
-							<li><a href="#">Find positions by criteria</a></li>
-						</ul>
-					</li>
-					<li>
-						<h2>Skills</h2>
-						<ul>
-							<li><a href="#">Create skill</a></li>
-							<li><a href="#">List all skills</a></li>
-							<li><a href="#">Edit/Remove skill (TODO)</a></li>
-						</ul>
-					</li>
+                    <li>
+                        <ul>
+                            <li>Current locale: <spring:message code="test.current.lang"/></li>
+                            <li><a href="../test">Test</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2><spring:message code="menu.side.company"/></h2>
+                        <ul>
+                            <li><a href="../company/add"><spring:message code="menu.side.company.create"/></a></li>
+                            <li><a href="../company/list"><spring:message code="menu.side.company.list"/></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2><spring:message code="menu.side.position"/></h2>
+                        <ul>
+                            <li><a href="#"><spring:message code="menu.side.position.create"/></a></li>
+                            <li><a href="#"><spring:message code="menu.side.position.list"/></a></li>
+                            <li><a href="#"><spring:message code="menu.side.position.find"/></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2><spring:message code="menu.side.skills"/></h2>
+                        <ul>
+                            <li><a href="#"><spring:message code="menu.side.skills.create"/></a></li>
+                            <li><a href="#"><spring:message code="menu.side.skills.list"/></a></li>
+                        </ul>
+                    </li>
 				</ul>
 			</div>
 			<!-- end #sidebar -->

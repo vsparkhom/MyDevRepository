@@ -21,6 +21,33 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="order" value="1" />
+        <property name="interceptors">
+            <list>
+                <ref bean="testInterceptor"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springplugins.web.SelectedAnnotationHandlerMapping">
+        <property name="order" value="0" />
+        <property name="urls">
+            <list>
+                <value>/test*</value>
+                <value>/company/list*</value>
+            </list>
+        </property>
+        <property name="interceptors">
+            <list>
+                <!--<ref bean="testInterceptor" />-->
+                <ref bean="localeChangeInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
     <!-- Database Information -->
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -72,6 +99,38 @@
 
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+    <!-- Ext Messaging & Localization -->
+
+    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
+        <!--<property name="basename">-->
+            <!--<value>locale\messages</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="WEB-INF/classes/locale/messages" />
+        <property name="fileEncodings" value="UTF-8" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="en" />
+    </bean>
+
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">-->
+        <!--<property name="cookieName" value="lang" />-->
+        <!--<property name="cookieMaxAge" value="3600" />-->
+        <!--<property name="defaultLocale" value="en" />-->
+    <!--</bean>-->
+
+    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lang" />
+    </bean>
+
+    <bean id="testInterceptor" class="com.vlpa.spring.jobcatalog.intercept.TestInterceptor" />
+
+
 
 
 </beans>

@@ -5,17 +5,22 @@
 
 <html>
 <head>
-  <title><spring:message code="index.job.catalog"/></title>
+  <title><spring:message code="test.job.catalog"/></title>
 </head>
 <body>
-<h3><spring:message code="index.job.catalog"/></h3>
+<h3><spring:message code="test.job.catalog"/></h3>
 <br/>
-<a href="<c:url value="/company/list"/>" target="_blank"><spring:message code="index.company"/></a>
+<a href="<c:url value="/company/list"/>" target="_blank"><spring:message code="test.company"/></a>
 <br/>
 <br/>
 Current locale: <spring:message code="test.current.lang"/>
 <br/>
 <br/>
 Test e-mail: ${testEmail}
+<br/>
+<br/>
+Change localization:
+<br/><a href="test?lang=en_US">To EN</a>
+<br/><a href="test?lang=ru_RU">To RU</a>
 </body>
 </html>

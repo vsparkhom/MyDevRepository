@@ -20,14 +20,19 @@
 read chapter 2 - Advanced Spring IoC Container
 
 
+----- DONE -----
+
++ Externalizing Bean Configurations (2-12)
++ Localization (8-4)
++ Externalizing Locale-Sensitive Text Messages (8-5)
+
+----- IN_PROGRESS -----
+
 
 
 ----- TODO -----
 
-+ Externalizing Bean Configurations (2-12)
 
-- Resolving Text Messages (2-13)
-- Localization
 - XSL/PDF file
 - Exception mapping
 - Binding Properties of Custom Types

@@ -423,5 +423,11 @@ table th{
 #banner {
 	width: 940px;
 	margin: 0px auto;
-	height: 150px;
+	height: 40px;
+    text-align: right;
+}
+
+#lang {
+    padding-top: 7px;
+    padding-right: 7px;
 }

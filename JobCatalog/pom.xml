@@ -107,6 +107,12 @@
             <version>11.2.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springplugins</groupId>
+            <artifactId>springplugins</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <!-- Logging -->
 
         <dependency>

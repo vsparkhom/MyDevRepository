@@ -2,17 +2,18 @@ package com.vlpa.spring.jobcatalog.controller;
 
 import com.vlpa.spring.jobcatalog.model.Company;
 import com.vlpa.spring.jobcatalog.service.CompanyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CompanyController {
+
+    private Logger logger = LoggerFactory.getLogger(CompanyController.class);
 
     private CompanyService companyService;
 
@@ -22,44 +23,45 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @RequestMapping(value = "company/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/company/list*", method = RequestMethod.GET)
     public String listCompanies(Model model){
+        logger.debug("<listCompanies> List companies");
         model.addAttribute("listCompanies", companyService.listCompanies());
-        return "company/list";
+        return "/company/list";
     }
 
-    @RequestMapping(value = "company/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/company/add*", method = RequestMethod.GET)
     public String setupAddCompanyForm(Model model){
         model.addAttribute("company", new Company());
-        return "company/add";
+        return "/company/add";
     }
 
-    @RequestMapping(value = "company/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/company/add", method = RequestMethod.POST)
     public String addCompany(@ModelAttribute("company") Company company){
         companyService.addCompany(company);
         return "redirect:/company/list";
     }
 
-    @RequestMapping("company/remove/{id}")
-    public String removeCompany(@PathVariable("id") int id){
+    @RequestMapping("/company/remove")
+    public String removeCompany(@RequestParam("id") int id){
         companyService.removeCompany(id);
         return "redirect:/company/list";
     }
 
-    @RequestMapping("company/get/{id}")
-    public String getCompanyById(@PathVariable("id") int id, Model model) {
+    @RequestMapping("/company/get")
+    public String getCompanyById(@RequestParam("id") int id, Model model) {
         model.addAttribute("company", companyService.getCompanyById(id));
-        return "company/id";
+        return "/company/id";
     }
 
-    @RequestMapping(value = "company/edit/{id}", method = RequestMethod.GET)
-    public String editCompany(@PathVariable("id") int id, Model model) {
+    @RequestMapping(value = "/company/edit", method = RequestMethod.GET)
+    public String editCompany(@RequestParam("id") int id, Model model) {
         model.addAttribute("editMode", true);
         model.addAttribute("company", companyService.getCompanyById(id));
-        return "company/id";
+        return "/company/id";
     }
 
-    @RequestMapping(value = "company/edit/", method = RequestMethod.POST)
+    @RequestMapping(value = "/company/edit", method = RequestMethod.POST)
     public String editCompany(@ModelAttribute("company") Company company) {
         companyService.updateCompany(company);
         return "redirect:/company/list";

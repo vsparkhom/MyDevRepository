@@ -1,19 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="springform" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page session="false" %>
+<%--<%@ page session="false" %>--%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-Name       : Captive Green
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20111225
--->
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -36,14 +28,27 @@ Released   : 20111225
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
-					<li><a href="#">Top Companies</a></li>
-					<<li><a href="#">Top Positions</a></li>
-					<li><a href="#">Top skills</a></li>
+					<li class="current_page_item"><a href="#"><spring:message code="menu.top.homepage"/></a></li>
+					<li><a href="#"><spring:message code="menu.top.topcompanies"/></a></li>
+					<li><a href="#"><spring:message code="menu.top.toppositions"/></a></li>
+					<li><a href="#"><spring:message code="menu.top.topskills"/></a></li>
 				</ul>
 			</div>
 		</div>
-		<div id="banner"></div>
+		<div id="banner">
+            <div id="lang">
+                <c:set var="currentLang">
+                    <spring:message code="global.current.locale"/>
+                </c:set>
+                <%--<c:out value="${currentLang}"/>--%>
+                <c:if test="${currentLang eq 'RU'}">
+                    <a href="../company/list?lang=en_US" title="<spring:message code="global.flag.alt"/>"><img src="<spring:message code="global.flag.en"/>"/></a>
+                </c:if>
+                <c:if test="${currentLang eq 'EN'}">
+                    <a href="../company/list?lang=ru_RU" title="<spring:message code="global.flag.alt"/>"><img src="<spring:message code="global.flag.ru"/>"/></a>
+                </c:if>
+            </div>
+		</div>
 		<!-- end #header -->
 		<div id="page">
 			<div id="content">
@@ -62,9 +67,9 @@ Released   : 20111225
                             <c:forEach items="${listCompanies}" var="company">
                                 <tr>
                                     <td>${company.id}</td>
-                                    <td><a href="<c:url value='../company/get/${company.id}'/>">${company.name}</a></td>
+                                    <td><a href="<c:url value='../company/get?id=${company.id}'/>">${company.name}</a></td>
                                     <td>${company.description}</td>
-                                    <td><a href="<c:url value='../company/edit/${company.id}'/>"><span style="color:blue;">Edit</span></a>/<a href="<c:url value='../company/remove/${company.id}'/>"><span style="color:red;">Delete</span></a></td>
+                                    <td><a href="<c:url value='../company/edit?id=${company.id}'/>"><span style="color:blue;">Edit</span></a>/<a href="<c:url value='../company/remove?id=${company.id}'/>"><span style="color:red;">Delete</span></a></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -78,24 +83,6 @@ Released   : 20111225
 					<div class="entry">
 						<p>This is <strong>Captive Green </strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photo used in this template is form <a href="http://pdphoto.org/">pdphoto.org</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :)</p>
 						<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
-						<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-					</div>
-				</div>
-				<div class="post">
-					<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
-					<p class="meta"><span class="date">December 24, 2011</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in, rhoncus.</p>
-						<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-					</div>
-				</div>
-				<div class="post">
-					<h2 class="title"><a href="#">Consecteteur hendrerit </a></h2>
-					<p class="meta"><span class="date">December 20, 2011</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in, rhoncus.</p>
 						<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
 					</div>
 				</div>-->
@@ -115,32 +102,32 @@ Released   : 20111225
 						</div>
 						<div style="clear: both;">&nbsp;</div>
 					</li>-->
-					<!--<li>
-						<h2>Aliquam tempus</h2>
-						<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
-					</li>-->
+                    <li>
+                        <ul>
+                            <li>Current locale: <spring:message code="test.current.lang"/></li>
+                            <li><a href="../test">Test</a></li>
+                        </ul>
+                    </li>
 					<li>
-						<h2>Company</h2>
+						<h2><spring:message code="menu.side.company"/></h2>
 						<ul>
-							<li><a href="../company/add">Create company account</a></li>
-                            <li><a href="../company/list">List all companies</a></li>
-							<li><a href="#">Edit/Remove company(TODO)</a></li>
+							<li><a href="../company/add"><spring:message code="menu.side.company.create"/></a></li>
+                            <li><a href="../company/list"><spring:message code="menu.side.company.list"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<h2>Position</h2>
+						<h2><spring:message code="menu.side.position"/></h2>
 						<ul>
-							<li><a href="#">Create position</a></li>
-                            <li><a href="#">List all positions</a></li>
-							<li><a href="#">Find positions by criteria</a></li>
+							<li><a href="#"><spring:message code="menu.side.position.create"/></a></li>
+                            <li><a href="#"><spring:message code="menu.side.position.list"/></a></li>
+							<li><a href="#"><spring:message code="menu.side.position.find"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<h2>Skills</h2>
+						<h2><spring:message code="menu.side.skills"/></h2>
 						<ul>
-							<li><a href="#">Create skill</a></li>
-							<li><a href="#">List all skills</a></li>
-							<li><a href="#">Edit/Remove skill (TODO)</a></li>
+							<li><a href="#"><spring:message code="menu.side.skills.create"/></a></li>
+							<li><a href="#"><spring:message code="menu.side.skills.list"/></a></li>
 						</ul>
 					</li>
 				</ul>
