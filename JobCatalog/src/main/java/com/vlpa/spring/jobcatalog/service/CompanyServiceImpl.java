@@ -42,6 +42,12 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     @Transactional
+    public Company getCompanyByName(String name){
+        return companyDAO.getCompanyByName(name);
+    }
+
+    @Override
+    @Transactional
     public List<Company> listCompanies() {
         return companyDAO.listCompanies();
     }

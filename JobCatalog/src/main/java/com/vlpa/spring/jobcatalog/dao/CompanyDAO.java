@@ -10,5 +10,6 @@ public interface CompanyDAO {
     public void updateCompany(Company company);
     public void removeCompany(int id);
     public Company getCompanyById(int id);
+    public Company getCompanyByName(String name);
     public List<Company> listCompanies();
 }

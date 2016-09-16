@@ -25,6 +25,7 @@ read chapter 2 - Advanced Spring IoC Container
 + Externalizing Bean Configurations (2-12)
 + Localization (8-4)
 + Externalizing Locale-Sensitive Text Messages (8-5)
++ Mapping Exceptions to Views (8-8)
 
 ----- IN_PROGRESS -----
 
@@ -32,9 +33,12 @@ read chapter 2 - Advanced Spring IoC Container
 
 ----- TODO -----
 
-
-- XSL/PDF file
-- Exception mapping
+- Creating XSL/PDF Views (8-13)
 - Binding Properties of Custom Types
 - Validating Form Data
 - Expiring a controller's Session Data
+
+
+----- BUGS -----
+
+Chaning locale doesn't work for company/edit and company/get requests

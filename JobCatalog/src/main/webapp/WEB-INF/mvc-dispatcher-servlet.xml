@@ -36,6 +36,9 @@
             <list>
                 <value>/test*</value>
                 <value>/company/list*</value>
+                <value>/company/add*</value>
+                <value>/company/edit*</value>
+                <value>/company/get*</value>
             </list>
         </property>
         <property name="interceptors">
@@ -102,12 +105,6 @@
 
     <!-- Ext Messaging & Localization -->
 
-    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
-        <!--<property name="basename">-->
-            <!--<value>locale\messages</value>-->
-        <!--</property>-->
-    <!--</bean>-->
-
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="WEB-INF/classes/locale/messages" />
         <property name="fileEncodings" value="UTF-8" />
@@ -130,7 +127,16 @@
 
     <bean id="testInterceptor" class="com.vlpa.spring.jobcatalog.intercept.TestInterceptor" />
 
+    <!-- Exceptions Mapping -->
 
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.vlpa.spring.jobcatalog.exception.DuplicateCompanyNameException">duplicateCompanyNameException</prop>
+            </props>
+        </property>
+        <property name="defaultErrorView" value="error" />
+    </bean>
 
 
 </beans>

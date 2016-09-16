@@ -1,5 +1,6 @@
 package com.vlpa.spring.jobcatalog.controller;
 
+import com.vlpa.spring.jobcatalog.exception.DuplicateCompanyNameException;
 import com.vlpa.spring.jobcatalog.model.Company;
 import com.vlpa.spring.jobcatalog.service.CompanyService;
 import org.slf4j.Logger;
@@ -38,6 +39,10 @@ public class CompanyController {
 
     @RequestMapping(value = "/company/add", method = RequestMethod.POST)
     public String addCompany(@ModelAttribute("company") Company company){
+        Company presentCompany = companyService.getCompanyByName(company.getName());
+        if (presentCompany != null) {
+            throw new DuplicateCompanyNameException(company.getName());
+        }
         companyService.addCompany(company);
         return "redirect:/company/list";
     }
@@ -48,13 +53,13 @@ public class CompanyController {
         return "redirect:/company/list";
     }
 
-    @RequestMapping("/company/get")
+    @RequestMapping("/company/get*")
     public String getCompanyById(@RequestParam("id") int id, Model model) {
         model.addAttribute("company", companyService.getCompanyById(id));
         return "/company/id";
     }
 
-    @RequestMapping(value = "/company/edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/company/edit*", method = RequestMethod.GET)
     public String editCompany(@RequestParam("id") int id, Model model) {
         model.addAttribute("editMode", true);
         model.addAttribute("company", companyService.getCompanyById(id));

@@ -16,6 +16,5 @@
 Current locale: <spring:message code="test.current.lang"/>
 <br/>
 <br/>
-Test e-mail: ${testEmail}
 </body>
 </html>

@@ -13,7 +13,7 @@ public class TestInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.debug("This is a test string from interceptor");
+        logger.debug("Test interceptor called");
         return super.preHandle(request, response, handler);
     }
 }

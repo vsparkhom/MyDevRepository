@@ -1,12 +1,14 @@
 package com.vlpa.spring.jobcatalog.dao;
 
 import com.vlpa.spring.jobcatalog.model.Company;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Repository
@@ -50,6 +52,22 @@ public class CompanyDAOImpl implements CompanyDAO {
         Session session = sessionFactory.getCurrentSession();
         Company company = (Company)session.load(Company.class, id);
         logger.debug("Company loaded. Info: " + company);
+        return company;
+    }
+
+    @Override
+    public Company getCompanyByName(String name){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Company where name = :name");
+        query.setParameter("name", name);
+        Iterator<Company> iterator = query.list().iterator();
+        Company company = null;
+        if (iterator.hasNext()) {
+            company = iterator.next();
+            logger.debug("Company loaded. Info: " + company);
+        } else {
+            logger.debug("Company with name '{}' not found", name);
+        }
         return company;
     }
 
