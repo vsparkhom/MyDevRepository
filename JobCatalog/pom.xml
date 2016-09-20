@@ -157,6 +157,15 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Apache POI (work with MS EXCEL) -->
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.14</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

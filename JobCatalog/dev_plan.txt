@@ -26,6 +26,13 @@ read chapter 2 - Advanced Spring IoC Container
 + Localization (8-4)
 + Externalizing Locale-Sensitive Text Messages (8-5)
 + Mapping Exceptions to Views (8-8)
++ Creating XSL/PDF Views (8-13)
+
+
+----- FIXED ISSUES -----
+
++ Changing locale doesn't work for company/edit and company/get requests  (fixed with JavaScript - added 'lang' parameter to URI)
+
 
 ----- IN_PROGRESS -----
 
@@ -33,12 +40,12 @@ read chapter 2 - Advanced Spring IoC Container
 
 ----- TODO -----
 
-- Creating XSL/PDF Views (8-13)
 - Binding Properties of Custom Types
 - Validating Form Data
 - Expiring a controller's Session Data
+- Security
 
 
 ----- BUGS -----
 
-Chaning locale doesn't work for company/edit and company/get requests
+- TBD

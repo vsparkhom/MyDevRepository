@@ -30,6 +30,8 @@
 
                 <h1>Companies List</h1>
 
+                <h4><a href="../report/company/list.xls">Download as spreadsheet</a></h4>
+
                 <div>
                     <c:if test="${!empty listCompanies}">
                         <table>
