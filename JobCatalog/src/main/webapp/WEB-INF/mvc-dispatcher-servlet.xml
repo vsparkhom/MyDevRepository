@@ -37,8 +37,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
-
     <bean id="selectedAnnotationHandlerMapping" class="org.springplugins.web.SelectedAnnotationHandlerMapping">
         <property name="order" value="0" />
         <property name="urls">
@@ -157,4 +155,4 @@
     </bean>
 
 
-</beans>
+ </beans>

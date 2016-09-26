@@ -1,0 +1,34 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #EEEBDA repeat-x left top;
+}
+
+
+table{
+    border-collapse:collapse;
+}
+
+#login_main {
+    margin: auto;
+    width: 285px;
+    padding: 10px;
+    text-align: center;
+}
+
+#login_form {
+    background: #8AD500 url(img01_TEST.jpg) repeat-x left top;
+}
+
+
+#login_form table{
+    width: 285px;
+    color: black;
+    font-weight: bold;
+}
+
+#login_error {
+    color: red;
+}
+

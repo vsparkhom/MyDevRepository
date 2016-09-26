@@ -421,13 +421,40 @@ table th{
 }
 
 #banner {
-	width: 940px;
-	margin: 0px auto;
-	height: 40px;
+    width: 940px;
+    margin: 0px auto;
+    height: 40px;
     text-align: right;
+    padding-top: 5px;
+    position: relative;
+}
+
+.banner_right {
+    position: absolute;
+    right: 0px;
+}
+
+#login {
+    float: left;
+    width: 200px;
+    padding-top: 2px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    color: #FFFFFF;
+}
+
+#login a {
+    color: white;
+    text-decoration: underline;
 }
 
 #lang {
-    padding-top: 7px;
-    padding-right: 7px;
+    float: left;
+    height: 20px;
+}
+
+#lang img {
+    width: 25px;
+    height: 20px;
 }

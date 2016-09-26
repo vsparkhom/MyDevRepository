@@ -5,8 +5,6 @@
 <@page session="false" />
 
 
-
-
 --- Spring ---
 
 1. 
@@ -27,25 +25,28 @@ read chapter 2 - Advanced Spring IoC Container
 + Externalizing Locale-Sensitive Text Messages (8-5)
 + Mapping Exceptions to Views (8-8)
 + Creating XSL/PDF Views (8-13)
++ Security (5)
 
 
------ FIXED ISSUES -----
+----- FIXED BUGS -----
 
 + Changing locale doesn't work for company/edit and company/get requests  (fixed with JavaScript - added 'lang' parameter to URI)
 
 
 ----- IN_PROGRESS -----
 
-
+- Add position entity
 
 ----- TODO -----
 
-- Binding Properties of Custom Types
-- Validating Form Data
+
 - Expiring a controller's Session Data
-- Security
+- Binding Properties of Custom Types
+- Part1. Handling Multipage Forms with Wizard Form Controllers (8-11)
+- Part2. Validating Form Data (8-11)
 
 
 ----- BUGS -----
 
-- TBD
+- CSS styles for /login page are not recognized with <link> tag.
+  WA: included CSS styles into login page directly
