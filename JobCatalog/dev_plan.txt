@@ -26,7 +26,7 @@ read chapter 2 - Advanced Spring IoC Container
 + Mapping Exceptions to Views (8-8)
 + Creating XSL/PDF Views (8-13)
 + Security (5)
-
++ Change Database from Oracle to SQLite
 
 ----- FIXED BUGS -----
 

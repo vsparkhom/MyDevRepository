@@ -8,8 +8,7 @@ public class Company {
 
     @Id
     @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_id_generator")
-    @SequenceGenerator(name = "company_id_generator", sequenceName = "COMPANY_SEQ")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name="NAME")
