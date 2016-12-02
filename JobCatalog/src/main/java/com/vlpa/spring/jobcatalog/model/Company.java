@@ -1,6 +1,10 @@
 package com.vlpa.spring.jobcatalog.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="COMPANY")
@@ -22,6 +26,9 @@ public class Company {
 
     @Column(name="ADDRESS")
     private String address;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", targetEntity = Position.class, cascade = CascadeType.ALL)
+    private Set<Position> positions = new HashSet<>();
 
 //    public Company(String name, String description, Integer employeeCount, String address) {
 //        this.name = name;
@@ -68,6 +75,14 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<Position> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(Set<Position> positions) {
+        this.positions = positions;
     }
 
     @Override

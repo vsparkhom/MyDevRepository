@@ -21,23 +21,23 @@
         <li>
             <h2><spring:message code="menu.side.company"/></h2>
             <ul>
-                <li><a href="../company/add"><spring:message code="menu.side.company.create"/></a></li>
                 <li><a href="../company/list"><spring:message code="menu.side.company.list"/></a></li>
+                <li><a href="../company/add"><spring:message code="menu.side.company.create"/></a></li>
             </ul>
         </li>
         <li>
             <h2><spring:message code="menu.side.position"/></h2>
             <ul>
-                <li><a href="#"><spring:message code="menu.side.position.create"/></a></li>
-                <li><a href="#"><spring:message code="menu.side.position.list"/></a></li>
+                <li><a href="../position/list"><spring:message code="menu.side.position.list"/></a></li>
+                <li><a href="../position/add"><spring:message code="menu.side.position.create"/></a></li>
                 <li><a href="#"><spring:message code="menu.side.position.find"/></a></li>
             </ul>
         </li>
         <li>
             <h2><spring:message code="menu.side.skills"/></h2>
             <ul>
-                <li><a href="#"><spring:message code="menu.side.skills.create"/></a></li>
                 <li><a href="#"><spring:message code="menu.side.skills.list"/></a></li>
+                <li><a href="#"><spring:message code="menu.side.skills.create"/></a></li>
             </ul>
         </li>
     </ul>

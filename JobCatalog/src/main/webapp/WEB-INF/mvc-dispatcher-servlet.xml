@@ -83,6 +83,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.vlpa.spring.jobcatalog.model.Company</value>
+                <value>com.vlpa.spring.jobcatalog.model.Position</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -94,7 +95,9 @@
         </property>
     </bean>
 
-    <!-- Dao and Service beans -->
+    <!-- DAO and Service BEANS -->
+
+    <!-- company section -->
 
     <bean id="companyDAO" class="com.vlpa.spring.jobcatalog.dao.CompanyDAOImpl">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
@@ -102,6 +105,16 @@
 
     <bean id="companyService" class="com.vlpa.spring.jobcatalog.service.CompanyServiceImpl">
         <property name="companyDAO" ref="companyDAO" />
+    </bean>
+
+    <!-- position section -->
+
+    <bean id="positionDAO" class="com.vlpa.spring.jobcatalog.dao.PositionDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+
+    <bean id="positionService" class="com.vlpa.spring.jobcatalog.service.PositionServiceImpl">
+        <property name="positionDAO" ref="positionDAO" />
     </bean>
 
     <!-- Transaction -->
@@ -116,7 +129,22 @@
     <!-- MVC -->
 
     <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- Binding Properties of Custom Types -->
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" >
+        <property name="converters">
+            <set>
+                <bean class="com.vlpa.spring.jobcatalog.converter.StringToCompanyConverter">
+                    <property name="companyService" ref="companyService" />
+                </bean>
+                <bean class="com.vlpa.spring.jobcatalog.converter.CompanyToStringConverter">
+                    <property name="companyService" ref="companyService" />
+                </bean>
+            </set>
+        </property>
+    </bean>
 
     <!-- Ext Messaging & Localization -->
 

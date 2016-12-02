@@ -27,6 +27,13 @@ read chapter 2 - Advanced Spring IoC Container
 + Creating XSL/PDF Views (8-13)
 + Security (5)
 + Change Database from Oracle to SQLite
++ Add position entity
+  + list
+  + add (assign to specific company)
+  + remove (check correct removing from database with all dependencies)
+  + get by id
+  + edit
++ Binding Properties of Custom Types (converters used: https://www.javacodegeeks.com/2013/11/type-conversion-in-spring-2.html)
 
 ----- FIXED BUGS -----
 
@@ -35,15 +42,16 @@ read chapter 2 - Advanced Spring IoC Container
 
 ----- IN_PROGRESS -----
 
-- Add position entity
+- Add Skill entity
 
 ----- TODO -----
 
 
 - Expiring a controller's Session Data
-- Binding Properties of Custom Types
+
 - Part1. Handling Multipage Forms with Wizard Form Controllers (8-11)
 - Part2. Validating Form Data (8-11)
+- Update hibernate configs (config.properties) with correct database location
 
 
 ----- BUGS -----
