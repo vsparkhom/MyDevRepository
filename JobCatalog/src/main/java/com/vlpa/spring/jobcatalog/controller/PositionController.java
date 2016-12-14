@@ -2,8 +2,10 @@ package com.vlpa.spring.jobcatalog.controller;
 
 import com.vlpa.spring.jobcatalog.model.Company;
 import com.vlpa.spring.jobcatalog.model.Position;
+import com.vlpa.spring.jobcatalog.model.Skill;
 import com.vlpa.spring.jobcatalog.service.CompanyService;
 import com.vlpa.spring.jobcatalog.service.PositionService;
+import com.vlpa.spring.jobcatalog.service.SkillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class PositionController {
@@ -28,6 +33,14 @@ public class PositionController {
 
     private CompanyService companyService;
 
+    private SkillService skillService;
+
+    @Autowired(required = true)
+    @Qualifier(value = "companyService")
+    public void setCompanyService(CompanyService companyService) {
+        this.companyService = companyService;
+    }
+
     @Autowired(required = true)
     @Qualifier(value = "positionService")
     public void setPositionService(PositionService positionService) {
@@ -35,9 +48,9 @@ public class PositionController {
     }
 
     @Autowired(required = true)
-    @Qualifier(value = "companyService")
-    public void setCompanyService(CompanyService companyService) {
-        this.companyService = companyService;
+    @Qualifier(value = "skillService")
+    public void setSkillService(SkillService skillService) {
+        this.skillService = skillService;
     }
 
     @RequestMapping(value = "/position/list*", method = RequestMethod.GET)
@@ -51,6 +64,7 @@ public class PositionController {
     public String setupAddPositionForm(Model model){
         model.addAttribute("position", new Position());
         model.addAttribute("listCompanies", getSelectData(companyService.listCompanies()));
+        model.addAttribute("listSkills", skillService.listSkills());
         return "/position/add";
     }
 
@@ -63,8 +77,9 @@ public class PositionController {
     }
 
     @RequestMapping(value = "/position/add", method = RequestMethod.POST)
-    public String addPosition(@ModelAttribute("position") Position position){
+    public String addPosition(@ModelAttribute("position") Position position, @RequestParam("skillsToAdd") String[] skillsToAdd){
         logger.debug("<listPositions> Add position: {}", position);
+        position.setSkills(getSkillsByIds(skillsToAdd));
         positionService.addPosition(position);
         return "redirect:/position/list";
     }
@@ -84,14 +99,34 @@ public class PositionController {
     @RequestMapping(value = "/position/edit*", method = RequestMethod.GET)
     public String editPosition(@RequestParam("id") int id, Model model) {
         model.addAttribute("editMode", true);
-        model.addAttribute("position", positionService.getPositionById(id));
+        Position selectedPosition = positionService.getPositionById(id);
+        logger.debug("<editPosition> skillsList(size={})", (selectedPosition.getSkills()==null?0:selectedPosition.getSkills().size()));
+        for(Skill skill: selectedPosition.getSkills()) {
+            logger.debug("<editPosition> - skill: {}", skill);
+        }
+        model.addAttribute("position", selectedPosition);
         model.addAttribute("listCompanies", getSelectData(companyService.listCompanies()));
+        model.addAttribute("listSkills", skillService.listSkills());
         return "/position/id";
     }
 
     @RequestMapping(value = "/position/edit", method = RequestMethod.POST)
-    public String editPosition(@ModelAttribute("position") Position position) {
+    public String editPosition(@ModelAttribute("position") Position position, @RequestParam("updatedSkills") String[] updatedSkills) {
+        logger.debug("<editPosition> Update position: {}", position);
+        logger.debug("<editPosition> updatedSkills: {}", Arrays.toString(updatedSkills));
+        position.setSkills(getSkillsByIds(updatedSkills));
         positionService.updatePosition(position);
         return "redirect:/position/list";
+    }
+
+    private Set<Skill> getSkillsByIds(String[] ids) {
+        Set<Skill> skills = new HashSet<>();
+        for(String id : ids) {
+           Skill skill = skillService.getSkillById(Integer.valueOf(id));
+           if (skill != null) {
+               skills.add(skill);
+           }
+        }
+        return skills;
     }
 }

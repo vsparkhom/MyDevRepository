@@ -28,10 +28,10 @@ h3 {
 	font-size: 1.6em;
 }
 
-p, ul, ol {
+/*p, ul, ol {
 	margin-top: 0;
 	line-height: 240%;
-}
+}*/
 
 ul, ol {
 }
@@ -51,6 +51,7 @@ table{
 
 table td{
     border:1px solid #056303;
+    padding: 5px;
 }
 
 table th{
@@ -457,4 +458,39 @@ table th{
 #lang img {
     width: 25px;
     height: 20px;
+}
+
+/* skill-list-options */
+
+ul.skill-list-options {
+    list-style-type: none;
+    width: 15em;
+    margin: 0.3em 0;
+    padding: 0;
+}
+
+ul.skill-list-options li {
+    background: rgba(138, 213, 0, 0.55) url(images/cross_bright.png) no-repeat 98% center;
+    margin: 1px;
+    padding: 0.1em 0.3em;
+    cursor: pointer;
+    border: solid 1px rgb(170, 170, 170);
+}
+
+select.skill-list-options {
+    swidth: 15em;
+}
+
+ul.no-padding {
+    margin-left: 20px;
+    padding: 0;
+}
+
+table.show-id-form {
+    width: 50%;
+}
+
+td.title {
+    background: rgba(138, 213, 0, 0.55);
+    width: 75px;
 }

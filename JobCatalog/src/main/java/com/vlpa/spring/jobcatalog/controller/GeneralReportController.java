@@ -22,7 +22,7 @@ public class GeneralReportController {
     }
 
     @RequestMapping(value = "/report/company/list*", method = RequestMethod.GET)
-    public String reportCompanyList(Model model) {//TODO
+    public String reportCompanyList(Model model) {
         logger.debug("<reportCompanyList> Generating report");
         model.addAttribute("listCompanies", companyService.listCompanies());
         return "/report/company/list";

@@ -5,7 +5,7 @@
     <ignored path="JobCatalog.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$USER_HOME$/.m2/settings.xml" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1473816742756" ignored="false" />
-    <file path="/mvc-dispatcher-servlet.xml" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480720392158" ignored="false" />
+    <file path="/mvc-dispatcher-servlet.xml" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480961747910" ignored="false" />
     <file path="/config.properties" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480700367669" ignored="false" />
     <file path="/readme.txt" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1473871657018" ignored="false" />
     <file path="/index.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1473871973044" ignored="false" />
@@ -69,17 +69,27 @@
     <file path="$PROJECT_DIR$/../../../SHAW/Shaw_BSS_Order_Management/build_gradle/resources/main/ca/shaw/util/spring/om_application_context.xml" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480447221973" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/Shaw_BSS_Order_Management/build_gradle/resources/main/ca/shaw/soap/esi/CommonCableLabs_v1.17/XSDs/lib/xmldsig-core-schema.xsd" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480445393645" ignored="false" />
     <file path="/Company.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480714948169" ignored="false" />
-    <file path="/Position.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480715455099" ignored="false" />
+    <file path="/Position.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481671097163" ignored="false" />
     <file path="/PositionDAO.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480697997551" ignored="false" />
     <file path="/PositionDAOImpl.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480698463288" ignored="false" />
-    <file path="/PositionController.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480720787712" ignored="false" />
+    <file path="/PositionController.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481739607137" ignored="false" />
     <file path="/PositionServiceImpl.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480699637235" ignored="false" />
-    <file path="/list.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480699894900" ignored="false" />
-    <file path="/sidebar.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480699953393" ignored="false" />
-    <file path="/add.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480716556718" ignored="false" />
+    <file path="/list.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481737558566" ignored="false" />
+    <file path="/sidebar.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481737942862" ignored="false" />
+    <file path="/add.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481739523123" ignored="false" />
     <file path="/StringToCompanyConverter.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480719939464" ignored="false" />
     <file path="/CompanyToStringConverter.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480720131729" ignored="false" />
-    <file path="/id.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480722119538" ignored="false" />
+    <file path="/id.jsp" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481738938577" ignored="false" />
+    <file path="/Skill.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480957030883" ignored="false" />
+    <file path="/SkillDAO.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480961183381" ignored="false" />
+    <file path="/SkillDAOImpl.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480961294013" ignored="false" />
+    <file path="/SkillService.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480961457027" ignored="false" />
+    <file path="/SkillServiceImpl.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1480963524465" ignored="false" />
+    <file path="/style.css" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481737143651" ignored="false" />
+    <file path="/SkillController.java" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481737488234" ignored="false" />
+    <file path="/messages.properties" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481739152842" ignored="false" />
+    <file path="/messages_ru_RU_decoded.properties" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481739173855" ignored="false" />
+    <file path="/messages_en_US.properties" changelist="5b7a58f5-9dc8-4078-976d-1627ca741ff1" time="1481739161858" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,8 +179,6 @@
   <component name="DebuggerManager">
     <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <field_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -207,6 +215,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <field_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -275,44 +285,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Company.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Company.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="54" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PositionController.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PositionController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/PositionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="91" selection-start="3492" selection-end="3492" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="28" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
+            <state line="83" column="0" selection-start="3229" selection-end="3229" vertical-scroll-proportion="0.50183153">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionDAOImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/dao/PositionDAOImpl.java">
+      <file leaf-file-name="id.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/id.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="28" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="22" column="4" selection-start="1221" selection-end="2114" vertical-scroll-proportion="69.30769">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -320,48 +306,8 @@
       <file leaf-file-name="add.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/add.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="48" selection-start="2993" selection-end="2993" vertical-scroll-proportion="-7.423077">
+            <state line="103" column="82" selection-start="4425" selection-end="4425" vertical-scroll-proportion="-17.884615">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="id.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/id.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="59" selection-start="0" selection-end="5419" vertical-scroll-proportion="0.36914062">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="34" selection-start="5935" selection-end="5935" vertical-scroll-proportion="-7.24">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyToStringConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/CompanyToStringConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="34" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringToCompanyConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/StringToCompanyConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -381,22 +327,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/dao/PositionDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/dao/PositionDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/service/PositionService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/service/PositionServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sidebar.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Position.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Company.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/add.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/StringToCompanyConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/CompanyToStringConverter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/PositionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/service/SkillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Position.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/id.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/GeneralReportController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sidebar.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/add.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/SkillController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/id.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/locale/messages.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/locale/messages_en_US.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/locale/messages_ru_RU_decoded.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/add.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/PositionController.java" />
       </list>
     </option>
   </component>
@@ -474,6 +420,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -600,7 +547,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="position" />
+              <option name="myItemId" value="skill" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -634,7 +581,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="company" />
+              <option name="myItemId" value="position" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -657,6 +604,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JobCatalog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JobCatalog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'messages'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JobCatalog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JobCatalog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -838,7 +841,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -863,6 +865,11 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\parkhomchuk\Repositories\VLPA\MyDevRepository\JobCatalog\src\main\webapp\WEB-INF\pages\skill" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -998,7 +1005,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1013,6 +1019,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1136,126 +1143,130 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/config.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/service/CompanyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="152" selection-end="152" vertical-scroll-proportion="0.18579236">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/service/PositionServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+        <state line="23" column="12" selection-start="612" selection-end="612" vertical-scroll-proportion="0.6994633">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/dao/CompanyDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Skill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="39" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.0">
+        <state line="6" column="13" selection-start="116" selection-end="116" vertical-scroll-proportion="0.031598512">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/CompanyController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="4" selection-start="2060" selection-end="2827" vertical-scroll-proportion="0.0">
+        <state line="474" column="36" selection-start="6207" selection-end="6207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="22" selection-start="5131" selection-end="5131" vertical-scroll-proportion="-0.68">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sidebar.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="44" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.47467166">
+        <state line="23" column="50" selection-start="845" selection-end="845" vertical-scroll-proportion="0.17073171">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/company/add.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/add.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="31" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.57410884">
+        <state line="53" column="28" selection-start="2300" selection-end="2300" vertical-scroll-proportion="-13.307693">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/dao/PositionDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="28" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0">
+        <state line="45" column="53" selection-start="2037" selection-end="2037" vertical-scroll-proportion="0.46153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/SkillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="0" selection-start="2595" selection-end="2595" vertical-scroll-proportion="-6.78">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Company.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/skill/id.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="54" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/model/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="28" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
+        <state line="67" column="25" selection-start="3185" selection-end="3185" vertical-scroll-proportion="-0.9868421">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/CompanyToStringConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/converter/StringToCompanyConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="34" selection-start="5935" selection-end="5935" vertical-scroll-proportion="-7.24">
+        <state line="25" column="28" selection-start="559" selection-end="559" vertical-scroll-proportion="-5.24">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/company/id.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_en_US.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="31" selection-start="4284" selection-end="4284" vertical-scroll-proportion="-9.153846">
+        <state line="25" column="28" selection-start="559" selection-end="559" vertical-scroll-proportion="-5.04">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/PositionController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_ru_RU.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="91" selection-start="3492" selection-end="3492" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/add.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_ru_RU_decoded.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="48" selection-start="2993" selection-end="2993" vertical-scroll-proportion="-7.423077">
+        <state line="25" column="26" selection-start="543" selection-end="543" vertical-scroll-proportion="0.79588014">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/id.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="59" selection-start="0" selection-end="5419" vertical-scroll-proportion="0.36914062">
+        <state line="22" column="4" selection-start="1221" selection-end="2114" vertical-scroll-proportion="69.30769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/position/add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="82" selection-start="4425" selection-end="4425" vertical-scroll-proportion="-17.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vlpa/spring/jobcatalog/controller/PositionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="0" selection-start="3229" selection-end="3229" vertical-scroll-proportion="0.50183153">
           <folding />
         </state>
       </provider>

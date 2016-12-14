@@ -34,6 +34,12 @@ read chapter 2 - Advanced Spring IoC Container
   + get by id
   + edit
 + Binding Properties of Custom Types (converters used: https://www.javacodegeeks.com/2013/11/type-conversion-in-spring-2.html)
++ Add Skill entity
+  + list
+  + add
+  + remove
+  + edit
+  + liml Skills to Position
 
 ----- FIXED BUGS -----
 
@@ -42,7 +48,7 @@ read chapter 2 - Advanced Spring IoC Container
 
 ----- IN_PROGRESS -----
 
-- Add Skill entity
+
 
 ----- TODO -----
 
@@ -52,9 +58,12 @@ read chapter 2 - Advanced Spring IoC Container
 - Part1. Handling Multipage Forms with Wizard Form Controllers (8-11)
 - Part2. Validating Form Data (8-11)
 - Update hibernate configs (config.properties) with correct database location
+- exclude JS from JSP to separate file
 
 
 ----- BUGS -----
 
 - CSS styles for /login page are not recognized with <link> tag.
   WA: included CSS styles into login page directly
+
+

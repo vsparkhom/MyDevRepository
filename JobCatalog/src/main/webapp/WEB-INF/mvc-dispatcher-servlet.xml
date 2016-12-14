@@ -84,6 +84,7 @@
             <list>
                 <value>com.vlpa.spring.jobcatalog.model.Company</value>
                 <value>com.vlpa.spring.jobcatalog.model.Position</value>
+                <value>com.vlpa.spring.jobcatalog.model.Skill</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -115,6 +116,16 @@
 
     <bean id="positionService" class="com.vlpa.spring.jobcatalog.service.PositionServiceImpl">
         <property name="positionDAO" ref="positionDAO" />
+    </bean>
+
+    <!-- skill section -->
+
+    <bean id="skillDAO" class="com.vlpa.spring.jobcatalog.dao.SkillDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+
+    <bean id="skillService" class="com.vlpa.spring.jobcatalog.service.SkillServiceImpl">
+        <property name="skillDAO" ref="skillDAO" />
     </bean>
 
     <!-- Transaction -->

@@ -9,15 +9,41 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Job Catalog</title>
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
-<link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Job Catalog</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
+    <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script>
+        function selectIngredient(select)
+        {
+            var option = select.options[select.selectedIndex];
+            var ul = select.parentNode.getElementsByTagName('ul')[0];
+
+            var choices = ul.getElementsByTagName('input');
+            for (var i = 0; i < choices.length; i++)
+                if (choices[i].value == option.value)
+                    return;
+
+            var li = document.createElement('li');
+            var input = document.createElement('input');
+            var text = document.createTextNode(option.firstChild.data);
+
+            input.type = 'hidden';
+            input.name = 'skillsToAdd';
+            input.value = option.value;
+
+            li.appendChild(input);
+            li.appendChild(text);
+            li.setAttribute('onclick', 'this.parentNode.removeChild(this);');
+
+            ul.appendChild(li);
+        }
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -64,6 +90,28 @@
                             </td>
                             <td>
                                 <springform:select path="company" items="${listCompanies}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Skills
+                            </td>
+                            <td>
+                                <ul class="skill-list-options">
+                                    <c:forEach var="currentSkill" items="${position.skills}">
+
+                                        <li onclick="this.parentNode.removeChild(this);">
+                                            <input type="hidden" name="skillsToAdd" value="${currentSkill.id}" />
+                                                ${currentSkill.name}
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                                <select onchange="selectIngredient(this);" class="skill-list-options">
+                                    <c:forEach var="currentSkill" items="${listSkills}">
+                                        <option value="${currentSkill.id}">${currentSkill.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <img src="../images/add.png" alt="Add" style="vertical-align: middle;">
                             </td>
                         </tr>
                         <tr>

@@ -9,15 +9,43 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Job Catalog</title>
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
-<link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Job Catalog</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
+    <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- TODO: move to separate js file -->
+    <script>
+        function selectIngredient(select)
+        {
+            var option = select.options[select.selectedIndex];
+            var ul = select.parentNode.getElementsByTagName('ul')[0];
+
+            var choices = ul.getElementsByTagName('input');
+            for (var i = 0; i < choices.length; i++)
+                if (choices[i].value == option.value)
+                    return;
+
+            var li = document.createElement('li');
+            var input = document.createElement('input');
+            var text = document.createTextNode(option.firstChild.data);
+
+            input.type = 'hidden';
+            input.name = 'updatedSkills';
+            input.value = option.value;
+
+            li.appendChild(input);
+            li.appendChild(text);
+            li.setAttribute('onclick', 'this.parentNode.removeChild(this);');
+
+            ul.appendChild(li);
+        }
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -31,22 +59,34 @@
                 <c:if test="${!editMode}">
                     <h1>Position Details</h1>
                     <div>
-                            <%--<c:if test="${!empty position.name}">--%>
-                        <table>
+                        <table class="show-id-form">
                             <tr>
-                                <th width="80">ID</th>
-                                <th width="150">Name</th>
-                                <th width="150">Description</th>
-                                <th width="150">Company</th>
+                                <td class="title">ID</td>
+                                <td>${position.id}</td>
                             </tr>
                             <tr>
-                                <td>${position.id}</td>
+                                <td class="title">Name</td>
                                 <td>${position.name}</td>
+                            </tr>
+                            <tr>
+                                <td class="title">Description</td>
                                 <td>${position.description}</td>
+                            </tr>
+                            <tr>
+                                <td class="title">Company</td>
                                 <td>${position.company.name}</td>
                             </tr>
+                            <tr>
+                                <td class="title">Skills</td>
+                                <td>
+                                    <ul class="no-padding">
+                                        <c:forEach var="currentSkill" items="${position.skills}">
+                                            <li>${currentSkill.name}</li>
+                                        </c:forEach>
+                                    </ul>
+                                </td>
+                            </tr>
                         </table>
-                            <%--</c:if>--%>
                     </div>
                 </c:if>
 
@@ -88,7 +128,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <springform:label path="company">
+                                    <springform:label path="company" >
                                         <spring:message text="Company ID" />
                                     </springform:label>
                                 </td>
@@ -97,8 +137,30 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    Skills
+                                </td>
+                                <td>
+                                    <ul class="skill-list-options">
+                                        <c:forEach var="currentSkill" items="${position.skills}">
+
+                                            <li onclick="this.parentNode.removeChild(this);">
+                                                <input type="hidden" name="updatedSkills" value="${currentSkill.id}" />
+                                                ${currentSkill.name}
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                    <select onchange="selectIngredient(this);" class="skill-list-options">
+                                        <c:forEach var="currentSkill" items="${listSkills}">
+                                            <option value="${currentSkill.id}">${currentSkill.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <img src="../images/add.png" alt="Add" style="vertical-align: middle;">
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2">
-                                    <input type="submit" value="<spring:message text="Edit Position" />" />
+                                    <input type="submit" value="<spring:message text="Update Position" />" />
                                 </td>
                             </tr>
                         </table>

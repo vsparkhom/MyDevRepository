@@ -1,6 +1,9 @@
 package com.vlpa.spring.jobcatalog.model;
 
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "POSITION")
@@ -20,6 +23,10 @@ public class Position {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Company.class)
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
+
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = Skill.class)
+    @JoinTable(name = "PS_CATALOG", joinColumns = {@JoinColumn(name = "POSITION_ID")}, inverseJoinColumns = {@JoinColumn(name = "SKILL_ID")})
+    private Set<Skill> skills = new HashSet<>(0);
 
     public int getId() {
         return id;
@@ -53,6 +60,14 @@ public class Position {
         this.company = company;
     }
 
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
+    }
+
     @Override
     public String toString() {
         return "Position{" +
@@ -60,6 +75,7 @@ public class Position {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", company=" + company +
+                ", skills=" + (skills == null ? "null" : Arrays.asList(skills.toArray())) +
                 '}';
     }
 }
