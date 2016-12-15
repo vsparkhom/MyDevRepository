@@ -31,7 +31,6 @@
                 <c:if test="${!editMode}">
                     <h1>Company Details</h1>
                     <div>
-                            <%--<c:if test="${!empty company.name}">--%>
                         <table>
                             <tr>
                                 <th width="80">ID</th>
@@ -48,7 +47,22 @@
                                 <td>${company.address}</td>
                             </tr>
                         </table>
-                            <%--</c:if>--%>
+                    </div>
+                    <div>
+                        <br/>
+                        <h3>Listed positions for this company</h3>
+                        <c:if test="${empty listPositions}">
+                            <p>This company currently doesn't have open positions</p>
+                        </c:if>
+                        <c:if test="${!empty listPositions}">
+                            <ul>
+                                <c:forEach items="${listPositions}" var="currentPosition">
+                                    <li>
+                                        <a href="<c:url value='../position/get?id=${currentPosition.id}'/>">[${currentPosition.id}] ${currentPosition.name}</a>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </c:if>
                     </div>
                 </c:if>
 

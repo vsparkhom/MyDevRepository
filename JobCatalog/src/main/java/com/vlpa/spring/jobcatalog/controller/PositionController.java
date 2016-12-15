@@ -63,12 +63,12 @@ public class PositionController {
     @RequestMapping(value = "/position/add*", method = RequestMethod.GET)
     public String setupAddPositionForm(Model model){
         model.addAttribute("position", new Position());
-        model.addAttribute("listCompanies", getSelectData(companyService.listCompanies()));
+        model.addAttribute("listCompanies", convertToSelectTagData(companyService.listCompanies()));
         model.addAttribute("listSkills", skillService.listSkills());
         return "/position/add";
     }
 
-    protected Map<String, String> getSelectData(List<Company> listCompanies){
+    protected Map<String, String> convertToSelectTagData(List<Company> listCompanies){
         Map<String, String> companySelectData = new HashMap<>();
         for(Company company: listCompanies) {
             companySelectData.put(company.getId()+"", company.getName());
@@ -105,7 +105,7 @@ public class PositionController {
             logger.debug("<editPosition> - skill: {}", skill);
         }
         model.addAttribute("position", selectedPosition);
-        model.addAttribute("listCompanies", getSelectData(companyService.listCompanies()));
+        model.addAttribute("listCompanies", convertToSelectTagData(companyService.listCompanies()));
         model.addAttribute("listSkills", skillService.listSkills());
         return "/position/id";
     }

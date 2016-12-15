@@ -27,7 +27,7 @@ public class Company {
     @Column(name="ADDRESS")
     private String address;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", targetEntity = Position.class, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "company", targetEntity = Position.class, cascade = CascadeType.ALL)
     private Set<Position> positions = new HashSet<>();
 
 //    public Company(String name, String description, Integer employeeCount, String address) {

@@ -23,6 +23,7 @@
             <ul>
                 <li><a href="../company/list"><spring:message code="menu.side.company.list"/></a></li>
                 <li><a href="../company/add"><spring:message code="menu.side.company.create"/></a></li>
+                <li><a href="../company/find"><spring:message code="menu.side.company.find"/></a></li>
             </ul>
         </li>
         <li>

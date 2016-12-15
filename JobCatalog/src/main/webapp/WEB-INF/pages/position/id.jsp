@@ -19,33 +19,8 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
     <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <!-- TODO: move to separate js file -->
-    <script>
-        function selectIngredient(select)
-        {
-            var option = select.options[select.selectedIndex];
-            var ul = select.parentNode.getElementsByTagName('ul')[0];
+    <script src="../custom.js" type="text/javascript"></script>
 
-            var choices = ul.getElementsByTagName('input');
-            for (var i = 0; i < choices.length; i++)
-                if (choices[i].value == option.value)
-                    return;
-
-            var li = document.createElement('li');
-            var input = document.createElement('input');
-            var text = document.createTextNode(option.firstChild.data);
-
-            input.type = 'hidden';
-            input.name = 'updatedSkills';
-            input.value = option.value;
-
-            li.appendChild(input);
-            li.appendChild(text);
-            li.setAttribute('onclick', 'this.parentNode.removeChild(this);');
-
-            ul.appendChild(li);
-        }
-    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -150,7 +125,7 @@
                                             </li>
                                         </c:forEach>
                                     </ul>
-                                    <select onchange="selectIngredient(this);" class="skill-list-options">
+                                    <select onchange="selectIngredient(this, 'updatedSkills');" class="skill-list-options">
                                         <c:forEach var="currentSkill" items="${listSkills}">
                                             <option value="${currentSkill.id}">${currentSkill.name}</option>
                                         </c:forEach>

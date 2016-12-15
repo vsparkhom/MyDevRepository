@@ -18,32 +18,9 @@
     <link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
     <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
-    <script>
-        function selectIngredient(select)
-        {
-            var option = select.options[select.selectedIndex];
-            var ul = select.parentNode.getElementsByTagName('ul')[0];
 
-            var choices = ul.getElementsByTagName('input');
-            for (var i = 0; i < choices.length; i++)
-                if (choices[i].value == option.value)
-                    return;
+    <script src="../custom.js" type="text/javascript"></script>
 
-            var li = document.createElement('li');
-            var input = document.createElement('input');
-            var text = document.createTextNode(option.firstChild.data);
-
-            input.type = 'hidden';
-            input.name = 'skillsToAdd';
-            input.value = option.value;
-
-            li.appendChild(input);
-            li.appendChild(text);
-            li.setAttribute('onclick', 'this.parentNode.removeChild(this);');
-
-            ul.appendChild(li);
-        }
-    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -106,7 +83,7 @@
                                         </li>
                                     </c:forEach>
                                 </ul>
-                                <select onchange="selectIngredient(this);" class="skill-list-options">
+                                <select onchange="selectIngredient(this, 'skillsToAdd');" class="skill-list-options">
                                     <c:forEach var="currentSkill" items="${listSkills}">
                                         <option value="${currentSkill.id}">${currentSkill.name}</option>
                                     </c:forEach>
