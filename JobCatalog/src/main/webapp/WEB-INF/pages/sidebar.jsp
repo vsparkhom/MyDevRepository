@@ -39,7 +39,7 @@
             <ul>
                 <li><a href="../skill/list"><spring:message code="menu.side.skills.list"/></a></li>
                 <li><a href="../skill/add"><spring:message code="menu.side.skills.create"/></a></li>
-                <li><a href="#"><spring:message code="menu.side.skills.5mostrequired"/></a></li>
+                <li><a href="#"><spring:message code="menu.side.skills.top5"/></a></li>
             </ul>
         </li>
     </ul>

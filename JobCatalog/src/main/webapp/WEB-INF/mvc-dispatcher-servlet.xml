@@ -46,6 +46,14 @@
                 <value>/company/add*</value>
                 <value>/company/edit*</value>
                 <value>/company/get*</value>
+                <value>/position/list*</value>
+                <value>/position/add*</value>
+                <value>/position/edit*</value>
+                <value>/position/get*</value>
+                <value>/skill/list*</value>
+                <value>/skill/add*</value>
+                <value>/skill/edit*</value>
+                <value>/skill/get*</value>
             </list>
         </property>
         <property name="interceptors">

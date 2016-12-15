@@ -28,23 +28,30 @@
 		<div id="page">
 			<div id="content">
 
-                <h1>Positions List</h1>
+                <h1><spring:message code="position.list.title" text="Positions List" /></h1>
 
-                <h4><a href="../report/position/list.xls">Download as spreadsheet</a></h4>
+                <h4><a href="../report/position/list.xls"><spring:message code="position.list.download" text="Download as spreadsheet" /></a></h4>
 
                 <div>
                     <c:if test="${!empty listPositions}">
                         <table>
                             <tr>
-                                <th width="80">ID</th>
-                                <th width="150">Name</th>
-                                <th width="60">Action</th>
+                                <th width="80"><spring:message code="position.list.table.head.id" text="ID" /></th>
+                                <th width="150"><spring:message code="position.list.table.head.name" text="Name" /></th>
+                                <th width="130"><spring:message code="position.list.table.head.action" text="Action" /></th>
                             </tr>
                             <c:forEach items="${listPositions}" var="position">
                                 <tr>
                                     <td>${position.id}</td>
                                     <td><a href="<c:url value='../position/get?id=${position.id}'/>">${position.name}</a></td>
-                                    <td><a href="<c:url value='../position/edit?id=${position.id}'/>"><span style="color:blue;">Edit</span></a>/<a href="<c:url value='../position/remove?id=${position.id}'/>"><span style="color:red;">Delete</span></a></td>
+                                    <td>
+                                        <a href="<c:url value='../position/edit?id=${position.id}'/>">
+                                            <span style="color:blue;"><spring:message code="position.list.table.edit" text="Edit" /></span>
+                                        </a>/
+                                        <a href="<c:url value='../position/remove?id=${position.id}'/>">
+                                            <span style="color:red;"><spring:message code="position.list.table.delete" text="Delete" /></span>
+                                        </a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -71,7 +78,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+			<p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>

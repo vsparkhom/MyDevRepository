@@ -39,7 +39,7 @@
 
 - Implement search queries for:
 
-  - company 
+  + company 
     + show all positions for specific company on opening company detailed info
     + show positions count for each company (include into companies list)
     + find company by name

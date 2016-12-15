@@ -28,20 +28,24 @@
         <div id="page">
             <div id="content">
 
-                <h1>Companies List</h1>
+                <h1><spring:message code="company.list.title" text="Companies List" /></h1>
 
                 <c:if test="${!empty listCompanies}">
-                    <h4><a href="../report/company/list.xls">Download as spreadsheet</a></h4>
+                    <h4>
+                        <a href="../report/company/list.xls">
+                            <spring:message code="company.list.download" text="Download as spreadsheet" />
+                        </a>
+                    </h4>
 
                     <div>
 
                         <table>
                             <tr>
-                                <th width="80">ID</th>
-                                <th width="150">Name</th>
-                                <th width="150">Description</th>
-                                <th width="50">Positions Count</th>
-                                <th width="60">Action</th>
+                                <th width="80"><spring:message code="company.list.table.head.id" text="ID" /></th>
+                                <th width="150"><spring:message code="company.list.table.head.name" text="Name" /></th>
+                                <th width="150"><spring:message code="company.list.table.head.descr" text="Description" /></th>
+                                <th width="50"><spring:message code="company.list.table.head.positions_count" text="Positions Count" /></th>
+                                <th width="60"><spring:message code="company.list.table.head.action" text="Action" /></th>
                             </tr>
                             <c:forEach items="${listCompanies}" var="company">
                                 <tr>
@@ -54,9 +58,9 @@
                                             ${companyPositionsCountMap[companyIndexKey]}
                                     </td>
                                     <td><a href="<c:url value='../company/edit?id=${company.id}'/>"><span
-                                            style="color:blue;">Edit</span></a>/<a
+                                            style="color:blue;"><spring:message code="company.list.table.edit" text="Edit" /></span></a>/<a
                                             href="<c:url value='../company/remove?id=${company.id}'/>"><span
-                                            style="color:red;">Delete</span></a></td>
+                                            style="color:red;"><spring:message code="company.list.table.delete" text="Delete" /></span></a></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -91,7 +95,7 @@
         </div>
         <!-- end #page -->
         <div id="footer">
-            <p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
         </div>
     </div>
 </div>

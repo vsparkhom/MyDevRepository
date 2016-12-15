@@ -28,19 +28,20 @@
         <div id="page">
             <div id="content">
 
-                <h1>Find Company</h1>
+                <h1><spring:message code="company.find.title" text="Find Company" /></h1>
 
                 <form name="wantedCompanyForm" action="../company/find" method="POST">
                     <div>
                         <br/>
-                        <input type="radio" name="searchCriteria" checked="true">Company Name
+                        <input type="radio" name="searchCriteria" checked="true">
+                        <spring:message code="company.find.form.search_criteria" text="By company name" />
                         <br/>
                         <br/>
-                        <spring:message text="Company Name: "/>
+                        <spring:message code="company.find.form.company_name.label" text="Company Name: "/>
                         <input type="text" name="wantedCompanyName">
                         <br/>
                         <br/>
-                        <input type="submit" value="<spring:message text="Find" />">
+                        <input type="submit" value="<spring:message code="company.find.form.submit_button" text="Find" />">
                     </div>
                 </form>
 
@@ -64,7 +65,7 @@
         </div>
         <!-- end #page -->
         <div id="footer">
-            <p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
         </div>
     </div>
 </div>

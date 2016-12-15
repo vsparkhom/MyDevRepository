@@ -33,14 +33,14 @@
                 </c:if>
 
                 <c:if test="${editMode}">
-                    <h1>Edit Skill Details</h1>
+                    <h1><spring:message code="skill.id.edit_mode.title" text="Edit skill details"/></h1>
                     <c:url var="editSkillAction" value="../skill/edit" />
                     <springform:form action="${editSkillAction}" commandName="skill">
                         <table>
                             <tr>
                                 <td>
                                     <springform:label path="id">
-                                        <spring:message text="ID"/>
+                                        <spring:message code="skill.id.edit_mode.table.id" text="ID"/>
                                     </springform:label>
                                 </td>
                                 <td>
@@ -51,7 +51,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="name">
-                                        <spring:message text="Name" />
+                                        <spring:message code="skill.id.edit_mode.table.name" text="Name" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -60,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="submit" value="<spring:message text="Update Skill" />" />
+                                    <input type="submit" value="<spring:message code="skill.id.edit_mode.table.submit_button" text="Update skill" />" />
                                 </td>
                             </tr>
                         </table>
@@ -76,7 +76,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>

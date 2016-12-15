@@ -32,27 +32,27 @@
 			<div id="content">
 
                 <c:if test="${!editMode}">
-                    <h1>Position Details</h1>
+                    <h1><spring:message code="position.id.not_edit_mode.title" text="Position details" /></h1>
                     <div>
                         <table class="show-id-form">
                             <tr>
-                                <td class="title">ID</td>
+                                <td class="title"><spring:message code="position.id.not_edit_mode.table.id" text="ID" /></td>
                                 <td>${position.id}</td>
                             </tr>
                             <tr>
-                                <td class="title">Name</td>
+                                <td class="title"><spring:message code="position.id.not_edit_mode.table.name" text="Name" /></td>
                                 <td>${position.name}</td>
                             </tr>
                             <tr>
-                                <td class="title">Description</td>
+                                <td class="title"><spring:message code="position.id.not_edit_mode.table.descr" text="Description" /></td>
                                 <td>${position.description}</td>
                             </tr>
                             <tr>
-                                <td class="title">Company</td>
+                                <td class="title"><spring:message code="position.id.not_edit_mode.table.company" text="Company" /></td>
                                 <td>${position.company.name}</td>
                             </tr>
                             <tr>
-                                <td class="title">Skills</td>
+                                <td class="title"><spring:message code="position.id.not_edit_mode.table.skills" text="Skills" /></td>
                                 <td>
                                     <ul class="no-padding">
                                         <c:forEach var="currentSkill" items="${position.skills}">
@@ -66,14 +66,14 @@
                 </c:if>
 
                 <c:if test="${editMode}">
-                    <h1>Edit Position Details</h1>
+                    <h1><spring:message code="position.id.edit_mode.title" text="Edit position details" /></h1>
                     <c:url var="editPositionAction" value="../position/edit" />
                     <springform:form action="${editPositionAction}" commandName="position">
                         <table>
                             <tr>
                                 <td>
                                     <springform:label path="id">
-                                        <spring:message text="ID"/>
+                                        <spring:message code="position.id.edit_mode.table.id" text="ID"/>
                                     </springform:label>
                                 </td>
                                 <td>
@@ -84,7 +84,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="name">
-                                        <spring:message text="Name" />
+                                        <spring:message code="position.id.edit_mode.table.name" text="Name" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -94,7 +94,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="description">
-                                        <spring:message text="Description" />
+                                        <spring:message code="position.id.edit_mode.table.descr" text="Description" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -104,7 +104,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="company" >
-                                        <spring:message text="Company ID" />
+                                        <spring:message code="position.id.edit_mode.table.company" text="Company ID" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -113,7 +113,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Skills
+                                    <spring:message code="position.id.edit_mode.table.skills" text="Skills" />
                                 </td>
                                 <td>
                                     <ul class="skill-list-options">
@@ -130,12 +130,12 @@
                                             <option value="${currentSkill.id}">${currentSkill.name}</option>
                                         </c:forEach>
                                     </select>
-                                    <img src="../images/add.png" alt="Add" style="vertical-align: middle;">
+                                    <img src="../images/add.png" style="vertical-align: middle;">
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="submit" value="<spring:message text="Update Position" />" />
+                                    <input type="submit" value="<spring:message code="position.id.edit_mode.table.submit_button" text="Update Position" />" />
                                 </td>
                             </tr>
                         </table>
@@ -151,7 +151,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>

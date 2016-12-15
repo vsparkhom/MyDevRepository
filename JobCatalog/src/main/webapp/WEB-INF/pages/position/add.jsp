@@ -31,7 +31,7 @@
 		<div id="page">
 			<div id="content">
 
-                <h1>Add Position</h1>
+                <h1><spring:message code="position.add.title" text="Add Position" /></h1>
 
                 <!-- Position add form -->
 
@@ -42,7 +42,7 @@
                         <tr>
                             <td>
                                 <springform:label path="name">
-                                    <spring:message text="Name" />
+                                    <spring:message code="position.add.table.name" text="Name" />
                                 </springform:label>
                             </td>
                             <td>
@@ -52,7 +52,7 @@
                         <tr>
                             <td>
                                 <springform:label path="description">
-                                    <spring:message text="Description" />
+                                    <spring:message code="position.add.table.descr" text="Description" />
                                 </springform:label>
                             </td>
                             <td>
@@ -62,7 +62,7 @@
                         <tr>
                             <td>
                                 <springform:label path="company">
-                                    <spring:message text="Company ID" />
+                                    <spring:message code="position.add.table.company" text="Company ID" />
                                 </springform:label>
                             </td>
                             <td>
@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Skills
+                                <spring:message code="position.add.table.skills" text="Skills" />
                             </td>
                             <td>
                                 <ul class="skill-list-options">
@@ -88,12 +88,12 @@
                                         <option value="${currentSkill.id}">${currentSkill.name}</option>
                                     </c:forEach>
                                 </select>
-                                <img src="../images/add.png" alt="Add" style="vertical-align: middle;">
+                                <img src="../images/add.png" style="vertical-align: middle;">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" value="<spring:message text="Add Position" />" />
+                                <input type="submit" value="<spring:message code="position.add.table.submit_button" text="Add Position" />" />
                             </td>
                         </tr>
                     </table>
@@ -109,7 +109,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>

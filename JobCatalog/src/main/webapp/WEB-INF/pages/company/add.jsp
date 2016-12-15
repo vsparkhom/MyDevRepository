@@ -28,7 +28,7 @@
 		<div id="page">
 			<div id="content">
 
-                <h1>Add Company</h1>
+                <h1><spring:message code="company.add.title" text="Add Company" /></h1>
 
                 <!-- Company add form -->
 
@@ -39,7 +39,7 @@
                         <tr>
                             <td>
                                 <springform:label path="name">
-                                    <spring:message text="Name" />
+                                    <spring:message code="company.add.table.name" text="Name" />
                                 </springform:label>
                             </td>
                             <td>
@@ -49,7 +49,7 @@
                         <tr>
                             <td>
                                 <springform:label path="description">
-                                    <spring:message text="Description" />
+                                    <spring:message code="company.add.table.descr" text="Description" />
                                 </springform:label>
                             </td>
                             <td>
@@ -59,7 +59,7 @@
                         <tr>
                             <td>
                                 <springform:label path="employeeCount">
-                                    <spring:message text="Employee Count" />
+                                    <spring:message code="company.add.table.employeeCount" text="Employee Count" />
                                 </springform:label>
                             </td>
                             <td>
@@ -69,7 +69,7 @@
                         <tr>
                             <td>
                                 <springform:label path="address">
-                                    <spring:message text="Address" />
+                                    <spring:message code="company.add.table.address" text="Address" />
                                 </springform:label>
                             </td>
                             <td>
@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" value="<spring:message text="Add Company" />" />
+                                <input type="submit" value="<spring:message code="company.add.table.submit_button" text="Add Company" />" />
                             </td>
                         </tr>
                     </table>
@@ -94,7 +94,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>

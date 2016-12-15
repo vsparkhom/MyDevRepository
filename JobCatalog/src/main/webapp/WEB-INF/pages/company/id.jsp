@@ -29,15 +29,15 @@
 			<div id="content">
 
                 <c:if test="${!editMode}">
-                    <h1>Company Details</h1>
+                    <h1><spring:message code="company.id.not_edit_mode.title" text="Company details" /></h1>
                     <div>
                         <table>
                             <tr>
-                                <th width="80">ID</th>
-                                <th width="150">Name</th>
-                                <th width="150">Description</th>
-                                <th width="60">Employee Count</th>
-                                <th width="150">Address</th>
+                                <th width="80"><spring:message code="company.id.not_edit_mode.table.head.id" text="ID" /></th>
+                                <th width="150"><spring:message code="company.id.not_edit_mode.table.head.name" text="Name" /></th>
+                                <th width="150"><spring:message code="company.id.not_edit_mode.table.head.descr" text="Description" /></th>
+                                <th width="60"><spring:message code="company.id.not_edit_mode.table.head.emp_count" text="Employee count" /></th>
+                                <th width="150"><spring:message code="company.id.not_edit_mode.table.head.address" text="Address" /></th>
                             </tr>
                             <tr>
                                 <td>${company.id}</td>
@@ -50,9 +50,9 @@
                     </div>
                     <div>
                         <br/>
-                        <h3>Listed positions for this company</h3>
+                        <h3><spring:message code="company.id.not_edit_mode.listed_positions" text="Listed positions for this company" /></h3>
                         <c:if test="${empty listPositions}">
-                            <p>This company currently doesn't have open positions</p>
+                            <p><spring:message code="company.id.not_edit_mode.no_positions" text="This company currently doesn't have open positions" /></p>
                         </c:if>
                         <c:if test="${!empty listPositions}">
                             <ul>
@@ -67,14 +67,14 @@
                 </c:if>
 
                 <c:if test="${editMode}">
-                    <h1>Edit Company Details</h1>
+                    <h1><spring:message code="company.id.edit_mode.title" text="Edit company details" /></h1>
                     <c:url var="editCompanyAction" value="../company/edit" />
                     <springform:form action="${editCompanyAction}" commandName="company">
                         <table>
                             <tr>
                                 <td>
                                     <springform:label path="id">
-                                        <spring:message text="ID"/>
+                                        <spring:message code="company.id.edit_mode.table.id" text="ID"/>
                                     </springform:label>
                                 </td>
                                 <td>
@@ -85,7 +85,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="name">
-                                        <spring:message text="Name" />
+                                        <spring:message code="company.id.edit_mode.table.name" text="Name" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -95,7 +95,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="description">
-                                        <spring:message text="Description" />
+                                        <spring:message code="company.id.edit_mode.table.descr" text="Description" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -105,7 +105,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="employeeCount">
-                                        <spring:message text="Employee Count" />
+                                        <spring:message code="company.id.edit_mode.table.emp_count" text="Employee count" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -115,7 +115,7 @@
                             <tr>
                                 <td>
                                     <springform:label path="address">
-                                        <spring:message text="Address" />
+                                        <spring:message code="company.id.edit_mode.table.address" text="Address" />
                                     </springform:label>
                                 </td>
                                 <td>
@@ -124,7 +124,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="submit" value="<spring:message text="Edit Company" />" />
+                                    <input type="submit" value="<spring:message code="company.id.edit_mode.table.submit_button" text="Update" />" />
                                 </td>
                             </tr>
                         </table>
@@ -140,7 +140,7 @@
 		</div>
 		<!-- end #page -->
 		<div id="footer">
-			<p>&copy; JobCatalog. All rights reserved. Design by Voland.</p>
+            <p><spring:message code="footer.title" text="&copy; JobCatalog. All rights reserved. Design by Voland." /></p>
 		</div>
 	</div>
 </div>
