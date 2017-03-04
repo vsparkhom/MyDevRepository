@@ -1,4 +1,4 @@
-package vlpa.java.practices.lambda;
+package vlpa.java.practices.lambda.args;
 
 public class MyStringOps {
 
