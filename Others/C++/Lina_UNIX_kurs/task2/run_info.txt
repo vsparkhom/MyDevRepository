@@ -1,0 +1,12 @@
+1. Compile and run the server
+g++ server.cpp -o server.exe
+./server.exe 1149 localhost
+
+
+2. Compile the calc program
+g++ calc.cpp -o calc.exe
+
+
+3. Compile and run the client
+g++ client.cpp -o client.exe
+./client.exe 1149 localhost
