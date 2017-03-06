@@ -1,0 +1,17 @@
+-- v2. the same but more specific
+
+select ii.*
+from
+nc_objects ii,
+nc_params_ix p
+where
+ii.object_type_id in (
+9125519090013867919 /* Shaw Interaction Item */,
+8090342058013828278 /* Workflow Interaction Item */,
+9128761421013419381 /* Shaw Workflow Interaction Item */
+)
+and ii.project_id = 9124700698413852416 /* Product Catalog */
+and ii.object_id = p.object_id
+and p.attr_id = 9125519090013867922 /* Command Name */
+and p.ix_key = 'SEND_SUSPEND_RESUME_OSSJ_REQUEST'
+;
