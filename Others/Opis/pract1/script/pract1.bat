@@ -1,3 +1,5 @@
+::@echo off
+
 ::1. Перейти на директорию выше относительно директории, в который находится bat-файл и создать там директорию c именем ‘OSOPIS’.
 cd ..
 mkdir OSOPIS
@@ -16,7 +18,15 @@ move OSOPIS\TempFolder\practice.my OSOPIS
 attrib +R OSOPIS\practice.my
 
 ::5. *Вывести информацию из файла ‘practice.my’ в формате: Я, [Ваше имя и фамилия], студент/студентка [номер группы].
-::TODO
+set FILE_NAME="OSOPIS\practice.my"
+set /a c=0
+setlocal ENABLEDELAYEDEXPANSION
+FOR /F "delims== tokens=1 usebackq" %%i in (%FILE_NAME%) do (
+  set /a c=c+1
+  set "var!c!=%%i"
+)
+echo I'm, %var1%, a student of group %var2%.
+endlocal
 
 ::6. Скопировать файл ‘practice.my’ в поддиректорию ‘TempFolder’ и переименовать его в ‘practice_.my’.
 copy OSOPIS\practice.my OSOPIS\TempFolder
