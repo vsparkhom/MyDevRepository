@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice 5</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="practice5.js"></script>
+</head>
+<body>
+
+    <div class="block_center">
+        <div class="content_center">
+            <img src="images/pyramid_volume.png" />
+        </div>
+        <table>
+           <tr>
+               <td>Площадь основания пирамиды, S</td>
+               <td><input type="text" id="s"></td>
+           </tr>
+           <tr>
+               <td>Высота пирамиды, h</td>
+               <td><input type="text" id="h"></td>
+           </tr>
+           <tr>
+               <td>
+                   &nbsp;
+               </td>
+               <td>
+                   <button type="calcVButton" onclick="calcV()">Вычислить</button>
+                   <button type="clearFieldsButton" onclick="clearFields()">Очистить</button>
+               </td>
+           </tr>
+       </table>
+       <div id="resultBlock">
+           <!-- calculations result will be shown here -->
+       </div>
+    </div>
+</body>
+</html>
