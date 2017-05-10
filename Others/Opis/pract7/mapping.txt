@@ -1,0 +1,19 @@
+-- attrs --
+
+Производитель=manufacturer
+Цвет=color
+
+-- features --
+
+Сушка=dryer
+
+-- tech specs --
+
+Загрузка белья, кг=loadCapacity
+Количество программ=programQuantity
+Класс энергопотребления=powerConsumptionClass
+Максимальная скорость отжима, об/мин=maxPressingSpeed
+Максимальная температура стирки, град. С=maxTemperature
+Максимальный уровень шума, Дб=maxNoiseLevel
+
+http://washing-machines.ru/article/articles/osnovnye-harakteristiki-stiral-noj-mashiny-chto-oni-oznachayut/19.html
