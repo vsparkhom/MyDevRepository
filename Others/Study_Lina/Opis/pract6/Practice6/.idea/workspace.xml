@@ -9,6 +9,67 @@
     <file path="/a.dummy" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494355022691" ignored="false" />
     <file path="/style.css" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494355537032" ignored="false" />
     <file path="/practice6.js" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494395175707" ignored="false" />
+    <file path="/Dummy.txt" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434187069" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/CreateSwapHardwareImmediateOrderCommandTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494435919992" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/CustomerOrderLink.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/CustomerOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/GenericOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/exception/base/ImmediateOrderCreationException.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/ImmediateDiscountsOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/ProductInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/ParameterRepositoryHelper.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/ParameterRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/account/Account.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/ProductImporterRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/OrderRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/InteractionItemId.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/repository/ParameterRepositoryTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/comsomresolving/DigitalPhoneHardwareCFSInstanceComSomResolver.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/repository/ExecutionFlowRepositoryTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/repository/InstanceRepositoryTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/InstanceRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/ObjectType.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/ShippingTaskRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/SendQuoteWithDiscountToBillingCommandTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/comsomresolving/DigitalTVHardwareCFSInstanceComSomResolver.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/CreateResetHardwareImmediateOrderCommandTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494435919992" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/repository/OrderRepositoryTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/FlowTask.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/Attribute.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/repository/ShippingTaskRepositoryTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/StaticObjects.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/CreateTransferEmailFromAnotherAccountImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/ListValue.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/repository/ExecutionFlowRepository.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/internet/InternetProvisioningRFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/SynchronizeSerialNumberCommandTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/AbstractCreateImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/phone/DigitalPhoneHardwareCFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/CreateTransferEmailFromAnotherAccountImmediateOrderCommandTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/test/java/ca/shaw/command/immediate/ClearCorrelationIdTest.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/ChargeForHWRequestOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/phone/MTAModemProvisioningRFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/HardwareResetImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/CalculateSerialNumbersForPPVCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/InternetHardwareResetImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/phone/SomPhoneHardwareCFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/util/jms/eventbased/orders/interfaces/JMSTVHardwareOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/SynchronizeSerialNumberCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/CreateSwapHardwareImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/SendQuoteWithDiscountToBillingCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/PhoneHardwareResetImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/InternetHardwareSwapImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/tv/TVProvisioningRFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/HardwareType.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/tv/SomTVHardwareCFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494435919992" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/DigitalTvHardwareSwapImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/AbstractCreateHardwareImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494439919507" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/CreateChangeDiscountsImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/ordermanagement/order/product/immediate/hardware/HardwareSwapImmediateOrder.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/tv/DigitalTVProductInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/CreateResetHardwareImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../../SHAW/OM/src/main/java/ca/shaw/domain/instance/tv/DigitalTVHardwareCFSInstance.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494434220101" ignored="false" />
+    <file path="/AbstractCreateHardwareImmediateOrderCommand.java" changelist="d03844ed-4ac9-4a04-9eab-b82001925f1d" time="1494438996284" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +151,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="59" selection-start="673" selection-end="673" vertical-scroll-proportion="0.35783365">
+            <state line="10" column="56" selection-start="279" selection-end="279" vertical-scroll-proportion="0.3288201">
               <folding />
             </state>
           </provider>
@@ -146,6 +207,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -154,34 +217,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Practice6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Practice6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager">
@@ -197,19 +248,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -240,6 +278,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -253,13 +304,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -283,6 +327,13 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -299,7 +350,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="1" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -391,6 +442,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/practice6.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="59" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice6.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -447,7 +519,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="59" selection-start="673" selection-end="673" vertical-scroll-proportion="0.35783365">
+        <state line="10" column="56" selection-start="279" selection-end="279" vertical-scroll-proportion="0.3288201">
           <folding />
         </state>
       </provider>
