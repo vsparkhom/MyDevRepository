@@ -1,0 +1,22 @@
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.csprojResolveAssemblyReference.cache
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.Form1.resources
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.Properties.Resources.resources
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.csproj.GenerateResource.Cache
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\bin\Debug\CryptoTools.exe
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\bin\Debug\CryptoTools.pdb
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\bin\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\bin\Debug\CryptoLib.pdb
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.exe
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.pdb
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.exe
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.pdb
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.csprojResolveAssemblyReference.cache
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.Form1.resources
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.Properties.Resources.resources
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\obj\x86\Debug\CryptoTools.csproj.GenerateResource.Cache
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\bin\Debug\CryptoTools.exe
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\bin\Debug\CryptoTools.pdb
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\bin\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoTools\bin\Debug\CryptoLib.pdb

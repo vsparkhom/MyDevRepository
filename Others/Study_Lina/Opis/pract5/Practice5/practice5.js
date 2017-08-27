@@ -1,10 +1,10 @@
 function calcV() {
-    var s = document.getElementById('s').value;
+    var r = document.getElementById('r').value;
     var h = document.getElementById('h').value;
 
-    if (validateInputs(s, h)) {
-        var V =  s*h/3;
-        document.getElementById('resultBlock').innerHTML = "Объем пирамиды, V: " + V;
+    if (validateInputs(r, h)) {
+        var S =  (2 * Math.PI * r * (h + r)).toFixed(3);
+        document.getElementById('S').value = "Площадь поверхности цилиндра, S: " + S;
     } else {
         alert("Входящие параметры некорректны!");
     }
@@ -12,8 +12,9 @@ function calcV() {
 
 }
 
-function validateInputs(s, h) {
-    if (s==null || s=="" || h==null || h=="" || isNaN(parseFloat(s)) || isNaN(parseFloat(h)) || s < 0 || h < 0) {
+function validateInputs(r, h) {
+    var reg = /^\d*\.?\d*$/;
+    if (r==null || r=="" || h==null || h=="" || r.search(reg) < 0 || h.search(reg) < 0) {
         return false;
     } else {
         return true;
@@ -21,8 +22,8 @@ function validateInputs(s, h) {
 }
 
 function clearFields() {
-    document.getElementById('s').value = "";
+    document.getElementById('r').value = "";
     document.getElementById('h').value = "";
-    document.getElementById('resultBlock').innerHTML = "";
+    document.getElementById('S').value = "";
 }
 

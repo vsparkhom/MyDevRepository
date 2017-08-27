@@ -9,8 +9,8 @@ mkdir OSOPIS\TempFolder
 
 ::3. В ‘TempFolder’ создать файл ‘practice.my’, куда в первую строку записать свои имя и фамилию, а во вторую – номер группы, в которой Вы учитесь.
 (
-echo Vladimir Parkhomchuk
-echo IN-72
+echo Anhelina Parkhomchuk
+echo Indn-31s
 ) > OSOPIS\TempFolder\practice.my
 
 ::4. Переместить файл ‘practice.my’ в директорию ‘OSOPIS’ и присвоить ему атрибут ‘read only’.
@@ -42,5 +42,4 @@ echo %DATE% >> OSOPIS\practice.my
 ::9. Сравнить контент файлов ‘practice.my’ и ‘practice_.my’. Результат сравнения записать в текстовый файл и открыть его.
 fc /L OSOPIS\practice.my OSOPIS\TempFolder\practice_.my > OSOPIS\comparison_result.txt
 OSOPIS\comparison_result.txt
-
 pause

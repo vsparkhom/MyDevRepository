@@ -1,0 +1,9 @@
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoLib\bin\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoLib\bin\Debug\CryptoLib.pdb
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoLib\obj\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\CryptoLibrary\CryptoLib\obj\Debug\CryptoLib.pdb
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoLib\bin\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoLib\bin\Debug\CryptoLib.pdb
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoLib\obj\Debug\CryptoLib.csprojResolveAssemblyReference.cache
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoLib\obj\Debug\CryptoLib.dll
+C:\Users\SHok\Desktop\Универ\Курс 4\Защита информации\Тема 9\CryptoLibrary\CryptoLib\obj\Debug\CryptoLib.pdb

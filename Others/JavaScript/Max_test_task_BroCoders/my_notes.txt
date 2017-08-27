@@ -1,0 +1,4 @@
+    console.log("event.target: " + event.target + ", event.srcElement: " + event.srcElement);
+    if (! (event.target instanceof HTMLTableCellElement)) {
+        return;
+    }

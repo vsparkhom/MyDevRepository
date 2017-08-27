@@ -19,19 +19,19 @@
                     <xs:element name="loadCapacity" type="xs:nonNegativeInteger"/>
                     <xs:element name="programQuantity" type="xs:nonNegativeInteger"/>
                     <xs:element name="powerConsumptionClass">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="A++"/>
-								<xs:enumeration value="A+"/>
-								<xs:enumeration value="A"/>
-								<xs:enumeration value="B"/>
-								<xs:enumeration value="C"/>
-								<xs:enumeration value="D"/>
-								<xs:enumeration value="E"/>
-								<xs:enumeration value="F"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="A++"/>
+                                <xs:enumeration value="A+"/>
+                                <xs:enumeration value="A"/>
+                                <xs:enumeration value="B"/>
+                                <xs:enumeration value="C"/>
+                                <xs:enumeration value="D"/>
+                                <xs:enumeration value="E"/>
+                                <xs:enumeration value="F"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
                     <xs:element name="maxPressingSpeed" type="xs:nonNegativeInteger"/>
                     <xs:element name="maxTemperature" type="xs:decimal"/>
                     <xs:element name="maxNoiseLevel" type="xs:nonNegativeInteger"/>

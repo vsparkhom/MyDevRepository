@@ -10,30 +10,31 @@
 
     <div class="block_center">
         <div class="content_center">
-            <img src="images/pyramid_volume.png" />
+            <img src="images/cilinder_surface_area.png" />
         </div>
         <table>
            <tr>
-               <td>Площадь основания пирамиды, S</td>
-               <td><input type="text" id="s"></td>
+               <td>Радиус вращения, r</td>
+               <td><input type="text" id="r"></td>
            </tr>
            <tr>
-               <td>Высота пирамиды, h</td>
+               <td>Высота конуса, h</td>
                <td><input type="text" id="h"></td>
            </tr>
            <tr>
-               <td>
-                   &nbsp;
-               </td>
-               <td>
-                   <button type="calcVButton" onclick="calcV()">Вычислить</button>
-                   <button type="clearFieldsButton" onclick="clearFields()">Очистить</button>
-               </td>
+               <td colspan="2"><input type="text" id="S" disabled size="40"></td>
            </tr>
+           <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <button type="calcVButton" onclick="calcV()">Вычислить</button>
+                    <button type="clearFieldsButton" onclick="clearFields()">Очистить</button>
+                </td>
+            </tr>
        </table>
-       <div id="resultBlock">
-           <!-- calculations result will be shown here -->
-       </div>
+
     </div>
 </body>
 </html>

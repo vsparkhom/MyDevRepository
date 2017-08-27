@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
-	<washer manufacturer="Samsung" color="gray">
-		<features>
-			<dryer>true</dryer>
-		</features>
-		<techSpecs>
-			<loadCapacity>5</loadCapacity>
-			<programQuantity>3</programQuantity>
-			<powerConsumptionClass>A+</powerConsumptionClass>
-			<maxPressingSpeed>900</maxPressingSpeed>
-			<maxTemperature>60</maxTemperature>
-			<maxNoiseLevel>45</maxNoiseLevel>
-		</techSpecs>
-	</washer>
-	<washer manufacturer="Siemens" color="white">
-		<features>
-			<dryer>true</dryer>
-		</features>
-		<techSpecs>
-			<loadCapacity>3</loadCapacity>
-			<programQuantity>4</programQuantity>
-			<powerConsumptionClass>A</powerConsumptionClass>
-			<maxPressingSpeed>1000</maxPressingSpeed>
-			<maxTemperature>50</maxTemperature>
-			<maxNoiseLevel>55</maxNoiseLevel>
-		</techSpecs>
-	</washer>
-	<washer manufacturer="LG" color="black">
-		<features>
-			<dryer>false</dryer>
-		</features>
-		<techSpecs>
-			<loadCapacity>7</loadCapacity>
-			<programQuantity>5</programQuantity>
-			<powerConsumptionClass>B</powerConsumptionClass>
-			<maxPressingSpeed>1300</maxPressingSpeed>
-			<maxTemperature>75</maxTemperature>
-			<maxNoiseLevel>70</maxNoiseLevel>
-		</techSpecs>
-	</washer>
-	<washer manufacturer="SHARP" color="red">
-		<features>
-			<dryer>true</dryer>
-		</features>
-		<techSpecs>
-			<loadCapacity>6</loadCapacity>
-			<programQuantity>3</programQuantity>
-			<powerConsumptionClass>C</powerConsumptionClass>
-			<maxPressingSpeed>1100</maxPressingSpeed>
-			<maxTemperature>55</maxTemperature>
-			<maxNoiseLevel>60</maxNoiseLevel>
-		</techSpecs>
-	</washer>
+    <washer manufacturer="Samsung" color="gray">
+        <features>
+            <dryer>true</dryer>
+        </features>
+        <techSpecs>
+            <loadCapacity>5</loadCapacity>
+            <programQuantity>3</programQuantity>
+            <powerConsumptionClass>A+</powerConsumptionClass>
+            <maxPressingSpeed>900</maxPressingSpeed>
+            <maxTemperature>60</maxTemperature>
+            <maxNoiseLevel>45</maxNoiseLevel>
+        </techSpecs>
+    </washer>
+    <washer manufacturer="Siemens" color="white">
+        <features>
+            <dryer>true</dryer>
+        </features>
+        <techSpecs>
+            <loadCapacity>3</loadCapacity>
+            <programQuantity>4</programQuantity>
+            <powerConsumptionClass>A</powerConsumptionClass>
+            <maxPressingSpeed>1000</maxPressingSpeed>
+            <maxTemperature>50</maxTemperature>
+            <maxNoiseLevel>55</maxNoiseLevel>
+        </techSpecs>
+    </washer>
+    <washer manufacturer="LG" color="black">
+        <features>
+            <dryer>false</dryer>
+        </features>
+        <techSpecs>
+            <loadCapacity>7</loadCapacity>
+            <programQuantity>5</programQuantity>
+            <powerConsumptionClass>B</powerConsumptionClass>
+            <maxPressingSpeed>1300</maxPressingSpeed>
+            <maxTemperature>75</maxTemperature>
+            <maxNoiseLevel>70</maxNoiseLevel>
+        </techSpecs>
+    </washer>
+    <washer manufacturer="SHARP" color="red">
+        <features>
+            <dryer>true</dryer>
+        </features>
+        <techSpecs>
+            <loadCapacity>6</loadCapacity>
+            <programQuantity>3</programQuantity>
+            <powerConsumptionClass>C</powerConsumptionClass>
+            <maxPressingSpeed>1100</maxPressingSpeed>
+            <maxTemperature>55</maxTemperature>
+            <maxNoiseLevel>60</maxNoiseLevel>
+        </techSpecs>
+    </washer>
 </catalog>
