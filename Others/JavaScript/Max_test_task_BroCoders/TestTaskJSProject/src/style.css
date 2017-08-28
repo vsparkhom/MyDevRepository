@@ -1,0 +1,67 @@
+#myTable {
+  border: 2px solid #48AAE6;
+  margin: 0;
+  //border-collapse: collapse;
+}
+
+#left-func,
+#right-func {
+  //margin: 0;
+}
+
+#bigTable {
+  margin: auto;
+}
+
+#myTable td {
+  background: #48AAE6;
+}
+
+td {
+  width: 60px;
+  height: 60px;
+}
+
+#addCol,
+#addRow,
+#delCol,
+#delRow {
+  cursor: pointer;
+}
+
+.del {
+  background: #B20000;
+}
+
+.del:before {
+  content: "-";
+}
+
+.add:before {
+  content: "+";
+}
+
+.add {
+  background: #F3A500;
+}
+
+.add,
+.del {
+  font-size: 200%;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+}
+
+.add:hover,
+.del:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
+.add:not(:hover),
+.del:not(:hover) {
+  transition: 1s;
+}

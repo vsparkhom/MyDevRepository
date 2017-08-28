@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <style type="text/css">
+    #myTable {
+  border: 2px solid #48AAE6;
+  margin: 0;
+  //border-collapse: collapse;
+}
+
+#left-func,
+#right-func {
+  //margin: 0;
+}
+
+#bigTable {
+  margin: auto;
+}
+
+#myTable td {
+  background: #48AAE6;
+}
+
+td {
+  width: 60px;
+  height: 60px;
+}
+
+#addCol,
+#addRow,
+#delCol,
+#delRow {
+  cursor: pointer;
+}
+
+.del {
+  background: #B20000;
+}
+
+.del:before {
+  content: "-";
+}
+
+.add:before {
+  content: "+";
+}
+
+.add {
+  background: #F3A500;
+}
+
+.add,
+.del {
+  font-size: 200%;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+}
+
+.add:hover,
+.del:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
+.add:not(:hover),
+.del:not(:hover) {
+  transition: 1s;
+}
+
+  </style>
+
+  <title>task</title>
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+var myTable = document.getElementById("myTable");
+
+var leftTab = document.getElementById("left-func");
+var rightTab = document.getElementById("right-func");
+var topTab = document.getElementById("top-func");
+var botTab = document.getElementById("bot-func");
+
+var addCol = document.getElementById("addCol");
+var addRow = document.getElementById("addRow");
+
+//var addCol, addRow; //test
+
+addCol.onclick = addColFunc;
+function addColFunc() {
+    for (var i = 0; i < myTable.rows.length; i++) {
+        myTable.rows[i].insertCell(-1);
+    }
+    topTab.rows[0].insertCell(-1);
+    botTab.rows[0].insertCell(-1);
+}
+
+addRow.onclick = addRowFunc;
+function addRowFunc() {
+    var row = document.createElement("tr");
+    myTable.appendChild(row);
+    for (var i = 0; i < myTable.rows[0].cells.length; i++) {
+        row.insertCell(i);
+    }
+    leftTab.insertRow(-1).insertCell(0);
+    rightTab.insertRow(-1).insertCell(0);
+}
+
+var r; // = myRow;
+var c; // = myColumn;
+
+//delCol.onclick = delCol;
+
+var delRowFunc = delRowFunc;
+function delColFunc() {
+    console.log("c    myColumn is: " + c);
+    console.log("c    myRow is: " + r);
+
+    if (myTable.rows[0].cells.length > 1) {
+        for (var i = 0; i < myTable.rows.length; i++) {
+            myTable.rows[i].deleteCell(c);
+        }
+        topTab.rows[0].deleteCell(-1);
+        botTab.rows[0].deleteCell(-1);
+    }
+    else {
+        alert("Can't do this, you have only one column!");
+    }
+}
+
+
+//delRow.onclick = delRowFunc;
+
+var delRowFunc = delRowFunc;
+function delRowFunc() {
+    console.log("r    myColumn is: " + c);
+    console.log("r    myRow is: " + r);
+
+    if (myTable.rows.length > 1) {
+        myTable.deleteRow(r);
+        leftTab.deleteRow(-1);
+        rightTab.deleteRow(-1);
+    }
+    else {
+        alert("Can't do this, you have only one row!");
+    }
+}
+
+
+
+function hideRemoveButtons() {
+    var firstRowInTopTable = topTab.rows[0];
+    for (var i = 0; i < firstRowInTopTable.cells.length; i++) {
+        remoteAttributesForCell(firstRowInTopTable.cells[i]);
+    }
+    for (var i = 0; i < leftTab.rows.length; i++) {
+        remoteAttributesForCell(leftTab.rows[i].cells[0]);
+    }
+}
+
+function remoteAttributesForCell(targetCell) {
+    targetCell.innerHTML = "";
+    targetCell.removeAttribute("class");
+    targetCell.removeAttribute("id");
+    targetCell.removeAttribute("onclick");
+}
+
+//if (bigTable.onmouseout == false) {
+//    hideRemoveButtons;
+//}
+
+myTable.onmouseover = showBut;
+function showBut(event) {
+    //console.log("event.target: " + event.target + ", event.srcElement: " + event.srcElement);
+    if (!(event.target instanceof HTMLTableCellElement)) {
+        return;
+    }
+    with (event.target || event.srcElement) {
+        var myRow = parentNode.rowIndex;
+        var myColumn = cellIndex;
+
+        //console.log("myColumn is: " + myColumn);
+        //console.log("myRow is: " + myRow);
+        //console.log("-----------------------");
+    }
+
+    r = myRow;
+    c = myColumn;
+
+    hideRemoveButtons();
+
+    setOnClickActionForCell(topTab.rows[0].cells[myColumn], "del", "delCol", delColFunc);
+    setOnClickActionForCell(leftTab.rows[myRow].cells[0], "del", "delRow", delRowFunc);
+//    setOnClickActionForCell(rightTab.rows[0].cells[0], "add", "addCol", "addColFunc()");
+//    setOnClickActionForCell(botTab.rows[0].cells[0], "add", "addRow", "addRowFunc()");
+}
+
+function setOnClickActionForCell(targetCell, targetClassName, targetId, targetFunc) {
+    targetCell.className = targetClassName;
+    targetCell.id = targetId;
+    targetCell.onclick = targetFunc;
+}
+}//]]> 
+
+</script>
+
+
+</head>
+
+<body>
+  <table id="bigTable">
+  <tr>
+    <th></th>
+    <th colspan="3">
+      <table id="top-func">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <table id="left-func">
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </th>
+    <th>
+      <table id="myTable">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+        </tr>
+      </table>
+    </th>
+    <th>
+      <table id="right-func">
+        <tr>
+          <td class="add" id="addCol"></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th></th>
+    <th colspan="3">
+      <table id="bot-func">
+        <tr>
+          <td class="add" id="addRow"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "None"
+    }], "*")
+  }
+</script>
+
+</body>
+
+</html>
+
