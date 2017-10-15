@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<inventory xmlns="http://services.sjrb.ad/inventorymanagement-equipment">
+    <equipment type="Modem">
+        <id>171521489</id>
+        <serialNumber>modem2006</serialNumber>
+        <provisioningRegistrationKey>modem2006</provisioningRegistrationKey>
+        <manufacturer>Motorola</manufacturer>
+        <modelType>SB5120</modelType>
+        <docsisMacAddress>16024A553CD1</docsisMacAddress>
+        <isProvisionable>false</isProvisionable>
+        <description>Description</description>
+        <memo>Memo</memo>
+        <isRental>false</isRental>
+        <proprietor>
+            <type>Customer</type>
+            <identifier type="AddressId">6010</identifier>
+            <description>Fake street</description>
+        </proprietor>
+        <components>
+            <component>DOCSIS MODEM</component>
+        </components>
+        <specifications>
+            <specification>DOCSIS 2.0</specification>
+        </specifications>
+        <productLines>
+            <productLine>Internet</productLine>
+        </productLines>
+        <state>NOT_APPLICABLE</state>
+        <isActive>true</isActive>
+        <lastModifiedDate>2017-06-01 17:34:47.502 EDT</lastModifiedDate>
+        <link rel="self" ref="self" href="/cpe/equipments/171521489" />
+        <link rel="updateState" ref="updateState" href="/cpe/equipments/171521489/state" />
+    </equipment>
+</inventory>

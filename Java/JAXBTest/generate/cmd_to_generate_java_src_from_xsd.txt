@@ -1,0 +1,1 @@
+xjc -npa -no-header -p com.vlpa.jaxb.inventory test_modem.xsd

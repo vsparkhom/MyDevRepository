@@ -1,0 +1,80 @@
+<xs:schema  attributeFormDefault="unqualified" 
+            elementFormDefault="qualified" 
+            targetNamespace="http://services.sjrb.ad/inventorymanagement-equipment" 
+            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="inventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="equipment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="id"/>
+              <xs:element type="xs:string" name="serialNumber"/>
+              <xs:element type="xs:string" name="provisioningRegistrationKey"/>
+              <xs:element type="xs:string" name="manufacturer"/>
+              <xs:element type="xs:string" name="modelType"/>
+              <xs:element type="xs:string" name="docsisMacAddress"/>
+              <xs:element type="xs:string" name="isProvisionable"/>
+              <xs:element type="xs:string" name="description"/>
+              <xs:element type="xs:string" name="memo"/>
+              <xs:element type="xs:string" name="isRental"/>
+              <xs:element name="proprietor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element name="identifier">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:short">
+                            <xs:attribute type="xs:string" name="type"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="description"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="components">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="component"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="specifications">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="specification"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="productLines">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="productLine"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="state"/>
+              <xs:element type="xs:string" name="isActive"/>
+              <xs:element type="xs:string" name="lastModifiedDate"/>
+              <xs:element name="link" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="rel" use="optional"/>
+                      <xs:attribute type="xs:string" name="ref" use="optional"/>
+                      <xs:attribute type="xs:string" name="href" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="type"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
