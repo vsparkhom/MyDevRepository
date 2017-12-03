@@ -1,8 +1,5 @@
 package vlpa.expman.model;
 
-
-import vlpa.expman.model.Category;
-
 import java.util.Date;
 
 public class Expense {
@@ -27,6 +24,30 @@ public class Expense {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
