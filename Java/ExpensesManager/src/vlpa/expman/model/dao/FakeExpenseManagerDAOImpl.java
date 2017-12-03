@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FakeExpensesDAOImpl implements ExpensesDAO {
+public class FakeExpenseManagerDAOImpl implements ExpenseManagerDAO {
 
     private static final boolean DEPOSIT_ALLOWED = false;
     private Collection<Category> categories;
@@ -22,7 +22,7 @@ public class FakeExpensesDAOImpl implements ExpensesDAO {
     private int categoryIdCounter = 1;
     private int expenseIdCounter = 1000;
 
-    private FakeExpensesDAOImpl() {
+    private FakeExpenseManagerDAOImpl() {
 
         //init test categories
         Category otherCategory = new Category(getNextCategoryId(), "Other", 250);
@@ -65,10 +65,10 @@ public class FakeExpensesDAOImpl implements ExpensesDAO {
     }
 
     private static class DAOInstanceHolder {
-        public static FakeExpensesDAOImpl instance = new FakeExpensesDAOImpl();
+        public static FakeExpenseManagerDAOImpl instance = new FakeExpenseManagerDAOImpl();
     }
 
-    public static FakeExpensesDAOImpl getInstance() {
+    public static FakeExpenseManagerDAOImpl getInstance() {
         return DAOInstanceHolder.instance;
     }
 
@@ -151,7 +151,7 @@ public class FakeExpensesDAOImpl implements ExpensesDAO {
     }
 
     @Override
-    public Map<String, Category> getSortExpensesConfig() {
+    public Map<String, Category> getSortConfig() {
         return sortExpensesConfig;
     }
 

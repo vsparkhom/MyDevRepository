@@ -3,12 +3,12 @@ package sample;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import vlpa.expman.controller.CSVProcessor;
-import vlpa.expman.controller.DataProcessor;
 import vlpa.expman.controller.SortExpensesConfig;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
+import vlpa.expman.model.dao.ExpenseManagerDAO;
 import vlpa.expman.model.dao.ExpensesDAO;
-import vlpa.expman.model.dao.FakeExpensesDAOImpl;
+import vlpa.expman.model.dao.FakeExpenseManagerDAOImpl;
 import vlpa.expman.view.UIBuilder;
 
 import java.util.Map;
@@ -33,7 +33,7 @@ public class Main extends Application {
 
     private static void testData() {
 
-        ExpensesDAO dao = FakeExpensesDAOImpl.getInstance();
+        ExpenseManagerDAO dao = FakeExpenseManagerDAOImpl.getInstance();
 
         System.out.println("------------ CATEGORIES ------------");
         for (Category c : dao.getAllCategories()) {

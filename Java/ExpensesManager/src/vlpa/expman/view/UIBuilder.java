@@ -10,7 +10,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -20,18 +23,23 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import vlpa.expman.model.Category;
+import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
-import vlpa.expman.model.dao.ExpensesDAO;
-import vlpa.expman.model.dao.FakeExpensesDAOImpl;
+import vlpa.expman.model.dao.ExpenseManagerDAO;
+import vlpa.expman.model.dao.FakeExpenseManagerDAOImpl;
+import vlpa.expman.view.table.TableCell;
+import vlpa.expman.view.table.TableHeader;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 
 public class UIBuilder {
 
-    private ExpensesDAO dao = FakeExpensesDAOImpl.getInstance();
+    private ExpenseManagerDAO dao = FakeExpenseManagerDAOImpl.getInstance();
+    private BorderPane rootPane;
 
     private UIBuilder() {}
 
@@ -44,30 +52,32 @@ public class UIBuilder {
     }
 
     public Scene getPrimaryScene(Stage primaryStage) {
-        return new Scene(buildGUI(primaryStage), UIConst.SCENE_WIDTH, UIConst.SCENE_HEIGHT);
+        Scene primaryScene = new Scene(buildGUI(primaryStage), UIConst.SCENE_WIDTH, UIConst.SCENE_HEIGHT);
+        primaryScene.getStylesheets().add("view.css");
+        return primaryScene;
     }
 
     private Pane buildGUI(Stage stage) {
-        BorderPane root = new BorderPane();
-        addBorder(root, "black");
+        rootPane = new BorderPane();
+        addBorder(rootPane, "black");
 
         HBox topMenu = addTopMenu(stage);
         addBorder(topMenu, "red");
         topMenu.setPrefWidth(500);
-        root.setTop(topMenu);
+        rootPane.setTop(topMenu);
 
-        VBox leftMenu = addLeftMenu();
+        Pane leftMenu = addLeftMenu();
         addBorder(leftMenu, "blue");
         leftMenu.setPrefWidth(150);
-        root.setLeft(leftMenu);
+        rootPane.setLeft(leftMenu);
 
-        VBox center = addCenterPane();
+        Pane center = buildSummaryPane();
         addBorder(center, "green");
         center.setPrefWidth(500);
         center.setPrefHeight(500);
-        root.setCenter(center);
+        rootPane.setCenter(center);
 
-        return root;
+        return rootPane;
     }
 
     private void addBorder(Pane pane, String color) {
@@ -106,7 +116,7 @@ public class UIBuilder {
         return hbox;
     }
 
-    private VBox addLeftMenu() {
+    private Pane addLeftMenu() {
 
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(10)); // Set all sides to 10
@@ -117,12 +127,22 @@ public class UIBuilder {
         vbox.getChildren().add(title);
 
         Hyperlink summaryOption = new Hyperlink("Summary");
+        summaryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent me) {
+                rootPane.setCenter(buildSummaryPane());
+            }
+        });
         vbox.setMargin(summaryOption, new Insets(0, 0, 0, 8));
         vbox.getChildren().add(summaryOption);
 
-        for (Category c : dao.getAllCategories()) {
+        for (final Category c : dao.getAllCategories()) {
             // Add offset to left side to indent from title
             Hyperlink categoryOption = new Hyperlink(c.getName());
+            categoryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent me) {
+                    rootPane.setCenter(getCategoryDetailsPane(c.getId()));
+                }
+            });
             vbox.setMargin(categoryOption, new Insets(0, 0, 0, 8));
             vbox.getChildren().add(categoryOption);
         }
@@ -130,8 +150,68 @@ public class UIBuilder {
         return vbox;
     }
 
-    private VBox addCenterPane() {
+    private Pane getCategoryDetailsPane(int categoryId) {
 
+        GridPane grid = new GridPane();
+        addBorder(grid, "violet");
+//        grid.setHgap(10);
+//        grid.setVgap(10);
+//        grid.setPadding(new Insets(0, 10, 0, 10));
+
+//        grid.setStyle("-fx-background-color: cornflowerblue; -fx-padding: 2; -fx-hgap: 2; -fx-vgap: 2;");
+//        grid.setSnapToPixel(false);
+
+        grid.getStyleClass().add("category-details-grid");
+
+        int currentRow = 0;
+
+        TableHeader dateHeader = new TableHeader("Date", new String[] {
+                "category-details-grid-cell",
+                "first-row",
+                "first-column"
+        });
+        TableHeader merchantHeader = new TableHeader("Merchant", new String[] {
+                "category-details-grid-cell",
+                "first-row"
+        });
+        TableHeader amountHeader = new TableHeader("Amount", new String[] {
+                "category-details-grid-cell",
+                "first-row"
+        });
+
+        ColumnConstraints dateHeaderColumnConstraint = new ColumnConstraints();
+        dateHeaderColumnConstraint.setPercentWidth(25);
+
+        ColumnConstraints merchantHeaderColumnConstraint = new ColumnConstraints();
+        merchantHeaderColumnConstraint.setPercentWidth(50);
+
+        ColumnConstraints amountHeaderColumnConstraint = new ColumnConstraints();
+        amountHeaderColumnConstraint.setPercentWidth(25);
+
+        grid.getColumnConstraints().addAll(dateHeaderColumnConstraint, merchantHeaderColumnConstraint, amountHeaderColumnConstraint);
+        grid.addRow(currentRow, dateHeader, merchantHeader, amountHeader);
+
+        currentRow++;
+
+        Collection<Expense> expenses = dao.getExpensesByCategoryId(categoryId);
+        for (Expense e : expenses) {
+
+            TableCell currentExpenseDateCell = new TableCell(e.getDate(), new String[] {
+                    "category-details-grid-cell",
+                    "first-column"
+            });
+            TableCell currentExpenseMerchantCell = new TableCell(e.getName(), "category-details-grid-cell");
+            TableCell currentExpenseAmountCell = new TableCell(e.getAmount(), "category-details-grid-cell");
+
+            grid.addRow(currentRow, currentExpenseDateCell, currentExpenseMerchantCell, currentExpenseAmountCell);
+
+            currentRow++;
+        }
+
+        return grid;
+    }
+
+    private Pane buildSummaryPane() {
         VBox vbox = new VBox();
         vbox.setSpacing(5);// Gap between nodes
 

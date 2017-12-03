@@ -1,25 +1,23 @@
 package vlpa.expman.controller;
 
 import vlpa.expman.model.Category;
-import vlpa.expman.model.Expense;
-import vlpa.expman.model.dao.ExpensesDAO;
-import vlpa.expman.model.dao.FakeExpensesDAOImpl;
+import vlpa.expman.model.dao.ExpenseManagerDAO;
+import vlpa.expman.model.dao.FakeExpenseManagerDAOImpl;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SortExpensesConfig {
 
     private Map<String, Category> config = new HashMap<>();
-    private ExpensesDAO dao = FakeExpensesDAOImpl.getInstance();
+    private ExpenseManagerDAO dao = FakeExpenseManagerDAOImpl.getInstance();
 
     private SortExpensesConfig() {
         initConfig();
     }
 
     private void initConfig() {
-        config.putAll(dao.getSortExpensesConfig());
+        config.putAll(dao.getSortConfig());
     }
 
     private static class SortExpensesConfigInstanceHolder {

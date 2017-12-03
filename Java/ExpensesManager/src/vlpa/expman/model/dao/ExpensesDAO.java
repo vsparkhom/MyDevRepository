@@ -10,19 +10,11 @@ import java.util.Map;
 
 public interface ExpensesDAO {
 
-    Collection<Category> getAllCategories();
-
-    Category getCategoryById(int categoryId);
-
     Collection<Expense> getAllExpenses();
 
     Collection<Expense> getExpensesByCategoryId(int categoryId);
 
-    ExpensesReport getExpensesReportForAllCategories(Date start, Date end);
-
-    ExpensesReport getExpensesReportForCategory(int categoryId, Date start, Date end);
-
     void saveExpenses(Collection<Expense> expenses);
 
-    Map<String, Category> getSortExpensesConfig();
+    Map<String, Category> getSortConfig();
 }
