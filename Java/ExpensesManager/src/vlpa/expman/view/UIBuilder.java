@@ -51,7 +51,7 @@ public class UIBuilder {
         return UIBuilderInstanceHolder.instance;
     }
 
-    public Scene getPrimaryScene(Stage primaryStage) {
+    public Scene buildPrimaryScene(Stage primaryStage) {
         Scene primaryScene = new Scene(buildGUI(primaryStage), UIConst.SCENE_WIDTH, UIConst.SCENE_HEIGHT);
         primaryScene.getStylesheets().add("view.css");
         return primaryScene;
@@ -61,12 +61,12 @@ public class UIBuilder {
         rootPane = new BorderPane();
         addBorder(rootPane, "black");
 
-        HBox topMenu = addTopMenu(stage);
+        HBox topMenu = buildTopMenu(stage);
         addBorder(topMenu, "red");
         topMenu.setPrefWidth(500);
         rootPane.setTop(topMenu);
 
-        Pane leftMenu = addLeftMenu();
+        Pane leftMenu = buildLeftMenu();
         addBorder(leftMenu, "blue");
         leftMenu.setPrefWidth(150);
         rootPane.setLeft(leftMenu);
@@ -82,11 +82,9 @@ public class UIBuilder {
 
     private void addBorder(Pane pane, String color) {
         pane.setStyle("-fx-border-color: " + color);
-//        pane.setStyle("-fx-border-style: solid");
-//        pane.setStyle("-fx-border-width: 2");
     }
 
-    private HBox addTopMenu(final Stage stage) {
+    private HBox buildTopMenu(final Stage stage) {
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -116,7 +114,7 @@ public class UIBuilder {
         return hbox;
     }
 
-    private Pane addLeftMenu() {
+    private Pane buildLeftMenu() {
 
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(10)); // Set all sides to 10
@@ -140,7 +138,7 @@ public class UIBuilder {
             Hyperlink categoryOption = new Hyperlink(c.getName());
             categoryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent me) {
-                    rootPane.setCenter(getCategoryDetailsPane(c.getId()));
+                    rootPane.setCenter(buildCategoryDetailsPane(c.getId()));
                 }
             });
             vbox.setMargin(categoryOption, new Insets(0, 0, 0, 8));
@@ -150,16 +148,10 @@ public class UIBuilder {
         return vbox;
     }
 
-    private Pane getCategoryDetailsPane(int categoryId) {
+    private Pane buildCategoryDetailsPane(int categoryId) {
 
         GridPane grid = new GridPane();
         addBorder(grid, "violet");
-//        grid.setHgap(10);
-//        grid.setVgap(10);
-//        grid.setPadding(new Insets(0, 10, 0, 10));
-
-//        grid.setStyle("-fx-background-color: cornflowerblue; -fx-padding: 2; -fx-hgap: 2; -fx-vgap: 2;");
-//        grid.setSnapToPixel(false);
 
         grid.getStyleClass().add("category-details-grid");
 
@@ -195,7 +187,6 @@ public class UIBuilder {
 
         Collection<Expense> expenses = dao.getExpensesByCategoryId(categoryId);
         for (Expense e : expenses) {
-
             TableCell currentExpenseDateCell = new TableCell(e.getDate(), new String[] {
                     "category-details-grid-cell",
                     "first-column"
@@ -215,10 +206,10 @@ public class UIBuilder {
         VBox vbox = new VBox();
         vbox.setSpacing(5);// Gap between nodes
 
-        HBox topSummaryPane = addTopSummaryPane();
+        HBox topSummaryPane = buildTopSummaryPane();
         vbox.getChildren().add(topSummaryPane);
 
-        HBox categoriesHeaderPane = addCategoriesHeaderPane();
+        HBox categoriesHeaderPane = buildCategoriesHeaderPane();
         vbox.getChildren().add(categoriesHeaderPane);
 
         SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
@@ -234,19 +225,19 @@ public class UIBuilder {
         for (Category c : dao.getAllCategories()) {
             ExpensesReport reportForCurrentCategory = dao.getExpensesReportForCategory(c.getId(), start, end);
             System.out.println("<addCenterPane>[report]: " + reportForCurrentCategory);
-            vbox.getChildren().add(addCategoryPane(reportForCurrentCategory));
+            vbox.getChildren().add(buildCategoryPane(reportForCurrentCategory));
         }
 
         return vbox;
     }
 
-    private HBox addTopSummaryPane() {
+    private HBox buildTopSummaryPane() {
 
         Date start = new Date(System.currentTimeMillis() - 86400000);
         Date end = new Date(System.currentTimeMillis() + 86400000);
         ExpensesReport allCategoriesExpensesReport = dao.getExpensesReportForAllCategories(start, end);
 
-//        System.out.println("[DEBUG]<addTopSummaryPane> allCategoriesExpensesReport: " + allCategoriesExpensesReport);
+//        System.out.println("[DEBUG]<buildTopSummaryPane> allCategoriesExpensesReport: " + allCategoriesExpensesReport);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -260,7 +251,7 @@ public class UIBuilder {
         alreadySpentPane.setAlignment(Pos.CENTER);
         alreadySpentPane.getChildren().addAll(alreadySpentLabel, alreadySpentAmount);
 
-        HBox progressBarPane = addProgressBarPane(allCategoriesExpensesReport.getUsagePercent());
+        HBox progressBarPane = buildProgressBarPane(allCategoriesExpensesReport.getUsagePercent());
 
         Label left = new Label("[Left: " + allCategoriesExpensesReport.getLeftover() + "]");
         Label budget = new Label("[Budget: " + allCategoriesExpensesReport.getLimit() + "]");
@@ -272,7 +263,7 @@ public class UIBuilder {
         return hbox;
     }
 
-    private HBox addCategoriesHeaderPane() {
+    private HBox buildCategoriesHeaderPane() {
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(10, 7, 10, 7));
@@ -304,9 +295,9 @@ public class UIBuilder {
         return hbox;
     }
 
-    private HBox addCategoryPane(ExpensesReport report) {
+    private HBox buildCategoryPane(ExpensesReport report) {
 
-//        System.out.println("[DEBUG]<addCategoryPane> report: " + report);
+//        System.out.println("[DEBUG]<buildCategoryPane> report: " + report);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(10, 7, 10, 7));
@@ -319,7 +310,7 @@ public class UIBuilder {
         Label currentAmount = new Label(report.getCurrentAmount() + "");
         currentAmount.setPrefWidth(50);
 
-        HBox categoryProgressBarPane = addProgressBarPane(report.getUsagePercent());
+        HBox categoryProgressBarPane = buildProgressBarPane(report.getUsagePercent());
 //        addBorder(categoryProgressBarPane, "red");
 
         Label left = new Label(report.getLeftover() + "");
@@ -333,7 +324,7 @@ public class UIBuilder {
         return hbox;
     }
 
-    private HBox addProgressBarPane(double usagePercent) {
+    private HBox buildProgressBarPane(double usagePercent) {
         HBox progressBarPane = new HBox();
         progressBarPane.setAlignment(Pos.CENTER);
         progressBarPane.setPrefWidth(200);

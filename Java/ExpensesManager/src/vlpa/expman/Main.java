@@ -1,4 +1,4 @@
-package sample;
+package vlpa.expman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -7,7 +7,6 @@ import vlpa.expman.controller.SortExpensesConfig;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.dao.ExpenseManagerDAO;
-import vlpa.expman.model.dao.ExpensesDAO;
 import vlpa.expman.model.dao.FakeExpenseManagerDAOImpl;
 import vlpa.expman.view.UIBuilder;
 
@@ -20,7 +19,7 @@ public class Main extends Application {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
         primaryStage.setTitle("Expenses Manager");
-        primaryStage.setScene(UIBuilder.getInstance().getPrimaryScene(primaryStage));
+        primaryStage.setScene(UIBuilder.getInstance().buildPrimaryScene(primaryStage));
         primaryStage.show();
     }
 

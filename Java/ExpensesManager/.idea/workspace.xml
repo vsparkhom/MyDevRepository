@@ -12,7 +12,7 @@
     <file path="/ExpensesDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512290200917" ignored="false" />
     <file path="/ExpensesDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1511900615998" ignored="false" />
     <file path="/FakeExpensesDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512289885274" ignored="false" />
-    <file path="/fragment.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512086098309" ignored="false" />
+    <file path="/fragment.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1515705335114" ignored="false" />
     <file path="/UIBuilder.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512292227423" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/InteractionItemId.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512070483235" ignored="false" />
     <file path="/Summary.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512074676923" ignored="false" />
@@ -45,6 +45,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -81,7 +82,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -91,26 +91,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UIBuilder.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UIBuilder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="0" selection-start="4559" selection-end="4559" vertical-scroll-proportion="0.6834319">
+            <state line="136" column="0" selection-start="4445" selection-end="4445" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#3946#4106#0" expanded="true" />
-                <element signature="e#4095#4096#0" expanded="true" />
-                <element signature="e#4474#4666#0" expanded="true" />
-                <element signature="e#4651#4652#0" expanded="true" />
-                <marker date="1512292235595" expanded="true" signature="2316:2334" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="2663:2693" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="7965:7997" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="9093:9129" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="9222:9243" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="9370:9391" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="9646:9667" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="9769:9790" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="10249:10280" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="11300:11312" placeholder="{...}" />
-                <marker date="1512292235595" expanded="true" signature="11422:11442" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="2524:2542" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="2579:2597" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="2828:2858" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="10021:10057" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="10298:10319" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="10574:10595" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="10697:10718" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="11181:11212" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="12236:12248" placeholder="{...}" />
+                <marker date="1513151398000" expanded="true" signature="12358:12378" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="14" selection-start="428" selection-end="428" vertical-scroll-proportion="0.20118344">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayoutSample.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/LayoutSample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="25" selection-start="1174" selection-end="1186" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1515705019386" expanded="true" signature="2762:2792" placeholder="{...}" />
+                <marker date="1515705019386" expanded="true" signature="7371:7400" placeholder="{...}" />
+                <marker date="1515705019386" expanded="true" signature="8060:8089" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -126,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/DataProcessor.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/TempExpenseData.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/Expense.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/CSVProcessor.java" />
@@ -138,10 +154,11 @@
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/FakeExpensesDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/FakeExpenseManagerDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/AbstractDataProcessor.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/SortExpensesConfig.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpensesDAO.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/Main.java" />
       </list>
     </option>
   </component>
@@ -183,7 +200,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -200,6 +216,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expman" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,6 +375,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,8 +390,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
   </component>
@@ -391,6 +426,50 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="Game2" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="sample.Game2" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="JavaFxApplication" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GridPaneStyle" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="sample.GridPaneStyle" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="JavaFxApplication" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -403,6 +482,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -431,19 +523,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -489,7 +568,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="vlpa.expman.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -504,13 +583,17 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.LayoutSample" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Game2" />
+      <item index="3" class="java.lang.String" itemvalue="Application.GridPaneStyle" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.LayoutSample" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.GridPaneStyle" />
+        <item index="1" class="java.lang.String" itemvalue="Application.LayoutSample" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Game2" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -558,7 +641,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -576,12 +659,12 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6201022" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6201022" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.7127846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2931818" sideWeight="0.6201022" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37989777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2931818" sideWeight="0.6201022" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37989777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -655,39 +738,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/AbstractList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="0" selection-start="4992" selection-end="4992" vertical-scroll-proportion="0.33224756" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/Expense.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="36" selection-start="885" selection-end="885" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/ExpenseUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="30" selection-start="87" selection-end="92" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="72" selection-start="1141" selection-end="1141" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/CSVProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpenseReportDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="33" selection-start="115" selection-end="131" vertical-scroll-proportion="0.27642277">
@@ -716,13 +766,6 @@
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/AbstractDataProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="31" selection-start="1338" selection-end="1338" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -757,31 +800,54 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/jfxrt.jar!/javafx/scene/layout/VBox.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.1551095">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.1551095" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="0" selection-start="4559" selection-end="4559" vertical-scroll-proportion="0.6834319">
+        <state line="136" column="0" selection-start="4445" selection-end="4445" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#3946#4106#0" expanded="true" />
-            <element signature="e#4095#4096#0" expanded="true" />
-            <element signature="e#4474#4666#0" expanded="true" />
-            <element signature="e#4651#4652#0" expanded="true" />
-            <marker date="1512292235595" expanded="true" signature="2316:2334" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="2663:2693" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="7965:7997" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="9093:9129" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="9222:9243" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="9370:9391" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="9646:9667" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="9769:9790" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="10249:10280" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="11300:11312" placeholder="{...}" />
-            <marker date="1512292235595" expanded="true" signature="11422:11442" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="2524:2542" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="2579:2597" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="2828:2858" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="10021:10057" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="10298:10319" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="10574:10595" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="10697:10718" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="11181:11212" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="12236:12248" placeholder="{...}" />
+            <marker date="1513151398000" expanded="true" signature="12358:12378" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/jfxrt.jar!/javafx/application/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="466" selection-end="466" vertical-scroll-proportion="0.33211678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/graphics/chart_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/LayoutSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="25" selection-start="1174" selection-end="1186" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1515705019386" expanded="true" signature="2762:2792" placeholder="{...}" />
+            <marker date="1515705019386" expanded="true" signature="7371:7400" placeholder="{...}" />
+            <marker date="1515705019386" expanded="true" signature="8060:8089" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="14" selection-start="428" selection-end="428" vertical-scroll-proportion="0.20118344">
+          <folding />
         </state>
       </provider>
     </entry>
