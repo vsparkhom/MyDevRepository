@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PersonalCabinet:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="PersonalCabinet.war">
+      <element id="artifact" artifact-name="PersonalCabinet:war exploded" />
+    </root>
+  </artifact>
+</component>
