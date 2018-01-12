@@ -33,4 +33,14 @@
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>InternetServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.InternetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>InternetServlet</servlet-name>
+        <url-pattern>/internet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -148,11 +148,11 @@
                     <a href="${pageContext.request.contextPath}/main"><i class="fa fa-dashboard fa-fw"></i> Account
                         Information</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Services<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="flot.html">Internet</a>
+                            <a href="${pageContext.request.contextPath}/internet">Internet</a>
                         </li>
                         <li>
                             <a href="morris.html">Television</a>
@@ -422,10 +422,10 @@
 <script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="js/plugins/metisMenu/metisMenu.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="js/sb-admin-2.js"></script>
