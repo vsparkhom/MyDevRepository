@@ -195,6 +195,9 @@
                     <div class="panel-body">
                         <p>Internet modem: <strong>Cisco HW 123</strong></p>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                     <!--div class="panel-footer">
                         Panel Footer
                     </div-->
@@ -222,7 +225,7 @@
                         </style>
 
                         <!-- Resources -->
-                        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+                        <script src="js/amcharts.js"></script>
                         <script src="https://www.amcharts.com/lib/3/pie.js"></script>
                         <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
                         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
@@ -234,10 +237,10 @@
                                 "type": "pie",
                                 "theme": "light",
                                 "dataProvider": [ {
-                                    "title": "New",
+                                    "title": "Used",
                                     "value": 4852
                                 }, {
-                                    "title": "Returning",
+                                    "title": "Remaining",
                                     "value": 9899
                                 } ],
                                 "titleField": "title",
@@ -270,6 +273,21 @@
                     <div class="panel-body">
                         <p>acc1@gmail.com</p>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <!--div class="panel-footer">
                         Panel Footer
                     </div-->

@@ -20,7 +20,7 @@
     <file path="/AccountStatus.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515540215855" ignored="false" />
     <file path="/DBQueries.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515532780887" ignored="false" />
     <file path="/db.properties" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515530483483" ignored="false" />
-    <file path="/internet.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515715171197" ignored="false" />
+    <file path="/internet.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516388060567" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,25 +88,25 @@
       <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
+            <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="0.29475984">
+            <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="internet.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="internet.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="16" selection-start="5727" selection-end="5746" vertical-scroll-proportion="-7.4615383">
+            <state line="227" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="0.12008282">
               <folding />
             </state>
           </provider>
@@ -115,7 +115,7 @@
       <file leaf-file-name="flot-data.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/plugins/flot/flot-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="-6.6">
+            <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -126,16 +126,16 @@
           <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="-17.84">
-              <folding />
-            </state>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+            <state />
           </provider>
           <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
             <state />
           </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-            <state />
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -143,9 +143,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,7 +151,7 @@
       <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1899" column="135" selection-start="31127" selection-end="31136" vertical-scroll-proportion="5.8">
+            <state line="3603" column="7" selection-start="70903" selection-end="70903" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,15 +175,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConnectionUtils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/ConnectionUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -196,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/TestServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/perscab/model.java" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
@@ -210,8 +198,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/ConnectionUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/remove_chart_text.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp" />
       </list>
     </option>
   </component>
@@ -346,6 +335,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -671,11 +686,11 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24943481" sideWeight="0.427065" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864675" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -750,18 +765,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="34" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/io/IOException.java">
@@ -771,23 +777,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="49" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="4" column="49" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/AccountStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="23" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="14" column="26" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/ConnectionUtils.java">
@@ -804,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/MainServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="5" selection-start="635" selection-end="1205" vertical-scroll-proportion="0.0">
@@ -821,9 +814,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -831,42 +822,49 @@
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="-17.84">
-          <folding />
-        </state>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
       </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
         <state />
       </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/plugins/flot/flot-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="-6.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1899" column="135" selection-start="31127" selection-end="31136" vertical-scroll-proportion="5.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="16" selection-start="5727" selection-end="5746" vertical-scroll-proportion="-7.4615383">
+        <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="0.29475984">
+        <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3603" column="7" selection-start="70903" selection-end="70903" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="0.12008282">
           <folding />
         </state>
       </provider>
