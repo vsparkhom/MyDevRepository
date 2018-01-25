@@ -43,4 +43,54 @@
         <url-pattern>/internet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TVServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.TVServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TVServlet</servlet-name>
+        <url-pattern>/tv</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PhoneServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.PhoneServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PhoneServlet</servlet-name>
+        <url-pattern>/phone</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BillingServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.BillingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BillingServlet</servlet-name>
+        <url-pattern>/billing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelpServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.HelpServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelpServlet</servlet-name>
+        <url-pattern>/help</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
 </web-app>

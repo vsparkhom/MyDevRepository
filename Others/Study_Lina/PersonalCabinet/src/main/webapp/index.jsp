@@ -9,6 +9,6 @@
 
     <h2>URL: ${pageContext.request.contextPath}</h2>
 
-    <h4>Go to <a href="main">main page</a></h4>
+    <h4>Go to <a href="login">Login page</a></h4>
 </body>
 </html>

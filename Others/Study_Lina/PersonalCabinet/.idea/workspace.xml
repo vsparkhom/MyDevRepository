@@ -4,23 +4,39 @@
     <list default="true" id="dfb238d5-8783-4478-9b3e-94309dedeb7a" name="Default" comment="" />
     <ignored path="PersonalCabinet.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/MainServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515540832661" ignored="false" />
-    <file path="/web.xml" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515708962297" ignored="false" />
+    <file path="/MainServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516837664292" ignored="false" />
+    <file path="/web.xml" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516664076891" ignored="false" />
     <file path="/index.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515184413623" ignored="false" />
     <file path="$PROJECT_DIR$/../TestServlet/TestServlet.iml" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515185838348" ignored="false" />
     <file path="$PROJECT_DIR$/../TestServlet/web/WEB-INF/web.xml" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515185891470" ignored="false" />
     <file path="$PROJECT_DIR$/../TestServlet/src/TestServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515185933921" ignored="false" />
-    <file path="/a.txt" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515187349493" ignored="false" />
-    <file path="/main.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515628026441" ignored="false" />
-    <file path="/fragment.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515193664754" ignored="false" />
+    <file path="/a.txt" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516395390809" ignored="false" />
+    <file path="/main.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516835202654" ignored="false" />
+    <file path="/fragment.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516744983273" ignored="false" />
     <file path="/OracleConnectionUtils.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515539422281" ignored="false" />
     <file path="/ConnectionUtils.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515540891218" ignored="false" />
-    <file path="/DBUtils.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515535878403" ignored="false" />
+    <file path="/DBUtils.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516900461137" ignored="false" />
     <file path="/Account.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515535807285" ignored="false" />
     <file path="/AccountStatus.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515540215855" ignored="false" />
-    <file path="/DBQueries.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515532780887" ignored="false" />
+    <file path="/DBQueries.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516838168589" ignored="false" />
     <file path="/db.properties" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1515530483483" ignored="false" />
-    <file path="/internet.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516388060567" ignored="false" />
+    <file path="/internet.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516390125031" ignored="false" />
+    <file path="/_navigation.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516397494090" ignored="false" />
+    <file path="/tv.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516391163812" ignored="false" />
+    <file path="/phone.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516391307385" ignored="false" />
+    <file path="/billing.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516900945014" ignored="false" />
+    <file path="/login.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516746818293" ignored="false" />
+    <file path="/LoginServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516747757472" ignored="false" />
+    <file path="/MyUtils.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516748585537" ignored="false" />
+    <file path="/bootstrap.css" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516746498620" ignored="false" />
+    <file path="/ServiceInstance.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516832071249" ignored="false" />
+    <file path="/Consts.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516824936236" ignored="false" />
+    <file path="/AttributeConsts.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516832272339" ignored="false" />
+    <file path="/_mybill.jsp" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516837006531" ignored="false" />
+    <file path="/Payment.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516838579776" ignored="false" />
+    <file path="/BillingHelper.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516900289094" ignored="false" />
+    <file path="/ServiceHelper.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516837689499" ignored="false" />
+    <file path="/BillingServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516900167260" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,10 +101,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <file leaf-file-name="_navigation.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/_navigation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="-5.8846154">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -97,61 +113,7 @@
       <file leaf-file-name="main.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="internet.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="0.12008282">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="flot-data.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/plugins/flot/flot-data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InternetServlet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3603" column="7" selection-start="70903" selection-end="70903" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="66" selection-end="133" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -160,16 +122,70 @@
       <file leaf-file-name="MainServlet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/MainServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="5" selection-start="635" selection-end="1205" vertical-scroll-proportion="0.0">
+            <state line="32" column="8" selection-start="955" selection-end="994" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OracleConnectionUtils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/OracleConnectionUtils.java">
+      <file leaf-file-name="BillingServlet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/BillingServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0">
+            <state line="21" column="33" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/ServiceHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="27" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillingHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/BillingHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="23" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="billing.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/billing.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="63" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.30846775">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Payment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/Payment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="18" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="13" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBQueries.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="12" selection-start="1653" selection-end="1865" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,22 +201,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/model.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/model/Account.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/OracleConnectionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/model/AccountStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/MainServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/ConnectionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/MyUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/Consts.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/AttributeConsts.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/model/ServiceInstance.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/remove_chart_text.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/_mybill.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/MainServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/controller/ServiceHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/servlets/BillingServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/model/Payment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/perscab/controller/BillingHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/billing.jsp" />
       </list>
     </option>
   </component>
@@ -272,6 +288,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -498,29 +515,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="perscab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.side.proportion" value="0.3555133" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.perscab.servlets" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.perscab.servlets" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -568,19 +624,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -607,6 +650,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -659,6 +715,23 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dfb238d5-8783-4478-9b3e-94309dedeb7a" name="Default" comment="" />
@@ -668,12 +741,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864675" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -695,7 +769,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32864675" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864675" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -765,106 +838,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/MyUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" />
+        <state line="19" column="85" selection-start="729" selection-end="746" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/io/IOException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="11" selection-start="1038" selection-end="1038" vertical-scroll-proportion="-0.15517241" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="49" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/AccountStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/ConnectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
+        <state line="54" column="25" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/OracleConnectionUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/AttributeConsts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0">
+        <state line="7" column="53" selection-start="207" selection-end="225" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/ServiceInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="21" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/ServiceHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="27" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/MainServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="5" selection-start="635" selection-end="1205" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/InternetServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="30" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/plugins/flot/flot-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1105" column="39" selection-start="35202" selection-end="35217" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="35" selection-start="6249" selection-end="6249" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="-5.8846154">
+        <state line="32" column="8" selection-start="955" selection-end="994" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3603" column="7" selection-start="70903" selection-end="70903" vertical-scroll-proportion="0.0">
+        <state line="2125" column="38" selection-start="35127" selection-end="35127" vertical-scroll-proportion="0.3654224">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="0.12008282">
+        <state line="72" column="18" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="12" selection-start="1653" selection-end="1865" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="13" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/_mybill.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="36" selection-start="495" selection-end="495" vertical-scroll-proportion="0.41129032">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/servlets/BillingServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="33" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/BillingHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="23" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/_navigation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="66" selection-end="133" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/billing.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="63" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.30846775">
           <folding />
         </state>
       </provider>
@@ -948,11 +1031,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.glassfish.web:javax.servlet.jsp.jstl:1.2.4</last-edited>
+          <last-edited>Maven: javax.servlet.jsp.jstl:jstl-api:1.2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.3555133" />
               </list>
             </option>
           </splitter-proportions>
