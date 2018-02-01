@@ -1,5 +1,8 @@
 package com.perscab.servlets;
 
+import com.perscab.controller.ServiceHelper;
+import com.perscab.db.AttributeConsts;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +17,10 @@ public class TVServlet extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("--- TVServlet.GET---");
+
+        ServiceHelper.initTvService(request);
+
+        ServiceHelper.initHardware(request, AttributeConsts.TV_SERVICE_TYPE_ID);//TODO: check
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/tv.jsp");
         dispatcher.forward(request, response);

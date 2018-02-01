@@ -179,6 +179,7 @@ DROP TABLE hardware;
 CREATE TABLE hardware (
   id NUMBER(10),
   account_id NUMBER(10),
+  service_type_id NUMBER(10) NOT NULL,
   name VARCHAR2(200) NOT NULL,
   serial_number VARCHAR2(200) NOT NULL,
   status VARCHAR2(50) DEFAULT 'Inactive'
@@ -186,9 +187,133 @@ CREATE TABLE hardware (
   , CONSTRAINT hw_account_id_fk
       FOREIGN KEY (account_id)
       REFERENCES accounts (id)
-  , CONSTRAINT hw_status_values_chk check (status in ('Active'))
+  , CONSTRAINT hw_service_type_id_fk
+      FOREIGN KEY (service_type_id)
+      REFERENCES service_types (id)
+  , CONSTRAINT hw_status_values_chk check (status in ('Active', 'Inactive'))
 ); 
 
+-- Internet hardware
+INSERT INTO hardware VALUES(5001, 1, 100, 'Internet Modem 1', 'SN123', 'Active');
+INSERT INTO hardware VALUES(5002, null, 100, 'Internet Modem 2', 'SN124', 'Inactive');
 
-INSERT INTO hardware VALUES(5001, 1, 'Internet Modem 1', 'SN123', 'Active');
-INSERT INTO hardware VALUES(5002, null, 'Internet Modem 2', 'SN124');
+-- TV hardware
+INSERT INTO hardware VALUES(5003, null, 101, 'TV Modem 1', 'SN00178', 'Inactive');
+INSERT INTO hardware VALUES(5004, 2, 101, 'TV Modem 2', 'SN00179', 'Active');
+
+-- Phone hardware
+INSERT INTO hardware VALUES(5005, 1, 102, 'Phone Device 1', 'PH0001', 'Inactive');
+INSERT INTO hardware VALUES(5006, null, 102, 'Phone Device 2', 'PH002', 'Inactive');
+
+
+DROP TABLE support_categories;
+
+CREATE TABLE support_categories (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR(200) NOT NULL
+  , CONSTRAINT support_categories_pk PRIMARY KEY (id)
+  , CONSTRAINT support_categories_name_uk UNIQUE (name)
+); 
+
+INSERT INTO support_categories VALUES(1, 'Internet');
+INSERT INTO support_categories VALUES(2, 'TV');
+INSERT INTO support_categories VALUES(3, 'Phone');
+INSERT INTO support_categories VALUES(4, 'Billing');
+INSERT INTO support_categories VALUES(5, 'General');
+
+DROP TABLE support_attributes;
+
+CREATE TABLE support_attributes (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR(200) NOT NULL
+  , CONSTRAINT support_attributes_pk PRIMARY KEY (id)
+  , CONSTRAINT support_attributes_uk UNIQUE (name)
+); 
+
+INSERT INTO support_attributes VALUES(100, 'Phone Number');
+INSERT INTO support_attributes VALUES(101, 'Email');
+INSERT INTO support_attributes VALUES(102, 'Facebook');
+INSERT INTO support_attributes VALUES(103, 'VK');
+
+
+DROP TABLE support_info;
+
+CREATE TABLE support_info (
+  attr_id NUMBER(10) NOT NULL,
+  category_id NUMBER(10) NOT NULL,
+  value VARCHAR2(200)
+  , CONSTRAINT support_info_attr_id_fk
+      FOREIGN KEY (attr_id)
+      REFERENCES support_attributes (id)
+  , CONSTRAINT support_info_cat_id_fk
+      FOREIGN KEY (category_id)
+      REFERENCES support_categories (id)
+);
+
+
+INSERT INTO support_info VALUES(100, 1, '(403) 123-0001');
+INSERT INTO support_info VALUES(101, 1, 'internet_support@gmail.com');
+
+INSERT INTO support_info VALUES(100, 2, '(403) 123-0002');
+INSERT INTO support_info VALUES(101, 2, 'tv_support@gmail.com');
+
+INSERT INTO support_info VALUES(100, 3, '(403) 123-0003');
+INSERT INTO support_info VALUES(101, 3, 'phone_support@gmail.com');
+
+INSERT INTO support_info VALUES(100, 4, '(403) 123-0004');
+INSERT INTO support_info VALUES(101, 4, 'billing_support@gmail.com');
+
+INSERT INTO support_info VALUES(102, 5, 'tks-facebook');
+INSERT INTO support_info VALUES(103, 5, 'vk-facebook');
+
+
+
+
+DROP TABLE internet_service_options;
+
+CREATE TABLE internet_service_options (
+  service_id NUMBER(10) NOT NULL,
+  download_speed VARCHAR(20) NOT NULL,
+  upload_speed VARCHAR(20) NOT NULL,
+  data_limit VARCHAR(20) NOT NULL
+  , CONSTRAINT int_serv_opt_fk
+      FOREIGN KEY (service_id)
+      REFERENCES services (id)
+); 
+
+INSERT INTO internet_service_options VALUES(10, '15 Mbps', '5 Mbps', '100 GB');
+INSERT INTO internet_service_options VALUES(20, '75 Mbps', '15 Mbps', '500 GB');
+
+
+
+DROP TABLE tv_service_options;
+
+CREATE TABLE tv_service_options (
+  service_id NUMBER(10) NOT NULL,
+  channels_count NUMBER(5) NOT NULL,
+  uhd_support VARCHAR(10) NOT NULL
+  , CONSTRAINT tv_serv_opt_fk
+      FOREIGN KEY (service_id)
+      REFERENCES services (id)
+  , CONSTRAINT tv_serv_opt_uhd_values CHECK (uhd_support IN ('On', 'Off'))
+);
+
+INSERT INTO tv_service_options VALUES(30, 25, 'Off');
+INSERT INTO tv_service_options VALUES(40, 50, 'On');
+
+
+DROP TABLE phone_service_options;
+
+CREATE TABLE phone_service_options (
+  service_id NUMBER(10) NOT NULL,
+  talk_limit NUMBER(10) NOT NULL,
+  data_limit NUMBER(10) NOT NULL,
+  voice_mail VARCHAR2(5) DEFAULT 'Off'
+  , CONSTRAINT ph_serv_opt_fk
+      FOREIGN KEY (service_id)
+      REFERENCES services (id)
+  , CONSTRAINT ph_serv_opt_vm_values CHECK (voice_mail IN ('On', 'Off'))
+);
+
+INSERT INTO phone_service_options VALUES(50, 100, 1, 'Off');
+INSERT INTO phone_service_options VALUES(60, 500, 5, 'On');

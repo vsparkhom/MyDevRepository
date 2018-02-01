@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +24,11 @@
                         <strong>Phone</strong>
                     </div>
                     <div class="panel-body">
-                        <p>Plan: <strong>Personal Phone</strong></p>
-                        <p>Talk monthly limit: <strong>1000 min</strong></p>
-                        <p>Data monthly limit: <strong>1000 GB</strong></p>
-                        <p>Voice mail: <strong>On</strong></p>
+                        <p>Service name: <strong>${service.name}</strong></p>
+                        <p>Price: <strong>$${service.price}</strong></p>
+                        <p>Talk monthly limit (mins): <strong>${service.talkLimit}</strong></p>
+                        <p>Data monthly limit (GB): <strong>${service.dataLimit}</strong></p>
+                        <p>Voice Mail: <strong>${service.voiceMail}</strong></p>
                     </div>
                     <!--div class="panel-footer">
                         Panel Footer
@@ -39,7 +41,11 @@
                         <strong>Assigned hardware</strong>
                     </div>
                     <div class="panel-body">
-                        <p>Phone HW Device: <strong>Phone Device #456</strong></p>
+                        <%--<p>Phone HW Device: <strong>Phone Device #456</strong></p>--%>
+                        <c:forEach items="${serviceHardware}" var="pieceOfHw" >
+                            <p>Phone device: <strong>${pieceOfHw.name}</strong></p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp; ${pieceOfHw.serialNumber} - ${pieceOfHw.status}</p>
+                        </c:forEach>
                     </div>
                     <br/>
                     <br/>

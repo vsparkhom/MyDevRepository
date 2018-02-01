@@ -1,5 +1,8 @@
 package com.perscab.servlets;
 
+import com.perscab.controller.ServiceHelper;
+import com.perscab.db.AttributeConsts;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +17,10 @@ public class PhoneServlet extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("--- PhoneServlet.GET---");
+
+        ServiceHelper.initPhoneService(request);
+
+        ServiceHelper.initHardware(request, AttributeConsts.PHONE_SERVICE_TYPE_ID);
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/phone.jsp");
         dispatcher.forward(request, response);

@@ -2,6 +2,7 @@ package com.perscab.servlets;
 
 import com.perscab.controller.BillingHelper;
 import com.perscab.controller.ServiceHelper;
+import com.perscab.controller.SupportInfoHelper;
 import com.perscab.model.Account;
 
 import java.io.IOException;
@@ -15,8 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 
 //@WebServlet(name = "/main")
 public class MainServlet extends HttpServlet {
-
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,13 +33,11 @@ public class MainServlet extends HttpServlet {
 
         ServiceHelper.initServices(request);
 
+        SupportInfoHelper.initSupportInfo(request, false);
+
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/main.jsp");
         dispatcher.forward(request, response);
     }
-
-
-
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

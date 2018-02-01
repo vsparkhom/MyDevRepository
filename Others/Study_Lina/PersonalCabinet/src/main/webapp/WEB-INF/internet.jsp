@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +21,22 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong>Internet</strong>
+                        <table width="100%">
+                            <tr>
+                                <td><strong>Internet</strong></td>
+                                <td align="right">
+                                    <%--<button type="button" class="btn btn-danger">Disconnect</button>--%>
+                                    <button type="button" class="btn btn-success">Install</button>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="panel-body">
-                        <p>Plan: <strong>High Speed 75</strong></p>
-                        <p>Download speed: <strong>75 Mb/s</strong></p>
-                        <p>Upload speed: <strong>15 Mb/s</strong></p>
-                        <p>Monthly data limit <strong>500 GB</strong></p>
+                        <p>Service name: <strong>${service.name}</strong></p>
+                        <p>Price: <strong>$${service.price}</strong></p>
+                        <p>Download speed: <strong>${service.downloadSpeed}</strong></p>
+                        <p>Upload speed: <strong>${service.uploadSpeed}</strong></p>
+                        <p>Monthly data limit <strong>${service.dataLimit}</strong></p>
                     </div>
                     <!--div class="panel-footer">
                         Panel Footer
@@ -39,7 +49,10 @@
                         <strong>Assigned hardware</strong>
                     </div>
                     <div class="panel-body">
-                        <p>Internet modem: <strong>Cisco HW 123</strong></p>
+                        <c:forEach items="${serviceHardware}" var="pieceOfHw" >
+                            <p>Internet modem: <strong>${pieceOfHw.name}</strong></p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp; ${pieceOfHw.serialNumber} - ${pieceOfHw.status}</p>
+                        </c:forEach>
                     </div>
                     <br/>
                     <br/>

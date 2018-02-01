@@ -1,5 +1,7 @@
 package com.perscab.servlets;
 
+import com.perscab.controller.SupportInfoHelper;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +12,11 @@ import java.io.IOException;
 public class HelpServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("--- HelpServlet.GET---");
+
+        SupportInfoHelper.initSupportInfo(request, true);
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/help.jsp");
         dispatcher.forward(request, response);

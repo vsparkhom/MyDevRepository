@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +24,10 @@
                         <strong>TV</strong>
                     </div>
                     <div class="panel-body">
-                        <p>Plan: <strong>Medium TV</strong></p>
-                        <p>Channels count: <strong>25</strong></p>
-                        <p>UHD support: <strong>On</strong></p>
+                        <p>Service name: <strong>${service.name}</strong></p>
+                        <p>Price: <strong>$${service.price}</strong></p>
+                        <p>Channels count: <strong>${service.channelsCount}</strong></p>
+                        <p>UHD support: <strong>${service.uhdSupport}</strong></p>
                     </div>
                     <!--div class="panel-footer">
                         Panel Footer
@@ -38,7 +40,10 @@
                         <strong>Assigned hardware</strong>
                     </div>
                     <div class="panel-body">
-                        <p>TV HW Device: <strong>TV Device #123</strong></p>
+                        <c:forEach items="${serviceHardware}" var="pieceOfHw" >
+                            <p>TV modem: <strong>${pieceOfHw.name}</strong></p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp; ${pieceOfHw.serialNumber} - ${pieceOfHw.status}</p>
+                        </c:forEach>
                     </div>
                     <br/>
                     <br/>

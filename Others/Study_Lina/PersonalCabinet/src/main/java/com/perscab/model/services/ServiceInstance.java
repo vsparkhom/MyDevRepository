@@ -1,19 +1,21 @@
-package com.perscab.model;
+package com.perscab.model.services;
 
 public class ServiceInstance {
 
     private String name;
     private String type;
     private String status;
+    private double price;
 
     public ServiceInstance(String type) {
-        this("", type, "Inactive");
+        this("", type, "Inactive", 0);
     }
 
-    public ServiceInstance(String name, String type, String status) {
+    public ServiceInstance(String name, String type, String status, double price) {
         this.name = name;
         this.type = type;
         this.status = status;
+        this.price = price;
     }
 
     public String getName() {
@@ -40,12 +42,21 @@ public class ServiceInstance {
         this.status = status;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "ServiceInstance{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", status='" + status + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 }
