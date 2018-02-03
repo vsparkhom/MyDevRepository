@@ -3,11 +3,13 @@ package com.perscab.db;
 import com.perscab.model.Account;
 import com.perscab.model.AccountStatus;
 import com.perscab.model.Hardware;
-import com.perscab.model.services.InternetServiceInstance;
 import com.perscab.model.Payment;
-import com.perscab.model.services.PhoneServiceInstance;
+import com.perscab.model.services.InternetServicePlan;
+import com.perscab.model.services.PhoneServicePlan;
 import com.perscab.model.services.ServiceInstance;
-import com.perscab.model.services.TvServiceInstance;
+import com.perscab.model.services.ServicePlan;
+import com.perscab.model.services.ServiceType;
+import com.perscab.model.services.TvServicePlan;
 import com.perscab.model.support.SupportServiceInfo;
 import com.perscab.model.support.SupportSocialInfo;
 
@@ -19,8 +21,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
 
 public class DBUtils {
 
@@ -37,82 +43,82 @@ public class DBUtils {
         return getAccount(pstm);
     }
 
-    public static ServiceInstance getServiceInstanceByType(Connection conn, String login, BigInteger typeId)
-            throws SQLException  {
-        PreparedStatement pstm = conn.prepareStatement(GET_SERVICE_INSTANCE_BY_TYPE);
-        pstm.setString(1, login);
-        pstm.setLong(2, typeId.longValue());
-
-        ResultSet rs = pstm.executeQuery();
-
-        if (rs.next()) {
-            String serviceName = rs.getString("service_name");
-            String serviceType = rs.getString("type_name");
-            ServiceInstance serviceInstance = new ServiceInstance(serviceName, serviceType, "Active", 0);
-            return serviceInstance;
-        }
-
-        return null;
-    }
-
-    public static InternetServiceInstance getInternetServiceInstance(Connection conn, int accountId) throws SQLException {
+    public static ServiceInstance getInternetServiceInstance(Connection conn, long accountId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_INTERNET_SERVICE_INSTANCE_FOR_ACCOUNT);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         if (rs.next()) {
+            long id = rs.getLong("service_id");
             String name = rs.getString("service_name");
-            String type = rs.getString("type_name");
+            long typeId = rs.getLong("type_id");
+            String typeName = rs.getString("type_name");
             double price = rs.getDouble("price");
             String downloadSpeed = rs.getString("download_speed");
             String uploadSpeed = rs.getString("upload_speed");
             String dataLimit = rs.getString("data_limit");
-            InternetServiceInstance serviceInstance = new InternetServiceInstance(name, type, "Active", price);
-            serviceInstance.setDownloadSpeed(downloadSpeed);
-            serviceInstance.setUploadSpeed(uploadSpeed);
-            serviceInstance.setDataLimit(dataLimit);
+
+            InternetServicePlan servicePlan = new InternetServicePlan(id, name, new ServiceType(typeId, typeName), price);
+            servicePlan.setDownloadSpeed(downloadSpeed);
+            servicePlan.setUploadSpeed(uploadSpeed);
+            servicePlan.setDataLimit(dataLimit);
+
+            ServiceInstance serviceInstance = new ServiceInstance(servicePlan, "Active");
+
             return serviceInstance;
         }
 
         return null;
     }
 
-    public static TvServiceInstance getTvServiceInstance(Connection conn, int accountId) throws SQLException {
+    public static ServiceInstance getTvServiceInstance(Connection conn, long accountId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_TV_SERVICE_INSTANCE_FOR_ACCOUNT);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         if (rs.next()) {
+            long id = rs.getLong("service_id");
             String name = rs.getString("service_name");
-            String type = rs.getString("type_name");
+            long typeId = rs.getLong("type_id");
+            String typeName = rs.getString("type_name");
             double price = rs.getDouble("price");
             int channelsCount = rs.getInt("channels_count");
             String uhdSupport = rs.getString("uhd_support");
-            TvServiceInstance serviceInstance = new TvServiceInstance(name, type, "Active", price);
-            serviceInstance.setChannelsCount(channelsCount);
-            serviceInstance.setUhdSupport(uhdSupport);
+
+            TvServicePlan tvServicePlan = new TvServicePlan(id, name, new ServiceType(typeId, typeName), price);
+            tvServicePlan.setChannelsCount(channelsCount);
+            tvServicePlan.setUhdSupport(uhdSupport);
+
+            ServiceInstance serviceInstance = new ServiceInstance(tvServicePlan, "Active");
+
             return serviceInstance;
         }
 
         return null;
     }
 
-    public static PhoneServiceInstance getPhoneServiceInstance(Connection conn, int accountId) throws SQLException {
+    public static ServiceInstance getPhoneServiceInstance(Connection conn, long accountId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_PHONE_SERVICE_INSTANCE_FOR_ACCOUNT);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         if (rs.next()) {
+            long id = rs.getLong("service_id");
             String name = rs.getString("service_name");
-            String type = rs.getString("type_name");
+            long typeId = rs.getLong("type_id");
+            String typeName = rs.getString("type_name");
             double price = rs.getDouble("price");
             int talkLimit = rs.getInt("talk_limit");
             int dataLimit = rs.getInt("data_limit");
             String voiceMail = rs.getString("voice_mail");
-            PhoneServiceInstance serviceInstance = new PhoneServiceInstance(name, type, "Active", price);
-            serviceInstance.setTalkLimit(talkLimit);
-            serviceInstance.setDataLimit(dataLimit);
-            serviceInstance.setVoiceMail("On".equals(voiceMail));
+
+            PhoneServicePlan phoneServicePlan = new PhoneServicePlan(id, name, new ServiceType(typeId, typeName), price);
+            phoneServicePlan.setTalkLimit(talkLimit);
+            phoneServicePlan.setDataLimit(dataLimit);
+            phoneServicePlan.setVoiceMail("On".equals(voiceMail));
+
+            ServiceInstance serviceInstance = new ServiceInstance(phoneServicePlan, "Active");
+
             return serviceInstance;
         }
 
@@ -121,9 +127,9 @@ public class DBUtils {
 
 
 
-    public static double calcCurrentBallance(Connection conn, int accountId) throws SQLException {
+    public static double calcCurrentBallance(Connection conn, long accountId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_CURRENT_BALLANCE);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         double currentBallance = 0;
@@ -134,9 +140,9 @@ public class DBUtils {
         return currentBallance;
     }
 
-    public static Date getPaymentDueDate(Connection conn, int accountId) throws SQLException {
+    public static Date getPaymentDueDate(Connection conn, long accountId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_PAYMENT_DUE_DATE);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         Date dueDate = null;
@@ -147,10 +153,10 @@ public class DBUtils {
         return dueDate;
     }
 
-    public static List<Payment> getPayments(Connection conn, int accountId) throws SQLException {
+    public static Collection<Payment> getPayments(Connection conn, long accountId) throws SQLException {
 
         PreparedStatement pstm = conn.prepareStatement(GET_ALL_PAYMENTS_FOR_ACCOUNT);
-        pstm.setInt(1, accountId);
+        pstm.setLong(1, accountId);
         ResultSet rs = pstm.executeQuery();
 
         ArrayList<Payment> paymentsList = new ArrayList<>();
@@ -167,7 +173,7 @@ public class DBUtils {
         return paymentsList;
     }
 
-    public static List<SupportServiceInfo> getSupportServiceInfo(Connection conn) throws SQLException {
+    public static Collection<SupportServiceInfo> getSupportServiceInfo(Connection conn) throws SQLException {
 
         PreparedStatement pstm = conn.prepareStatement(GET_SUPPORT_SERVICE_INFO);
         ResultSet rs = pstm.executeQuery();
@@ -185,7 +191,7 @@ public class DBUtils {
         return records;
     }
 
-    public static List<SupportSocialInfo> getSupportSocialInfo(Connection conn) throws SQLException {
+    public static Collection<SupportSocialInfo> getSupportSocialInfo(Connection conn) throws SQLException {
 
         PreparedStatement pstm = conn.prepareStatement(GET_SUPPORT_SOCIAL_INFO);
         ResultSet rs = pstm.executeQuery();
@@ -228,11 +234,11 @@ public class DBUtils {
         return account;
     }
 
-    public static List<Hardware> getHardwareByServiceType(Connection conn, int accountId, BigInteger serviceTypeId)
+    public static Collection<Hardware> getHardwareByServiceType(Connection conn, long accountId, long serviceTypeId)
             throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(GET_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID);
-        pstm.setInt(1, accountId);
-        pstm.setLong(2, serviceTypeId.longValue());
+        pstm.setLong(1, accountId);
+        pstm.setLong(2, serviceTypeId);
         ResultSet rs = pstm.executeQuery();
 
         ArrayList<Hardware> records = new ArrayList<>();
@@ -246,4 +252,90 @@ public class DBUtils {
 
         return records;
     }
+
+    public static void deactivateHardware(Connection conn, long accountId, long serviceTypeId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID);
+        System.out.println("DBUtils.deactivateHardware. START. accountId: " + accountId + ", serviceTypeId: " + serviceTypeId);
+        pstm.setLong(1, accountId);
+        pstm.setLong(2, serviceTypeId);
+        int result = pstm.executeUpdate();
+        System.out.println("DBUtils.deactivateHardware. result: " + result);
+    }
+
+    public static void deactivateService(Connection conn, long accountId, long serviceTypeId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID);
+        System.out.println("DBUtils.deactivateService. START. accountId: " + accountId + ", serviceTypeId: " + serviceTypeId);
+        pstm.setLong(1, accountId);
+        pstm.setLong(2, serviceTypeId);
+        int result = pstm.executeUpdate();
+        System.out.println("DBUtils.deactivateService. result: " + result);
+    }
+
+    public static Collection<ServicePlan> getServicePlansByTypeId(Connection conn, long serviceTypeId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(GET_SERVICE_PLANS_BY_SERVICE_TYPE_ID);
+        pstm.setLong(1, serviceTypeId);
+        ResultSet rs = pstm.executeQuery();
+
+        TreeSet<ServicePlan> services = new TreeSet<>(new Comparator<ServicePlan>() {
+            @Override
+            public int compare(ServicePlan o1, ServicePlan o2) {
+                return (int) (o1.getPrice() - o2.getPrice());
+            }
+        });
+        while (rs.next()) {
+            long id = rs.getLong("id");
+            String name = rs.getString("name");
+            long typeId = rs.getLong("type_id");
+            String typeName = rs.getString("type_name");
+            double price = rs.getDouble("price");
+
+            ServicePlan servicePlan = new ServicePlan(id, name, new ServiceType(typeId, typeName), price);
+            System.out.println("DBUtils.getServicePlansByTypeId: [servicePlan]: " + servicePlan);
+            services.add(servicePlan);
+        }
+
+        return services;
+    }
+
+    public static Map<String,Object> getInternetOptionsForService(Connection conn, long serviceId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(GET_INTERNET_OPTIONS_BY_SERVICE_ID);
+        pstm.setLong(1, serviceId);
+        ResultSet rs = pstm.executeQuery();
+
+        Map<String,Object> options = new HashMap<>();
+        if (rs.next()) {
+            options.put("downloadSpeed", rs.getString("download_speed"));
+            options.put("uploadSpeed", rs.getString("upload_speed"));
+            options.put("dataLimit", rs.getString("data_limit"));
+        }
+        return options;
+    }
+
+    public static Map<String,Object> getTvOptionsForService(Connection conn, long serviceId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(GET_TV_OPTIONS_BY_SERVICE_ID);
+        pstm.setLong(1, serviceId);
+        ResultSet rs = pstm.executeQuery();
+
+        Map<String,Object> options = new HashMap<>();
+        if (rs.next()) {
+            options.put("channelsCount", rs.getInt("channels_count"));
+            options.put("uhdSupport", rs.getString("uhd_support"));
+        }
+        return options;
+    }
+
+    public static Map<String,Object> getPhoneOptionsForService(Connection conn, long serviceId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(GET_PHONE_OPTIONS_BY_SERVICE_ID);
+        pstm.setLong(1, serviceId);
+        ResultSet rs = pstm.executeQuery();
+
+        Map<String,Object> options = new HashMap<>();
+        if (rs.next()) {
+            options.put("talkLimit", rs.getInt("talk_limit"));
+            options.put("dataLimit", rs.getInt("data_limit"));
+            options.put("voiceMail", "On".equals(rs.getString("voice_mail")));
+        }
+        return options;
+    }
+
 }

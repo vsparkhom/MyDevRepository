@@ -93,4 +93,24 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ManageServiceServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.ManageServiceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ManageServiceServlet</servlet-name>
+        <url-pattern>/manage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PlansListServlet</servlet-name>
+        <servlet-class>com.perscab.servlets.PlansListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PlansListServlet</servlet-name>
+        <url-pattern>/services</url-pattern>
+    </servlet-mapping>
+
 </web-app>

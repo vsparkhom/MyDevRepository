@@ -36,6 +36,7 @@ COMMIT;
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test', 'test', 'Vasia', 'Pupkin', 'Active', 'test@gmail.com', 'New York');
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test2', 'test2', 'John', 'Smith', 'Active', 'test2@gmail.com', 'Chicago');
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('guest', 'guest', 'Bruce', 'Lee', 'Inactive', 'brlee@gmail.com', 'Japan');
+INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('phoneuser', '123', 'Kate', 'Radistka', 'Active', 'phuser@gmail.com', 'Canada');
 
 
 DROP TABLE plans;
@@ -56,6 +57,7 @@ INSERT INTO plans VALUES(3, 'TV Plan 1', 45);
 INSERT INTO plans VALUES(4, 'TV Plan 2', 90);
 INSERT INTO plans VALUES(5, 'Phone Plan 1', 35);
 INSERT INTO plans VALUES(6, 'Phone Plan 2', 70);
+INSERT INTO plans VALUES(7, 'Phone Plan 3', 80);
 
 
 
@@ -96,6 +98,7 @@ INSERT INTO services VALUES(30, 'TV Service 1', 101, 3);
 INSERT INTO services VALUES(40, 'TV Service 2', 101, 4);
 INSERT INTO services VALUES(50, 'Phone Service 1', 102, 5);
 INSERT INTO services VALUES(60, 'Phone Service 2', 102, 6);
+INSERT INTO services VALUES(70, 'Phone Service 3', 102, 7);
 
 
 DROP TABLE client_services;
@@ -147,6 +150,7 @@ CREATE TABLE payments (
   pay_before DATE,
   summa NUMBER(10) DEFAULT 0,
   status VARCHAR2(50) DEFAULT 'Not Paid'
+  comment VARCHAR2(200)
   , CONSTRAINT payments_pk PRIMARY KEY (id)
   , CONSTRAINT payments_account_id_fk
       FOREIGN KEY (account_id)
@@ -156,21 +160,21 @@ CREATE TABLE payments (
 ); 
 
 INSERT INTO payments VALUES(1001, 1, TO_DATE('2017/07/01', 'yyyy/mm/dd'), TO_DATE('2017/07/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/07/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/07/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1002, 1, TO_DATE('2017/08/01', 'yyyy/mm/dd'), TO_DATE('2017/08/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/08/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/08/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1003, 1, TO_DATE('2017/09/01', 'yyyy/mm/dd'), TO_DATE('2017/09/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/09/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/09/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1004, 1, TO_DATE('2017/10/01', 'yyyy/mm/dd'), TO_DATE('2017/10/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/10/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/10/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1005, 1, TO_DATE('2017/11/01', 'yyyy/mm/dd'), TO_DATE('2017/11/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/11/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/11/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1006, 1, TO_DATE('2017/12/01', 'yyyy/mm/dd'), TO_DATE('2017/12/30', 'yyyy/mm/dd'), 
-    TO_DATE('2017/12/30', 'yyyy/mm/dd'), 100, 'Paid');
+    TO_DATE('2017/12/30', 'yyyy/mm/dd'), 100, 'Paid', 'Montly fee');
 INSERT INTO payments VALUES(1007, 1, TO_DATE('2018/01/01', 'yyyy/mm/dd'), TO_DATE('2018/01/30', 'yyyy/mm/dd'), 
-    TO_DATE('2018/01/30', 'yyyy/mm/dd'), 100, 'Not Paid');
+    TO_DATE('2018/01/30', 'yyyy/mm/dd'), 100, 'Not Paid', 'Montly fee');
 INSERT INTO payments VALUES(1008, 2, TO_DATE('2018/01/01', 'yyyy/mm/dd'), TO_DATE('2018/01/30', 'yyyy/mm/dd'), 
-    TO_DATE('2018/01/30', 'yyyy/mm/dd'), 100, 'Not Paid');
+    TO_DATE('2018/01/30', 'yyyy/mm/dd'), 100, 'Not Paid', 'Montly fee');
     
 
 
@@ -196,14 +200,16 @@ CREATE TABLE hardware (
 -- Internet hardware
 INSERT INTO hardware VALUES(5001, 1, 100, 'Internet Modem 1', 'SN123', 'Active');
 INSERT INTO hardware VALUES(5002, null, 100, 'Internet Modem 2', 'SN124', 'Inactive');
+INSERT INTO hardware VALUES(5003, 2, 100, 'Internet Modem 3', 'SN125', 'Active');
 
 -- TV hardware
-INSERT INTO hardware VALUES(5003, null, 101, 'TV Modem 1', 'SN00178', 'Inactive');
-INSERT INTO hardware VALUES(5004, 2, 101, 'TV Modem 2', 'SN00179', 'Active');
+INSERT INTO hardware VALUES(5004, null, 101, 'TV Modem 1', 'SN00178', 'Inactive');
+INSERT INTO hardware VALUES(5005, 2, 101, 'TV Modem 2', 'SN00179', 'Active');
 
 -- Phone hardware
-INSERT INTO hardware VALUES(5005, 1, 102, 'Phone Device 1', 'PH0001', 'Inactive');
-INSERT INTO hardware VALUES(5006, null, 102, 'Phone Device 2', 'PH002', 'Inactive');
+INSERT INTO hardware VALUES(5006, 1, 102, 'Phone Device 1', 'PH0001', 'Inactive');
+INSERT INTO hardware VALUES(5007, null, 102, 'Phone Device 2', 'PH002', 'Inactive');
+INSERT INTO hardware VALUES(5008, 101, 102, 'Phone Device 3', 'PH003', 'Active');
 
 
 DROP TABLE support_categories;
@@ -317,3 +323,4 @@ CREATE TABLE phone_service_options (
 
 INSERT INTO phone_service_options VALUES(50, 100, 1, 'Off');
 INSERT INTO phone_service_options VALUES(60, 500, 5, 'On');
+INSERT INTO phone_service_options VALUES(70, 1000, 10, 'On');

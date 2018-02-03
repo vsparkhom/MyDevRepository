@@ -2,7 +2,7 @@ package com.perscab.model;
 
 public class Account {
 
-    private int id;
+    private long id;
     private String login;
     private String password;
     private String firstName;
@@ -25,7 +25,7 @@ public class Account {
 //        this.status = status;
 //    }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

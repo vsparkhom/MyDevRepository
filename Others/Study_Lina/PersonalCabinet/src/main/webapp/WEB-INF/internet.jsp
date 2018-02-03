@@ -25,18 +25,18 @@
                             <tr>
                                 <td><strong>Internet</strong></td>
                                 <td align="right">
-                                    <%--<button type="button" class="btn btn-danger">Disconnect</button>--%>
-                                    <button type="button" class="btn btn-success">Install</button>
+                                    <button type="button" class="btn btn-danger">Disconnect</button>
+                                    <%--<button type="button" class="btn btn-success">Install</button>--%>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="panel-body">
-                        <p>Service name: <strong>${service.name}</strong></p>
-                        <p>Price: <strong>$${service.price}</strong></p>
-                        <p>Download speed: <strong>${service.downloadSpeed}</strong></p>
-                        <p>Upload speed: <strong>${service.uploadSpeed}</strong></p>
-                        <p>Monthly data limit <strong>${service.dataLimit}</strong></p>
+                        <p>Service name: <strong>${internetService.plan.name}</strong></p>
+                        <p>Price: <strong>$${internetService.plan.price}</strong></p>
+                        <p>Download speed: <strong>${internetService.plan.downloadSpeed}</strong></p>
+                        <p>Upload speed: <strong>${internetService.plan.uploadSpeed}</strong></p>
+                        <p>Monthly data limit <strong>${internetService.plan.dataLimit}</strong></p>
                     </div>
                     <!--div class="panel-footer">
                         Panel Footer

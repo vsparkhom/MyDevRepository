@@ -1,11 +1,9 @@
 package com.perscab.db;
 
-import java.math.BigInteger;
-
 public class AttributeConsts {
 
-    public static final BigInteger INTERNET_SERVICE_TYPE_ID = new BigInteger("100");
-    public static final BigInteger TV_SERVICE_TYPE_ID = new BigInteger("101");
-    public static final BigInteger PHONE_SERVICE_TYPE_ID = new BigInteger("102");
+    public static final long INTERNET_SERVICE_TYPE_ID = 100;
+    public static final long TV_SERVICE_TYPE_ID = 101;
+    public static final long PHONE_SERVICE_TYPE_ID = 102;
 
 }

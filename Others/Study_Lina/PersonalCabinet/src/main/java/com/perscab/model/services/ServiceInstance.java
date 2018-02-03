@@ -2,36 +2,24 @@ package com.perscab.model.services;
 
 public class ServiceInstance {
 
-    private String name;
-    private String type;
+    private ServicePlan plan;
     private String status;
-    private double price;
 
-    public ServiceInstance(String type) {
-        this("", type, "Inactive", 0);
+    public ServiceInstance(ServiceType type) {
+        this(new ServicePlan(0, "", type, 0), "Inactive");
     }
 
-    public ServiceInstance(String name, String type, String status, double price) {
-        this.name = name;
-        this.type = type;
+    public ServiceInstance(ServicePlan plan, String status) {
+        this.plan = plan;
         this.status = status;
-        this.price = price;
     }
 
-    public String getName() {
-        return name;
+    public ServicePlan getPlan() {
+        return plan;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setPlan(ServicePlan plan) {
+        this.plan = plan;
     }
 
     public String getStatus() {
@@ -42,21 +30,11 @@ public class ServiceInstance {
         this.status = status;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
         return "ServiceInstance{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
+                "plan=[" + super.toString() + ']' +
                 ", status='" + status + '\'' +
-                ", price='" + price + '\'' +
                 '}';
     }
 }

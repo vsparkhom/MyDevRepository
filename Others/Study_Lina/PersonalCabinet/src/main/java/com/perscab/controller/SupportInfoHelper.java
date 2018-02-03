@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.List;
 
 public class SupportInfoHelper {
@@ -26,7 +27,7 @@ public class SupportInfoHelper {
         try {
             conn = ConnectionUtils.getConnection();
 
-            List<SupportServiceInfo>  supportServiceInfo = DBUtils.getSupportServiceInfo(conn);
+            Collection<SupportServiceInfo>  supportServiceInfo = DBUtils.getSupportServiceInfo(conn);
             for (SupportServiceInfo infoRecord : supportServiceInfo) {
                 System.out.println("SupportInfoHelper.initSupportInfo: [supportServiceInfo]:" + infoRecord);
                 switch (infoRecord.getCategoryId().intValue()) {
@@ -42,7 +43,7 @@ public class SupportInfoHelper {
             }
 
             if (isPaymentHistoryRequired) {
-                List<SupportSocialInfo> supportSocialInfo = DBUtils.getSupportSocialInfo(conn);
+                Collection<SupportSocialInfo> supportSocialInfo = DBUtils.getSupportSocialInfo(conn);
                 for (SupportSocialInfo infoRecord : supportSocialInfo) {
                     System.out.println("SupportInfoHelper.initSupportInfo: [supportSocialInfo]:" + infoRecord);
                     switch (infoRecord.getAttrId().intValue()) {

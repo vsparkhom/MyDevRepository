@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,10 @@ public class BillingHelper {
             Date dueDate = DBUtils.getPaymentDueDate(conn, account.getId());
             System.out.println("MainServlet.getBillingInfo: [dueDate]:" + dueDate);
             SimpleDateFormat formatter = new SimpleDateFormat("MMMMM dd, yyyy");
-            request.setAttribute("dueDate", formatter.format(dueDate));
+
+            if (dueDate != null) {
+                request.setAttribute("dueDate", formatter.format(dueDate));
+            }
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -44,7 +48,7 @@ public class BillingHelper {
         try {
             conn = ConnectionUtils.getConnection();
 
-            List<Payment> payments = DBUtils.getPayments(conn, account.getId());
+            Collection<Payment> payments = DBUtils.getPayments(conn, account.getId());
 
             System.out.println("payments: ");
             for (Payment p : payments) {

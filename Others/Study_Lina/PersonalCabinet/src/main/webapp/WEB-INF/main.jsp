@@ -45,8 +45,8 @@
                                         <img src="img/internet.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${internetService.type}</strong></div>
-                                        <div>${internetService.name}</div>
+                                        <div class="big"><strong>${internetService.plan.type.name}</strong></div>
+                                        <div>${internetService.plan.name}</div>
                                         <div class="text-success">${internetService.status}</div>
                                     </div>
                                 </div>
@@ -70,8 +70,8 @@
                                         <img src="img/internet.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${internetService.type}</strong></div>
-                                        <div>${internetService.name}</div>
+                                        <div class="big"><strong>${internetService.plan.type.name}</strong></div>
+                                        <div>${internetService.plan.name}</div>
                                         <div class="text-danger">${internetService.status}</div>
                                     </div>
                                 </div>
@@ -98,8 +98,8 @@
                                         <img src="img/tv.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${tvService.type}</strong></div>
-                                        <div>${tvService.name}</div>
+                                        <div class="big"><strong>${tvService.plan.type.name}</strong></div>
+                                        <div>${tvService.plan.name}</div>
                                         <div class="text-success">${tvService.status}</div>
                                     </div>
                                 </div>
@@ -122,8 +122,8 @@
                                         <img src="img/tv.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${tvService.type}</strong></div>
-                                        <div>${tvService.name}</div>
+                                        <div class="big"><strong>${tvService.plan.type.name}</strong></div>
+                                        <div>${tvService.plan.name}</div>
                                         <div class="text-danger">${tvService.status}</div>
                                     </div>
                                 </div>
@@ -150,8 +150,8 @@
                                         <img src="img/phone.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${phoneService.type}</strong></div>
-                                        <div>${phoneService.name}</div>
+                                        <div class="big"><strong>${phoneService.plan.type.name}</strong></div>
+                                        <div>${phoneService.plan.name}</div>
                                         <div class="text-success">${phoneService.status}</div>
                                     </div>
                                 </div>
@@ -174,8 +174,8 @@
                                         <img src="img/phone.png" height="70" width="70"/>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="big"><strong>${phoneService.type}</strong></div>
-                                        <div>${phoneService.name}</div>
+                                        <div class="big"><strong>${phoneService.plan.type.name}</strong></div>
+                                        <div>${phoneService.plan.name}</div>
                                         <div class="text-danger">${phoneService.status}</div>
                                     </div>
                                 </div>
@@ -200,7 +200,9 @@
                 <button type="button" class="btn btn-default btn-block">TV Plans</button>
             </div>
             <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn btn-default btn-block">Phone Plans</button>
+                <a href="${pageContext.request.contextPath}/services?typeid=102">
+                    <button type="button" class="btn btn-default btn-block">Phone Plans</button>
+                </a>
             </div>
         </div>
         <!-- /.row -->

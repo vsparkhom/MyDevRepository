@@ -22,7 +22,7 @@ public class DBQueries {
             "  and st.id = s.type_id";
 
     public static final String GET_INTERNET_SERVICE_INSTANCE_FOR_ACCOUNT =
-            "select s.name as service_name, st.name as type_name, p.price, iso.*\n" +
+            "select s.id as service_id, s.name as service_name, st.id as type_id, st.name as type_name, p.price, iso.*\n" +
             "from \n" +
             "client_services sc,\n" +
             "services s,\n" +
@@ -38,7 +38,7 @@ public class DBQueries {
             "and iso.service_id = sc.service_id";
 
     public static final String GET_TV_SERVICE_INSTANCE_FOR_ACCOUNT =
-            "select s.name as service_name, st.name as type_name, p.price, tvso.*\n" +
+            "select s.id as service_id, s.name as service_name, st.id as type_id, st.name as type_name, p.price, tvso.*\n" +
             "from \n" +
             "client_services sc,\n" +
             "services s,\n" +
@@ -55,7 +55,7 @@ public class DBQueries {
 
 
     public static final String GET_PHONE_SERVICE_INSTANCE_FOR_ACCOUNT =
-            "select s.name as service_name, st.name as type_name, p.price, phso.*\n" +
+            "select s.id as service_id, s.name as service_name, st.id as type_id, st.name as type_name, p.price, phso.*\n" +
             "from \n" +
             "client_services sc,\n" +
             "services s,\n" +
@@ -137,4 +137,52 @@ public class DBQueries {
             "account_id = ? /* Account ID */\n" +
             "and service_type_id = ? /* Service Type ID */";
 
+    public static String DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID =
+            "update hardware\n" +
+            "set status = 'Inactive'\n" +
+            "where \n" +
+            "account_id = ?\n" +
+            "and service_type_id = ?";
+
+    public static String DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID =
+            "delete\n" +
+            "from client_services\n" +
+            "where account_id = ? \n" +
+            "and service_id in (\n" +
+            "  select service_id\n" +
+            "  from services\n" +
+            "  where type_id = ?\n" +
+            ")";
+
+    public static String GET_SERVICE_PLANS_BY_SERVICE_TYPE_ID =
+            "select s.id, s.name, s.type_id, st.name as type_name, p.price\n" +
+            "from \n" +
+            "services s,\n" +
+            "service_types st,\n" +
+            "plans p\n" +
+            "where\n" +
+            "s.type_id = ?\n" +
+            "and s.type_id = st.id\n" +
+            "and p.id = s.plan_id";
+
+    public static String GET_INTERNET_OPTIONS_BY_SERVICE_ID =
+            "select * \n" +
+            "from \n" +
+            "internet_service_options\n" +
+            "where \n" +
+            "service_id = ?";
+
+    public static String GET_TV_OPTIONS_BY_SERVICE_ID =
+            "select * \n" +
+            "from \n" +
+            "tv_service_options\n" +
+            "where \n" +
+            "service_id = ?";
+
+    public static String GET_PHONE_OPTIONS_BY_SERVICE_ID =
+            "select * \n" +
+            "from \n" +
+            "phone_service_options\n" +
+            "where \n" +
+            "service_id = ?";
 }

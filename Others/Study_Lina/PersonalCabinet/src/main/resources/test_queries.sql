@@ -1,5 +1,5 @@
 select * from accounts;
-select * from plans;
+select * from services;
 select * from service_types;
 select * from services;
 select * from client_services;
