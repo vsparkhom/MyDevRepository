@@ -61,7 +61,7 @@ public class ServiceStrategyHolder {
 
         @Override
         public Collection<ServicePlan> getPlans(Connection conn) throws SQLException {
-            Collection<ServicePlan> servicePlans = DBUtils.getServicePlansByTypeId(conn, AttributeConsts.TV_SERVICE_TYPE_ID);
+            Collection<ServicePlan> servicePlans = DBUtils.getServicePlansByTypeId(conn, AttributeConsts.INTERNET_SERVICE_TYPE_ID);
             System.out.println("InternetServiceStrategy.getPlans: [servicePlans]:" + servicePlans.size());
             for (ServicePlan sp : servicePlans) {
                 System.out.println("InternetServiceStrategy.getPlans:    - [sp]:" + sp);

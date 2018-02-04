@@ -28,9 +28,8 @@
                                         <tr>
                                             <td><strong>TV</strong></td>
                                             <td align="right">
-                                                <a href="${pageContext.request.contextPath}/manage?action=remove&type=${tvService.type.id}">
+                                                <a href="${pageContext.request.contextPath}/manage?action=remove&type=${tvService.plan.type.id}">
                                                     <button type="button" class="btn btn-danger">Disconnect</button>
-                                                        <%--<button type="button" class="btn btn-success">Install</button>--%>
                                                 </a>
                                             </td>
                                         </tr>
@@ -79,7 +78,7 @@
                                         <tr>
                                             <td><strong>TV</strong></td>
                                             <td align="right">
-                                                <a href="${pageContext.request.contextPath}/manage?action=add&typeid=${tvService.plan.type.id}">
+                                                <a href="${pageContext.request.contextPath}/plans?typeid=${tvService.plan.type.id}">
                                                     <button type="button" class="btn btn-success">Install</button>
                                                 </a>
                                             </td>

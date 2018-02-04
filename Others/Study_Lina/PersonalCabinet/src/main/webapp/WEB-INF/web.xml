@@ -110,7 +110,7 @@
 
     <servlet-mapping>
         <servlet-name>PlansListServlet</servlet-name>
-        <url-pattern>/services</url-pattern>
+        <url-pattern>/plans</url-pattern>
     </servlet-mapping>
 
 </web-app>

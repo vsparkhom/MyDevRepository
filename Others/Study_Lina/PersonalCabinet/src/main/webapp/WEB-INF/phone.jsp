@@ -80,7 +80,7 @@
                                         <tr>
                                             <td><strong>Phone</strong></td>
                                             <td align="right">
-                                                <a href="${pageContext.request.contextPath}/manage?action=add&typeid=${phoneService.plan.type.id}">
+                                                <a href="${pageContext.request.contextPath}/plans?typeid=${phoneService.plan.type.id}">
                                                     <button type="button" class="btn btn-success">Install</button>
                                                 </a>
                                             </td>

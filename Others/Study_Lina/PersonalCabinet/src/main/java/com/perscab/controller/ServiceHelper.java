@@ -144,6 +144,7 @@ public class ServiceHelper {
         try {
             conn = ConnectionUtils.getConnection();
             Collection<ServicePlan> servicePlans = strategy.getPlans(conn);
+
             request.setAttribute("servicePlans", servicePlans);
             request.setAttribute("columnWidth", 12/servicePlans.size());
         } catch (SQLException | ClassNotFoundException e) {

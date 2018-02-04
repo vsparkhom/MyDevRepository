@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="cf" uri="/WEB-INF/tld/custom_functions.tld" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,23 +19,40 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <br/>
+
             <div class="row">
-                <c:forEach items="${servicePlans}" var="servicePlan" >
+                <c:forEach items="${servicePlans}" var="servicePlan">
                     <%--<p>${servicePlan.id}-${servicePlan.name}-${servicePlan.type.name}-${servicePlan.price}</p>--%>
                     <div class="col-lg-${columnWidth}">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                ${servicePlan.name}
+                                <div class="plan-head">${servicePlan.name}</div>
                             </div>
                             <div class="panel-body">
-                                <p>Price: ${servicePlan.price}</p>
-                                <p>Options:</p>
-                                <c:forEach var="options" items="${servicePlan.options}">
-                                    <c:out value="${options.key}"/>: <c:out value="${options.value}"/>  <br/>
-                                </c:forEach>
+                                <div class="plan-section">Options</div>
+                                <hr>
+                                <table width="70%" align="center">
+                                    <c:forEach var="options" items="${servicePlan.options}">
+                                        <tr>
+                                            <td align="left"><c:out
+                                                    value="${cf:getOptionDisplayName(servicePlan.type.id, options.key)}"/>:
+                                            </td>
+                                            <td><c:out value="${options.value}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                                <br/>
+
+                                <div class="plan-section">Price</div>
+                                <hr>
+                                <div class="plan-price">$${servicePlan.price}</div>
                             </div>
                             <div class="panel-footer">
-                                Panel Footer
+                                <div style="text-align: center;">
+                                    <a href="${pageContext.request.contextPath}/manage?action=add&typeid=${servicePlan.id}">
+                                        <button type="button" class="btn btn-success">Install</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
