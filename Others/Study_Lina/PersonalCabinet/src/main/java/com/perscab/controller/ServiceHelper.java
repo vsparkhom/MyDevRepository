@@ -88,33 +88,13 @@ public class ServiceHelper {
         return null;
     }
 
-    public static void addService(long accountId, long serviceTypeId) throws IOException {
-        activateHardware(accountId, serviceTypeId);
-        activateService(accountId, serviceTypeId);
-        updateBilling(accountId, serviceTypeId);
-    }
-
-    private static void activateHardware(long accountId, long serviceTypeId) throws IOException {
-        //TODO: implement logic
-        System.out.println("activateHardware: DO NOTHING");
-    }
-
-    private static void activateService(long accountId, long serviceTypeId) {
-        //TODO: implement logic
-        System.out.println("activateService: DO NOTHING");
-    }
-
-    public static void removeService(long accountId, long serviceTypeId) throws IOException {
-        deactivateHardware(accountId, serviceTypeId);
-        deactivateService(accountId, serviceTypeId);
-        updateBilling(accountId, serviceTypeId);
-    }
-
-    private static void deactivateHardware(long accountId, long serviceTypeId) throws IOException {
+    public static void addService(long accountId, long serviceId) throws IOException {
         Connection conn = null;
         try {
             conn = ConnectionUtils.getConnection();
-            DBUtils.deactivateHardware(conn, accountId, serviceTypeId);
+            activateHardware(conn, accountId, serviceId);
+            activateService(conn, accountId, serviceId);
+            updateBilling(conn, accountId, serviceId);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -122,11 +102,30 @@ public class ServiceHelper {
         }
     }
 
-    private static void deactivateService(long accountId, long serviceTypeId) throws IOException {
+    private static void activateHardware(Connection conn, long accountId, long serviceId) throws IOException, SQLException {
+        System.out.println("ServiceHelper.activateHardware: accountId: " + accountId + ", serviceId: " + serviceId);
+
+        long hardwareId = DBUtils.findAvailableHardware(conn, serviceId);
+
+        if (hardwareId != 0) {
+            DBUtils.reserveHardware(conn, accountId, hardwareId);
+        } else {
+            throw new RuntimeException("Hardware can not be reserved for account " + accountId + " and service " + serviceId);
+        }
+    }
+
+    private static void activateService(Connection conn, long accountId, long serviceId) throws SQLException {
+        System.out.println("ServiceHelper.activateService: accountId: " + accountId + ", serviceId: " + serviceId);
+        DBUtils.activateServiceForAccount(conn, accountId, serviceId);
+    }
+
+    public static void removeService(long accountId, long serviceId) throws IOException {
         Connection conn = null;
         try {
             conn = ConnectionUtils.getConnection();
-            DBUtils.deactivateService(conn, accountId, serviceTypeId);
+            deactivateHardware(conn, accountId, serviceId);
+            deactivateService(conn, accountId, serviceId);
+            updateBilling(conn, accountId, serviceId);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -134,9 +133,18 @@ public class ServiceHelper {
         }
     }
 
-    private static void updateBilling(long accountId, long serviceTypeId) {
-        //TODO: implement logic
-        System.out.println("updateBilling: DO NOTHING");
+    private static void deactivateHardware(Connection conn, long accountId, long serviceId) throws IOException, SQLException {
+        System.out.println("ServiceHelper.deactivateHardware: accountId: " + accountId + ", serviceId: " + serviceId);
+        DBUtils.deactivateHardware(conn, accountId, serviceId);
+    }
+
+    private static void deactivateService(Connection conn, long accountId, long serviceId) throws IOException, SQLException {
+        System.out.println("ServiceHelper.deactivateHardware: accountId: " + accountId + ", serviceId: " + serviceId);
+        DBUtils.deactivateService(conn, accountId, serviceId);
+    }
+
+    private static void updateBilling(Connection conn, long accountId, long serviceId) {
+        System.out.println("ServiceHelper.updateBilling: accountId: " + accountId + ", serviceId: " + serviceId);
     }
 
     public static void initServicePlans(HttpServletRequest request, ServiceStrategy strategy) throws IOException {

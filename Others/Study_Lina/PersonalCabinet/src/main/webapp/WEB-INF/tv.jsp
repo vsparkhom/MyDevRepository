@@ -28,7 +28,7 @@
                                         <tr>
                                             <td><strong>TV</strong></td>
                                             <td align="right">
-                                                <a href="${pageContext.request.contextPath}/manage?action=remove&type=${tvService.plan.type.id}">
+                                                <a href="${pageContext.request.contextPath}/manage?action=remove&serviceid=${tvService.plan.id}">
                                                     <button type="button" class="btn btn-danger">Disconnect</button>
                                                 </a>
                                             </td>

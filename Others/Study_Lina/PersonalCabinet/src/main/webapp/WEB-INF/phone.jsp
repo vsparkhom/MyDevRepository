@@ -29,7 +29,7 @@
                                         <tr>
                                             <td><strong>Phone</strong></td>
                                             <td align="right">
-                                                <a href="${pageContext.request.contextPath}/manage?action=remove&typeid=${phoneService.type.id}">
+                                                <a href="${pageContext.request.contextPath}/manage?action=remove&serviceid=${phoneService.plan.id}">
                                                     <button type="button" class="btn btn-danger">Disconnect</button>
                                                 </a>
                                             </td>

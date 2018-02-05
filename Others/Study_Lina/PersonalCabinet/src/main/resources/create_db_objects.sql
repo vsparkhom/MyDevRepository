@@ -209,7 +209,7 @@ INSERT INTO hardware VALUES(5005, 2, 101, 'TV Modem 2', 'SN00179', 'Active');
 -- Phone hardware
 INSERT INTO hardware VALUES(5006, 1, 102, 'Phone Device 1', 'PH0001', 'Inactive');
 INSERT INTO hardware VALUES(5007, null, 102, 'Phone Device 2', 'PH002', 'Inactive');
-INSERT INTO hardware VALUES(5008, 101, 102, 'Phone Device 3', 'PH003', 'Active');
+INSERT INTO hardware VALUES(5008, null, 102, 'Phone Device 3', 'PH003', 'Active');
 
 
 DROP TABLE support_categories;

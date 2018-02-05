@@ -254,7 +254,7 @@ public class DBUtils {
     }
 
     public static void deactivateHardware(Connection conn, long accountId, long serviceTypeId) throws SQLException {
-        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID);
+        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_ID);
         System.out.println("DBUtils.deactivateHardware. START. accountId: " + accountId + ", serviceTypeId: " + serviceTypeId);
         pstm.setLong(1, accountId);
         pstm.setLong(2, serviceTypeId);
@@ -263,7 +263,7 @@ public class DBUtils {
     }
 
     public static void deactivateService(Connection conn, long accountId, long serviceTypeId) throws SQLException {
-        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID);
+        PreparedStatement pstm = conn.prepareStatement(DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_ID);
         System.out.println("DBUtils.deactivateService. START. accountId: " + accountId + ", serviceTypeId: " + serviceTypeId);
         pstm.setLong(1, accountId);
         pstm.setLong(2, serviceTypeId);
@@ -338,4 +338,28 @@ public class DBUtils {
         return options;
     }
 
+    public static long findAvailableHardware(Connection conn, long serviceId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(FIND_AVAILABLE_HW);
+        pstm.setLong(1, serviceId);
+        ResultSet rs = pstm.executeQuery();
+
+        if (rs.next()) {
+            return rs.getLong("hardware_id");
+        }
+        return 0;
+    }
+
+    public static void reserveHardware(Connection conn, long accountId, long hardwareId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(RESERVE_HW_FOR_ACCOUNT);
+        pstm.setLong(1, accountId);
+        pstm.setLong(2, hardwareId);
+        pstm.executeUpdate();
+    }
+
+    public static void activateServiceForAccount(Connection conn, long accountId, long serviceId) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(ACTIVATE_SERVICE_FOR_ACCOUNT);
+        pstm.setLong(1, accountId);
+        pstm.setLong(2, serviceId);
+        pstm.executeUpdate();
+    }
 }

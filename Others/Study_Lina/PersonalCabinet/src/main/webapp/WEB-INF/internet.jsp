@@ -30,7 +30,9 @@
                                         <tr>
                                             <td><strong>Internet</strong></td>
                                             <td align="right">
-                                                <button type="button" class="btn btn-danger">Disconnect</button>
+                                                <a href="${pageContext.request.contextPath}/manage?action=remove&serviceid=${internetService.plan.id}">
+                                                    <button type="button" class="btn btn-danger">Disconnect</button>
+                                                </a>
                                             </td>
                                         </tr>
                                     </table>

@@ -49,7 +49,7 @@
                             </div>
                             <div class="panel-footer">
                                 <div style="text-align: center;">
-                                    <a href="${pageContext.request.contextPath}/manage?action=add&typeid=${servicePlan.id}">
+                                    <a href="${pageContext.request.contextPath}/manage?action=add&serviceid=${servicePlan.id}">
                                         <button type="button" class="btn btn-success">Install</button>
                                     </a>
                                 </div>

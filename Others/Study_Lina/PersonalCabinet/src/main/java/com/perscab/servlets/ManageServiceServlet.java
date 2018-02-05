@@ -22,17 +22,17 @@ public class ManageServiceServlet extends HttpServlet {
         System.out.println("--- ManageServiceServlet.GET---");
 
         String action = request.getParameter("action");
-        long typeId = new Long(request.getParameter("typeid")).longValue();
+        long serviceId = new Long(request.getParameter("serviceid")).longValue();
 
         System.out.println("action: " + action);
-        System.out.println("typeid: " + typeId);
+        System.out.println("serviceId: " + serviceId);
 
         Account account = MyUtils.getAuthorizedAccount(request.getSession());
 
         if (ADD_ACTION.equals(action)) {
-            ServiceHelper.addService(account.getId(), typeId);
+            ServiceHelper.addService(account.getId(), serviceId);
         } else if (REMOVE_ACTION.equals(action)) {
-            ServiceHelper.removeService(account.getId(), typeId);
+            ServiceHelper.removeService(account.getId(), serviceId);
         } else {
             System.out.println("There is no such action for service: " + action);
         }

@@ -137,22 +137,24 @@ public class DBQueries {
             "account_id = ? /* Account ID */\n" +
             "and service_type_id = ? /* Service Type ID */";
 
-    public static String DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID =
+    public static String DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_ID =
             "update hardware\n" +
-            "set status = 'Inactive'\n" +
+            "set status = 'Inactive', account_id = null\n" +
             "where \n" +
             "account_id = ?\n" +
-            "and service_type_id = ?";
+            "and service_type_id in (\n" +
+            "  select type_id\n" +
+            "  from \n" +
+            "  services\n" +
+            "  where \n" +
+            "  id = ?\n" +
+            ")";
 
-    public static String DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID =
+    public static String DEACTIVATE_SERVICE_FOR_ACCOUNT_BY_SERVICE_ID =
             "delete\n" +
             "from client_services\n" +
             "where account_id = ? \n" +
-            "and service_id in (\n" +
-            "  select service_id\n" +
-            "  from services\n" +
-            "  where type_id = ?\n" +
-            ")";
+            "and service_id = ?";
 
     public static String GET_SERVICE_PLANS_BY_SERVICE_TYPE_ID =
             "select s.id, s.name, s.type_id, st.name as type_name, p.price\n" +
@@ -185,4 +187,26 @@ public class DBQueries {
             "phone_service_options\n" +
             "where \n" +
             "service_id = ?";
+
+    public static String FIND_AVAILABLE_HW =
+            "select min(hw.id) as hardware_id\n" +
+            "from \n" +
+            "  services s,\n" +
+            "  hardware hw\n" +
+            "where \n" +
+            "  s.id = ?\n" +
+            "  and hw.service_type_id = s.type_id\n" +
+            "  and hw.account_id is null\n" +
+            "  and status = 'Inactive'";
+
+    public static String RESERVE_HW_FOR_ACCOUNT =
+            "update hardware\n" +
+            "set \n" +
+            "  account_id = ?,\n" +
+            "  status = 'Active'\n" +
+            "where\n" +
+            "  id = ?";
+
+    public static String ACTIVATE_SERVICE_FOR_ACCOUNT =
+            "insert into client_services values(? /* account_id */, ? /* service_id */)";
 }
