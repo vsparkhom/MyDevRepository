@@ -37,7 +37,7 @@
     <file path="/BillingHelper.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1517686450061" ignored="false" />
     <file path="/ServiceHelper.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1517788534205" ignored="false" />
     <file path="/BillingServlet.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516900167260" ignored="false" />
-    <file path="/Dummy.txt" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1517509406833" ignored="false" />
+    <file path="/Dummy.txt" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1517849439826" ignored="false" />
     <file path="/SupportInfo.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516936132077" ignored="false" />
     <file path="/SupportServiceInfo.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516936254338" ignored="false" />
     <file path="/SupportSocialInfo.java" changelist="dfb238d5-8783-4478-9b3e-94309dedeb7a" time="1516936297188" ignored="false" />
@@ -136,7 +136,7 @@
       <file leaf-file-name="plans.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/plans.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="107" selection-start="2397" selection-end="2397" vertical-scroll-proportion="-9.807693">
+            <state line="51" column="107" selection-start="2397" selection-end="2397" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,7 +145,7 @@
       <file leaf-file-name="tv.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="140" selection-start="1177" selection-end="1177" vertical-scroll-proportion="-2.1176472">
+            <state line="30" column="140" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,9 +155,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="256" column="61" selection-start="10040" selection-end="10040" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,7 +163,7 @@
       <file leaf-file-name="DBQueries.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="21" selection-start="5848" selection-end="5848" vertical-scroll-proportion="0.8027027">
+            <state line="149" column="21" selection-start="5848" selection-end="5848" vertical-scroll-proportion="0.033398822">
               <folding />
             </state>
           </provider>
@@ -174,7 +172,7 @@
       <file leaf-file-name="ServiceHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/ServiceHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="16" selection-start="3263" selection-end="3263" vertical-scroll-proportion="-6.64">
+            <state line="72" column="16" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -193,9 +191,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/services/Service.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="5" column="13" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -203,7 +199,7 @@
       <file leaf-file-name="phone.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/phone.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="143" selection-start="1193" selection-end="1193" vertical-scroll-proportion="-2.2156863">
+            <state line="31" column="143" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -212,7 +208,7 @@
       <file leaf-file-name="internet.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="146" selection-start="1209" selection-end="1209" vertical-scroll-proportion="-7.8461537">
+            <state line="32" column="146" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -323,8 +319,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -723,6 +717,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -740,12 +736,12 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -807,6 +803,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -833,19 +842,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -950,7 +946,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24428822" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -972,6 +967,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24428822" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864675" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1095,22 +1091,20 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/model/services/Service.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/plans.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="107" selection-start="2397" selection-end="2397" vertical-scroll-proportion="-9.807693">
+        <state line="51" column="107" selection-start="2397" selection-end="2397" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/perscab/controller/ServiceHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="16" selection-start="3263" selection-end="3263" vertical-scroll-proportion="-6.64">
+        <state line="72" column="16" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1124,21 +1118,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/internet.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="146" selection-start="1209" selection-end="1209" vertical-scroll-proportion="-7.8461537">
+        <state line="32" column="146" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/phone.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="143" selection-start="1193" selection-end="1193" vertical-scroll-proportion="-2.2156863">
+        <state line="31" column="143" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tv.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="140" selection-start="1177" selection-end="1177" vertical-scroll-proportion="-2.1176472">
+        <state line="30" column="140" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1146,15 +1140,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="256" column="61" selection-start="10040" selection-end="10040" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.perscab.db/DBQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="21" selection-start="5848" selection-end="5848" vertical-scroll-proportion="0.8027027">
+        <state line="149" column="21" selection-start="5848" selection-end="5848" vertical-scroll-proportion="0.033398822">
           <folding />
         </state>
       </provider>

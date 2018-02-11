@@ -8,7 +8,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/main">ТКС Личный Кабинет</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/main">
+            <table>
+                <tr>
+                    <td><img src="img/_logo.png" height="28px" /></td>
+                    <td><span style="color:#428bca;">&nbsp;ТКС Личный Кабинет</span></td>
+                </tr>
+            </table>
+        </a>
     </div>
     <!-- /.navbar-header -->
 
@@ -96,11 +103,11 @@
                         </span>
                     </div-->
                     <div>
-                        <h4>Login: ${authorizedAccount.login}</h4><br/>
-                        <span>${authorizedAccount.firstName} ${authorizedAccount.lastName}</span><br/>
-                        <span>Account Number: ${authorizedAccount.id}</span><br/>
-                        <span>Status: ${authorizedAccount.status}</span><br/>
-                        <span>Email: ${authorizedAccount.email}</span>
+                        <span style="font-weight:bold; font-size:18px;">${authorizedAccount.firstName} ${authorizedAccount.lastName}</span><br/>
+                        Login: <span style="color:#428bca;">${authorizedAccount.login}</span><br/>
+                        Account Number: <span style="color:#428bca;">${authorizedAccount.id}</span><br/>
+                        Status: <span style="color:#428bca;">${authorizedAccount.status}</span><br/>
+                        Email: <span><a href="mailto:${authorizedAccount.email}">${authorizedAccount.email}</a></span>
                     </div>
                     <!-- /input-group -->
                 </li>
