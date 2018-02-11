@@ -1,7 +1,9 @@
 package com.perscab.servlets;
 
 import com.perscab.controller.ServiceHelper;
+import com.perscab.db.services.ServiceStrategy;
 import com.perscab.db.services.ServiceStrategyHolder;
+import com.perscab.model.Account;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,9 +19,11 @@ public class PlansListServlet extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("--- PlansListServlet.GET---");
+        Account account = MyUtils.getAuthorizedAccount(request.getSession());
 
-        long typeId = new Long(request.getParameter("typeid")).longValue();
-        ServiceHelper.initServicePlans(request, ServiceStrategyHolder.getInstance().getServiceStrategyByTypeId(typeId));
+        long typeId = Long.parseLong(request.getParameter("typeid"));
+        ServiceStrategy serviceStrategy = ServiceStrategyHolder.getInstance().getServiceStrategyByTypeId(typeId);
+        ServiceHelper.initServicePlans(request, serviceStrategy, account.getId());
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/plans.jsp");
         dispatcher.forward(request, response);

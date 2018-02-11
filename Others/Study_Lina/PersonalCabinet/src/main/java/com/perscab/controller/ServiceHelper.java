@@ -7,7 +7,6 @@ import com.perscab.db.services.ServiceStrategyHolder;
 
 import com.perscab.model.Account;
 import com.perscab.model.Hardware;
-import com.perscab.model.services.Service;
 import com.perscab.model.services.ServiceInstance;
 import com.perscab.model.services.ServicePlan;
 import com.perscab.servlets.MyUtils;
@@ -78,8 +77,7 @@ public class ServiceHelper {
         Connection conn = null;
         try {
             conn = ConnectionUtils.getConnection();
-            ServiceInstance service = serviceStrategy.getService(conn, accountId);
-            return service;
+            return serviceStrategy.getService(conn, accountId);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -133,6 +131,26 @@ public class ServiceHelper {
         }
     }
 
+    public static void updateService(long accountId, long oldServiceId, long newServiceId) throws IOException {
+        Connection conn = null;
+        try {
+            conn = ConnectionUtils.getConnection();
+
+            deactivateHardware(conn, accountId, oldServiceId);
+            deactivateService(conn, accountId, oldServiceId);
+
+            activateHardware(conn, accountId, newServiceId);
+            activateService(conn, accountId, newServiceId);
+
+            //TODO: is billing needs to be updated??
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionUtils.closeQuietly(conn);
+        }
+    }
+
     private static void deactivateHardware(Connection conn, long accountId, long serviceId) throws IOException, SQLException {
         System.out.println("ServiceHelper.deactivateHardware: accountId: " + accountId + ", serviceId: " + serviceId);
         DBUtils.deactivateHardware(conn, accountId, serviceId);
@@ -147,12 +165,14 @@ public class ServiceHelper {
         System.out.println("ServiceHelper.updateBilling: accountId: " + accountId + ", serviceId: " + serviceId);
     }
 
-    public static void initServicePlans(HttpServletRequest request, ServiceStrategy strategy) throws IOException {
+    public static void initServicePlans(HttpServletRequest request, ServiceStrategy strategy, long accountId) throws IOException {
         Connection conn = null;
         try {
             conn = ConnectionUtils.getConnection();
             Collection<ServicePlan> servicePlans = strategy.getPlans(conn);
+            ServiceInstance currentServiceInstance = strategy.getService(conn, accountId);
 
+            request.setAttribute("currentServiceInstance", currentServiceInstance);
             request.setAttribute("servicePlans", servicePlans);
             request.setAttribute("columnWidth", 12/servicePlans.size());
         } catch (SQLException | ClassNotFoundException e) {

@@ -194,7 +194,7 @@
                                     </table>
                                 </div>
                                 <div class="panel-body">
-                                    <p>internet service is not installed</p>
+                                    <p>Internet service is not installed</p>
                                 </div>
                                 <!--div class="panel-footer">
                                     Panel Footer

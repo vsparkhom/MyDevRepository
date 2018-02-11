@@ -3,7 +3,6 @@ package com.perscab.servlets;
 import com.perscab.controller.ServiceHelper;
 import com.perscab.model.Account;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +13,7 @@ public class ManageServiceServlet extends HttpServlet {
 
     private static final String ADD_ACTION = "add";
     private static final String REMOVE_ACTION = "remove";
+    private static final String UPDATE_ACTION = "update";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,19 +22,26 @@ public class ManageServiceServlet extends HttpServlet {
         System.out.println("--- ManageServiceServlet.GET---");
 
         String action = request.getParameter("action");
-        long serviceId = new Long(request.getParameter("serviceid")).longValue();
+        long serviceId = Long.parseLong(request.getParameter("serviceid"));
 
         System.out.println("action: " + action);
         System.out.println("serviceId: " + serviceId);
 
         Account account = MyUtils.getAuthorizedAccount(request.getSession());
 
-        if (ADD_ACTION.equals(action)) {
-            ServiceHelper.addService(account.getId(), serviceId);
-        } else if (REMOVE_ACTION.equals(action)) {
-            ServiceHelper.removeService(account.getId(), serviceId);
-        } else {
-            System.out.println("There is no such action for service: " + action);
+        switch (action) {
+            case ADD_ACTION:
+                ServiceHelper.addService(account.getId(), serviceId);
+                break;
+            case REMOVE_ACTION:
+                ServiceHelper.removeService(account.getId(), serviceId);
+                break;
+            case UPDATE_ACTION:
+                long oldServiceId = Long.parseLong(request.getParameter("oldserviceid"));
+                ServiceHelper.updateService(account.getId(), oldServiceId, serviceId);
+                break;
+            default:
+                System.out.println("There is no such action for service: " + action);
         }
 
         response.sendRedirect(request.getContextPath() + "/main");

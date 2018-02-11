@@ -49,9 +49,29 @@
                             </div>
                             <div class="panel-footer">
                                 <div style="text-align: center;">
-                                    <a href="${pageContext.request.contextPath}/manage?action=add&serviceid=${servicePlan.id}">
-                                        <button type="button" class="btn btn-success">Install</button>
-                                    </a>
+
+                                    <c:set var="isServiceActive" value="${currentServiceInstance.status eq 'Active'}"/>
+                                    <c:choose>
+                                        <c:when test="${isServiceActive}">
+                                            <c:set var="installedServicePlanId" value="${currentServiceInstance.plan.id}"/>
+                                            <c:choose>
+                                                <c:when test="${installedServicePlanId eq servicePlan.id}">
+                                                    <button type="button" class="btn btn-default disabled">Already installed</button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a href="${pageContext.request.contextPath}/manage?action=update&serviceid=${servicePlan.id}&oldserviceid=${installedServicePlanId}">
+                                                        <button type="button" class="btn btn-primary">Update</button>
+                                                    </a>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${pageContext.request.contextPath}/manage?action=add&serviceid=${servicePlan.id}">
+                                                <button type="button" class="btn btn-success">Install</button>
+                                            </a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>

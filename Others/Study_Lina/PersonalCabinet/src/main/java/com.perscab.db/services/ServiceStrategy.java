@@ -1,6 +1,5 @@
 package com.perscab.db.services;
 
-import com.perscab.model.services.Service;
 import com.perscab.model.services.ServiceInstance;
 import com.perscab.model.services.ServicePlan;
 

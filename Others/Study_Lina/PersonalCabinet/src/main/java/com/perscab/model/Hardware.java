@@ -1,7 +1,5 @@
 package com.perscab.model;
 
-import java.math.BigInteger;
-
 public class Hardware {
 
     private long serviceTypeId;
