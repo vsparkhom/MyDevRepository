@@ -2,14 +2,13 @@ package vlpa.expman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import vlpa.expman.controller.CSVProcessor;
-import vlpa.expman.controller.SortExpensesConfig;
+import vlpa.expman.controller.MainDataProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
-import vlpa.expman.model.dao.ExpenseManagerDAO;
-import vlpa.expman.model.dao.FakeExpenseManagerDAOImpl;
+import vlpa.expman.model.ExpensesReport;
 import vlpa.expman.view.UIBuilder;
 
+import java.util.Date;
 import java.util.Map;
 
 public class Main extends Application {
@@ -24,40 +23,37 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        CSVProcessor.getInstance().importExpenses("res/report.csv");
+//        CsvDataImporter.getInstance().importExpensesFromFile("res/report.csv");
         testData();
         launch(args);
-//        testData();
     }
 
     private static void testData() {
 
-        ExpenseManagerDAO dao = FakeExpenseManagerDAOImpl.getInstance();
+        MainDataProcessor processor = new MainDataProcessor();
 
-        System.out.println("------------ CATEGORIES ------------");
-        for (Category c : dao.getAllCategories()) {
-            System.out.println(c);
+        System.out.println("------------ CATEGORIES/EXPENSES ------------");
+        for (Category c : processor.getAllCategories()) {
+            System.out.println("----- CATEGORY: " + c + " -----");
+            for (Expense e : processor.getExpensesByCategoryId(c.getId())) {
+                System.out.println("   - expense: " + e);
+            }
         }
-
-        System.out.println("------------ EXPENSES ------------");
-
-//        CSVProcessor.getInstance().importExpenses("res/report.csv");
-
-        for (Expense e : dao.getAllExpenses()) {
-            System.out.println(e);
-        }
-
-//
-//        System.out.println("\n---- Expenses for Category with ID = 1");
-//        for (Expense e : dao.getExpensesByCategoryId(1)) {
-//            System.out.println(e);
-//        }
 
         System.out.println("------------ SORT CONFIG MAP ------------");
-        SortExpensesConfig sortExpensesConfig = SortExpensesConfig.getInstance();
-        for (Map.Entry<String, Category> entry : sortExpensesConfig.getConfig().entrySet()) {
+        for (Map.Entry<String, Category> entry : processor.getExpensesMapping().entrySet()) {
             System.out.println("[entry] key: " + entry.getKey() + " - " + entry.getValue());
         }
+
+//        processor.importExpenses("res/report.csv");
+
+//        System.out.println("------------ EXPENSES REPORT FOR ALL CATEGORIES ------------");
+//        Date start = new Date(System.currentTimeMillis() - 86400000);
+//        Date end = new Date(System.currentTimeMillis() + 86400000);
+//        System.out.println("start: " + start);
+//        System.out.println("end: " + end);
+//        ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(start, end);
+//        System.out.println("allCategoriesExpensesReport: " + allCategoriesExpensesReport);
 
     }
 

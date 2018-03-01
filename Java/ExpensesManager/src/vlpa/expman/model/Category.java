@@ -2,17 +2,17 @@ package vlpa.expman.model;
 
 public class Category {
 
-    private int id;
+    private long id;
     private String name;
     private double limit;
 
-    public Category(int id, String name, double limit) {
+    public Category(long id, String name, double limit) {
         this.id = id;
         this.name = name;
         this.limit = limit;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
