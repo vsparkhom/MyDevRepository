@@ -1,21 +1,5 @@
-/* Category details Grid Pane */
-
-.category-details-grid {
-    -fx-background-color: white ;
-    -fx-padding: 10;
-    /*-fx-hgap: 5;*/
-    /*-fx-vgap: 5;*/
-}
-.category-details-grid-cell {
-    -fx-background-color: gainsboro, white ;
-    -fx-background-insets: 0, 0 1 1 0 ;
-}
-.category-details-grid-cell.first-row {
-    -fx-background-insets: 0, 1 1 1 0 ;
-}
-.category-details-grid-cell.first-column {
-    -fx-background-insets: 0, 0 1 1 1 ;
-}
-.category-details-grid-cell.first-row.first-column {
-    -fx-background-insets: 0, 1 ;
-}
+/*.date-picker {*/
+    /*-fx-padding: 25, 12, 0, 12;*/
+    /*-fx-spacing: 10;*/
+    /*-fx-border-color: green;*/
+/*}*/

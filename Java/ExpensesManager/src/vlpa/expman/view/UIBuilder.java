@@ -1,21 +1,21 @@
 package vlpa.expman.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -27,15 +27,12 @@ import vlpa.expman.controller.MainDataProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
-import vlpa.expman.dao.ExpenseManagerDAO;
-import vlpa.expman.dao.FakeExpenseManagerDAOImpl;
-import vlpa.expman.view.table.TableCell;
-import vlpa.expman.view.table.TableHeader;
+import static vlpa.expman.view.UIDimensionsConst.*;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 
 public class UIBuilder {
@@ -62,29 +59,31 @@ public class UIBuilder {
 
         this.primaryStage = primaryStage;
 
-        Scene primaryScene = new Scene(buildGUI(primaryStage), UIConst.SCENE_WIDTH, UIConst.SCENE_HEIGHT);
+        Scene primaryScene = new Scene(buildGUI(primaryStage), UIDimensionsConst.SCENE_WIDTH, UIDimensionsConst.SCENE_HEIGHT);
         primaryScene.getStylesheets().add(CSS_STYLE_FILE_NAME);
         return primaryScene;
     }
 
     private Pane buildGUI(Stage stage) {
-        rootPane = new BorderPane();
-//        addBorder(rootPane, "black");
 
-        HBox topMenu = buildTopMenu(stage);
+        stage.setMinWidth(SCENE_WIDTH + 20);
+        stage.setMinHeight(SCENE_HEIGHT + 40);
+
+        rootPane = new BorderPane();
+
+        Pane topMenu = buildTopMenu(stage);
         addBorder(topMenu, "grey");
-        topMenu.setPrefWidth(500);
+        topMenu.setPrefWidth(TOP_MENU_WIDTH);
         rootPane.setTop(topMenu);
 
         Pane leftMenu = buildLeftMenu();
         addBorder(leftMenu, "grey");
-        leftMenu.setPrefWidth(150);
+        leftMenu.setPrefWidth(LEFT_MENU_WIDTH);
         rootPane.setLeft(leftMenu);
 
         Pane center = buildSummaryPane();
-//        addBorder(center, "green");
-        center.setPrefWidth(500);
-        center.setPrefHeight(500);
+        center.setPrefWidth(CENTER_MENU_WIDTH);
+        center.setPrefHeight(CENTER_MENU_HEIGHT);
         rootPane.setCenter(center);
 
         return rootPane;
@@ -94,45 +93,99 @@ public class UIBuilder {
         pane.setStyle("-fx-border-color: " + color);
     }
 
-    private HBox buildTopMenu(final Stage stage) {
+    private Pane buildTopMenu(final Stage stage) {
 
+        HBox topMenuBox = new HBox();
+        topMenuBox.getChildren().addAll(buildMenuButtons(stage), buildDatePickerMenu());
+
+        return topMenuBox;
+    }
+
+    private Pane buildDatePickerMenu() {
+        HBox datePickerBox = new HBox();
+        datePickerBox.setAlignment(Pos.CENTER_RIGHT);
+        datePickerBox.setPadding(new Insets(25, 12, 0, 12));
+        datePickerBox.setSpacing(10);//TODO: replace with styles
+//        datePickerBox.getStyleClass().add("date-picker");
+
+        //start date
+
+        Text startText = new Text("Start date:");
+
+        DatePicker startDatePicker = new DatePicker();
+        startDatePicker.setPrefWidth(DATE_PICKER_WIDTH);
+
+        startDatePicker.setOnAction(event -> {
+            LocalDate date = startDatePicker.getValue();
+            System.out.println("Selected START date: " + date);
+        });
+
+        datePickerBox.getChildren().addAll(startText, startDatePicker);
+
+        //end date
+
+        Text endText = new Text("End date:");
+
+        DatePicker endDatePicker = new DatePicker();
+        endDatePicker.setPrefWidth(DATE_PICKER_WIDTH);
+
+        endDatePicker.setOnAction(event -> {
+            LocalDate date = endDatePicker.getValue();
+            System.out.println("Selected END date: " + date);
+        });
+
+        datePickerBox.getChildren().addAll(endText, endDatePicker);
+        HBox.setHgrow(datePickerBox, Priority.ALWAYS);
+
+        return datePickerBox;
+    }
+
+    private HBox buildMenuButtons(final Stage stage) {
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
         hbox.setSpacing(10); // Gap between nodes
 //        hbox.setStyle("-fx-background-color: #336699;");
 
         final FileChooser fileChooser = new FileChooser();
-        Button importButton = new Button("Import...");
-        importButton.setPrefSize(100, 20);
 
-        importButton.setOnAction(
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(final ActionEvent e) {
-                        File file = fileChooser.showOpenDialog(stage);
-                        if (file != null) {
-                            System.out.println("File has been chosen:" + file.getName());
+        Button importButton = createMenuButton("Import expenses", "img/import.png", new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(final ActionEvent e) {
+                File file = fileChooser.showOpenDialog(stage);
+                if (file != null) {
+                    System.out.println("File has been chosen:" + file.getName());
 
-                            //TODO: create dialog
+                    //TODO: create dialog
 
-                            Stage dialog = new Stage();
+                    Stage dialog = new Stage();
 
-                            // populate dialog with controls.
+                    // populate dialog with controls.
 
-                            dialog.initOwner(primaryStage);
-                            dialog.initModality(Modality.APPLICATION_MODAL);
-                            dialog.showAndWait();
+                    dialog.initOwner(primaryStage);
+                    dialog.initModality(Modality.APPLICATION_MODAL);
+                    dialog.showAndWait();
 
-                        }
-                    }
-                });
+                }
+            }
+        });
 
-        Button testButton = new Button("Test");
-        testButton.setPrefSize(100, 20);
+        Button addPatternButton = createMenuButton("Add pattern", "img/list.png", null);
+        Button addCategoryButton = createMenuButton("Add category", "img/add.png", null);
 
-        hbox.getChildren().addAll(importButton, testButton);
-
+        hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton);
         return hbox;
+    }
+
+    private Button createMenuButton(String name, String imgPath, EventHandler<ActionEvent> handler) {
+        Image buttonImg = new Image(getClass().getClassLoader().getResourceAsStream(imgPath));
+        Button button = new Button();
+        button.setTooltip(new Tooltip(name));
+        button.setGraphic(new ImageView(buttonImg));
+        button.setPrefSize(TOP_MENU_BUTTON_SIZE, TOP_MENU_BUTTON_SIZE);
+        if (handler != null) {
+            button.setOnAction(handler);
+        }
+        return button;
     }
 
     private Pane buildLeftMenu() {
@@ -172,68 +225,47 @@ public class UIBuilder {
     }
 
     private Pane buildCategoryDetailsPane(long categoryId) {
+        TableView<Expense> table = new TableView<>();
+        final ObservableList<Expense> data = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId));
 
-        GridPane grid = new GridPane();
-//        addBorder(grid, "violet");
+        table.setEditable(true);
 
-        grid.getStyleClass().add("category-details-grid");
+        TableColumn dateColumn = new TableColumn("Date");
+        dateColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_DATE_WIDTH);
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Expense, Date>("date"));//TODO; adjust date format through setCellFactory method
 
-        int currentRow = 0;
+        TableColumn merchantColumn = new TableColumn("Merchant");
+        merchantColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_MERCHANT_WIDTH);
+        merchantColumn.setCellValueFactory(new PropertyValueFactory<Expense, String>("name"));
 
-        TableHeader dateHeader = new TableHeader("Date",
-                "category-details-grid-cell",
-                "first-row",
-                "first-column"
-        );
-        TableHeader merchantHeader = new TableHeader("Merchant",
-                "category-details-grid-cell",
-                "first-row"
-        );
-        TableHeader amountHeader = new TableHeader("Amount",
-                "category-details-grid-cell",
-                "first-row"
-        );
+        TableColumn amountColumn = new TableColumn("Amount");
+        amountColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_AMOUNT_WIDTH);
+        amountColumn.setCellValueFactory(new PropertyValueFactory<Expense, Double>("amount"));
 
-        ColumnConstraints dateHeaderColumnConstraint = new ColumnConstraints();
-        dateHeaderColumnConstraint.setPercentWidth(25);
+        dateColumn.prefWidthProperty().bind(table.widthProperty().divide(4));
+        merchantColumn.prefWidthProperty().bind(table.widthProperty().divide(2));
+        amountColumn.prefWidthProperty().bind(table.widthProperty().divide(4));
 
-        ColumnConstraints merchantHeaderColumnConstraint = new ColumnConstraints();
-        merchantHeaderColumnConstraint.setPercentWidth(50);
+        table.setItems(data);
+        table.getColumns().addAll(dateColumn, merchantColumn, amountColumn);
 
-        ColumnConstraints amountHeaderColumnConstraint = new ColumnConstraints();
-        amountHeaderColumnConstraint.setPercentWidth(25);
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().add(table);
 
-        grid.getColumnConstraints().addAll(dateHeaderColumnConstraint, merchantHeaderColumnConstraint, amountHeaderColumnConstraint);
-        grid.addRow(currentRow, dateHeader, merchantHeader, amountHeader);
-
-        currentRow++;
-
-        Collection<Expense> expenses = processor.getExpensesByCategoryId(categoryId);
-        for (Expense e : expenses) {
-            TableCell currentExpenseDateCell = new TableCell(e.getDate(),
-                    "category-details-grid-cell",
-                    "first-column"
-            );
-            TableCell currentExpenseMerchantCell = new TableCell(e.getName(), "category-details-grid-cell");
-            TableCell currentExpenseAmountCell = new TableCell(e.getAmount(), "category-details-grid-cell");
-
-            grid.addRow(currentRow, currentExpenseDateCell, currentExpenseMerchantCell, currentExpenseAmountCell);
-
-            currentRow++;
-        }
-
-        return grid;
+        return vbox;
     }
 
     private Pane buildSummaryPane() {
-        VBox vbox = new VBox();
-        vbox.setSpacing(5);// Gap between nodes
+        VBox summaryBox = new VBox();
+        summaryBox.setSpacing(5);// Gap between nodes
 
         HBox topSummaryPane = buildTopSummaryPane();
-        vbox.getChildren().add(topSummaryPane);
+        summaryBox.getChildren().add(topSummaryPane);
 
         HBox categoriesHeaderPane = buildCategoriesHeaderPane();
-        vbox.getChildren().add(categoriesHeaderPane);
+        summaryBox.getChildren().add(categoriesHeaderPane);
 
         SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
 
@@ -245,13 +277,22 @@ public class UIBuilder {
         Date start = calendar.getTime();
         System.out.println("[DEBUG] Get Period [" + format.format(start) + " - " + format.format(end) + "]");
 
+        VBox categoriesSummaryBox = new VBox();
+        categoriesSummaryBox.setSpacing(5);
+
         for (Category c : processor.getAllCategories()) {
             ExpensesReport reportForCurrentCategory = processor.getExpensesReportForCategory(c.getId(), start, end);
             System.out.println("<addCenterPane>[report]: " + reportForCurrentCategory);
-            vbox.getChildren().add(buildCategoryPane(reportForCurrentCategory));
+            categoriesSummaryBox.getChildren().add(buildCategorySummaryPane(reportForCurrentCategory));
         }
 
-        return vbox;
+        ScrollPane sp = new ScrollPane();
+        sp.setContent(categoriesSummaryBox);
+        sp.setFitToWidth(true);
+
+        summaryBox.getChildren().add(sp);
+
+        return summaryBox;
     }
 
     private HBox buildTopSummaryPane() {
@@ -292,58 +333,57 @@ public class UIBuilder {
     private HBox buildCategoriesHeaderPane() {
 
         HBox hbox = new HBox();
-        hbox.setPadding(new Insets(10, 7, 10, 7));
-        hbox.setSpacing(10); // Gap between nodes
+        hbox.setPadding(new Insets(5, 5, 5, 5));
+        hbox.setSpacing(5);
         hbox.setStyle("-fx-background-color: cornflowerblue");
 
         Label categoryName = new Label("Category Name");
         categoryName.setStyle("-fx-font-weight: bold");
-        categoryName.setPrefWidth(100);
+        categoryName.setPrefWidth(SUMMARY_PANEL_COLUMN_CATEGORY_NAME_WIDTH);
 
         Label currentAmount = new Label("Spent");
         currentAmount.setStyle("-fx-font-weight: bold");
-        currentAmount.setPrefWidth(50);
+        currentAmount.setPrefWidth(SUMMARY_PANEL_COLUMN_SPENT_WIDTH);
 
-        HBox emptyProgressBarPane = new HBox();
-        emptyProgressBarPane.setPrefWidth(200);
-//        addBorder(emptyProgressBarPane, "red");
+        HBox progressBarPane = new HBox();
+        progressBarPane.setPrefWidth(SUMMARY_PANEL_COLUMN_PROGRESS_BAR_WIDTH);
 
-        Label left = new Label("Left");
+        Label left = new Label("Leftover");
         left.setStyle("-fx-font-weight: bold");
-        left.setPrefWidth(50);
+        left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
         Label limit = new Label("Limit");
         limit.setStyle("-fx-font-weight: bold");
-        limit.setPrefWidth(50);
+        limit.setPrefWidth(SUMMARY_PANEL_COLUMN_LIMIT_WIDTH);
 
-        hbox.getChildren().addAll(categoryName, currentAmount, emptyProgressBarPane, left, limit);
+        hbox.getChildren().addAll(categoryName, currentAmount, progressBarPane, left, limit);
 
         return hbox;
     }
 
-    private HBox buildCategoryPane(ExpensesReport report) {
+    private HBox buildCategorySummaryPane(ExpensesReport report) {
 
-//        System.out.println("[DEBUG]<buildCategoryPane> report: " + report);
+//        System.out.println("[DEBUG]<buildCategorySummaryPane> report: " + report);
 
         HBox hbox = new HBox();
-        hbox.setPadding(new Insets(10, 7, 10, 7));
-        hbox.setSpacing(10); // Gap between nodes
+        hbox.setPadding(new Insets(5, 5, 5, 5));
+        hbox.setSpacing(5);
         hbox.setStyle("-fx-background-color: gainsboro");
 
         Label categoryName = new Label(report.getCategory().getName());
-        categoryName.setPrefWidth(100);
+        categoryName.setPrefWidth(SUMMARY_PANEL_COLUMN_CATEGORY_NAME_WIDTH);
 
         Label currentAmount = new Label(report.getCurrentAmount() + "");
-        currentAmount.setPrefWidth(50);
+        currentAmount.setPrefWidth(SUMMARY_PANEL_COLUMN_SPENT_WIDTH);
 
         HBox categoryProgressBarPane = buildProgressBarPane(report.getUsagePercent());
-//        addBorder(categoryProgressBarPane, "red");
+        categoryProgressBarPane.setPrefWidth(SUMMARY_PANEL_COLUMN_PROGRESS_BAR_WIDTH);
 
         Label left = new Label(report.getLeftover() + "");
-        left.setPrefWidth(50);
+        left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
         Label limit = new Label(report.getLimit() + "");
-        limit.setPrefWidth(50);
+        limit.setPrefWidth(SUMMARY_PANEL_COLUMN_LIMIT_WIDTH);
 
         hbox.getChildren().addAll(categoryName, currentAmount, categoryProgressBarPane, left, limit);
 
@@ -353,7 +393,7 @@ public class UIBuilder {
     private HBox buildProgressBarPane(double usagePercent) {
         HBox progressBarPane = new HBox();
         progressBarPane.setAlignment(Pos.CENTER);
-        progressBarPane.setPrefWidth(200);
+        progressBarPane.setPrefWidth(PROGRESS_BAR_PANE_WIDTH);
         ProgressBar pb = new ProgressBar(usagePercent);
         String colorByPercent = getColorByPercent(usagePercent);
         pb.setStyle("-fx-accent: " + colorByPercent);

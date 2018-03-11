@@ -153,11 +153,15 @@ public class LayoutSample extends Application {
         helpText.setFill(Color.WHITE);
         helpText.setStroke(Color.web("#7080A0")); 
         
-        stack.getChildren().addAll(helpIcon, helpText);
+//        stack.getChildren().addAll(helpIcon, helpText);
+//        stack.getChildren().addAll( helpText);
         stack.setAlignment(Pos.CENTER_RIGHT);
+
+        stack.setStyle("-fx-border-color: red");
+
         // Add offset to right for question mark to compensate for RIGHT 
         // alignment of all nodes
-        StackPane.setMargin(helpText, new Insets(0, 10, 0, 0));
+//        StackPane.setMargin(helpText, new Insets(0, 10, 0, 0));
         
         hb.getChildren().add(stack);
         HBox.setHgrow(stack, Priority.ALWAYS);

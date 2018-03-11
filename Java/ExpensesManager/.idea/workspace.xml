@@ -4,33 +4,50 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512158313181" ignored="false" />
+    <file path="/Main.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519887824828" ignored="false" />
     <file path="/Controller.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1359381051202" ignored="false" />
     <file path="/sample.fxml" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1359381080865" ignored="false" />
-    <file path="/Category.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1511984535898" ignored="false" />
-    <file path="/Expense.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1511824905059" ignored="false" />
-    <file path="/ExpensesDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512290200917" ignored="false" />
+    <file path="/Category.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519547939316" ignored="false" />
+    <file path="/Expense.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519594872695" ignored="false" />
+    <file path="/ExpensesDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519594687905" ignored="false" />
     <file path="/ExpensesDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1511900615998" ignored="false" />
     <file path="/FakeExpensesDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512289885274" ignored="false" />
-    <file path="/fragment.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1515705335114" ignored="false" />
-    <file path="/UIBuilder.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512292227423" ignored="false" />
+    <file path="/fragment.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520712973214" ignored="false" />
+    <file path="/UIBuilder.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520801259625" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/OM/src/ear/java/ca/shaw/repository/util/InteractionItemId.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512070483235" ignored="false" />
     <file path="/Summary.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512074676923" ignored="false" />
     <file path="/CategoryExpenses.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512082179014" ignored="false" />
-    <file path="/CategoryNotFoundException.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512079108827" ignored="false" />
+    <file path="/CategoryNotFoundException.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519549163196" ignored="false" />
     <file path="/CSVExpensesDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512085670461" ignored="false" />
-    <file path="/CSVProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512276253504" ignored="false" />
-    <file path="/DataProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512086151789" ignored="false" />
+    <file path="/CSVProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519253204699" ignored="false" />
+    <file path="/DataProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519252316008" ignored="false" />
     <file path="/Dummy.txt" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512145885405" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/OM/src/main/java/ca/shaw/command/immediate/AbstractCreateImmediateOrderCommand.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512147178493" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/OM/src/main/java/ca/shaw/command/util/Commands.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512147178493" ignored="false" />
     <file path="$PROJECT_DIR$/../../../SHAW/OM/src/test/java/ca/shaw/repository/OrderRepositoryTest.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512147511413" ignored="false" />
     <file path="/OrderRepositoryTest.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512147511987" ignored="false" />
-    <file path="/AbstractDataProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512289967979" ignored="false" />
-    <file path="/SortExpensesConfig.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512290160537" ignored="false" />
+    <file path="/AbstractDataProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519252903443" ignored="false" />
+    <file path="/SortExpensesConfig.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519253146649" ignored="false" />
     <file path="/ExpensesReport.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512278852832" ignored="false" />
     <file path="/ExpenseUtils.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512278772252" ignored="false" />
     <file path="/ExpenseManagerDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1512289824706" ignored="false" />
+    <file path="/SQLiteExpenseManagerDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519887396544" ignored="false" />
+    <file path="/ConnectionManager.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519592472420" ignored="false" />
+    <file path="/SQLiteConnectionManager.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1518823235074" ignored="false" />
+    <file path="/AbstractDataImporter.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519595492219" ignored="false" />
+    <file path="/ExpenseManagerDAOFactory.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519548928378" ignored="false" />
+    <file path="/FakeExpenseManagerDAOImpl.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519595273122" ignored="false" />
+    <file path="/ConnectionType.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519255112172" ignored="false" />
+    <file path="/SqliteConnectionType.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519254633788" ignored="false" />
+    <file path="/ConnectionEnum.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519547764486" ignored="false" />
+    <file path="/MainDataProcessor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519885673742" ignored="false" />
+    <file path="/ExpenseReportDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519549030598" ignored="false" />
+    <file path="/CategoriesDAO.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519594493103" ignored="false" />
+    <file path="/DBQueries.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1519592969058" ignored="false" />
+    <file path="/UIConst.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520714146670" ignored="false" />
+    <file path="/view.css" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520714887117" ignored="false" />
+    <file path="/TableHeader.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520797092128" ignored="false" />
+    <file path="/LayoutSample.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1520800120214" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,31 +108,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UIBuilder.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UIBuilder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="0" selection-start="4445" selection-end="4445" vertical-scroll-proportion="0.0">
+            <state line="111" column="0" selection-start="3351" selection-end="3351" vertical-scroll-proportion="0.37726098">
               <folding>
-                <marker date="1513151398000" expanded="true" signature="2524:2542" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="2579:2597" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="2828:2858" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="10021:10057" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="10298:10319" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="10574:10595" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="10697:10718" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="11181:11212" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="12236:12248" placeholder="{...}" />
-                <marker date="1513151398000" expanded="true" signature="12358:12378" placeholder="{...}" />
+                <element signature="imports" expanded="true" />
+                <marker date="1520801713233" expanded="true" signature="2756:2774" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="11300:11332" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="12408:12444" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="12537:12558" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="12722:12743" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="13008:13029" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="13164:13185" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="13661:13692" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="14900:14912" placeholder="{...}" />
+                <marker date="1520801713233" expanded="true" signature="15022:15042" placeholder="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="14" selection-start="428" selection-end="428" vertical-scroll-proportion="0.20118344">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,11 +132,12 @@
       <file leaf-file-name="LayoutSample.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/LayoutSample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="25" selection-start="1174" selection-end="1186" vertical-scroll-proportion="0.0">
+            <state line="166" column="8" selection-start="5288" selection-end="5326" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1515705019386" expanded="true" signature="2762:2792" placeholder="{...}" />
-                <marker date="1515705019386" expanded="true" signature="7371:7400" placeholder="{...}" />
-                <marker date="1515705019386" expanded="true" signature="8060:8089" placeholder="{...}" />
+                <marker date="1520801161483" expanded="true" signature="2762:2792" placeholder="{...}" />
+                <marker date="1520801161483" expanded="true" signature="5034:5055" placeholder="{...}" />
+                <marker date="1520801161483" expanded="true" signature="7475:7504" placeholder="{...}" />
+                <marker date="1520801161483" expanded="true" signature="8164:8193" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -143,22 +153,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/TempExpenseData.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/connection/SqliteConnectionType.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/CategoriesDAO.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/Expense.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/CSVProcessor.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/ExpenseUtils.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/CategoriesDAO.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpenseReportDAO.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpenseManagerDAO.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/FakeExpensesDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/FakeExpenseManagerDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/AbstractDataProcessor.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/SortExpensesConfig.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpensesDAO.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/ExpensesDAO.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/ExpenseReportDAO.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/FakeExpenseManagerDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/imprt/AbstractDataImporter.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/MainDataProcessor.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/SQLiteExpenseManagerDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/Main.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIConst.java" />
+        <option value="$PROJECT_DIR$/res/view.css" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java" />
+        <option value="$PROJECT_DIR$/src/sample/LayoutSample.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
       </list>
     </option>
   </component>
@@ -200,6 +210,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -299,7 +310,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -325,11 +358,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
+              <option name="myItemId" value="connection" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,34 +402,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="expman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imprt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExpensesManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Project" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="vlpa.expman.model.dao" />
       <recent name="vlpa.expman.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -591,8 +668,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.GridPaneStyle" />
-        <item index="1" class="java.lang.String" itemvalue="Application.LayoutSample" />
+        <item index="0" class="java.lang.String" itemvalue="Application.LayoutSample" />
+        <item index="1" class="java.lang.String" itemvalue="Application.GridPaneStyle" />
         <item index="2" class="java.lang.String" itemvalue="Application.Game2" />
       </list>
     </recent_temporary>
@@ -606,6 +683,23 @@
     <option name="analysisUIOptions">
       <AnalysisUIOptions />
     </option>
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -640,13 +734,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28620103" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33730835" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -659,14 +753,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6201022" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2530303" sideWeight="0.72572404" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.7127846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2931818" sideWeight="0.6201022" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37989777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3030303" sideWeight="0.72572404" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.274276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.7180385" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -738,94 +832,25 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpenseReportDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/imprt/CsvDataImporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="33" selection-start="115" selection-end="131" vertical-scroll-proportion="0.27642277">
+        <state line="26" column="39" selection-start="754" selection-end="754" vertical-scroll-proportion="-1.1478494">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/DataProcessor.java">
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/MainDataProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="115" selection-end="115" vertical-scroll-proportion="0.1954023">
+        <state line="96" column="36" selection-start="3269" selection-end="3269" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/CategoriesDAO.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/jfxrt.jar!/javafx/scene/paint/Color.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/AbstractDataProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="31" selection-start="1338" selection-end="1338" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/SortExpensesConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpensesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/ExpenseManagerDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="43" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/dao/FakeExpenseManagerDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="33" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/jfxrt.jar!/javafx/scene/layout/VBox.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.1551095" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="0" selection-start="4445" selection-end="4445" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1513151398000" expanded="true" signature="2524:2542" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="2579:2597" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="2828:2858" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="10021:10057" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="10298:10319" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="10574:10595" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="10697:10718" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="11181:11212" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="12236:12248" placeholder="{...}" />
-            <marker date="1513151398000" expanded="true" signature="12358:12378" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/jre/lib/jfxrt.jar!/javafx/application/Application.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="23" selection-start="466" selection-end="466" vertical-scroll-proportion="0.33211678">
-          <folding />
-        </state>
+        <state line="199" column="75" selection-start="11303" selection-end="11303" vertical-scroll-proportion="0.331307" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/graphics/chart_1.png">
@@ -833,21 +858,95 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/LayoutSample.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/ext/jfxrt.jar!/javafx/scene/Node.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="25" selection-start="1174" selection-end="1186" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1515705019386" expanded="true" signature="2762:2792" placeholder="{...}" />
-            <marker date="1515705019386" expanded="true" signature="7371:7400" placeholder="{...}" />
-            <marker date="1515705019386" expanded="true" signature="8060:8089" placeholder="{...}" />
-          </folding>
+        <state line="181" column="69" selection-start="8766" selection-end="8766" vertical-scroll-proportion="0.33206832" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/ext/jfxrt.jar!/javafx/scene/control/TableView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="22" selection-start="4814" selection-end="4814" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/Expense.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="65" selection-end="65" vertical-scroll-proportion="0.044854883">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/SQLiteExpenseManagerDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="41" selection-start="5801" selection-end="5801" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/ext/jfxrt.jar!/javafx/scene/control/cell/PropertyValueFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="36" selection-start="643" selection-end="643" vertical-scroll-proportion="0.44262296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="53" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="14" selection-start="428" selection-end="428" vertical-scroll-proportion="0.20118344">
+        <state line="20" column="58" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/ext/jfxrt.jar!/javafx/scene/layout/HBox.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="11" selection-start="1467" selection-end="1467" vertical-scroll-proportion="1.3178295">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/LayoutSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="8" selection-start="5288" selection-end="5326" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1520801161483" expanded="true" signature="2762:2792" placeholder="{...}" />
+            <marker date="1520801161483" expanded="true" signature="5034:5055" placeholder="{...}" />
+            <marker date="1520801161483" expanded="true" signature="7475:7504" placeholder="{...}" />
+            <marker date="1520801161483" expanded="true" signature="8164:8193" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="0" selection-start="3351" selection-end="3351" vertical-scroll-proportion="0.37726098">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520801713233" expanded="true" signature="2756:2774" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="11300:11332" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="12408:12444" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="12537:12558" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="12722:12743" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="13008:13029" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="13164:13185" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="13661:13692" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="14900:14912" placeholder="{...}" />
+            <marker date="1520801713233" expanded="true" signature="15022:15042" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -882,6 +981,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -910,7 +1010,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -918,6 +1017,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
