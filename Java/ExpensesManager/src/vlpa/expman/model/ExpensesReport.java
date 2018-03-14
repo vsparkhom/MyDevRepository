@@ -3,6 +3,7 @@ package vlpa.expman.model;
 import vlpa.expman.controller.ExpenseUtils;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class ExpensesReport {
 
@@ -43,18 +44,27 @@ public class ExpensesReport {
     }
 
     public double getLeftover() {
-        return ExpenseUtils.round(category.getLimit() - currentAmount, 2);
+        return ExpenseUtils.round(getCurrentLimit() - currentAmount, 2);
     }
 
-    public double getLimit() {
+    public double getCurrentLimit() {
+        double limitPerDay = category.getLimit() / 30;
+        long daysCount = getDateDiff(start, end, TimeUnit.DAYS);
+        return Math.ceil(limitPerDay * daysCount);
+    }
+
+    public double getMonthlyCategoryLimit() {
         return category.getLimit();
+    }
+
+    private long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+        long diffInMillies = date2.getTime() - date1.getTime();
+        return timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
     }
 
     public double getUsagePercent() {
         return ExpenseUtils.round(currentAmount/category.getLimit(), 2);
     }
-
-
 
     public Date getStart() {
         return start;
@@ -70,7 +80,7 @@ public class ExpensesReport {
                 "category=" + category +
                 ", currentAmount=" + currentAmount +
                 ", leftover=" + getLeftover() +
-                ", limit=" + getLimit() +
+                ", limit=" + getCurrentLimit() +
                 ", usagePercent=" + getUsagePercent() +
                 '}';
     }

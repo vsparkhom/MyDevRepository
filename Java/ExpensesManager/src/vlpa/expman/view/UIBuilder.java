@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -30,8 +29,6 @@ import vlpa.expman.model.ExpensesReport;
 import static vlpa.expman.view.UIDimensionsConst.*;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -40,9 +37,11 @@ public class UIBuilder {
     public static final String CSS_STYLE_FILE_NAME = "view.css";
 
     private MainDataProcessor processor = new MainDataProcessor();
-
     private BorderPane rootPane;
     private Stage primaryStage;
+    private DatePickerMenu dpm;
+
+    private long currentCategoryId = 0; //Summary by default
 
     private UIBuilder() {
     }
@@ -89,6 +88,10 @@ public class UIBuilder {
         return rootPane;
     }
 
+    protected void updateView() {
+        rootPane.setCenter(currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsPane(currentCategoryId));
+    }
+
     private void addBorder(Pane pane, String color) {
         pane.setStyle("-fx-border-color: " + color);
     }
@@ -102,42 +105,8 @@ public class UIBuilder {
     }
 
     private Pane buildDatePickerMenu() {
-        HBox datePickerBox = new HBox();
-        datePickerBox.setAlignment(Pos.CENTER_RIGHT);
-        datePickerBox.setPadding(new Insets(25, 12, 0, 12));
-        datePickerBox.setSpacing(10);//TODO: replace with styles
-//        datePickerBox.getStyleClass().add("date-picker");
-
-        //start date
-
-        Text startText = new Text("Start date:");
-
-        DatePicker startDatePicker = new DatePicker();
-        startDatePicker.setPrefWidth(DATE_PICKER_WIDTH);
-
-        startDatePicker.setOnAction(event -> {
-            LocalDate date = startDatePicker.getValue();
-            System.out.println("Selected START date: " + date);
-        });
-
-        datePickerBox.getChildren().addAll(startText, startDatePicker);
-
-        //end date
-
-        Text endText = new Text("End date:");
-
-        DatePicker endDatePicker = new DatePicker();
-        endDatePicker.setPrefWidth(DATE_PICKER_WIDTH);
-
-        endDatePicker.setOnAction(event -> {
-            LocalDate date = endDatePicker.getValue();
-            System.out.println("Selected END date: " + date);
-        });
-
-        datePickerBox.getChildren().addAll(endText, endDatePicker);
-        HBox.setHgrow(datePickerBox, Priority.ALWAYS);
-
-        return datePickerBox;
+        dpm = new DatePickerMenu(this);
+        return dpm.getMenuPane();
     }
 
     private HBox buildMenuButtons(final Stage stage) {
@@ -201,7 +170,8 @@ public class UIBuilder {
         final Hyperlink summaryOption = new Hyperlink("Summary");
         summaryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             public void handle(MouseEvent me) {
-                rootPane.setCenter(buildSummaryPane());
+                currentCategoryId = 0;
+                updateView();
                 summaryOption.setVisited(false);
             }
         });
@@ -213,7 +183,8 @@ public class UIBuilder {
             final Hyperlink categoryOption = new Hyperlink(c.getName());
             categoryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent me) {
-                    rootPane.setCenter(buildCategoryDetailsPane(c.getId()));
+                    currentCategoryId = c.getId();
+                    updateView();
                     categoryOption.setVisited(false);
                 }
             });
@@ -226,7 +197,7 @@ public class UIBuilder {
 
     private Pane buildCategoryDetailsPane(long categoryId) {
         TableView<Expense> table = new TableView<>();
-        final ObservableList<Expense> data = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId));
+        final ObservableList<Expense> data = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
 
         table.setEditable(true);
 
@@ -267,22 +238,15 @@ public class UIBuilder {
         HBox categoriesHeaderPane = buildCategoriesHeaderPane();
         summaryBox.getChildren().add(categoriesHeaderPane);
 
-        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
-
-        //TODO: implement automatic time period adjustment
-        Calendar calendar = Calendar.getInstance();
-        System.out.println("[DEBUG] Today [" + format.format(calendar.getTime()) + "]");
-        Date end = calendar.getTime();
-        calendar.add(Calendar.MONTH, -1);
-        Date start = calendar.getTime();
-        System.out.println("[DEBUG] Get Period [" + format.format(start) + " - " + format.format(end) + "]");
+        Date start = dpm.getStartDate();
+        Date end = dpm.getEndDate();
 
         VBox categoriesSummaryBox = new VBox();
         categoriesSummaryBox.setSpacing(5);
 
         for (Category c : processor.getAllCategories()) {
             ExpensesReport reportForCurrentCategory = processor.getExpensesReportForCategory(c.getId(), start, end);
-            System.out.println("<addCenterPane>[report]: " + reportForCurrentCategory);
+            System.out.println("<addCenterPane>[report][from " + start + " to " + end + "]: " + reportForCurrentCategory);
             categoriesSummaryBox.getChildren().add(buildCategorySummaryPane(reportForCurrentCategory));
         }
 
@@ -302,7 +266,7 @@ public class UIBuilder {
         calendar.add(Calendar.MONTH, -1);
         Date start = calendar.getTime();
 
-        ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(start, end);
+        ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(dpm.getStartDate(), dpm.getEndDate());
 
 //        System.out.println("[DEBUG]<buildTopSummaryPane> allCategoriesExpensesReport: " + allCategoriesExpensesReport);
 
@@ -321,9 +285,10 @@ public class UIBuilder {
         HBox progressBarPane = buildProgressBarPane(allCategoriesExpensesReport.getUsagePercent());
 
         Label left = new Label("[Left: " + allCategoriesExpensesReport.getLeftover() + "]");
-        Label budget = new Label("[Budget: " + allCategoriesExpensesReport.getLimit() + "]");
+        Label currentLimit = new Label("[Current limit: " + allCategoriesExpensesReport.getCurrentLimit() + "]");
+        Label monthlyCategoriesLimit = new Label("[MC limit: " + allCategoriesExpensesReport.getMonthlyCategoryLimit() + "]");
         VBox leftAndBudgetPane = new VBox();
-        leftAndBudgetPane.getChildren().addAll(left, budget);
+        leftAndBudgetPane.getChildren().addAll(left, currentLimit, monthlyCategoriesLimit);
 
         hbox.getChildren().addAll(alreadySpentPane, progressBarPane, leftAndBudgetPane);
 
@@ -352,11 +317,15 @@ public class UIBuilder {
         left.setStyle("-fx-font-weight: bold");
         left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
-        Label limit = new Label("Limit");
-        limit.setStyle("-fx-font-weight: bold");
-        limit.setPrefWidth(SUMMARY_PANEL_COLUMN_LIMIT_WIDTH);
+        Label currentLimit = new Label("Current limit");
+        currentLimit.setStyle("-fx-font-weight: bold");
+        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_CURR_LIMIT_WIDTH);
 
-        hbox.getChildren().addAll(categoryName, currentAmount, progressBarPane, left, limit);
+        Label monthlyCategoryLimit = new Label("MC limit");
+        monthlyCategoryLimit.setStyle("-fx-font-weight: bold");
+        monthlyCategoryLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH);
+
+        hbox.getChildren().addAll(categoryName, currentAmount, progressBarPane, left, currentLimit, monthlyCategoryLimit);
 
         return hbox;
     }
@@ -382,10 +351,13 @@ public class UIBuilder {
         Label left = new Label(report.getLeftover() + "");
         left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
-        Label limit = new Label(report.getLimit() + "");
-        limit.setPrefWidth(SUMMARY_PANEL_COLUMN_LIMIT_WIDTH);
+        Label currentLimit = new Label(report.getCurrentLimit() + "");
+        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_CURR_LIMIT_WIDTH);
 
-        hbox.getChildren().addAll(categoryName, currentAmount, categoryProgressBarPane, left, limit);
+        Label monthlyCategoryLimit = new Label(report.getMonthlyCategoryLimit() + "");
+        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH);
+
+        hbox.getChildren().addAll(categoryName, currentAmount, categoryProgressBarPane, left, currentLimit, monthlyCategoryLimit);
 
         return hbox;
     }

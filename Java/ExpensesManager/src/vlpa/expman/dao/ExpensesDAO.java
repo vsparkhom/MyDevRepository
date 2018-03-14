@@ -6,6 +6,7 @@ import vlpa.expman.model.Expense;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
 public interface ExpensesDAO {
@@ -13,6 +14,8 @@ public interface ExpensesDAO {
     Collection<Expense> getAllExpenses(Connection conn) throws SQLException;
 
     Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId) throws SQLException;
+
+    Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId, Date start, Date end) throws SQLException;
 
     void saveExpenses(Connection conn, Collection<Expense> expenses);
 

@@ -6,9 +6,11 @@ import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -94,6 +96,11 @@ public class FakeExpenseManagerDAOImpl implements ExpenseManagerDAO {
             }
         }
         return expensesForCategory;
+    }
+
+    @Override
+    public Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId, Date start, Date end) throws SQLException {
+        return Collections.EMPTY_LIST;//TODO: correct test impl
     }
 
     @Override

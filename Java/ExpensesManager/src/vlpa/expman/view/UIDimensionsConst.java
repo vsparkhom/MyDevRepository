@@ -3,7 +3,7 @@ package vlpa.expman.view;
 interface UIDimensionsConst {
 
     //main scene
-    int SCENE_WIDTH = 800;
+    int SCENE_WIDTH = 1000;
     int SCENE_HEIGHT = 500;
 
     //main panel
@@ -19,8 +19,9 @@ interface UIDimensionsConst {
     int SUMMARY_PANEL_COLUMN_CATEGORY_NAME_WIDTH = 250;
     int SUMMARY_PANEL_COLUMN_SPENT_WIDTH = 50;
     int SUMMARY_PANEL_COLUMN_PROGRESS_BAR_WIDTH = 200;
-    int SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH = 50;
-    int SUMMARY_PANEL_COLUMN_LIMIT_WIDTH = 50;
+    int SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH = 100;
+    int SUMMARY_PANEL_COLUMN_CURR_LIMIT_WIDTH = 100;
+    int SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH = 100;
 
     //top menu button
     int TOP_MENU_BUTTON_SIZE = 50;

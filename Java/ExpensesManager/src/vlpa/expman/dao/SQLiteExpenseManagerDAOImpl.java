@@ -32,6 +32,10 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
         return null;
     }
 
+    private String formatDate(Date date) {
+        return format.format(date);
+    }
+
     @Override
     public Collection<Category> getAllCategories(Connection conn) throws SQLException {
 
@@ -100,11 +104,8 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
             throw new CategoryNotFoundException(categoryId);
         }
         ExpensesReport expensesForCategory = new ExpensesReport(category, start, end);
-        for (Expense e : getExpensesByCategoryId(conn, categoryId)) {
-            Date currentExpenseDate = e.getDate();
-            if (currentExpenseDate.after(start) && currentExpenseDate.before(end) && isDepositAllowed(e)) {
-                expensesForCategory.addExpense(e);
-            }
+        for (Expense e : getExpensesByCategoryId(conn, categoryId, start, end)) {
+            expensesForCategory.addExpense(e);
         }
         return expensesForCategory;
     }
@@ -140,6 +141,30 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
     public Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId) throws SQLException {
         PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.GET_EXPENSES_BY_CATEGORY_ID);
         pstm.setLong(1, categoryId);
+        ResultSet rs = pstm.executeQuery();
+
+        Collection<Expense> expenses = new ArrayList<>();
+        while (rs.next()) {
+            long id = rs.getLong("id");
+            Date date = parseDate(rs.getString("date"));
+            String merchant = rs.getString("merchant");
+            double amount = rs.getDouble("amount");
+
+            Category category = getCategoryById(conn, categoryId);
+
+            Expense exp = new Expense(id, merchant, date, amount, category);
+            expenses.add(exp);
+        }
+
+        return expenses;
+    }
+
+    @Override
+    public Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId, Date start, Date end) throws SQLException {
+        PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.GET_EXPENSES_BY_CATEGORY_ID_FOR_SPECIFIC_PERIOD);
+        pstm.setLong(1, categoryId);
+        pstm.setString(2, formatDate(start));
+        pstm.setString(3, formatDate(end));
         ResultSet rs = pstm.executeQuery();
 
         Collection<Expense> expenses = new ArrayList<>();

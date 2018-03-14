@@ -45,6 +45,19 @@ public class MainDataProcessor {
         return Collections.EMPTY_LIST;
     }
 
+    public Collection<Expense> getExpensesByCategoryId(long categoryId, Date start, Date end) {
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            return dao.getExpensesByCategoryId(conn, categoryId, start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+        return Collections.EMPTY_LIST;
+    }
+
     public ExpensesReport getExpensesReportForCategory(long id, Date start, Date end) {
         Connection conn = null;
         try {
