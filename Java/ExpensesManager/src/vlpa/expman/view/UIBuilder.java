@@ -107,7 +107,6 @@ public class UIBuilder {
     }
 
     private Pane buildDatePickerComponent() {
-//        dpm = new PeriodDatePickerMenu(this);
         dpm = new MonthlyDatePickerMenu(this);
         return dpm.getMenuPane();
     }
@@ -265,8 +264,8 @@ public class UIBuilder {
     private HBox buildTopSummaryPane() {
 
         ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(dpm.getStartDate(), dpm.getEndDate());
-
-//        System.out.println("[DEBUG]<buildTopSummaryPane> allCategoriesExpensesReport: " + allCategoriesExpensesReport);
+        System.out.println("[DEBUG]<buildTopSummaryPane> allCategoriesExpensesReport[" + dpm.getStartDate() + "; " +
+                dpm.getEndDate() + " ]: " + allCategoriesExpensesReport);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));

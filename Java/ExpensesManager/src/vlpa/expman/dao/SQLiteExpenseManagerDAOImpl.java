@@ -21,11 +21,11 @@ import java.util.Map;
 public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
 
     private static final boolean DEPOSIT_ALLOWED = false;
-    private DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
     private Date parseDate(String s) {
         try {
-            return format.parse(s);
+            return formatter.parse(s);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
     }
 
     private String formatDate(Date date) {
-        return format.format(date);
+        return formatter.format(date);
     }
 
     @Override
@@ -77,12 +77,7 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
     public ExpensesReport getExpensesReportForAllCategories(Connection conn, Date start, Date end) throws SQLException {
         Category summary = new Category(-1, "Summary", getLimitForAllCategories(conn));
         ExpensesReport expensesForAllCategories = new ExpensesReport(summary, start, end);
-        for (Expense e : getAllExpenses(conn)) {
-            Date currentExpenseDate = e.getDate();
-            if (currentExpenseDate.after(start) && currentExpenseDate.before(end)) {
-                expensesForAllCategories.addExpense(e);
-            }
-        }
+        expensesForAllCategories.addExpenses(getAllExpenses(conn, start, end));
         return expensesForAllCategories;
     }
 
@@ -118,6 +113,19 @@ public class SQLiteExpenseManagerDAOImpl implements ExpenseManagerDAO {
     public Collection<Expense> getAllExpenses(Connection conn) throws SQLException {
 
         PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.GET_ALL_EXPENSES);
+        return getExpensesInternal(conn, pstm);
+    }
+
+    @Override
+    public Collection<Expense> getAllExpenses(Connection conn, Date start, Date end) throws SQLException {
+
+        PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.GET_ALL_EXPENSES_FOR_PERIOD);
+        pstm.setString(1, formatDate(start));
+        pstm.setString(2, formatDate(end));
+        return getExpensesInternal(conn, pstm);
+    }
+
+    private Collection<Expense> getExpensesInternal(Connection conn, PreparedStatement pstm) throws SQLException {
         ResultSet rs = pstm.executeQuery();
 
         Collection<Expense> expenses = new ArrayList<>();

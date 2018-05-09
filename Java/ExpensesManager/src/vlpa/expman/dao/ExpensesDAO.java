@@ -13,6 +13,8 @@ public interface ExpensesDAO {
 
     Collection<Expense> getAllExpenses(Connection conn) throws SQLException;
 
+    Collection<Expense> getAllExpenses(Connection conn, Date start, Date end) throws SQLException;
+
     Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId) throws SQLException;
 
     Collection<Expense> getExpensesByCategoryId(Connection conn, long categoryId, Date start, Date end) throws SQLException;

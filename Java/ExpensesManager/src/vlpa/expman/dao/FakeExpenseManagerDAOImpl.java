@@ -1,5 +1,6 @@
 package vlpa.expman.dao;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import vlpa.expman.model.Category;
 import vlpa.expman.dao.exception.CategoryNotFoundException;
 import vlpa.expman.model.Expense;
@@ -85,6 +86,11 @@ public class FakeExpenseManagerDAOImpl implements ExpenseManagerDAO {
     @Override
     public Collection<Expense> getAllExpenses(Connection conn) {
         return expenses;
+    }
+
+    @Override
+    public Collection<Expense> getAllExpenses(Connection conn, Date start, Date end) {
+        throw new NotImplementedException();
     }
 
     @Override
