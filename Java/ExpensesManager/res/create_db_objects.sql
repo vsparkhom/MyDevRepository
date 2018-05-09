@@ -40,4 +40,4 @@ create table expenses_mapping (
 --insert into expenses_mapping values ('IKEA CALGARY', 4);
 --insert into expenses_mapping values ('REAL CANADIAN SUPERSTO', 5);
 --insert into expenses_mapping values ('REAL CANADIAN LIQUOR S', 6);
-i--nsert into expenses_mapping values ('PET PLANET', 7);
+--nsert into expenses_mapping values ('PET PLANET', 7);

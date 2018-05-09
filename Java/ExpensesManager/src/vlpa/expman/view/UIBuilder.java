@@ -26,10 +26,12 @@ import vlpa.expman.controller.MainDataProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
+import vlpa.expman.view.datepicker.CustomDatePicker;
+import vlpa.expman.view.datepicker.MonthlyDatePickerMenu;
+
 import static vlpa.expman.view.UIDimensionsConst.*;
 
 import java.io.File;
-import java.util.Calendar;
 import java.util.Date;
 
 public class UIBuilder {
@@ -39,7 +41,7 @@ public class UIBuilder {
     private MainDataProcessor processor = new MainDataProcessor();
     private BorderPane rootPane;
     private Stage primaryStage;
-    private DatePickerMenu dpm;
+    private CustomDatePicker dpm;
 
     private long currentCategoryId = 0; //Summary by default
 
@@ -88,7 +90,7 @@ public class UIBuilder {
         return rootPane;
     }
 
-    protected void updateView() {
+    public void updateView() {
         rootPane.setCenter(currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsPane(currentCategoryId));
     }
 
@@ -99,13 +101,14 @@ public class UIBuilder {
     private Pane buildTopMenu(final Stage stage) {
 
         HBox topMenuBox = new HBox();
-        topMenuBox.getChildren().addAll(buildMenuButtons(stage), buildDatePickerMenu());
+        topMenuBox.getChildren().addAll(buildMenuButtons(stage), buildDatePickerComponent());
 
         return topMenuBox;
     }
 
-    private Pane buildDatePickerMenu() {
-        dpm = new DatePickerMenu(this);
+    private Pane buildDatePickerComponent() {
+//        dpm = new PeriodDatePickerMenu(this);
+        dpm = new MonthlyDatePickerMenu(this);
         return dpm.getMenuPane();
     }
 
@@ -260,11 +263,6 @@ public class UIBuilder {
     }
 
     private HBox buildTopSummaryPane() {
-
-        Calendar calendar = Calendar.getInstance();
-        Date end = calendar.getTime();
-        calendar.add(Calendar.MONTH, -1);
-        Date start = calendar.getTime();
 
         ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(dpm.getStartDate(), dpm.getEndDate());
 

@@ -1,6 +1,6 @@
 package vlpa.expman.view;
 
-interface UIDimensionsConst {
+public interface UIDimensionsConst {
 
     //main scene
     int SCENE_WIDTH = 1000;
