@@ -283,10 +283,9 @@ public class UIBuilder {
         HBox progressBarPane = buildProgressBarPane(allCategoriesExpensesReport.getUsagePercent());
 
         Label left = new Label("[Left: " + allCategoriesExpensesReport.getLeftover() + "]");
-        Label currentLimit = new Label("[Current limit: " + allCategoriesExpensesReport.getCurrentLimit() + "]");
-        Label monthlyCategoriesLimit = new Label("[MC limit: " + allCategoriesExpensesReport.getMonthlyCategoryLimit() + "]");
+        Label monthlyCategoriesLimit = new Label("[Limit: " + allCategoriesExpensesReport.getMonthlyCategoryLimit() + "]");
         VBox leftAndBudgetPane = new VBox();
-        leftAndBudgetPane.getChildren().addAll(left, currentLimit, monthlyCategoriesLimit);
+        leftAndBudgetPane.getChildren().addAll(left, monthlyCategoriesLimit);
 
         hbox.getChildren().addAll(alreadySpentPane, progressBarPane, leftAndBudgetPane);
 
@@ -315,15 +314,11 @@ public class UIBuilder {
         left.setStyle("-fx-font-weight: bold");
         left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
-        Label currentLimit = new Label("Current limit");
-        currentLimit.setStyle("-fx-font-weight: bold");
-        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_CURR_LIMIT_WIDTH);
-
-        Label monthlyCategoryLimit = new Label("MC limit");
+        Label monthlyCategoryLimit = new Label("Limit");
         monthlyCategoryLimit.setStyle("-fx-font-weight: bold");
         monthlyCategoryLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH);
 
-        hbox.getChildren().addAll(categoryName, currentAmount, progressBarPane, left, currentLimit, monthlyCategoryLimit);
+        hbox.getChildren().addAll(categoryName, currentAmount, progressBarPane, left, monthlyCategoryLimit);
 
         return hbox;
     }
@@ -349,13 +344,10 @@ public class UIBuilder {
         Label left = new Label(report.getLeftover() + "");
         left.setPrefWidth(SUMMARY_PANEL_COLUMN_LEFTOVER_WIDTH);
 
-        Label currentLimit = new Label(report.getCurrentLimit() + "");
-        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_CURR_LIMIT_WIDTH);
-
         Label monthlyCategoryLimit = new Label(report.getMonthlyCategoryLimit() + "");
-        currentLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH);
+        monthlyCategoryLimit.setPrefWidth(SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH);
 
-        hbox.getChildren().addAll(categoryName, currentAmount, categoryProgressBarPane, left, currentLimit, monthlyCategoryLimit);
+        hbox.getChildren().addAll(categoryName, currentAmount, categoryProgressBarPane, left, monthlyCategoryLimit);
 
         return hbox;
     }

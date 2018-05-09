@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/AbstractDatePickerMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/CustomDatePicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/expman.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/create_db_objects.sql" beforeDir="false" afterPath="$PROJECT_DIR$/res/create_db_objects.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/expman.db" beforeDir="false" afterPath="$PROJECT_DIR$/res/expman.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fill_tables_with_test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/res/fill_tables_with_test_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/DatePickerMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,70 +63,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UIBuilder.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UIBuilder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-149">
-              <caret line="251" column="109" lean-forward="true" selection-start-line="251" selection-start-column="109" selection-end-line="251" selection-end-column="109" />
+            <state relative-caret-position="105">
+              <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeriodDatePickerMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java">
+      <file leaf-file-name="ExpensesReport.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-458">
-              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            <state relative-caret-position="136">
+              <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1447#1448#0" expanded="true" />
+                <element signature="e#1489#1490#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MonthlyDatePickerMenu.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractDatePickerMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/AbstractDatePickerMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="20" selection-start-line="17" selection-end-line="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#639#640#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomDatePicker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/CustomDatePicker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UIDimensionsConst.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -157,6 +99,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>DATE_PICKER_WIDTH</find>
+      <find>getDateDiff</find>
+      <find>MC limit</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -176,11 +120,12 @@
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerManu.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/CustomDatePicker.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/DatePickerMenu.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/AbstractDatePickerMenu.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MontlyDatePickerMenu.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
       </list>
     </option>
   </component>
@@ -225,7 +170,7 @@
               <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
@@ -233,7 +178,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="expman" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="datepicker" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -469,32 +413,32 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.7127846" weight="0.3297546" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22818792" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22818792" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32885906" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6152174" visible="true" weight="0.2159265" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6152174" visible="true" weight="0.2159265" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.18456376" />
       <window_info id="Structure" order="1" sideWeight="0.3847826" side_tool="true" visible="true" weight="0.2159265" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="SBT Console" order="8" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="bottom" id="Profiler" order="7" />
-      <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="right" id="CDI" order="4" />
-      <window_info anchor="bottom" id="IDEtalk Messages" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" sideWeight="0.7180385" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Problems" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.18456376" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="right" id="IDEtalk" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Changes" order="7" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Profiler" order="7" />
+      <window_info anchor="bottom" id="Problems" order="7" />
+      <window_info anchor="right" id="CDI" order="4" />
+      <window_info anchor="bottom" id="SBT Console" order="8" />
+      <window_info anchor="bottom" id="IDEtalk Messages" order="8" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -504,6 +448,11 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -769,13 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -834,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/CustomDatePicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="136">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -861,10 +803,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
-          <caret line="251" column="109" lean-forward="true" selection-start-line="251" selection-start-column="109" selection-end-line="251" selection-end-column="109" />
+        <state relative-caret-position="307">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -878,13 +823,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="136">
+          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="313" column="23" selection-start-line="313" selection-start-column="23" selection-end-line="313" selection-end-column="23" />
         </state>
       </provider>
     </entry>
