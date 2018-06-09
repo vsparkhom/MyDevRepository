@@ -22,7 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import vlpa.expman.controller.MainDataProcessor;
+import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
@@ -38,7 +38,7 @@ public class UIBuilder {
 
     public static final String CSS_STYLE_FILE_NAME = "view.css";
 
-    private MainDataProcessor processor = new MainDataProcessor();
+    private MainProcessor processor = MainProcessor.getInstance();
     private BorderPane rootPane;
     private Stage primaryStage;
     private CustomDatePicker dpm;
@@ -112,14 +112,13 @@ public class UIBuilder {
     }
 
     private HBox buildMenuButtons(final Stage stage) {
-        HBox hbox = new HBox();
+        HBox hbox = new HBox(10);
         hbox.setPadding(new Insets(15, 12, 15, 12));
-        hbox.setSpacing(10); // Gap between nodes
 //        hbox.setStyle("-fx-background-color: #336699;");
 
         final FileChooser fileChooser = new FileChooser();
 
-        Button importButton = createMenuButton("Import expenses", "img/import.png", new EventHandler<ActionEvent>() {
+        Button importButton = createMenuButton("Import expense", "img/import.png", new EventHandler<ActionEvent>() {
             @Override
             public void handle(final ActionEvent e) {
                 File file = fileChooser.showOpenDialog(stage);
@@ -141,7 +140,13 @@ public class UIBuilder {
         });
 
         Button addPatternButton = createMenuButton("Add pattern", "img/list.png", null);
-        Button addCategoryButton = createMenuButton("Add category", "img/add.png", null);
+        Button addCategoryButton = createMenuButton("Manage categories", "img/add.png",
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        ModalWindowsHelper.initCategoriesManagementWindow(primaryStage, processor);
+                    }
+                });
 
         hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton);
         return hbox;
@@ -161,9 +166,8 @@ public class UIBuilder {
 
     private Pane buildLeftMenu() {
 
-        VBox vbox = new VBox();
+        VBox vbox = new VBox(8);
         vbox.setPadding(new Insets(10)); // Set all sides to 10
-        vbox.setSpacing(8);              // Gap between nodes
 
         Text title = new Text("Menu");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 14));

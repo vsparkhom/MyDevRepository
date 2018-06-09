@@ -1,87 +1,54 @@
 package vlpa.expman.controller;
 
 import vlpa.expman.controller.imprt.CsvDataImporter;
-import vlpa.expman.dao.ExpenseManagerDAO;
-import vlpa.expman.dao.ExpenseManagerDAOFactory;
+import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.connection.ConnectionManager;
+import vlpa.expman.dao.expense.ExpensesRepository;
+import vlpa.expman.dao.report.ExpenseReportRepository;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 
-public class MainDataProcessor {
+public class MainProcessor {
 
-    private ExpenseManagerDAO dao = ExpenseManagerDAOFactory.getInstance();
+    private CategoriesRepository categoriesRepository = new CategoriesRepository();
+    private ExpensesRepository expensesRepository = new ExpensesRepository();
+    private ExpenseReportRepository expenseReportRepository = new ExpenseReportRepository();
 
-    public Collection<Category> getAllCategories() {
-        Connection conn = null;
-        try {
-            conn = ConnectionManager.getConnection();
-            return dao.getAllCategories(conn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionManager.closeConnection(conn);
+    private static MainProcessor instance;
+
+    private MainProcessor() {
+    }
+
+    public static MainProcessor getInstance() {
+        if (instance == null) {
+            instance = new MainProcessor();
         }
-        return Collections.EMPTY_LIST;
+        return instance;
+    }
+
+    public List<Category> getAllCategories() {
+        return categoriesRepository.getAllCategories();
     }
 
     public Collection<Expense> getExpensesByCategoryId(long categoryId) {
-        Connection conn = null;
-        try {
-            conn = ConnectionManager.getConnection();
-            return dao.getExpensesByCategoryId(conn, categoryId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionManager.closeConnection(conn);
-        }
-        return Collections.EMPTY_LIST;
+        return expensesRepository.getExpensesByCategoryId(categoryId);
     }
 
     public Collection<Expense> getExpensesByCategoryId(long categoryId, Date start, Date end) {
-        Connection conn = null;
-        try {
-            conn = ConnectionManager.getConnection();
-            return dao.getExpensesByCategoryId(conn, categoryId, start, end);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionManager.closeConnection(conn);
-        }
-        return Collections.EMPTY_LIST;
+        return expensesRepository.getExpensesByCategoryId(categoryId, start, end);
     }
 
     public ExpensesReport getExpensesReportForCategory(long id, Date start, Date end) {
-        Connection conn = null;
-        try {
-            conn = ConnectionManager.getConnection();
-            return dao.getExpensesReportForCategory(conn, id, start, end);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionManager.closeConnection(conn);
-        }
-        return null;
+        return expenseReportRepository.getExpensesReportForCategory(id, start, end);
     }
 
     public ExpensesReport getExpensesReportForAllCategories(Date start, Date end) {
-        Connection conn = null;
-        try {
-            conn = ConnectionManager.getConnection();
-            return dao.getExpensesReportForAllCategories(conn, start, end);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionManager.closeConnection(conn);
-        }
-        return null;
+        return expenseReportRepository.getExpensesReportForAllCategories(start, end);
     }
 
     public void importExpenses(String fileName) {
@@ -99,7 +66,7 @@ public class MainDataProcessor {
     }
 
     protected void sortExpensesByCategories(Connection conn, Collection<Expense> expenses) throws SQLException {
-        Map<String, Category> configMap = dao.getExpensesMapping(conn);
+        Map<String, Category> configMap = expensesRepository.getExpensesMapping(conn);
         for (Expense e : expenses) {
             Category c = configMap.get(e.getName());//TODO: regexp
             e.setCategory((c == null) ? getUnknownCategory() : c);
@@ -111,7 +78,7 @@ public class MainDataProcessor {
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
-            return dao.getExpensesMapping(conn);
+            return expensesRepository.getExpensesMapping(conn);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -121,7 +88,7 @@ public class MainDataProcessor {
     }
 
     protected void storeImportedData(Connection conn, Collection<Expense> expenses) {
-        dao.saveExpenses(conn, expenses);
+        expensesRepository.saveExpenses(conn, expenses);
     }
 
     //TODO: re-implement to get Unknown category from DB by id

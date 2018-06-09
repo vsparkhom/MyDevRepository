@@ -2,12 +2,14 @@ package vlpa.expman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import vlpa.expman.controller.MainDataProcessor;
+import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
 import vlpa.expman.view.UIBuilder;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Map;
 
@@ -24,26 +26,31 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 //        CsvDataImporter.getInstance().importExpensesFromFile("res/report.csv");
-        testData();
+//        testData();
         launch(args);
     }
 
     private static void testData() {
 
-        MainDataProcessor processor = new MainDataProcessor();
+        MainProcessor processor = MainProcessor.getInstance();
 
-        System.out.println("------------ CATEGORIES/EXPENSES ------------");
-        for (Category c : processor.getAllCategories()) {
-            System.out.println("----- CATEGORY: " + c + " -----");
-            for (Expense e : processor.getExpensesByCategoryId(c.getId())) {
-                System.out.println("   - expense: " + e);
-            }
-        }
+        Date start = Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date end = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        ExpensesReport report = processor.getExpensesReportForAllCategories(start, end);
+        System.out.println("report: " + report);
 
-        System.out.println("------------ SORT CONFIG MAP ------------");
-        for (Map.Entry<String, Category> entry : processor.getExpensesMapping().entrySet()) {
-            System.out.println("[entry] key: " + entry.getKey() + " - " + entry.getValue());
-        }
+//        System.out.println("------------ CATEGORIES/EXPENSES ------------");
+//        for (Category c : processor.getAllCategories()) {
+//            System.out.println("----- CATEGORY: " + c + " -----");
+//            for (Expense e : processor.getExpensesByCategoryId(c.getId())) {
+//                System.out.println("   - expense: " + e);
+//            }
+//        }
+//
+//        System.out.println("------------ SORT CONFIG MAP ------------");
+//        for (Map.Entry<String, Category> entry : processor.getExpensesMapping().entrySet()) {
+//            System.out.println("[entry] key: " + entry.getKey() + " - " + entry.getValue());
+//        }
 
 //        processor.importExpenses("res/report.csv");
 
