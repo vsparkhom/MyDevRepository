@@ -6,6 +6,9 @@ public class DBQueries {
 
         public static final String GET_ALL_CATEGORIES = "select * from categories";
         public static final String GET_CATEGORY_BY_ID = "select * from categories where id = %d";
+        public static final String ADD_CATEGORY = "insert into categories(name, 'limit') values (?, ?)";
+        public static final String REMOVE_CATEGORY = "delete from categories where id = ?";
+        public static final String UPDATE_CATEGORY = "update categories set name = ?, 'limit' = ? where id = ?";
 
         public static final String GET_ALL_EXPENSES = "select * from expenses";
         public static final String GET_ALL_EXPENSES_FOR_PERIOD = "select * from expenses where date between '%s' and '%s'";

@@ -51,6 +51,18 @@ public class MainProcessor {
         return expenseReportRepository.getExpensesReportForAllCategories(start, end);
     }
 
+    public void addCategory(String name, double limit) {
+        categoriesRepository.addCategory(name, limit);
+    }
+
+    public void removeCategory(long categoryId) {
+        categoriesRepository.removeCategory(categoryId);
+    }
+
+    public void updateCategory(Category category) {
+        categoriesRepository.updateCategory(category);
+    }
+
     public void importExpenses(String fileName) {
         Collection<Expense> expenses = CsvDataImporter.getInstance().importExpensesFromFile(fileName);
         Connection conn = null;

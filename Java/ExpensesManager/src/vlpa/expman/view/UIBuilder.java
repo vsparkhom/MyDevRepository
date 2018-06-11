@@ -28,6 +28,7 @@ import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
 import vlpa.expman.view.datepicker.CustomDatePicker;
 import vlpa.expman.view.datepicker.MonthlyDatePickerMenu;
+import vlpa.expman.view.modal.ModalWindowsHelper;
 
 import static vlpa.expman.view.UIDimensionsConst.*;
 
@@ -50,6 +51,10 @@ public class UIBuilder {
 
     private static class UIBuilderInstanceHolder {
         public static UIBuilder instance = new UIBuilder();
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
     }
 
     public static UIBuilder getInstance() {
@@ -82,7 +87,7 @@ public class UIBuilder {
         leftMenu.setPrefWidth(LEFT_MENU_WIDTH);
         rootPane.setLeft(leftMenu);
 
-        Pane center = buildSummaryPane();
+        Pane center = currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsPane(currentCategoryId);
         center.setPrefWidth(CENTER_MENU_WIDTH);
         center.setPrefHeight(CENTER_MENU_HEIGHT);
         rootPane.setCenter(center);
@@ -91,7 +96,7 @@ public class UIBuilder {
     }
 
     public void updateView() {
-        rootPane.setCenter(currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsPane(currentCategoryId));
+        getPrimaryStage().setScene(buildPrimaryScene(getPrimaryStage()));
     }
 
     private void addBorder(Pane pane, String color) {
@@ -141,12 +146,7 @@ public class UIBuilder {
 
         Button addPatternButton = createMenuButton("Add pattern", "img/list.png", null);
         Button addCategoryButton = createMenuButton("Manage categories", "img/add.png",
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        ModalWindowsHelper.initCategoriesManagementWindow(primaryStage, processor);
-                    }
-                });
+                event -> ModalWindowsHelper.getCategoriesManagementDialog(UIBuilder.getInstance(), processor).getStage().show());
 
         hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton);
         return hbox;
@@ -174,12 +174,10 @@ public class UIBuilder {
         vbox.getChildren().add(title);
 
         final Hyperlink summaryOption = new Hyperlink("Summary");
-        summaryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            public void handle(MouseEvent me) {
-                currentCategoryId = 0;
-                updateView();
-                summaryOption.setVisited(false);
-            }
+        summaryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, event ->  {
+            currentCategoryId = 0;
+            updateView();
+            summaryOption.setVisited(false);
         });
         vbox.setMargin(summaryOption, new Insets(0, 0, 0, 8));
         vbox.getChildren().add(summaryOption);
@@ -187,12 +185,10 @@ public class UIBuilder {
         for (final Category c : processor.getAllCategories()) {
             // Add offset to left side to indent from title
             final Hyperlink categoryOption = new Hyperlink(c.getName());
-            categoryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                public void handle(MouseEvent me) {
-                    currentCategoryId = c.getId();
-                    updateView();
-                    categoryOption.setVisited(false);
-                }
+            categoryOption.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                currentCategoryId = c.getId();
+                updateView();
+                categoryOption.setVisited(false);
             });
             vbox.setMargin(categoryOption, new Insets(0, 0, 0, 8));
             vbox.getChildren().add(categoryOption);

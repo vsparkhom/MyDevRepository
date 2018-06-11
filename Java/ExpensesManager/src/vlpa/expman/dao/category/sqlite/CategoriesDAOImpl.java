@@ -1,5 +1,6 @@
 package vlpa.expman.dao.category.sqlite;
 
+import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.category.CategoriesDAO;
 import vlpa.expman.dao.connection.ConnectionManager;
 import vlpa.expman.model.Category;
@@ -36,5 +37,53 @@ public class CategoriesDAOImpl implements CategoriesDAO {
             ConnectionManager.closeConnection(conn);
         }
         return Collections.emptyList();
+    }
+
+    @Override
+    public void addCategory(String name, double limit) {
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.ADD_CATEGORY);
+            pstm.setString(1, name);
+            pstm.setDouble(2, limit);
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void removeCategory(long categoryId) {
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.REMOVE_CATEGORY);
+            pstm.setLong(1, categoryId);
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void updateCategory(Category category) {
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.UPDATE_CATEGORY);
+            pstm.setString(1, category.getName());
+            pstm.setDouble(2, category.getLimit());
+            pstm.setLong(3, category.getId());
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
     }
 }

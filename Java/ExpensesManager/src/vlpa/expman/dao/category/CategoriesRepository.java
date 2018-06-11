@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CategoriesRepository {
 
-    CategoriesDAO categoriesDAO = new CategoriesDAOImpl();
+    private CategoriesDAO categoriesDAO = new CategoriesDAOImpl();
 
     public Category getCategoryById(long id) {
         return categoriesDAO.queryCategories(new CategorySqlSpecificationGetById(id).toSqlClause()).get(0);
@@ -26,5 +26,17 @@ public class CategoriesRepository {
             totalLimit += c.getLimit();
         }
         return totalLimit;
+    }
+
+    public void addCategory(String name, double limit) {
+        categoriesDAO.addCategory(name, limit);
+    }
+
+    public void removeCategory(long categoryId) {
+        categoriesDAO.removeCategory(categoryId);
+    }
+
+    public void updateCategory(Category category) {
+        categoriesDAO.updateCategory(category);
     }
 }
