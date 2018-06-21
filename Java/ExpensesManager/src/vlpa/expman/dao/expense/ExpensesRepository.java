@@ -1,12 +1,12 @@
 package vlpa.expman.dao.expense;
 
 import vlpa.expman.dao.DBQueries;
+import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetAll;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetAllForPeriod;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetByCategoryId;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetByCategoryIdForPeriod;
-import vlpa.expman.dao.expense.sqlite.ExpensesDAOImpl;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 
@@ -21,7 +21,7 @@ public class ExpensesRepository {
     private static final boolean DEPOSIT_ALLOWED = false;
 
     private CategoriesRepository categoriesRepository = new CategoriesRepository();
-    private ExpensesDAO expensesDAO = new ExpensesDAOImpl();
+    private ExpensesDAO expensesDAO = ExpenseManagerDAOFactory.ExpensesDAOFactory.getInstance();
 
     private boolean isDepositAllowed(Expense e) {
         return e.getAmount() > 0 || DEPOSIT_ALLOWED;

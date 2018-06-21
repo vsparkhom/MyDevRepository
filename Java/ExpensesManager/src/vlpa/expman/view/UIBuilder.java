@@ -37,10 +37,9 @@ import java.util.Date;
 
 public class UIBuilder {
 
-    public static final String CSS_STYLE_FILE_NAME = "view.css";
+    private static final String CSS_STYLE_FILE_NAME = "view.css";
 
     private MainProcessor processor = MainProcessor.getInstance();
-    private BorderPane rootPane;
     private Stage primaryStage;
     private CustomDatePicker dpm;
 
@@ -50,7 +49,7 @@ public class UIBuilder {
     }
 
     private static class UIBuilderInstanceHolder {
-        public static UIBuilder instance = new UIBuilder();
+        static UIBuilder instance = new UIBuilder();
     }
 
     public Stage getPrimaryStage() {
@@ -75,7 +74,7 @@ public class UIBuilder {
         stage.setMinWidth(SCENE_WIDTH + 20);
         stage.setMinHeight(SCENE_HEIGHT + 40);
 
-        rootPane = new BorderPane();
+        BorderPane rootPane = new BorderPane();
 
         Pane topMenu = buildTopMenu(stage);
         addBorder(topMenu, "grey");
@@ -112,7 +111,9 @@ public class UIBuilder {
     }
 
     private Pane buildDatePickerComponent() {
-        dpm = new MonthlyDatePickerMenu(this);
+        if (dpm == null) {
+            dpm = new MonthlyDatePickerMenu(this);
+        }
         return dpm.getMenuPane();
     }
 
@@ -123,24 +124,21 @@ public class UIBuilder {
 
         final FileChooser fileChooser = new FileChooser();
 
-        Button importButton = createMenuButton("Import expense", "img/import.png", new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(final ActionEvent e) {
-                File file = fileChooser.showOpenDialog(stage);
-                if (file != null) {
-                    System.out.println("File has been chosen:" + file.getName());
+        Button importButton = createMenuButton("Import expense", "img/import.png", event -> {
+            File file = fileChooser.showOpenDialog(stage);
+            if (file != null) {
+                System.out.println("File has been chosen:" + file.getName());
 
-                    //TODO: create dialog
+                //TODO: create import dialog
 
-                    Stage dialog = new Stage();
+                Stage dialog = new Stage();
 
-                    // populate dialog with controls.
+                // populate dialog with controls.
 
-                    dialog.initOwner(primaryStage);
-                    dialog.initModality(Modality.APPLICATION_MODAL);
-                    dialog.showAndWait();
+                dialog.initOwner(primaryStage);
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.showAndWait();
 
-                }
             }
         });
 

@@ -29,7 +29,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                 String merchant = rs.getString("merchant");
                 double amount = rs.getDouble("amount");
                 long categoryId = rs.getLong("category_id");
-                Category fakeCategory = new Category(categoryId, null, 0);//TODO: fill category name and limit from query results
+                Category fakeCategory = new Category(categoryId, null, 0);
                 Expense exp = new Expense(id, merchant, date, amount, fakeCategory);
                 expenses.add(exp);
             }

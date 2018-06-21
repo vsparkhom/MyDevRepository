@@ -1,16 +1,15 @@
 package vlpa.expman.dao.category;
 
-import vlpa.expman.dao.DBQueries;
+import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetAll;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetById;
-import vlpa.expman.dao.category.sqlite.CategoriesDAOImpl;
 import vlpa.expman.model.Category;
 
 import java.util.List;
 
 public class CategoriesRepository {
 
-    private CategoriesDAO categoriesDAO = new CategoriesDAOImpl();
+    private CategoriesDAO categoriesDAO = ExpenseManagerDAOFactory.CategoriesDAOFactory.getInstance();
 
     public Category getCategoryById(long id) {
         return categoriesDAO.queryCategories(new CategorySqlSpecificationGetById(id).toSqlClause()).get(0);
@@ -26,6 +25,15 @@ public class CategoriesRepository {
             totalLimit += c.getLimit();
         }
         return totalLimit;
+    }
+
+    public Category getUnknownCategory() {
+        for (Category c : getAllCategories()) {
+            if ("Unknown".equals(c.getName())) {
+                return c;
+            }
+        }
+        return null;
     }
 
     public void addCategory(String name, double limit) {

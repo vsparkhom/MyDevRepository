@@ -18,7 +18,6 @@ import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class CategoriesManagementDialog {
     private List<Category> removedCategories;
     private List<Category> updatedCategories;
 
-    public CategoriesManagementDialog(UIBuilder builder, MainProcessor processor) {
+    CategoriesManagementDialog(UIBuilder builder, MainProcessor processor) {
         this.builder = builder;
         this.processor = processor;
         init();
@@ -194,7 +193,7 @@ public class CategoriesManagementDialog {
             System.out.println("----- ADDED CATEGORIES -----");
             for (Category addedCategory : addedCategories) {
                 System.out.println("- c: " + addedCategory);
-                processor.addCategory(addedCategory.getName(), addedCategory.getLimit());//TODO: uncomment after testing
+                processor.addCategory(addedCategory.getName(), addedCategory.getLimit());
             }
             System.out.println("----- REMOVED CATEGORIES -----");
             for (Category removedCategory : removedCategories) {
@@ -210,7 +209,6 @@ public class CategoriesManagementDialog {
             for (Category c : categories) {
                 System.out.println("- c: " + c);
             }
-
 
             builder.updateView();
             dialog.close();
