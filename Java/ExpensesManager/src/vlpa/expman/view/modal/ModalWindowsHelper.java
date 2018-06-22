@@ -5,6 +5,10 @@ import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.view.UIBuilder;
+import vlpa.expman.view.modal.categories.CategoriesManagementWindow;
+import vlpa.expman.view.modal.categories.ModifyCategoryWindow;
+import vlpa.expman.view.modal.expenses.AddExpenseWindow;
+import vlpa.expman.view.modal.expenses.ModifyExpenseWindow;
 
 public class ModalWindowsHelper {
 

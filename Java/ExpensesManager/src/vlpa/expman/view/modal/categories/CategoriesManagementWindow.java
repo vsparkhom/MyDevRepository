@@ -1,4 +1,4 @@
-package vlpa.expman.view.modal;
+package vlpa.expman.view.modal.categories;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
+import vlpa.expman.view.modal.ModalWindowsHelper;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -34,7 +35,7 @@ public class CategoriesManagementWindow {
     private List<Category> removedCategories;
     private List<Category> updatedCategories;
 
-    CategoriesManagementWindow(UIBuilder builder, MainProcessor processor) {
+    public CategoriesManagementWindow(UIBuilder builder, MainProcessor processor) {
         this.builder = builder;
         this.processor = processor;
         init();

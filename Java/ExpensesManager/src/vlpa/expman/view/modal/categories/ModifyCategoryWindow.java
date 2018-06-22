@@ -1,4 +1,4 @@
-package vlpa.expman.view.modal;
+package vlpa.expman.view.modal.categories;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -23,7 +23,7 @@ public class ModifyCategoryWindow {
     private boolean isChanged;
     private EventHandler handler;
 
-    ModifyCategoryWindow(UIBuilder builder, Category category) {
+    public ModifyCategoryWindow(UIBuilder builder, Category category) {
         this.builder = builder;
         this.category = category;
         init();
