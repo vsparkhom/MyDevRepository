@@ -19,6 +19,6 @@ public class ExpenseSqlSpecificationGetAllForPeriod implements SqlSpecification 
     @Override
     public String toSqlClause() {
         return String.format(DBQueries.SQLiteDBQueries.GET_ALL_EXPENSES_FOR_PERIOD,
-                ExpenseUtils.fromDate(start), ExpenseUtils.fromDate(end));
+                ExpenseUtils.fromDateToString(start), ExpenseUtils.fromDateToString(end));
     }
 }

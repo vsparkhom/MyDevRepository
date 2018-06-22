@@ -76,4 +76,16 @@ public class ExpensesRepository {
         }
         return mapping;
     }
+
+    public void addExpense(Expense e) {
+        expensesDAO.addExpense(e);
+    }
+
+    public void removeExpense(long expenseId) {
+        expensesDAO.removeExpense(expenseId);
+    }
+
+    public void updateExpense(Expense e) {
+        expensesDAO.updateExpense(e);
+    }
 }

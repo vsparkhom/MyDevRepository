@@ -59,4 +59,16 @@ public class MainProcessor {
         categoriesRepository.updateCategory(category);
     }
 
+    public void addExpense(Expense e) {
+        expensesRepository.addExpense(e);
+    }
+
+    public void removeExpense(long expenseId) {
+        expensesRepository.removeExpense(expenseId);
+    }
+
+    public void updateExpense(Expense e) {
+        expensesRepository.updateExpense(e);
+    }
+
 }

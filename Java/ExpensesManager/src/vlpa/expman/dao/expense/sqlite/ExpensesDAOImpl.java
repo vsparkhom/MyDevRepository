@@ -1,6 +1,7 @@
 package vlpa.expman.dao.expense.sqlite;
 
 import vlpa.expman.controller.ExpenseUtils;
+import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.connection.ConnectionManager;
 import vlpa.expman.dao.expense.ExpensesDAO;
 import vlpa.expman.model.Category;
@@ -25,7 +26,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             List<Expense> expenses = new ArrayList<>();
             while (rs.next()) {
                 long id = rs.getLong("id");
-                Date date = ExpenseUtils.toDate(rs.getString("date"));
+                Date date = ExpenseUtils.fromStringToDate(rs.getString("date"));
                 String merchant = rs.getString("merchant");
                 double amount = rs.getDouble("amount");
                 long categoryId = rs.getLong("category_id");
@@ -42,4 +43,57 @@ public class ExpensesDAOImpl implements ExpensesDAO {
         return Collections.emptyList();
     }
 
+    @Override
+    public void addExpense(Expense expense) {
+        System.out.println("Adding expense to database... " + expense);
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.ADD_EXPENSE);
+            pstm.setString(1, ExpenseUtils.fromDateToString(expense.getDate()));
+            pstm.setString(2, expense.getName());
+            pstm.setDouble(3, expense.getAmount());
+            pstm.setLong(4, expense.getCategory().getId());
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void removeExpense(long expenseId) {
+        System.out.println("Removing expense with id=" + expenseId);
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.REMOVE_EXPENSE);
+            pstm.setLong(1, expenseId);
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void updateExpense(Expense expense) {
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.UPDATE_EXPENSE);
+            pstm.setString(1, ExpenseUtils.fromDateToString(expense.getDate()));
+            pstm.setString(2, expense.getName());
+            pstm.setDouble(3, expense.getAmount());
+            pstm.setLong(4, expense.getCategory().getId());
+            pstm.setLong(5, expense.getId());
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
 }

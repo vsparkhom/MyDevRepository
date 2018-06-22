@@ -15,28 +15,28 @@ import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 import javafx.event.EventHandler;
 
-public class UpdateCategoryDialog {
+public class ModifyCategoryWindow {
 
     private UIBuilder builder;
-    private Stage dialog;
+    private Stage stage;
     private Category category;
     private boolean isChanged;
     private EventHandler handler;
 
-    public UpdateCategoryDialog(UIBuilder builder, Category category) {
+    ModifyCategoryWindow(UIBuilder builder, Category category) {
         this.builder = builder;
         this.category = category;
         init();
     }
 
     private void init() {
-        dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initOwner(builder.getPrimaryStage());
-        dialog.setTitle("Update category");
+        stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(builder.getPrimaryStage());
+        stage.setTitle("Update category");
 
-        VBox dialogVbox = new VBox(8);
-        dialogVbox.setPadding(new Insets(10));
+        VBox verticalPane = new VBox(8);
+        verticalPane.setPadding(new Insets(10));
 
         HBox categoryNamePane = new HBox(8);
         Label categoryNameLabel = new Label("Name: ");
@@ -72,22 +72,18 @@ public class UpdateCategoryDialog {
             if (handler != null) {
                 handler.handle(null);
             }
-            dialog.close();
+            stage.close();
         });
         Button cancelButton = new Button("Cancel");
         cancelButton.setPrefWidth(70);
-        cancelButton.setOnAction(event -> dialog.close());
+        cancelButton.setOnAction(event -> stage.close());
 
         applyCancelPane.getChildren().addAll(applyButton, cancelButton);
 
-        dialogVbox.getChildren().addAll(categoryNamePane, categoryLimitPane, new Separator(), applyCancelPane);
+        verticalPane.getChildren().addAll(categoryNamePane, categoryLimitPane, new Separator(), applyCancelPane);
 
-        Scene dialogScene = new Scene(dialogVbox, 280, 120);
-        dialog.setScene(dialogScene);
-    }
-
-    public Stage getStage() {
-        return dialog;
+        Scene dialogScene = new Scene(verticalPane, 280, 120);
+        stage.setScene(dialogScene);
     }
 
     public Category getCategory() {
@@ -100,5 +96,9 @@ public class UpdateCategoryDialog {
 
     public void setApplyHandler(EventHandler handler) {
         this.handler = handler;
+    }
+
+    public void show() {
+        stage.show();
     }
 }

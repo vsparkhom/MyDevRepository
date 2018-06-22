@@ -22,11 +22,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CategoriesManagementDialog {
+public class CategoriesManagementWindow {
 
     private UIBuilder builder;
     private MainProcessor processor;
-    private Stage dialog;
+    private Stage stage;
 
     private List<Category> categories;
     private ObservableList<String> categoriesData;
@@ -34,17 +34,17 @@ public class CategoriesManagementDialog {
     private List<Category> removedCategories;
     private List<Category> updatedCategories;
 
-    CategoriesManagementDialog(UIBuilder builder, MainProcessor processor) {
+    CategoriesManagementWindow(UIBuilder builder, MainProcessor processor) {
         this.builder = builder;
         this.processor = processor;
         init();
     }
 
     private void init() {
-        dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initOwner(builder.getPrimaryStage());
-        dialog.setTitle("Manage categories");
+        stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(builder.getPrimaryStage());
+        stage.setTitle("Manage categories");
 
         categories = processor.getAllCategories();
         categoriesData = FXCollections.observableArrayList();
@@ -142,18 +142,18 @@ public class CategoriesManagementDialog {
 
         updatedCategories = new LinkedList<>();
 
-        Button updateCategoryButton = new Button("Update category");
-        updateCategoryButton.setPrefWidth(110);
+        Button modifyCategoryButton = new Button("Modify category");
+        modifyCategoryButton.setPrefWidth(110);
 
-        updateCategoryButton.setOnAction(event -> {
+        modifyCategoryButton.setOnAction(event -> {
             int index = existingCategoriesList.getSelectionModel().getSelectedIndex();
             Category category = categories.get(index);
-            UpdateCategoryDialog dialog = ModalWindowsHelper.getUpdateCategoryDialog(builder, category);
-            dialog.setApplyHandler(new EventHandler() {
+            ModifyCategoryWindow modifyCategoryWindow = ModalWindowsHelper.getModifyCategoryWindow(builder, category);
+            modifyCategoryWindow.setApplyHandler(new EventHandler() {
                 @Override
                 public void handle(Event event) {
-                    if (dialog.isChanged()) {
-                        Category updatedCategory = dialog.getCategory();
+                    if (modifyCategoryWindow.isChanged()) {
+                        Category updatedCategory = modifyCategoryWindow.getCategory();
                         category.setName(updatedCategory.getName());
                         category.setLimit(updatedCategory.getLimit());
                         categoriesData.set(index, updatedCategory.getName());
@@ -176,11 +176,10 @@ public class CategoriesManagementDialog {
                     }
                 }
             });
-            System.out.println("category before: " + category);
-            dialog.getStage().show();
+            modifyCategoryWindow.show();
         });
 
-        existingCategoriesButtonPanel.getChildren().addAll(removeCategoryButton, updateCategoryButton);
+        existingCategoriesButtonPanel.getChildren().addAll(removeCategoryButton, modifyCategoryButton);
         existingCategoriesPane.getChildren().addAll(existingCategoriesList, existingCategoriesButtonPanel);
 
         dialogVbox.getChildren().add(existingCategoriesPane);
@@ -211,20 +210,20 @@ public class CategoriesManagementDialog {
             }
 
             builder.updateView();
-            dialog.close();
+            stage.close();
         });
         Button cancelButton = new Button("Cancel");
         cancelButton.setPrefWidth(70);
-        cancelButton.setOnAction(event -> dialog.close());
+        cancelButton.setOnAction(event -> stage.close());
 
         applyCancelPane.getChildren().addAll(applyButton, cancelButton);
         dialogVbox.getChildren().add(applyCancelPane);
 
         Scene dialogScene = new Scene(dialogVbox, 550, 420);
-        dialog.setScene(dialogScene);
+        stage.setScene(dialogScene);
     }
 
-    public Stage getStage() {
-        return dialog;
+    public void show() {
+        stage.show();
     }
 }

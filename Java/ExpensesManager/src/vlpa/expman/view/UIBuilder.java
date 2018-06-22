@@ -34,14 +34,19 @@ import static vlpa.expman.view.UIDimensionsConst.*;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 public class UIBuilder {
 
     private static final String CSS_STYLE_FILE_NAME = "view.css";
 
     private MainProcessor processor = MainProcessor.getInstance();
+
+    //UI elements
     private Stage primaryStage;
     private CustomDatePicker dpm;
+    private HBox manageExpensesButtonsPane;
+    private TableView<Expense> currentCategoryExpensesTable;
 
     private long currentCategoryId = 0; //Summary by default
 
@@ -142,20 +147,70 @@ public class UIBuilder {
             }
         });
 
-        Button addPatternButton = createMenuButton("Add pattern", "img/list.png", null);
+        Button addPatternButton = createMenuButton("Add pattern", "img/list.png");
         Button addCategoryButton = createMenuButton("Manage categories", "img/add.png",
-                event -> ModalWindowsHelper.getCategoriesManagementDialog(UIBuilder.getInstance(), processor).getStage().show());
+                event -> ModalWindowsHelper.getCategoriesManagementWindow(UIBuilder.getInstance(), processor).show());
 
         hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton);
         return hbox;
     }
 
-    private Button createMenuButton(String name, String imgPath, EventHandler<ActionEvent> handler) {
-        Image buttonImg = new Image(getClass().getClassLoader().getResourceAsStream(imgPath));
+    private HBox getExpensesManageButtonsPane() {
+
+        if (manageExpensesButtonsPane != null) {
+            return manageExpensesButtonsPane;
+        }
+
+        manageExpensesButtonsPane = new HBox(10);
+
+        Button addButton = createManageExpenseButton("Add", event -> {
+            ModalWindowsHelper.getAddExpenseWindow(this, processor).show();
+        });
+        Button removeButton = createManageExpenseButton("Remove", event -> {
+            Alert alert = ModalWindowsHelper.getConfirmationDialog(
+                    "Records about selected expense will be removed. Please confirm.",
+                    "Are you sure you want to remove expense?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
+                processor.removeExpense(expenseToRemove.getId());
+                updateView();
+            }
+        });
+        Button changeButton = createManageExpenseButton("Modify", event -> {
+            Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
+            ModalWindowsHelper.getModifyExpenseWindow(this, processor, expenseToRemove).show();
+        });
+
+        manageExpensesButtonsPane.getChildren().addAll(addButton, removeButton, changeButton);
+
+        return manageExpensesButtonsPane;
+    }
+
+    private Button createMenuButton(String tooltip, String imgPath) {
+        return createMenuButton(tooltip, imgPath, null);
+    }
+
+    private Button createMenuButton(String tooltip, String imgPath, EventHandler<ActionEvent> handler) {
+        return createCustomButton(null, tooltip, imgPath, TOP_MENU_BUTTON_SIZE, TOP_MENU_BUTTON_SIZE, handler);
+    }
+
+    private Button createManageExpenseButton(String name, EventHandler<ActionEvent> handler) {
+        return createCustomButton(name, null, null, 70, 40, handler);
+    }
+
+    private Button createCustomButton(String name, String tooltip, String imgPath, double width, double height,
+            EventHandler<ActionEvent> handler) {
         Button button = new Button();
-        button.setTooltip(new Tooltip(name));
-        button.setGraphic(new ImageView(buttonImg));
-        button.setPrefSize(TOP_MENU_BUTTON_SIZE, TOP_MENU_BUTTON_SIZE);
+        button.setText(name);
+        button.setPrefSize(width, height);
+        if (tooltip != null && !"".equals(tooltip)) {
+            button.setTooltip(new Tooltip(tooltip));
+        }
+        if (imgPath != null && !"".equals(imgPath)) {
+            Image buttonImg = new Image(getClass().getClassLoader().getResourceAsStream(imgPath));
+            button.setGraphic(new ImageView(buttonImg));
+        }
         if (handler != null) {
             button.setOnAction(handler);
         }
@@ -196,10 +251,10 @@ public class UIBuilder {
     }
 
     private Pane buildCategoryDetailsPane(long categoryId) {
-        TableView<Expense> table = new TableView<>();
-        final ObservableList<Expense> data = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
+        currentCategoryExpensesTable = new TableView<>();
+        ObservableList<Expense> currentCategoryExpensesList = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
 
-        table.setEditable(true);
+        currentCategoryExpensesTable.setEditable(true);
 
         TableColumn dateColumn = new TableColumn("Date");
         dateColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_DATE_WIDTH);
@@ -213,17 +268,17 @@ public class UIBuilder {
         amountColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_AMOUNT_WIDTH);
         amountColumn.setCellValueFactory(new PropertyValueFactory<Expense, Double>("amount"));
 
-        dateColumn.prefWidthProperty().bind(table.widthProperty().divide(4));
-        merchantColumn.prefWidthProperty().bind(table.widthProperty().divide(2));
-        amountColumn.prefWidthProperty().bind(table.widthProperty().divide(4));
+        dateColumn.prefWidthProperty().bind(currentCategoryExpensesTable.widthProperty().divide(4));
+        merchantColumn.prefWidthProperty().bind(currentCategoryExpensesTable.widthProperty().divide(2));
+        amountColumn.prefWidthProperty().bind(currentCategoryExpensesTable.widthProperty().divide(4));
 
-        table.setItems(data);
-        table.getColumns().addAll(dateColumn, merchantColumn, amountColumn);
+        currentCategoryExpensesTable.setItems(currentCategoryExpensesList);
+        currentCategoryExpensesTable.getColumns().addAll(dateColumn, merchantColumn, amountColumn);
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().add(table);
+        vbox.getChildren().addAll(getExpensesManageButtonsPane(), currentCategoryExpensesTable);
 
         return vbox;
     }
@@ -321,8 +376,6 @@ public class UIBuilder {
     }
 
     private HBox buildCategorySummaryPane(ExpensesReport report) {
-
-//        System.out.println("[DEBUG]<buildCategorySummaryPane> report: " + report);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(5, 5, 5, 5));

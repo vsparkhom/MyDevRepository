@@ -19,7 +19,7 @@ public class ExpenseSqlSpecificationGetByCategoryIdForPeriod extends ExpenseSqlS
     @Override
     public String toSqlClause() {
         return String.format(DBQueries.SQLiteDBQueries.GET_EXPENSES_BY_CATEGORY_ID_FOR_SPECIFIC_PERIOD, categoryId,
-                ExpenseUtils.fromDate(start), ExpenseUtils.fromDate(end));
+                ExpenseUtils.fromDateToString(start), ExpenseUtils.fromDateToString(end));
     }
 }
 
