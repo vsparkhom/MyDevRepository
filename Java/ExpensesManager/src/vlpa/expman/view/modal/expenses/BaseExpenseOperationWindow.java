@@ -23,8 +23,8 @@ import static vlpa.expman.view.UIDimensionsConst.DATE_PICKER_WIDTH;
 
 public class BaseExpenseOperationWindow {
 
-    UIBuilder builder;
-    MainProcessor processor;
+    private UIBuilder builder;
+    private MainProcessor processor;
 
     private Stage stage;
     private TextField nameInput;
@@ -39,7 +39,7 @@ public class BaseExpenseOperationWindow {
     BaseExpenseOperationWindow() {
     }
 
-    public BaseExpenseOperationWindow(UIBuilder builder, MainProcessor processor) {
+    BaseExpenseOperationWindow(UIBuilder builder, MainProcessor processor) {
         this.builder = builder;
         this.processor = processor;
         init();
@@ -149,6 +149,22 @@ public class BaseExpenseOperationWindow {
 
     void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    UIBuilder getBuilder() {
+        return builder;
+    }
+
+    void setBuilder(UIBuilder builder) {
+        this.builder = builder;
+    }
+
+    MainProcessor getProcessor() {
+        return processor;
+    }
+
+    void setProcessor(MainProcessor processor) {
+        this.processor = processor;
     }
 
     Stage getStage() {

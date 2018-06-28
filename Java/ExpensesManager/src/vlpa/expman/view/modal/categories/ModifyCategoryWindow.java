@@ -33,7 +33,7 @@ public class ModifyCategoryWindow {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(builder.getPrimaryStage());
-        stage.setTitle("Update category");
+        stage.setTitle("Modify category");
 
         VBox verticalPane = new VBox(8);
         verticalPane.setPadding(new Insets(10));

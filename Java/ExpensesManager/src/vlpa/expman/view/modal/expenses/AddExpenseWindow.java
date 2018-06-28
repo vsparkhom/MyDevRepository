@@ -42,9 +42,9 @@ public class AddExpenseWindow extends BaseExpenseOperationWindow {
             Category selectedCategory = getCategories().get(selectedCategoryIndex);
 
             Expense exp = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);
-            processor.addExpense(exp);
+            getProcessor().addExpense(exp);
 
-            builder.updateView();
+            getBuilder().updateView();
             getStage().close();
         };
     }

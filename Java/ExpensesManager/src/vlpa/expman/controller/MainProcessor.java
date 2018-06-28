@@ -31,6 +31,10 @@ public class MainProcessor {
         return categoriesRepository.getAllCategories();
     }
 
+    public  Category getCategoryById(long categoryId) {
+        return categoriesRepository.getCategoryById(categoryId);
+    }
+
     public Collection<Expense> getExpensesByCategoryId(long categoryId) {
         return expensesRepository.getExpensesByCategoryId(categoryId);
     }

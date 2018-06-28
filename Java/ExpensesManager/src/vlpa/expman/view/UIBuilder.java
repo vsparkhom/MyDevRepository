@@ -12,10 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -91,7 +88,7 @@ public class UIBuilder {
         leftMenu.setPrefWidth(LEFT_MENU_WIDTH);
         rootPane.setLeft(leftMenu);
 
-        Pane center = currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsPane(currentCategoryId);
+        Pane center = currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsMainPane(currentCategoryId);
         center.setPrefWidth(CENTER_MENU_WIDTH);
         center.setPrefHeight(CENTER_MENU_HEIGHT);
         rootPane.setCenter(center);
@@ -250,7 +247,7 @@ public class UIBuilder {
         return vbox;
     }
 
-    private Pane buildCategoryDetailsPane(long categoryId) {
+    private Pane buildCategoryDetailsMainPane(long categoryId) {
         currentCategoryExpensesTable = new TableView<>();
         ObservableList<Expense> currentCategoryExpensesList = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
 
@@ -278,9 +275,23 @@ public class UIBuilder {
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(getExpensesManageButtonsPane(), currentCategoryExpensesTable);
+        vbox.getChildren().addAll(getCategoryDetailsTopPane(categoryId), currentCategoryExpensesTable);
 
         return vbox;
+    }
+
+    public Pane getCategoryDetailsTopPane(long categoryId) {
+        HBox categoryDetailsTopPane = new HBox(10);
+        HBox categoryInfoPane = new HBox(10);
+        categoryInfoPane.setPadding(new Insets(0, 10, 0, 0));
+        categoryInfoPane.setAlignment(Pos.BOTTOM_RIGHT);
+        ExpensesReport report = processor.getExpensesReportForCategory(categoryId, dpm.getStartDate(), dpm.getEndDate());
+        categoryInfoPane.getChildren().add(new Label("Limit: " + report.getCategory().getLimit()
+                + " / Spent: " + report.getCurrentAmount() + " (" + report.getUsagePercent() * 100 + "%) / Leftover: "
+                + report.getLeftover()));
+        HBox.setHgrow(categoryInfoPane, Priority.ALWAYS);
+        categoryDetailsTopPane.getChildren().addAll(getExpensesManageButtonsPane(), categoryInfoPane);
+        return categoryDetailsTopPane;
     }
 
     private Pane buildSummaryPane() {

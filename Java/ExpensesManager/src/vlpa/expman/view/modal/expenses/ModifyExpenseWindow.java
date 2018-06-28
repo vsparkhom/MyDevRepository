@@ -16,8 +16,8 @@ public class ModifyExpenseWindow extends BaseExpenseOperationWindow {
     private Expense expense;
 
     public ModifyExpenseWindow(UIBuilder builder, MainProcessor processor, Expense expense) {
-        this.builder = builder;
-        this.processor = processor;
+        setBuilder(builder);
+        setProcessor(processor);
         this.expense = expense;
         init();
     }
@@ -75,10 +75,10 @@ public class ModifyExpenseWindow extends BaseExpenseOperationWindow {
             }
 
             if (isChanged) {
-                processor.updateExpense(expense);
+                getProcessor().updateExpense(expense);
             }
 
-            builder.updateView();
+            getBuilder().updateView();
             getStage().close();
         };
     }
