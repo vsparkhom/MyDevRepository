@@ -3,6 +3,7 @@ package vlpa.expman.dao.category;
 import vlpa.expman.model.Category;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoriesDAO {
 
@@ -13,4 +14,5 @@ public interface CategoriesDAO {
     void updateCategory(Category category);
 
     List<Category> queryCategories(String sqlQuery);
+
 }

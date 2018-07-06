@@ -8,7 +8,9 @@ import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.categories.CategoriesManagementWindow;
 import vlpa.expman.view.modal.categories.ModifyCategoryWindow;
 import vlpa.expman.view.modal.expenses.AddExpenseWindow;
+import vlpa.expman.view.modal.expenses.ImportExpensesWindow;
 import vlpa.expman.view.modal.expenses.ModifyExpenseWindow;
+import vlpa.expman.view.modal.pattern.GeneratePatternWindow;
 
 public class ModalWindowsHelper {
 
@@ -28,9 +30,26 @@ public class ModalWindowsHelper {
         return new ModifyExpenseWindow(builder, processor, expense);
     }
 
+    public static ImportExpensesWindow getImportExpensesWindow(UIBuilder builder) {
+        return new ImportExpensesWindow(builder);
+    }
+
+
+    public static GeneratePatternWindow getGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
+        return new GeneratePatternWindow(builder, processor, expenseMerchant);
+    }
+
     public static Alert getConfirmationDialog(String headerMsg, String contentMsg) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText(headerMsg);
+        alert.setContentText(contentMsg);
+        return alert;
+    }
+
+    public static Alert getWarningDialog(String headerMsg, String contentMsg) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning Dialog");
         alert.setHeaderText(headerMsg);
         alert.setContentText(contentMsg);
         return alert;

@@ -4,6 +4,8 @@ import vlpa.expman.dao.category.CategoriesDAO;
 import vlpa.expman.dao.category.sqlite.CategoriesDAOImpl;
 import vlpa.expman.dao.expense.ExpensesDAO;
 import vlpa.expman.dao.expense.sqlite.ExpensesDAOImpl;
+import vlpa.expman.dao.imprt.ImportExpensesDAO;
+import vlpa.expman.dao.imprt.sql.ImportExpensesDAOImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,6 +66,31 @@ public class ExpenseManagerDAOFactory {
             try {
                 if (instance == null) {
                     Class<? extends CategoriesDAO> daoClass = daoMapping.get(daoType);
+                    if (daoClass == null) {
+                        throw  new InstantiationException("DAO class type not found: " + daoType);
+                    }
+                    instance = daoClass.newInstance();
+                }
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            return instance;
+        }
+    }
+
+    public static class ImportExpensesDAOFactory {
+
+        private static Map<String, Class<? extends ImportExpensesDAO>> daoMapping = new HashMap<>();
+        private static ImportExpensesDAO instance;
+
+        static {
+            daoMapping.put(SQLITE_DAO, ImportExpensesDAOImpl.class);
+        }
+
+        public static ImportExpensesDAO getInstance() {
+            try {
+                if (instance == null) {
+                    Class<? extends ImportExpensesDAO> daoClass = daoMapping.get(daoType);
                     if (daoClass == null) {
                         throw  new InstantiationException("DAO class type not found: " + daoType);
                     }

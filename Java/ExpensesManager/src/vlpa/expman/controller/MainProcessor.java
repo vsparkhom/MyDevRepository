@@ -75,4 +75,8 @@ public class MainProcessor {
         expensesRepository.updateExpense(e);
     }
 
+    public void addPattern(String text, Category category) {
+        categoriesRepository.addPattern(text, category);
+    }
+
 }

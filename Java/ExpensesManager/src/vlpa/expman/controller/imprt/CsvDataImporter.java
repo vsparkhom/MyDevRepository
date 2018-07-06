@@ -12,24 +12,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public class CsvDataImporter extends AbstractDataImporter {
+public abstract class CsvDataImporter implements DataImporter {
 
     private static final String FIELDS_SEPARATOR = ",";
     private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
-    private CsvDataImporter() {
-    }
-
-    private static class DataProcessorInstanceHolder {
-        public static CsvDataImporter instance = new CsvDataImporter();
-    }
-
-    public static CsvDataImporter getInstance() {
-        return DataProcessorInstanceHolder.instance;
-    }
+    private boolean depositAllowed = false;
 
     @Override
+    public Collection<Expense> importExpensesFromFile(String fileName) {
+        return getDataFromFile(fileName);
+    }
+
     protected Collection<Expense> getDataFromFile(String fileName) {
+        System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> Start importing data from file: " + fileName);
         Collection<Expense> expenses = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -39,12 +35,19 @@ public class CsvDataImporter extends AbstractDataImporter {
                     isHeaderSkipped = true;
                 } else {
                     String[] expensesData = line.split(FIELDS_SEPARATOR);
-                    Date date = parseDate(expensesData[0]);
-                    double amount = parseAmount(expensesData[2]);
-                    String msg = expensesData[3];
-                    expenses.add(new Expense(0, msg, date, amount, null));
+                    Date date = parseDate(expensesData[getTransactionDateFieldIndex()]);
+                    String msg = expensesData[getMerchantFieldIndex()];
+                    double amount = parseAmount(expensesData[getAmountFieldIndex()]);
+                    if (amount > 0 || isDepositAllowed()) {
+                        Expense e = new Expense(0, msg, date, amount, null);
+                        expenses.add(e);
+                        System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> expense to import: " + e);
+                    } else {
+                        System.out.println("Deposit is not allowed. Skip line: " + line);
+                    }
                 }
             }
+            System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> Import finished");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -56,6 +59,9 @@ public class CsvDataImporter extends AbstractDataImporter {
     }
 
     private double parseAmount(String value) {
+        if (value == null || "".equals(value)) {
+            return 0;
+        }
         String sAmount = value.replace("$", "");
         sAmount = sAmount.contains("(") ? ("-" + sAmount.replace("(", "").replace(")", "")) : sAmount;
         return Double.valueOf(sAmount).doubleValue();
@@ -64,4 +70,18 @@ public class CsvDataImporter extends AbstractDataImporter {
     private Date parseDate(String value) throws ParseException {
         return formatter.parse(value);
     }
+
+    public void setDepositAllowed(boolean depositAllowed) {
+        this.depositAllowed = depositAllowed;
+    }
+
+    protected boolean isDepositAllowed() {
+        return depositAllowed;
+    }
+
+    public abstract int getTransactionDateFieldIndex();
+
+    public abstract int getMerchantFieldIndex();
+
+    public abstract int getAmountFieldIndex();
 }

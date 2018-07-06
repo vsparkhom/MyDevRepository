@@ -43,10 +43,6 @@ public class ExpensesRepository {
         return getExpensesByQuery(new ExpenseSqlSpecificationGetByCategoryIdForPeriod(categoryId, start, end).toSqlClause());
     }
 
-    public void saveExpenses(Connection conn, Collection<Expense> expenses) {
-        //TODO: implement the method
-    }
-
     private List<Expense> getExpensesByQuery(String query) {
         List<Expense> expensesWithEmptyCategories = expensesDAO.queryExpenses(query);
         updateCategoriesData(expensesWithEmptyCategories);
@@ -62,19 +58,10 @@ public class ExpensesRepository {
         }
     }
 
-    //TODO: move to DAO
-    public Map<String, Category> getExpensesMapping(Connection conn) throws SQLException {
-        PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.GET_EXPENSES_MAPPING);
-        ResultSet rs = pstm.executeQuery();
-
-        Map<String, Category> mapping = new HashMap<>();
-        while (rs.next()) {
-            String pattern = rs.getString("pattern");
-            long categoryId = rs.getLong("category_id");
-            Category category = categoriesRepository.getCategoryById(categoryId);
-            mapping.put(pattern, category);
+    public void addExpenses(Collection<Expense> expenses) {
+        for (Expense exp : expenses) {
+            addExpense(exp);
         }
-        return mapping;
     }
 
     public void addExpense(Expense e) {

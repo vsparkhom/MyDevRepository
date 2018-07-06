@@ -2,6 +2,7 @@ package vlpa.expman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import vlpa.expman.controller.ImportProcessor;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
@@ -25,7 +26,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        CsvDataImporter.getInstance().importExpensesFromFile("res/report.csv");
+//        ImportProcessor importProcessor = new ImportProcessor();
+//        importProcessor.importExpenses("res/import/td_credit_test.csv");
+
 //        testData();
         launch(args);
     }

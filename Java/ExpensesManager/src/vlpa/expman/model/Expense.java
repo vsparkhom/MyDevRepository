@@ -61,7 +61,7 @@ public class Expense {
                 ", name='" + name + '\'' +
                 ", date=" + date +
                 ", amount=" + amount +
-                ", category=[" + category.getId() + ", " + category.getName() + "]" +
+                ", category=[" + ((category == null) ? "null]" : (category.getId() + ", " + category.getName() + "]")) +
                 '}';
     }
 }

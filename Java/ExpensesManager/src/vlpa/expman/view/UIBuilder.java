@@ -124,24 +124,8 @@ public class UIBuilder {
         hbox.setPadding(new Insets(15, 12, 15, 12));
 //        hbox.setStyle("-fx-background-color: #336699;");
 
-        final FileChooser fileChooser = new FileChooser();
-
         Button importButton = createMenuButton("Import expense", "img/import.png", event -> {
-            File file = fileChooser.showOpenDialog(stage);
-            if (file != null) {
-                System.out.println("File has been chosen:" + file.getName());
-
-                //TODO: create import dialog
-
-                Stage dialog = new Stage();
-
-                // populate dialog with controls.
-
-                dialog.initOwner(primaryStage);
-                dialog.initModality(Modality.APPLICATION_MODAL);
-                dialog.showAndWait();
-
-            }
+            ModalWindowsHelper.getImportExpensesWindow(this).show();
         });
 
         Button addPatternButton = createMenuButton("Add pattern", "img/list.png");
@@ -168,7 +152,7 @@ public class UIBuilder {
                     "Records about selected expense will be removed. Please confirm.",
                     "Are you sure you want to remove expense?");
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
+            if (result.isPresent() && result.get() == ButtonType.OK){
                 Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
                 processor.removeExpense(expenseToRemove.getId());
                 updateView();
@@ -189,7 +173,7 @@ public class UIBuilder {
     }
 
     private Button createMenuButton(String tooltip, String imgPath, EventHandler<ActionEvent> handler) {
-        return createCustomButton(null, tooltip, imgPath, TOP_MENU_BUTTON_SIZE, TOP_MENU_BUTTON_SIZE, handler);
+        return createCustomButton(null, tooltip, imgPath, TOP_MENU_BUTTON_WIDTH, TOP_MENU_BUTTON_HEIGHT, handler);
     }
 
     private Button createManageExpenseButton(String name, EventHandler<ActionEvent> handler) {
@@ -229,7 +213,7 @@ public class UIBuilder {
             updateView();
             summaryOption.setVisited(false);
         });
-        vbox.setMargin(summaryOption, new Insets(0, 0, 0, 8));
+        VBox.setMargin(summaryOption, new Insets(0, 0, 0, 8));
         vbox.getChildren().add(summaryOption);
 
         for (final Category c : processor.getAllCategories()) {
@@ -240,7 +224,7 @@ public class UIBuilder {
                 updateView();
                 categoryOption.setVisited(false);
             });
-            vbox.setMargin(categoryOption, new Insets(0, 0, 0, 8));
+            VBox.setMargin(categoryOption, new Insets(0, 0, 0, 8));
             vbox.getChildren().add(categoryOption);
         }
 
@@ -280,17 +264,34 @@ public class UIBuilder {
         return vbox;
     }
 
-    public Pane getCategoryDetailsTopPane(long categoryId) {
-        HBox categoryDetailsTopPane = new HBox(10);
+    private Pane getCategoryDetailsTopPane(long categoryId) {
+
+        ExpensesReport report = processor.getExpensesReportForCategory(categoryId, dpm.getStartDate(), dpm.getEndDate());
+
         HBox categoryInfoPane = new HBox(10);
         categoryInfoPane.setPadding(new Insets(0, 10, 0, 0));
         categoryInfoPane.setAlignment(Pos.BOTTOM_RIGHT);
-        ExpensesReport report = processor.getExpensesReportForCategory(categoryId, dpm.getStartDate(), dpm.getEndDate());
         categoryInfoPane.getChildren().add(new Label("Limit: " + report.getCategory().getLimit()
                 + " / Spent: " + report.getCurrentAmount() + " (" + report.getUsagePercent() * 100 + "%) / Leftover: "
                 + report.getLeftover()));
         HBox.setHgrow(categoryInfoPane, Priority.ALWAYS);
-        categoryDetailsTopPane.getChildren().addAll(getExpensesManageButtonsPane(), categoryInfoPane);
+
+        HBox categoryDetailsTopPane = new HBox(10);
+        categoryDetailsTopPane.getChildren().add(getExpensesManageButtonsPane());
+
+        System.out.println("[DEBUG]<getCategoryDetailsTopPane> currentCategoryId: " + currentCategoryId);
+        if (currentCategoryId == 1) { //Unknown category //TODO: enhance
+            Button createPatternButton = new Button("Create pattern");
+            createPatternButton.setOnAction(event -> {
+                Expense selectedExpense = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
+                if (selectedExpense != null) {
+                    ModalWindowsHelper.getGeneratePatternWindow(this, processor, selectedExpense.getName()).show();
+                }
+            });
+            categoryDetailsTopPane.getChildren().add(createPatternButton);
+        }
+
+        categoryDetailsTopPane.getChildren().add(categoryInfoPane);
         return categoryDetailsTopPane;
     }
 

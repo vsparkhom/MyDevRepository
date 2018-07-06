@@ -20,7 +20,8 @@ public class DBQueries {
         public static final String UPDATE_EXPENSE = "update expenses set date = ?, merchant = ?, amount = ?, category_id = ? where id = ?";
 
         public static final String GET_EXPENSES_MAPPING = "select * from expenses_mapping";
-        public static final String GET_LIMIT_FOR_ALL_CATEGORIES = "select sum(\"limit\") as total_limit from categories";
+        public static final String ADD_PATTERN = "insert into expenses_mapping values (?, ?)";
+
 
 
     }

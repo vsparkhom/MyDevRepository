@@ -24,7 +24,8 @@ public interface UIDimensionsConst {
     int SUMMARY_PANEL_COLUMN_MONTHLY_CAT_LIMIT_WIDTH = 100;
 
     //top menu button
-    int TOP_MENU_BUTTON_SIZE = 50;
+    int TOP_MENU_BUTTON_HEIGHT = 50;
+    int TOP_MENU_BUTTON_WIDTH = 50;
     int DATE_PICKER_WIDTH = 100;
 
     //category details pane
