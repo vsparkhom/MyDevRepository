@@ -5,6 +5,7 @@ import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetAll;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetById;
 import vlpa.expman.dao.imprt.ImportExpensesDAO;
+import vlpa.expman.dao.imprt.spec.PatternSqlSpecificationGetAll;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
 
@@ -57,8 +58,9 @@ public class CategoriesRepository {
         categoriesDAO.updateCategory(category);
     }
 
-    public List<ImportPattern> getExpensesMapping() {
-        List<ImportPattern> patternCategoryIdMapping = importExpensesDAO.getMapping();
+    public List<ImportPattern> getAllPatterns() {
+        List<ImportPattern> patternCategoryIdMapping = importExpensesDAO.queryPatterns(
+                new PatternSqlSpecificationGetAll().toSqlClause());
         initCategoriesForImportPatterns(patternCategoryIdMapping);
         return patternCategoryIdMapping;
     }
@@ -74,6 +76,14 @@ public class CategoriesRepository {
     }
 
     public void addPattern(String patternText, Category category) {
-        importExpensesDAO.addPattern(new ImportPattern(patternText, category));
+        importExpensesDAO.addPattern(new ImportPattern(0, patternText, category));
+    }
+
+    public void removePattern(long id) {
+        importExpensesDAO.removePattern(id);
+    }
+
+    public void updatePattern(ImportPattern pattern) {
+        importExpensesDAO.updatePattern(pattern);
     }
 }

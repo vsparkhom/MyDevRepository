@@ -106,3 +106,10 @@ insert into expenses(date, merchant, amount, category_id) values (date('now'), '
 ----- expenses_mapping
 
 insert into expenses_mapping values ('WWW.ALIEXPRESS.COM', 2);
+
+insert into expenses_mapping(pattern, category_id) values ('%SAVE%ON%FOODS%', 3);
+
+insert into expenses_mapping(pattern, category_id) values ('%THE%HOME%DEPOT%', 4);
+insert into expenses_mapping(pattern, category_id) values ('%WAL-MART%SUPERCENTER%', 4);
+
+insert into expenses_mapping(pattern, category_id) values ('%HIGHLANDER%WINE%', 5);

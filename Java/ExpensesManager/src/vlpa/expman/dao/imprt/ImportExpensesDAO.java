@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface ImportExpensesDAO {
 
-    List<ImportPattern> getMapping();
+    List<ImportPattern> queryPatterns(String query);
 
     void addPattern(ImportPattern p);
+
+    void removePattern(long id);
+
+    void updatePattern(ImportPattern pattern);
 
 }

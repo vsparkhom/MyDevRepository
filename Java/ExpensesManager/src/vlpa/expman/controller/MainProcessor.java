@@ -6,6 +6,7 @@ import vlpa.expman.dao.report.ExpenseReportRepository;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
+import vlpa.expman.model.ImportPattern;
 
 import java.util.*;
 
@@ -75,8 +76,20 @@ public class MainProcessor {
         expensesRepository.updateExpense(e);
     }
 
+    public List<ImportPattern> getAllPatterns() {
+        return categoriesRepository.getAllPatterns();
+    }
+
     public void addPattern(String text, Category category) {
         categoriesRepository.addPattern(text, category);
+    }
+
+    public void removePattern(long id) {
+        categoriesRepository.removePattern(id);
+    }
+
+    public void updatePattern(ImportPattern pattern) {
+        categoriesRepository.updatePattern(pattern);
     }
 
 }

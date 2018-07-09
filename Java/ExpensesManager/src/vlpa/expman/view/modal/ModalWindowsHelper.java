@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
+import vlpa.expman.model.ImportPattern;
 import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.categories.CategoriesManagementWindow;
 import vlpa.expman.view.modal.categories.ModifyCategoryWindow;
@@ -11,6 +12,8 @@ import vlpa.expman.view.modal.expenses.AddExpenseWindow;
 import vlpa.expman.view.modal.expenses.ImportExpensesWindow;
 import vlpa.expman.view.modal.expenses.ModifyExpenseWindow;
 import vlpa.expman.view.modal.pattern.GeneratePatternWindow;
+import vlpa.expman.view.modal.pattern.ModifyPatternWindow;
+import vlpa.expman.view.modal.pattern.PatternManagementWindow;
 
 public class ModalWindowsHelper {
 
@@ -34,9 +37,16 @@ public class ModalWindowsHelper {
         return new ImportExpensesWindow(builder);
     }
 
-
     public static GeneratePatternWindow getGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
         return new GeneratePatternWindow(builder, processor, expenseMerchant);
+    }
+
+    public static PatternManagementWindow getPatternManagementWindow(UIBuilder builder, MainProcessor processor) {
+        return new PatternManagementWindow(builder, processor);
+    }
+
+    public static ModifyPatternWindow getModifyPatternWindow(UIBuilder builder, MainProcessor processor, ImportPattern pattern) {
+        return new ModifyPatternWindow(builder, processor, pattern);
     }
 
     public static Alert getConfirmationDialog(String headerMsg, String contentMsg) {

@@ -51,7 +51,7 @@ public class Main extends Application {
 //        }
 //
 //        System.out.println("------------ SORT CONFIG MAP ------------");
-//        for (Map.Entry<String, Category> entry : processor.getExpensesMapping().entrySet()) {
+//        for (Map.Entry<String, Category> entry : processor.getAllPatterns().entrySet()) {
 //            System.out.println("[entry] key: " + entry.getKey() + " - " + entry.getValue());
 //        }
 

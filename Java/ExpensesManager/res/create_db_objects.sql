@@ -29,7 +29,8 @@ create table expenses (
 
 
 create table expenses_mapping (
-    pattern text  not null primary key,
+    id integer  primary key not null,
+    pattern text,
     category_id integer,
     foreign key (category_id) references categories(id)
 );

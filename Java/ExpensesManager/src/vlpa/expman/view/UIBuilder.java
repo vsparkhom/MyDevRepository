@@ -128,7 +128,9 @@ public class UIBuilder {
             ModalWindowsHelper.getImportExpensesWindow(this).show();
         });
 
-        Button addPatternButton = createMenuButton("Add pattern", "img/list.png");
+        Button addPatternButton = createMenuButton("Add pattern", "img/list.png", event -> {
+            ModalWindowsHelper.getPatternManagementWindow(this, processor).show();
+        });
         Button addCategoryButton = createMenuButton("Manage categories", "img/add.png",
                 event -> ModalWindowsHelper.getCategoriesManagementWindow(UIBuilder.getInstance(), processor).show());
 

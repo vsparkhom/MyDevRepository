@@ -1,6 +1,5 @@
 package vlpa.expman.dao.expense;
 
-import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetAll;
@@ -10,10 +9,6 @@ import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetByCategoryIdForPer
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
 public class ExpensesRepository {

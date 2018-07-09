@@ -2,15 +2,25 @@ package vlpa.expman.model;
 
 public class ImportPattern {
 
+    private long id;
     private String text;
     private Category category;
 
     public ImportPattern() {
     }
 
-    public ImportPattern(String text, Category category) {
+    public ImportPattern(long id, String text, Category category) {
+        this.id = id;
         this.text = text;
         this.category = category;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getText() {
@@ -32,7 +42,8 @@ public class ImportPattern {
     @Override
     public String toString() {
         return "ImportPattern{" +
-                "text=" + text +
+                "id=" + id +
+                ", text=" + text +
                 ", category=" + category +
                 '}';
     }

@@ -28,12 +28,12 @@ public class ImportProcessor {
 
     private void sortExpensesByCategories(Collection<Expense> expenses) {
         System.out.println("[DEBUG]<sortExpensesByCategories> START");
-        List<ImportPattern> configMap = categoriesRepository.getExpensesMapping();
+        List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
         for (Expense e : expenses) {
             System.out.println("[DEBUG]<sortExpensesByCategories> e: " + e);
             String expenseName = e.getName();
             Category c = null;
-            for (ImportPattern ip : configMap) {
+            for (ImportPattern ip : importPatternsList) {
                 System.out.println("[DEBUG]<sortExpensesByCategories>   key: " + ip.getText());
                 String patternText = ip.getText().replaceAll(ANY_SYMBOL_TEMPLATE, ANY_SYMBOL_SUBSTITUTE);
                 System.out.println("[DEBUG]<sortExpensesByCategories>   patternText: " + patternText);
