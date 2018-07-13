@@ -161,12 +161,12 @@ public class PatternManagementWindow {
         modifyPatternButton.setOnAction(event -> {
             int index = existingPatternsList.getSelectionModel().getSelectedIndex();
             ImportPattern pattern = patterns.get(index);
-            ModifyPatternWindow modifyPatternWindow = ModalWindowsHelper.getModifyPatternWindow(builder, processor, pattern);
-            modifyPatternWindow.setApplyHandler(new EventHandler() {
+            ModifyPatternWindow<ImportPattern> modifyPatternWindow = ModalWindowsHelper.getModifyPatternWindow(builder, processor, pattern);
+            modifyPatternWindow.setApplyActionHandler(new EventHandler() {
                 @Override
                 public void handle(Event event) {
                     if (modifyPatternWindow.isChanged()) {
-                        ImportPattern updatedPattern = modifyPatternWindow.getPattern();
+                        ImportPattern updatedPattern = modifyPatternWindow.getDataObject();
                         pattern.setText(updatedPattern.getText());
                         pattern.setCategory(updatedPattern.getCategory());
                         patternsData.set(index, updatedPattern.getText());

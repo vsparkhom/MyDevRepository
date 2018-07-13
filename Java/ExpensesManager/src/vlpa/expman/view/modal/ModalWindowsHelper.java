@@ -37,7 +37,7 @@ public class ModalWindowsHelper {
         return new ImportExpensesWindow(builder);
     }
 
-    public static GeneratePatternWindow getGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
+    public static GeneratePatternWindow<String> getGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
         return new GeneratePatternWindow(builder, processor, expenseMerchant);
     }
 
@@ -45,7 +45,7 @@ public class ModalWindowsHelper {
         return new PatternManagementWindow(builder, processor);
     }
 
-    public static ModifyPatternWindow getModifyPatternWindow(UIBuilder builder, MainProcessor processor, ImportPattern pattern) {
+    public static ModifyPatternWindow<ImportPattern> getModifyPatternWindow(UIBuilder builder, MainProcessor processor, ImportPattern pattern) {
         return new ModifyPatternWindow(builder, processor, pattern);
     }
 

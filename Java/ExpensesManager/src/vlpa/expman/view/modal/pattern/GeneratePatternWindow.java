@@ -8,22 +8,15 @@ import vlpa.expman.view.UIBuilder;
 
 import static vlpa.expman.controller.ImportProcessor.ANY_SYMBOL_TEMPLATE;
 
-public class GeneratePatternWindow extends BasePatternOperationWindow {
+public class GeneratePatternWindow<T extends String> extends AbstractBasePatternOperationWindow {
 
-    private String expenseMerchant;
-
-    public GeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
-        setBuilder(builder);
-        setProcessor(processor);
-        this.expenseMerchant = expenseMerchant;
-        init();
+    public GeneratePatternWindow(UIBuilder builder, MainProcessor processor, T merchant) {
+        super(builder, processor, merchant);
     }
 
     @Override
-    protected void init() {
-        super.init();
-        getPatternInput().setText(ANY_SYMBOL_TEMPLATE + expenseMerchant.replaceAll(" ", ANY_SYMBOL_TEMPLATE)
-                + ANY_SYMBOL_TEMPLATE); //TODO: generate pattern
+    public T getDataObject() {
+        return (T) super.getDataObject();
     }
 
     @Override
@@ -32,13 +25,19 @@ public class GeneratePatternWindow extends BasePatternOperationWindow {
     }
 
     @Override
-    protected EventHandler<ActionEvent> getApplyButtonAction() {
+    protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
         return event -> {
-            String patternText = getPatternInput().getText();
+            String patternText = getPatternTextInput().getText();
             int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
             Category category = getCategories().get(selectedIndex);
             getProcessor().addPattern(patternText, category);
             close();
         };
+    }
+
+    @Override
+    public void fillFieldsWithData() {
+        getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
+                + ANY_SYMBOL_TEMPLATE); //TODO: generate pattern
     }
 }
