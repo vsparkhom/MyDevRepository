@@ -8,7 +8,7 @@ import vlpa.expman.view.UIBuilder;
 
 import static vlpa.expman.controller.ImportProcessor.ANY_SYMBOL_TEMPLATE;
 
-public class GeneratePatternWindow<T extends String> extends AbstractBasePatternOperationWindow {
+public class GeneratePatternWindow<T extends String> extends AbstractBasicPatternOperationWindow<T> {
 
     public GeneratePatternWindow(UIBuilder builder, MainProcessor processor, T merchant) {
         super(builder, processor, merchant);
@@ -36,7 +36,13 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasePattern
     }
 
     @Override
+    protected void selectProperCategory() {
+        getCategoriesComboBox().getSelectionModel().selectFirst();
+    }
+
+    @Override
     public void fillFieldsWithData() {
+        super.fillFieldsWithData();
         getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
                 + ANY_SYMBOL_TEMPLATE); //TODO: generate pattern
     }

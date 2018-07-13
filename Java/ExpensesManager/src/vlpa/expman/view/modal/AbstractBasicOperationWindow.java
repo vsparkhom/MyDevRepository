@@ -1,7 +1,5 @@
 package vlpa.expman.view.modal;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -9,38 +7,36 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import vlpa.expman.controller.MainProcessor;
-import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 
 import java.util.Collections;
 import java.util.List;
 
-public class BasicOperationWindow {
+public abstract class AbstractBasicOperationWindow<T> implements FillableWindow {
 
     private UIBuilder builder;
     private MainProcessor processor;
-
     private Stage stage;
-    private ComboBox<String> categoriesComboBox;
-    private Button applyButton;
     private EventHandler<ActionEvent> applyActionHandler;
-    private List<Category> categories;
-    private ObservableList<String> categoriesData;
 
-    protected BasicOperationWindow() {
+    private T dataObject;
+
+    public AbstractBasicOperationWindow(UIBuilder builder, T dataObject) {
+        this(builder, null, dataObject);
     }
 
-    public BasicOperationWindow(UIBuilder builder, MainProcessor processor) {
+    public AbstractBasicOperationWindow(UIBuilder builder, MainProcessor processor, T dataObject) {
         this.builder = builder;
         this.processor = processor;
+        this.dataObject = dataObject;
         init();
+        fillFieldsWithData();
     }
 
     protected void init() {
@@ -49,17 +45,7 @@ public class BasicOperationWindow {
         stage.initOwner(builder.getPrimaryStage());
         stage.setTitle(getWindowTitle());
 
-        categories = processor.getAllCategories();
-        categoriesData = FXCollections.observableArrayList();
-        for (Category category : categories) {
-            categoriesData.add(category.getName());
-        }
-
-        categoriesComboBox = new ComboBox<>(categoriesData);
-
         Pane mainVerticalPane = getMainPane();
-
-        //other UI components
 
         mainVerticalPane.getChildren().add(getApplyCancelPane());
         Scene dialogScene = new Scene(mainVerticalPane, 420, 110);
@@ -85,7 +71,7 @@ public class BasicOperationWindow {
     protected Pane getApplyCancelPane() {
         HBox applyCancelPane = new HBox(20);
         applyCancelPane.setAlignment(Pos.CENTER);
-        applyButton = new Button("Apply");
+        Button applyButton = new Button("Apply");
         applyButton.setPrefWidth(80);
         applyButton.setOnAction(getApplyActionHandler());
         Button cancelButton = new Button("Cancel");
@@ -93,6 +79,10 @@ public class BasicOperationWindow {
         cancelButton.setOnAction(event -> close());
         applyCancelPane.getChildren().addAll(applyButton, cancelButton);
         return applyCancelPane;
+    }
+
+    public T getDataObject() {
+        return dataObject;
     }
 
     protected UIBuilder getBuilder() {
@@ -111,18 +101,6 @@ public class BasicOperationWindow {
         this.processor = processor;
     }
 
-    protected ComboBox<String> getCategoriesComboBox() {
-        return categoriesComboBox;
-    }
-
-    protected List<Category> getCategories() {
-        return categories;
-    }
-
-    protected ObservableList<String> getCategoriesData() {
-        return categoriesData;
-    }
-
     public EventHandler<ActionEvent> getApplyActionHandler() {
         if (applyActionHandler != null) {
             return applyActionHandler;
@@ -138,14 +116,6 @@ public class BasicOperationWindow {
         return null;
     }
 
-    protected String getWindowTitle() {
-        return "Base expense operation";
-    }
-
-    protected void selectProperCategory() {
-        //DO NOTHING
-    }
-
     public void show() {
         stage.show();
     }
@@ -153,5 +123,9 @@ public class BasicOperationWindow {
     public void close() {
         stage.close();
     }
+
+    public abstract void fillFieldsWithData();
+
+    protected abstract String getWindowTitle();
 
 }

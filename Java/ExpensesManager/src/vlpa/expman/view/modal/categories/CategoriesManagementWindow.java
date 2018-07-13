@@ -149,12 +149,12 @@ public class CategoriesManagementWindow {
         modifyCategoryButton.setOnAction(event -> {
             int index = existingCategoriesList.getSelectionModel().getSelectedIndex();
             Category category = categories.get(index);
-            ModifyCategoryWindow modifyCategoryWindow = ModalWindowsHelper.getModifyCategoryWindow(builder, category);
-            modifyCategoryWindow.setApplyHandler(new EventHandler() {
+            ModifyCategoryWindow<Category> modifyCategoryWindow = ModalWindowsHelper.getModifyCategoryWindow(builder, category);
+            modifyCategoryWindow.setApplyActionHandler(new EventHandler() {
                 @Override
                 public void handle(Event event) {
                     if (modifyCategoryWindow.isChanged()) {
-                        Category updatedCategory = modifyCategoryWindow.getCategory();
+                        Category updatedCategory = modifyCategoryWindow.getDataObject();
                         category.setName(updatedCategory.getName());
                         category.setLimit(updatedCategory.getLimit());
                         categoriesData.set(index, updatedCategory.getName());

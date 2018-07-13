@@ -9,7 +9,7 @@ import vlpa.expman.view.UIBuilder;
 
 import java.util.List;
 
-public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasePatternOperationWindow {
+public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicPatternOperationWindow<T> {
 
     private boolean isChanged;
 
@@ -56,11 +56,6 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasePa
     }
 
     @Override
-    public void fillFieldsWithData() {
-        getPatternTextInput().setText(getDataObject().getText());
-    }
-
-    @Override
     public void selectProperCategory() {
         List<String> patternComboBoxItems = getCategoriesComboBox().getItems();
         for (int i=0; i<patternComboBoxItems.size(); i++) {
@@ -70,5 +65,11 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasePa
                 break;
             }
         }
+    }
+
+    @Override
+    public void fillFieldsWithData() {
+        super.fillFieldsWithData();
+        getPatternTextInput().setText(getDataObject().getText());
     }
 }

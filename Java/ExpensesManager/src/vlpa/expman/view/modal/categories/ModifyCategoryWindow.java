@@ -1,104 +1,107 @@
 package vlpa.expman.view.modal.categories;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 import javafx.event.EventHandler;
+import vlpa.expman.view.modal.AbstractBasicOperationWindow;
 
-public class ModifyCategoryWindow {
+import java.util.Arrays;
+import java.util.List;
 
-    private UIBuilder builder;
-    private Stage stage;
-    private Category category;
+public class ModifyCategoryWindow<T extends Category> extends AbstractBasicOperationWindow<T> {
+
     private boolean isChanged;
-    private EventHandler handler;
 
-    public ModifyCategoryWindow(UIBuilder builder, Category category) {
-        this.builder = builder;
-        this.category = category;
-        init();
+    private TextField categoryNameInput;
+    private TextField categoryLimitInput;
+
+    public ModifyCategoryWindow(UIBuilder builder, T dataObject) {
+        super(builder, dataObject);
     }
 
-    private void init() {
-        stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(builder.getPrimaryStage());
-        stage.setTitle("Modify category");
+    @Override
+    public T getDataObject() {
+        return super.getDataObject();
+    }
 
-        VBox verticalPane = new VBox(8);
-        verticalPane.setPadding(new Insets(10));
+    @Override
+    protected void init() {
+        super.init();
+        setMainWindowSize(305, 150);
+    }
 
-        HBox categoryNamePane = new HBox(8);
+    @Override
+    protected List<Node> getMainPaneComponents() {
+        Pane categoryNamePane = getCategoryNamePane();
+        Pane categoryLimitPane = getCategoryLimitPane();
+        return Arrays.asList(categoryNamePane, categoryLimitPane);
+    }
+
+    private Pane getCategoryNamePane() {
+        HBox categoryNamePane = new HBox(5);
         Label categoryNameLabel = new Label("Name: ");
         categoryNameLabel.setPrefWidth(40);
-        TextField categoryNameTF = new TextField(category.getName());
-        categoryNameTF.setPrefWidth(200);
-        categoryNamePane.getChildren().addAll(categoryNameLabel, categoryNameTF);
+        categoryNameInput = new TextField();
+        categoryNameInput.setPrefWidth(225);
+        categoryNamePane.getChildren().addAll(categoryNameLabel, categoryNameInput);
+        return categoryNamePane;
+    }
 
-        HBox categoryLimitPane = new HBox(8);
+    private Pane getCategoryLimitPane() {
+        HBox categoryLimitPane = new HBox(5);
         Label categoryLimitLabel = new Label("Limit: ");
         categoryLimitLabel.setPrefWidth(40);
-        TextField categoryLimitTF = new TextField(String.valueOf(category.getLimit()));
-        categoryLimitTF.setPrefWidth(200);
-        categoryLimitPane.getChildren().addAll(categoryLimitLabel, categoryLimitTF);
+        categoryLimitInput = new TextField();
+        categoryLimitInput.setPrefWidth(225);
+        categoryLimitPane.getChildren().addAll(categoryLimitLabel, categoryLimitInput);
+        return categoryLimitPane;
+    }
 
-        HBox applyCancelPane = new HBox(20);
-        applyCancelPane.setAlignment(Pos.CENTER);
-        Button applyButton = new Button("Apply");
-        applyButton.setPrefWidth(70);
-        applyButton.setOnAction(event -> {
-            System.out.println("Update category...");
-            String updatedCategoryName = categoryNameTF.getText();
-            double updatedCategoryLimit = Double.valueOf(categoryLimitTF.getText());
-            if (!category.getName().equals(updatedCategoryName)) {
-                isChanged = true;
-                category.setName(updatedCategoryName);
-
-            }
-            if (category.getLimit() != updatedCategoryLimit) {
-                isChanged = true;
-                category.setLimit(updatedCategoryLimit);
-            }
+    public EventHandler<ActionEvent> getApplyActionHandler() {
+        return event -> {
+            performPreApplyActions();
+            EventHandler<ActionEvent> handler = super.getApplyActionHandler();
             if (handler != null) {
                 handler.handle(null);
             }
-            stage.close();
-        });
-        Button cancelButton = new Button("Cancel");
-        cancelButton.setPrefWidth(70);
-        cancelButton.setOnAction(event -> stage.close());
-
-        applyCancelPane.getChildren().addAll(applyButton, cancelButton);
-
-        verticalPane.getChildren().addAll(categoryNamePane, categoryLimitPane, new Separator(), applyCancelPane);
-
-        Scene dialogScene = new Scene(verticalPane, 280, 120);
-        stage.setScene(dialogScene);
+            close();
+        };
     }
 
-    public Category getCategory() {
-        return category;
+    private void performPreApplyActions() {
+        System.out.println("Update category...");
+        String updatedCategoryName = categoryNameInput.getText();
+        double updatedCategoryLimit = Double.valueOf(categoryLimitInput.getText());
+        if (!getDataObject().getName().equals(updatedCategoryName)) {
+            isChanged = true;
+            getDataObject().setName(updatedCategoryName);
+
+        }
+        if (getDataObject().getLimit() != updatedCategoryLimit) {
+            isChanged = true;
+            getDataObject().setLimit(updatedCategoryLimit);
+        }
     }
 
     public boolean isChanged() {
         return isChanged;
     }
 
-    public void setApplyHandler(EventHandler handler) {
-        this.handler = handler;
+    @Override
+    protected String getWindowTitle() {
+        return "Modify category";
     }
 
-    public void show() {
-        stage.show();
+    @Override
+    public void fillFieldsWithData() {
+        categoryNameInput.setText(getDataObject().getName());
+        categoryLimitInput.setText(String.valueOf(getDataObject().getLimit()));
     }
+
 }

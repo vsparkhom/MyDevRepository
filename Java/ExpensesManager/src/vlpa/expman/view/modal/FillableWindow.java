@@ -4,5 +4,4 @@ public interface FillableWindow {
 
     void fillFieldsWithData();
 
-    void selectProperCategory();
 }
