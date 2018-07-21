@@ -11,15 +11,13 @@ import java.util.List;
 
 public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicPatternOperationWindow<T> {
 
-    private boolean isChanged;
+
 
     public ModifyPatternWindow(UIBuilder builder, MainProcessor processor, T pattern) {
         super(builder, processor, pattern);
     }
 
-    public boolean isChanged() {
-        return isChanged;
-    }
+
 
     @Override
     public T getDataObject() {
@@ -39,12 +37,12 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
             int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
             Category updatedCategory = getCategories().get(selectedIndex);
             if (!getDataObject().getText().equals(updatedPatternText)) {
-                isChanged = true;
+                setChanged(true);
                 getDataObject().setText(updatedPatternText);
 
             }
             if (!getDataObject().getCategory().equals(updatedCategory)) {
-                isChanged = true;
+                setChanged(true);
                 getDataObject().setCategory(updatedCategory);
             }
             EventHandler<ActionEvent> handler = getApplyActionHandler();

@@ -21,7 +21,7 @@ public class ModalWindowsHelper {
         return new CategoriesManagementWindow(builder, processor);
     }
 
-    public static ModifyCategoryWindow<Category> getModifyCategoryWindow(UIBuilder builder, Category category) {
+    public static <T extends Category> ModifyCategoryWindow<T> getModifyCategoryWindow(UIBuilder builder, T category) {
         return new ModifyCategoryWindow(builder, category);
     }
 

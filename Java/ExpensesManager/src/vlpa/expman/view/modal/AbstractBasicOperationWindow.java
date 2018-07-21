@@ -24,6 +24,7 @@ public abstract class AbstractBasicOperationWindow<T> implements FillableWindow 
     private MainProcessor processor;
     private Stage stage;
     private EventHandler<ActionEvent> applyActionHandler;
+    private boolean isChanged;
 
     private T dataObject;
 
@@ -110,6 +111,14 @@ public abstract class AbstractBasicOperationWindow<T> implements FillableWindow 
 
     public void setApplyActionHandler(EventHandler<ActionEvent> applyActionHandler) {
         this.applyActionHandler = applyActionHandler;
+    }
+
+    public boolean isChanged() {
+        return isChanged;
+    }
+
+    public void setChanged(boolean changed) {
+        isChanged = changed;
     }
 
     protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
