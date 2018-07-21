@@ -45,7 +45,7 @@ public class ModalWindowsHelper {
         return new PatternManagementWindow(builder, processor);
     }
 
-    public static ModifyPatternWindow<ImportPattern> getModifyPatternWindow(UIBuilder builder, MainProcessor processor, ImportPattern pattern) {
+    public static <T extends ImportPattern> ModifyPatternWindow<T> getModifyPatternWindow(UIBuilder builder, MainProcessor processor, T pattern) {
         return new ModifyPatternWindow(builder, processor, pattern);
     }
 

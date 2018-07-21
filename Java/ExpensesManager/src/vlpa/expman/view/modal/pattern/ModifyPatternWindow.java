@@ -11,13 +11,9 @@ import java.util.List;
 
 public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicPatternOperationWindow<T> {
 
-
-
     public ModifyPatternWindow(UIBuilder builder, MainProcessor processor, T pattern) {
         super(builder, processor, pattern);
     }
-
-
 
     @Override
     public T getDataObject() {

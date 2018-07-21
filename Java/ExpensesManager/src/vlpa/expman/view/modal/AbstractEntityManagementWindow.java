@@ -11,7 +11,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
+import vlpa.expman.model.ImportPattern;
 import vlpa.expman.view.UIBuilder;
+import vlpa.expman.view.modal.categories.ModifyCategoryWindow;
 
 import java.util.*;
 
@@ -61,7 +63,21 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     protected abstract String getAddButtonName();
 
-    protected abstract EventHandler<ActionEvent> getAddAction();
+    protected EventHandler<ActionEvent> getAddAction() {
+        return event -> {
+            //TODO: validate input data
+            System.out.println("Add entity...");
+            T newEntity = createNewEntity();
+            getEntities().add(newEntity);
+            getEntitiesData().add(getListValueForEntity(newEntity));
+            getAddedEntities().add(newEntity);
+            clearInputFields();
+        };
+    }
+
+    protected abstract T createNewEntity();
+
+    protected abstract void clearInputFields();
 
     protected Button getRemoveButton() {
         Button removeEntityButton = new Button(getRemoveButtonName());
@@ -123,7 +139,17 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
         return modifyEntityButton;
     }
 
-    protected abstract EventHandler<ActionEvent> getModifyAction();
+    protected EventHandler<ActionEvent> getModifyAction() {
+        return event -> {
+            int index = getExistingEntitiesList().getSelectionModel().getSelectedIndex();
+            T entity = getEntities().get(index);
+            AbstractBasicOperationWindow<T> modifyActionWindow = getModifyActionWindow(entity);
+            modifyActionWindow.setApplyActionHandler(getModifyActionInternal(index, entity, modifyActionWindow));
+            modifyActionWindow.show();
+        };
+    }
+
+    protected abstract AbstractBasicOperationWindow<T> getModifyActionWindow(T entity);
 
     protected EventHandler getModifyActionInternal(int index, T entity, AbstractBasicOperationWindow<T> modifyEntityWindow) {
         return new EventHandler() {
