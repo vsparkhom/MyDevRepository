@@ -2,10 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/dao/DBConsts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/exception/EntityValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/create_db_objects.sql" beforeDir="false" afterPath="$PROJECT_DIR$/res/create_db_objects.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/expman.db" beforeDir="false" afterPath="$PROJECT_DIR$/res/expman.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fill_tables_with_test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/res/fill_tables_with_test_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/ModalWindowsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/ModalWindowsHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/PatternManagementWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/PatternManagementWindow.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -66,101 +84,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoriesManagementWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java">
+      <file leaf-file-name="BaseExpenseOperationWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="17" column="80" selection-start-line="17" selection-start-column="80" selection-end-line="17" selection-end-column="80" />
+            <state relative-caret-position="2714">
+              <caret line="223" selection-start-line="223" selection-end-line="223" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3213#3214#0" expanded="true" />
-                <element signature="e#3252#3253#0" expanded="true" />
-                <element signature="e#3774#3775#0" expanded="true" />
-                <element signature="e#3844#3845#0" expanded="true" />
-                <element signature="e#3891#3892#0" expanded="true" />
-                <element signature="e#3939#3940#0" expanded="true" />
+                <element signature="e#6966#6967#0" expanded="true" />
+                <element signature="e#7014#7015#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractEntityManagementWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java">
+      <file leaf-file-name="AddExpenseWindow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="89">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="442" column="36" selection-start-line="442" selection-start-column="16" selection-end-line="442" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8367#8368#0" expanded="true" />
-                <element signature="e#8398#8399#0" expanded="true" />
-                <element signature="e#8453#8454#0" expanded="true" />
-                <element signature="e#8488#8489#0" expanded="true" />
-                <element signature="e#8784#8785#0" expanded="true" />
-                <element signature="e#8827#8828#0" expanded="true" />
+                <element signature="e#17845#17846#0" expanded="true" />
+                <element signature="e#17885#17886#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatternManagementWindow.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/PatternManagementWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
-              <folding>
-                <element signature="e#1355#1356#0" expanded="true" />
-                <element signature="e#1378#1379#0" expanded="true" />
-                <element signature="e#1475#1476#0" expanded="true" />
-                <element signature="e#1515#1516#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
-                <element signature="e#1610#1611#0" expanded="true" />
-                <element signature="e#1769#1770#0" expanded="true" />
-                <element signature="e#1796#1797#0" expanded="true" />
-                <element signature="e#1856#1857#0" expanded="true" />
-                <element signature="e#1883#1884#0" expanded="true" />
-                <element signature="e#2167#2168#0" expanded="true" />
-                <element signature="e#2231#2232#0" expanded="true" />
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2342#2343#0" expanded="true" />
-                <element signature="e#2406#2407#0" expanded="true" />
-                <element signature="e#2433#2434#0" expanded="true" />
-                <element signature="e#2789#2790#0" expanded="true" />
-                <element signature="e#2859#2860#0" expanded="true" />
-                <element signature="e#2910#2911#0" expanded="true" />
-                <element signature="e#2958#2959#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalWindowsHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/ModalWindowsHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModifyPatternWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/ModifyPatternWindow.java">
+      <file leaf-file-name="ModifyExpenseWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractBasicOperationWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractBasicOperationWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3628#3629#0" expanded="true" />
-                <element signature="e#3655#3656#0" expanded="true" />
-              </folding>
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="45" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -177,11 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import</find>
-      <find>unk</find>
-      <find>getWindowTitle</find>
-      <find>selec</find>
-      <find>Categories</find>
       <find>removedCategories</find>
       <find>patter</find>
       <find>(8);</find>
@@ -207,6 +165,11 @@
       <find>patternTextInput</find>
       <find>add</find>
       <find>modif</find>
+      <find>AbstractBasicPatternOperationWindow</find>
+      <find>public static final</find>
+      <find>createNewEntity</find>
+      <find>getApplyButtonAction</find>
+      <find>categoryid</find>
     </findStrings>
     <replaceStrings>
       <replace>categoriesRepository.getCategoryById(categoryId);</replace>
@@ -227,57 +190,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/ModalWindowsHelper.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/CategoriesManagementWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/UpdateCategoryDialog.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/CategoriesManagementDialog.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/UpdateCategoryWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/AddExpenseWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/ExpenseUtils.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/ModifyCategoryWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/CategoriesManagementWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/ModifyExpenseWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AbstractExpenseOperationWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIDimensionsConst.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/Expense.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/imprt/CsvDataImporter.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/imprt/TDBankCsvDataImporter.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/Main.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/BasPatternOperationWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/category/CategoriesDAO.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/category/sqlite/CategoriesDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/ExpenseManagerDAOFactory.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/imprt/ImportExpensesDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/model/ImportPattern.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/imprt/ImportExpensesDAO.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/imprt/spec/PatternSqlSpecificationGetAll.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/category/CategoriesRepository.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/controller/MainProcessor.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/dao/imprt/sql/ImportExpensesDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/FillableFieldsObject.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/BasePatternOperationWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/AbstractBasePatternOperationWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/BasicOperationWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/FillableWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/ModifyCategoryWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/ModifyPatternWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/AbstractBasicPatternOperationWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractBasicOperationWindow.java" />
-        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/ModifyPatternWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/dao/DBConsts.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/ModalWindowsHelper.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/exception/CategoryValidationException.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/exception/EntityValidationException.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java" />
         <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/PatternManagementWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/controller/ExpenseUtils.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java" />
+        <option value="$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java" />
       </list>
     </option>
   </component>
@@ -329,66 +292,6 @@
               <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="category" type="462c0819:PsiDirectoryNode" />
-              <item name="spec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="expense" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="expense" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="imprt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="imprt" type="462c0819:PsiDirectoryNode" />
-              <item name="spec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="imprt" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="expman" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -414,6 +317,15 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="modal" type="462c0819:PsiDirectoryNode" />
               <item name="categories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ExpensesManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="expman" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="modal" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ExpensesManager" type="b2602c69:ProjectViewProjectNode" />
@@ -652,7 +564,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32718122" />
@@ -660,18 +571,18 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.7127846" weight="0.3297546" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.34731543" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3909396" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4261745" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.6912752" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32885906" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63673466" visible="true" weight="0.27488515" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63673466" visible="true" weight="0.29326186" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" sideWeight="0.7180385" weight="0.24961714" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3204698" />
       <window_info id="Structure" order="1" sideWeight="0.3632653" side_tool="true" weight="0.27565083" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="right" id="IDEtalk" order="4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -750,55 +661,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ImportPattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/model/ExpensesReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="79" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/AbstractBasicPatternOperationWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="63" column="9" lean-forward="true" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4080">
-          <caret line="281" column="23" selection-start-line="281" selection-start-column="23" selection-end-line="281" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
@@ -884,27 +746,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/imprt/pattern/ImportPatternDAO.java" />
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="70" column="29" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/category/spec/CategorySqlSpecificationGetAll.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -919,45 +760,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="1615" column="15" lean-forward="true" selection-start-line="1615" selection-start-column="15" selection-end-line="1615" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="94" column="8" lean-forward="true" selection-start-line="94" selection-start-column="8" selection-end-line="96" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -972,20 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="289" column="39" selection-start-line="289" selection-start-column="39" selection-end-line="289" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/MainProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1010,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/FillableWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1031,25 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/ModifyCategoryWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/control/SelectionModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-268">
@@ -1057,97 +823,235 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/AbstractBasicPatternOperationWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractBasicOperationWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3628#3629#0" expanded="true" />
-            <element signature="e#3655#3656#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="149">
+          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/ModifyPatternWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="68">
+          <caret line="11" column="82" lean-forward="true" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/ModifyCategoryWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="90" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/AbstractBasicPatternOperationWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/imprt/CsvDataImporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ImportExpensesWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="87" column="72" selection-start-line="87" selection-start-column="72" selection-end-line="87" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/MainProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/sqlite/ExpensesDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/ImportProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <folding>
+            <element signature="e#2690#2691#0" expanded="true" />
+            <element signature="e#2752#2753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/expense/ExpensesRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding>
+            <element signature="e#2362#2363#0" expanded="true" />
+            <element signature="e#2406#2407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/DBConsts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/dao/DBQueries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/MonthlyDatePickerMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/datepicker/PeriodDatePickerMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/GeneratePatternWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/exception/EntityValidationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="38" />
+          <folding>
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="500" column="25" selection-start-line="500" selection-start-column="25" selection-end-line="500" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/ModalWindowsHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8367#8368#0" expanded="true" />
-            <element signature="e#8398#8399#0" expanded="true" />
-            <element signature="e#8453#8454#0" expanded="true" />
-            <element signature="e#8488#8489#0" expanded="true" />
-            <element signature="e#8784#8785#0" expanded="true" />
-            <element signature="e#8827#8828#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="17" column="80" selection-start-line="17" selection-start-column="80" selection-end-line="17" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3213#3214#0" expanded="true" />
-            <element signature="e#3252#3253#0" expanded="true" />
-            <element signature="e#3774#3775#0" expanded="true" />
-            <element signature="e#3844#3845#0" expanded="true" />
-            <element signature="e#3891#3892#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="173">
+          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/pattern/PatternManagementWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
+        <state relative-caret-position="-294">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
           <folding>
-            <element signature="e#1355#1356#0" expanded="true" />
-            <element signature="e#1378#1379#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1769#1770#0" expanded="true" />
-            <element signature="e#1796#1797#0" expanded="true" />
-            <element signature="e#1856#1857#0" expanded="true" />
-            <element signature="e#1883#1884#0" expanded="true" />
-            <element signature="e#2167#2168#0" expanded="true" />
-            <element signature="e#2231#2232#0" expanded="true" />
-            <element signature="e#2311#2312#0" expanded="true" />
-            <element signature="e#2342#2343#0" expanded="true" />
-            <element signature="e#2406#2407#0" expanded="true" />
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2789#2790#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2910#2911#0" expanded="true" />
-            <element signature="e#2958#2959#0" expanded="true" />
+            <element signature="e#4499#4500#0" expanded="true" />
+            <element signature="e#4563#4564#0" expanded="true" />
+            <element signature="e#4643#4644#0" expanded="true" />
+            <element signature="e#4702#4703#0" expanded="true" />
+            <element signature="e#4967#4968#0" expanded="true" />
+            <element signature="e#5006#5007#0" expanded="true" />
+            <element signature="e#5224#5225#0" expanded="true" />
+            <element signature="e#5291#5292#0" expanded="true" />
+            <element signature="e#5345#5346#0" expanded="true" />
+            <element signature="e#5392#5393#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/controller/ExpenseUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/categories/CategoriesManagementWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/AbstractEntityManagementWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="262" column="4" selection-start-line="262" selection-start-column="4" selection-end-line="264" selection-end-column="5" />
+          <folding>
+            <element signature="e#9300#9301#0" expanded="true" />
+            <element signature="e#9348#9349#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/UIBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="442" column="36" selection-start-line="442" selection-start-column="16" selection-end-line="442" selection-end-column="36" />
+          <folding>
+            <element signature="e#17845#17846#0" expanded="true" />
+            <element signature="e#17885#17886#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/BaseExpenseOperationWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2714">
+          <caret line="223" selection-start-line="223" selection-end-line="223" />
+          <folding>
+            <element signature="e#6966#6967#0" expanded="true" />
+            <element signature="e#7014#7015#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/ModifyExpenseWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="45" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlpa/expman/view/modal/expenses/AddExpenseWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>

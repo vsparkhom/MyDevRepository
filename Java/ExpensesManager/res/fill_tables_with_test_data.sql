@@ -45,8 +45,6 @@ insert into expenses(date, merchant, amount, category_id) values (date('now','-3
 insert into expenses(date, merchant, amount, category_id) values (date('now','-3 months'), 'Test Cat 3 expense 3', 30, 5);
 
 
-
-
 --- 2
 
 insert into expenses(date, merchant, amount, category_id) values (date('now','-2 months'), 'Unknown expense 4', 40, 1);

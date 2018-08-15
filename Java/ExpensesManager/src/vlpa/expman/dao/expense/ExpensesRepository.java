@@ -54,13 +54,25 @@ public class ExpensesRepository {
     }
 
     public void addExpenses(Collection<Expense> expenses) {
+        addExpenses(expenses, false);
+    }
+
+    public void addExpenses(Collection<Expense> expenses, boolean mergeAllowed) {
         for (Expense exp : expenses) {
-            addExpense(exp);
+            addExpense(exp, mergeAllowed);
         }
     }
 
     public void addExpense(Expense e) {
-        expensesDAO.addExpense(e);
+        addExpense(e, false);
+    }
+
+    public void addExpense(Expense e, boolean mergeAllowed) {
+        if (mergeAllowed) {
+            expensesDAO.mergeExpense(e);
+        } else {
+            expensesDAO.addExpense(e);
+        }
     }
 
     public void removeExpense(long expenseId) {

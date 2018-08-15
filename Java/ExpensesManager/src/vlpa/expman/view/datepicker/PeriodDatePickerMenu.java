@@ -36,7 +36,7 @@ public class PeriodDatePickerMenu extends AbstractDatePickerMenu {
         datePickerPane = new HBox();
         datePickerPane.setAlignment(Pos.CENTER_RIGHT);
         datePickerPane.setPadding(new Insets(25, 12, 0, 12));
-        datePickerPane.setSpacing(10);//TODO: replace with styles
+        datePickerPane.setSpacing(10);
 
         //start date
 

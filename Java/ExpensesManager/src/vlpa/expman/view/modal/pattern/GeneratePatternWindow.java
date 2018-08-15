@@ -44,6 +44,6 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
         getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
-                + ANY_SYMBOL_TEMPLATE); //TODO: generate pattern
+                + ANY_SYMBOL_TEMPLATE);
     }
 }

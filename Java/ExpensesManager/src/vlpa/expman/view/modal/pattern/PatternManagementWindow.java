@@ -17,6 +17,7 @@ import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.AbstractBasicOperationWindow;
 import vlpa.expman.view.modal.AbstractEntityManagementWindow;
 import vlpa.expman.view.modal.ModalWindowsHelper;
+import vlpa.expman.view.modal.exception.EntityValidationException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -94,6 +95,18 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
     @Override
     protected String getModifyButtonName() {
         return "Modify pattern";
+    }
+
+    @Override
+    protected void validateData() {
+        String patternText = patternTextInput.getText();
+        if (isEmpty(patternText)) {
+            throw new EntityValidationException("Pattern", "Pattern text should not be empty!");
+        }
+        int categorySelectedIndex = categoriesComboBox.getSelectionModel().getSelectedIndex();
+        if (categorySelectedIndex < 0) {
+            throw new EntityValidationException("Pattern", "Please select category for pattern!");
+        }
     }
 
     @Override

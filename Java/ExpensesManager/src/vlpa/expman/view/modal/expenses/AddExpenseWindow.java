@@ -17,35 +17,29 @@ public class AddExpenseWindow extends BaseExpenseOperationWindow {
     }
 
     @Override
-    protected void init() {
-        super.init();
-    }
-
-    @Override
     protected String getWindowTitle() {
         return "Add expense";
     }
 
     @Override
     protected void selectProperCategory() {
-        getCategoriesComboBox().getSelectionModel().selectFirst();
+        for (int i = 0; i < getCategories().size(); i++) {
+            if (getCategories().get(i).getId() == getBuilder().getCurrentCategoryId()) {
+                getCategoriesComboBox().getSelectionModel().select(i);
+                break;
+            }
+        }
     }
 
     @Override
-    protected EventHandler<ActionEvent> getApplyButtonAction() {
-        return event -> {
+    protected void performApplyActions(String expenseName,
+                                       Date expenseDate,
+                                       double expenseAmount,
+                                       Category selectedCategory) {
+        Expense exp = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);
+        getProcessor().addExpense(exp);
 
-            String expenseName = getNameInput().getText();
-            Date expenseDate = ExpenseUtils.fromLocalDateToDate(getDate());
-            double expenseAmount = Double.valueOf(getAmountInput().getText());//TODO: add validation
-            int selectedCategoryIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
-            Category selectedCategory = getCategories().get(selectedCategoryIndex);
-
-            Expense exp = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);
-            getProcessor().addExpense(exp);
-
-            getBuilder().updateView();
-            getStage().close();
-        };
+        getBuilder().updateView();
+        getStage().close();
     }
 }

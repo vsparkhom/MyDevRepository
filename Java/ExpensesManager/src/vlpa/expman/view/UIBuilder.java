@@ -20,6 +20,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import vlpa.expman.controller.MainProcessor;
+import vlpa.expman.dao.DBConsts;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
@@ -45,7 +46,7 @@ public class UIBuilder {
     private HBox manageExpensesButtonsPane;
     private TableView<Expense> currentCategoryExpensesTable;
 
-    private long currentCategoryId = 0; //Summary by default
+    private long currentCategoryId = 0; //Summary pane by default
 
     private UIBuilder() {
     }
@@ -282,7 +283,7 @@ public class UIBuilder {
         categoryDetailsTopPane.getChildren().add(getExpensesManageButtonsPane());
 
         System.out.println("[DEBUG]<getCategoryDetailsTopPane> currentCategoryId: " + currentCategoryId);
-        if (currentCategoryId == 1) { //Unknown category //TODO: enhance
+        if (currentCategoryId == DBConsts.UNKNOWN_CATEGORY_ID) {
             Button createPatternButton = new Button("Create pattern");
             createPatternButton.setOnAction(event -> {
                 Expense selectedExpense = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
@@ -439,4 +440,7 @@ public class UIBuilder {
         return color;
     }
 
+    public long getCurrentCategoryId() {
+        return currentCategoryId;
+    }
 }

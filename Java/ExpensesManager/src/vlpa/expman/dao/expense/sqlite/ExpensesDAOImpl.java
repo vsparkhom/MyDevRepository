@@ -63,6 +63,27 @@ public class ExpensesDAOImpl implements ExpensesDAO {
     }
 
     @Override
+    public void mergeExpense(Expense expense) {
+        System.out.println("Merging expense to database... " + expense);
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.MERGE_EXPENSE);
+            pstm.setString(1, ExpenseUtils.fromDateToString(expense.getDate()));
+            pstm.setString(2, expense.getName());
+            pstm.setString(3, ExpenseUtils.fromDateToString(expense.getDate()));
+            pstm.setString(4, expense.getName());
+            pstm.setDouble(5, expense.getAmount());
+            pstm.setLong(6, expense.getCategory().getId());
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
     public void removeExpense(long expenseId) {
         System.out.println("Removing expense with id=" + expenseId);
         Connection conn = null;

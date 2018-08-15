@@ -11,6 +11,8 @@ public interface ExpensesDAO {
 
     void addExpense(Expense e);
 
+    void mergeExpense(Expense e);
+
     void removeExpense(long expenseId);
 
     void updateExpense(Expense e);

@@ -55,8 +55,11 @@ public class ImportProcessor {
         }
     }
 
+    /* This methods assumes that there can't be more then one transaction on the same day for the same merchant
+       Otherwise only first transaction will be saved and others will be skipped.
+     */
     private void storeExpenses(Collection<Expense> expenses) {
-        expensesRepository.addExpenses(expenses);
+        expensesRepository.addExpenses(expenses, true);
     }
 
 }

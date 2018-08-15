@@ -82,7 +82,10 @@ public class ImportExpensesWindow {
                         "Please select file with data to import").showAndWait();
             } else {
                 importProcessor.importExpenses(fileLocation);
+                System.out.println("[DEBUG] Expenses have been imported successfully!");
                 stage.close();
+                ModalWindowsHelper.getInformationDialog("Expenses import status",
+                        "Expenses import has been successfully finished!").showAndWait();
             }
         });
         Button cancelButton = new Button("Cancel");

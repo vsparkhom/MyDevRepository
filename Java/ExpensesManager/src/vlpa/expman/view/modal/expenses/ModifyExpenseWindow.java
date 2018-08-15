@@ -47,39 +47,33 @@ public class ModifyExpenseWindow extends BaseExpenseOperationWindow {
     }
 
     @Override
-    protected EventHandler<ActionEvent> getApplyButtonAction() {
-        return event -> {
+    protected void performApplyActions(String expenseName,
+                                       Date expenseDate,
+                                       double expenseAmount,
+                                       Category selectedCategory) {
+        boolean isChanged = false;
+        if (!expense.getName().equals(expenseName)) {
+            expense.setName(expenseName);
+            isChanged = true;
+        }
+        if (!expense.getDate().equals(expenseDate)) {
+            expense.setDate(expenseDate);
+            isChanged = true;
+        }
+        if (expense.getAmount() != expenseAmount) {
+            expense.setAmount(expenseAmount);
+            isChanged = true;
+        }
+        if (expense.getCategory().getId() != selectedCategory.getId()) {
+            expense.setCategory(selectedCategory);
+            isChanged = true;
+        }
 
-            String expenseName = getNameInput().getText();
-            Date expenseDate = Date.from(getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            double expenseAmount = Double.valueOf(getAmountInput().getText());//TODO: add validation
-            int selectedCategoryIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
-            Category selectedCategory = getCategories().get(selectedCategoryIndex);
+        if (isChanged) {
+            getProcessor().updateExpense(expense);
+        }
 
-            boolean isChanged = false;
-            if (!expense.getName().equals(expenseName)) {
-                expense.setName(expenseName);
-                isChanged = true;
-            }
-            if (!expense.getDate().equals(expenseDate)) {
-                expense.setDate(expenseDate);
-                isChanged = true;
-            }
-            if (expense.getAmount() != expenseAmount) {
-                expense.setAmount(expenseAmount);
-                isChanged = true;
-            }
-            if (expense.getCategory().getId() != selectedCategory.getId()) {
-                expense.setCategory(selectedCategory);
-                isChanged = true;
-            }
-
-            if (isChanged) {
-                getProcessor().updateExpense(expense);
-            }
-
-            getBuilder().updateView();
-            getStage().close();
-        };
+        getBuilder().updateView();
+        getStage().close();
     }
 }

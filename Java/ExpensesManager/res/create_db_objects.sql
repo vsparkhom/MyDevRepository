@@ -1,5 +1,5 @@
 create table categories (
-    id integer  not null primary key,
+    id integer not null primary key,
     name text  unique not null,
     'limit' float default '0' null
 );
@@ -13,9 +13,9 @@ create table categories (
 --insert into categories(name, 'limit') values ('Dog', 100);
 
 create table expenses (
-    id integer  primary key not null,
-    date date  null,
-    merchant text  null,
+    id integer primary key not null,
+    date date null,
+    merchant text null,
     amount float default '0' null,
     category_id integer,
     foreign key (category_id) references categories(id)

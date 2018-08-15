@@ -50,16 +50,24 @@ public class ModalWindowsHelper {
     }
 
     public static Alert getConfirmationDialog(String headerMsg, String contentMsg) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText(headerMsg);
-        alert.setContentText(contentMsg);
-        return alert;
+        return getDialog(Alert.AlertType.CONFIRMATION, "Confirmation Dialog", headerMsg, contentMsg);
     }
 
     public static Alert getWarningDialog(String headerMsg, String contentMsg) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning Dialog");
+        return getDialog(Alert.AlertType.WARNING, "Warning Dialog", headerMsg, contentMsg);
+    }
+
+    public static Alert getInformationDialog(String headerMsg, String contentMsg) {
+        return getDialog(Alert.AlertType.INFORMATION, "Information Dialog", headerMsg, contentMsg);
+    }
+
+    public static Alert getErrorDialog(String headerMsg, String contentMsg) {
+        return getDialog(Alert.AlertType.ERROR, "Error Dialog", headerMsg, contentMsg);
+    }
+
+    public static Alert getDialog(Alert.AlertType type, String title, String headerMsg, String contentMsg) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
         alert.setHeaderText(headerMsg);
         alert.setContentText(contentMsg);
         return alert;

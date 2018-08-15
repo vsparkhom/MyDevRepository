@@ -10,10 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import vlpa.expman.controller.MainProcessor;
-import vlpa.expman.model.Category;
-import vlpa.expman.model.ImportPattern;
 import vlpa.expman.view.UIBuilder;
-import vlpa.expman.view.modal.categories.ModifyCategoryWindow;
+import vlpa.expman.view.modal.exception.EntityValidationException;
 
 import java.util.*;
 
@@ -65,15 +63,20 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     protected EventHandler<ActionEvent> getAddAction() {
         return event -> {
-            //TODO: validate input data
-            System.out.println("Add entity...");
-            T newEntity = createNewEntity();
-            getEntities().add(newEntity);
-            getEntitiesData().add(getListValueForEntity(newEntity));
-            getAddedEntities().add(newEntity);
-            clearInputFields();
+            try {
+                validateData();
+                T newEntity = createNewEntity();
+                getEntities().add(newEntity);
+                getEntitiesData().add(getListValueForEntity(newEntity));
+                getAddedEntities().add(newEntity);
+                clearInputFields();
+            } catch (EntityValidationException eve) {
+                ModalWindowsHelper.getErrorDialog(eve.getEntityName() + " can't be created", eve.getMessage()).show();
+            }
         };
     }
+
+    protected abstract void validateData();
 
     protected abstract T createNewEntity();
 
@@ -254,4 +257,8 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
     protected abstract void removeEntity(T removedEntity);
 
     protected abstract void updateEntity(T c);
+
+    protected boolean isEmpty(String s) {
+        return s == null || "".equals(s);
+    }
 }

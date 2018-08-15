@@ -11,12 +11,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 
 import javafx.event.EventHandler;
+import vlpa.expman.view.modal.exception.EntityValidationException;
+
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import static vlpa.expman.view.UIDimensionsConst.DATE_PICKER_WIDTH;
@@ -180,7 +184,47 @@ public class BaseExpenseOperationWindow {
     }
 
     protected EventHandler<ActionEvent> getApplyButtonAction() {
-        return null;
+        return event -> {
+            String expenseName = getNameInput().getText();
+            String expenseAmountText = getAmountInput().getText();
+            double expenseAmount = Double.valueOf(expenseAmountText);
+            int selectedCategoryIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
+
+            validateInputData(expenseName, expenseAmountText, selectedCategoryIndex);
+
+            Date expenseDate = ExpenseUtils.fromLocalDateToDate(getDate());
+            Category selectedCategory = getCategories().get(selectedCategoryIndex);
+
+            performApplyActions(expenseName, expenseDate, expenseAmount, selectedCategory);
+        };
+    }
+
+    protected void performApplyActions(String expenseName,
+                                       Date expenseDate,
+                                       double expenseAmount,
+                                       Category selectedCategory) {
+        //DO_NOTHING
+    }
+
+    protected void validateInputData(String expenseName, String expenseAmountText, int selectedCategoryIndex) {
+        if (isEmpty(expenseName) || isEmpty(expenseAmountText)) {
+            throw new EntityValidationException("Expense", "Expense name and amount should not be empty!");
+        }
+
+        double amount = 0;
+        try {
+            amount = Double.parseDouble(expenseAmountText);
+        } catch (NumberFormatException e) {
+            throw new EntityValidationException("Expense", "Expense limit should be a number!");
+        }
+
+        if (amount <= 0) {
+            throw new EntityValidationException("Expense", "Expense amount should be greater than zero!");
+        }
+    }
+
+    protected boolean isEmpty(String s) {
+        return s == null || "".equals(s);
     }
 
     public void show() {
