@@ -1,21 +1,21 @@
 package vlpa.expman.controller.imprt;
 
-public class TDBankCsvDataImporter extends CsvDataImporter {
+public class PCFBankCsvDataImporter extends CsvDataImporter {
 
-    private TDBankCsvDataImporter() {
+    private PCFBankCsvDataImporter() {
     }
 
-    private static class TDBankCsvDataImporterHolder {
-        public static CsvDataImporter instance = new TDBankCsvDataImporter();
+    private static class PCFBankCsvDataImporterHolder {
+        public static CsvDataImporter instance = new PCFBankCsvDataImporter();
     }
 
     public static CsvDataImporter getInstance() {
-        return TDBankCsvDataImporterHolder.instance;
+        return PCFBankCsvDataImporter.PCFBankCsvDataImporterHolder.instance;
     }
 
     @Override
     public boolean isHeaderPresent() {
-        return false;
+        return true;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class TDBankCsvDataImporter extends CsvDataImporter {
 
     @Override
     public int getMerchantFieldIndex() {
-        return 1;
+        return 3;
     }
 
     @Override

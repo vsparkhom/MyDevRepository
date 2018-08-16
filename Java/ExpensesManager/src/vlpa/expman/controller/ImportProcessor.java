@@ -1,6 +1,6 @@
 package vlpa.expman.controller;
 
-import vlpa.expman.controller.imprt.TDBankCsvDataImporter;
+import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.expense.ExpensesRepository;
 import vlpa.expman.model.Category;
@@ -20,8 +20,9 @@ public class ImportProcessor {
     private ExpensesRepository expensesRepository = new ExpensesRepository();
     private CategoriesRepository categoriesRepository = new CategoriesRepository();
 
-    public void importExpenses(String fileName) {
-        Collection<Expense> expenses = TDBankCsvDataImporter.getInstance().importExpensesFromFile(fileName);
+    public void importExpenses(String fileName, BankType bankType) {
+        System.out.println("[DEBUG]<importExpenses> bankType: " + bankType.getName());
+        Collection<Expense> expenses = bankType.getDataImporter().importExpensesFromFile(fileName);
         sortExpensesByCategories(expenses);
         storeExpenses(expenses);
     }
@@ -31,7 +32,7 @@ public class ImportProcessor {
         List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
         for (Expense e : expenses) {
             System.out.println("[DEBUG]<sortExpensesByCategories> e: " + e);
-            String expenseName = e.getName();
+            String expenseName = e.getName().toUpperCase();
             Category c = null;
             for (ImportPattern ip : importPatternsList) {
                 System.out.println("[DEBUG]<sortExpensesByCategories>   key: " + ip.getText());

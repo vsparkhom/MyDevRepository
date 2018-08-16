@@ -31,7 +31,8 @@ public abstract class CsvDataImporter implements DataImporter {
             String line;
             boolean isHeaderSkipped = false;
             while ((line = br.readLine()) != null) {
-                if (!isHeaderSkipped) {
+                if (isHeaderPresent() && !isHeaderSkipped) {
+                    System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> HeaderSkipped=true");
                     isHeaderSkipped = true;
                 } else {
                     String[] expensesData = line.split(FIELDS_SEPARATOR);
@@ -48,11 +49,7 @@ public abstract class CsvDataImporter implements DataImporter {
                 }
             }
             System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> Import finished");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
         return expenses;
@@ -78,6 +75,8 @@ public abstract class CsvDataImporter implements DataImporter {
     protected boolean isDepositAllowed() {
         return depositAllowed;
     }
+
+    public abstract boolean isHeaderPresent();
 
     public abstract int getTransactionDateFieldIndex();
 

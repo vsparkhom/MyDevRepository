@@ -12,19 +12,25 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import vlpa.expman.controller.ImportProcessor;
+import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.ModalWindowsHelper;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 public class ImportExpensesWindow {
-
-    private final String TD_BANK_ACCOUNT = "TD Bank";
-    private final String PCF_BANK_ACCOUNT = "PCF Bank";
 
     private ImportProcessor importProcessor;
     private UIBuilder builder;
     private Stage stage;
+    private ComboBox<String> accountTypesComboBox;
+
+    private List<BankType> accountTypes = Arrays.asList(
+        BankType.TD_BANK_ACCOUNT,
+        BankType.PCF_BANK_ACCOUNT
+    );
 
     public ImportExpensesWindow(UIBuilder builder) {
         this.builder = builder;
@@ -45,8 +51,13 @@ public class ImportExpensesWindow {
         accountTypePane.setAlignment(Pos.BOTTOM_LEFT);
         Label accountTypeText = new Label("Account Type:");
         accountTypeText.setPrefWidth(75);
-        ObservableList<String> accountTypes = FXCollections.observableArrayList(TD_BANK_ACCOUNT, PCF_BANK_ACCOUNT);
-        ComboBox<String> accountTypesComboBox = new ComboBox<>(accountTypes);
+
+        ObservableList<String> accountTypesData = FXCollections.observableArrayList();
+        for (BankType bt : accountTypes) {
+            accountTypesData.add(bt.getName());
+        }
+
+        accountTypesComboBox = new ComboBox<>(accountTypesData);
         accountTypesComboBox.setPrefWidth(240);
         accountTypesComboBox.getSelectionModel().selectFirst();
         accountTypePane.getChildren().addAll(accountTypeText, accountTypesComboBox);
@@ -81,7 +92,8 @@ public class ImportExpensesWindow {
                 ModalWindowsHelper.getWarningDialog("File location can't be empty!",
                         "Please select file with data to import").showAndWait();
             } else {
-                importProcessor.importExpenses(fileLocation);
+                int selectedBankTypeIndex = accountTypesComboBox.getSelectionModel().getSelectedIndex();
+                importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));
                 System.out.println("[DEBUG] Expenses have been imported successfully!");
                 stage.close();
                 ModalWindowsHelper.getInformationDialog("Expenses import status",
