@@ -61,10 +61,10 @@ public class BaseExpenseOperationWindow {
             categoriesData.add(category.getName());
         }
 
-        VBox verticalPane = new VBox(8);
+        VBox verticalPane = new VBox(5);
         verticalPane.setPadding(new Insets(10));
 
-        HBox expenseNamePane = new HBox(8);
+        HBox expenseNamePane = new HBox(5);
 
         Label nameText = new Label("Name:");
         nameText.setPrefWidth(55);
@@ -73,7 +73,7 @@ public class BaseExpenseOperationWindow {
 
         expenseNamePane.getChildren().addAll(nameText, nameInput);
 
-        HBox expenseInformationPane = new HBox(8);
+        HBox expenseInformationPane = new HBox(5);
 
         Label dateText = new Label("Date:");
         dateText.setPrefWidth(55);
@@ -93,7 +93,7 @@ public class BaseExpenseOperationWindow {
 
         expenseInformationPane.getChildren().addAll(dateText, datePicker, amountText, amountInput);
 
-        HBox categoriesPane = new HBox(8);
+        HBox categoriesPane = new HBox(5);
         Label chooseCategoryText = new Label("Category:");
         chooseCategoryText.setPrefWidth(55);
         categoriesComboBox = new ComboBox<>(categoriesData);

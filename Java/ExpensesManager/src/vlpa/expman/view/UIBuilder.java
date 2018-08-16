@@ -203,7 +203,7 @@ public class UIBuilder {
 
     private Pane buildLeftMenu() {
 
-        VBox vbox = new VBox(8);
+        VBox vbox = new VBox(5);
         vbox.setPadding(new Insets(10)); // Set all sides to 10
 
         Text title = new Text("Menu");
@@ -259,8 +259,7 @@ public class UIBuilder {
         currentCategoryExpensesTable.setItems(currentCategoryExpensesList);
         currentCategoryExpensesTable.getColumns().addAll(dateColumn, merchantColumn, amountColumn);
 
-        final VBox vbox = new VBox();
-        vbox.setSpacing(5);
+        final VBox vbox = new VBox(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
         vbox.getChildren().addAll(getCategoryDetailsTopPane(categoryId), currentCategoryExpensesTable);
 
@@ -299,8 +298,7 @@ public class UIBuilder {
     }
 
     private Pane buildSummaryPane() {
-        VBox summaryBox = new VBox();
-        summaryBox.setSpacing(5);// Gap between nodes
+        VBox summaryBox = new VBox(5);
 
         HBox topSummaryPane = buildTopSummaryPane();
         summaryBox.getChildren().add(topSummaryPane);
@@ -311,8 +309,7 @@ public class UIBuilder {
         Date start = dpm.getStartDate();
         Date end = dpm.getEndDate();
 
-        VBox categoriesSummaryBox = new VBox();
-        categoriesSummaryBox.setSpacing(5);
+        VBox categoriesSummaryBox = new VBox(5);
 
         for (Category c : processor.getAllCategories()) {
             ExpensesReport reportForCurrentCategory = processor.getExpensesReportForCategory(c.getId(), start, end);
