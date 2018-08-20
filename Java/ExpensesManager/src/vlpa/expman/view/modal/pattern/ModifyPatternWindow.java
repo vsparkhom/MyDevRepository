@@ -16,11 +16,6 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
     }
 
     @Override
-    public T getDataObject() {
-        return (T) super.getDataObject();
-    }
-
-    @Override
     protected String getWindowTitle() {
         return "Modify pattern";
     }

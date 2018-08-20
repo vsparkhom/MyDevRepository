@@ -15,11 +15,6 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
     }
 
     @Override
-    public T getDataObject() {
-        return (T) super.getDataObject();
-    }
-
-    @Override
     protected String getWindowTitle() {
         return "Generate pattern";
     }
@@ -43,6 +38,7 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
     @Override
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
+        System.out.println("initial row: '" + getDataObject() + "'");
         getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
                 + ANY_SYMBOL_TEMPLATE);
     }

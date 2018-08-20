@@ -21,37 +21,29 @@ public class ImportProcessor {
     private CategoriesRepository categoriesRepository = new CategoriesRepository();
 
     public void importExpenses(String fileName, BankType bankType) {
-        System.out.println("[DEBUG]<importExpenses> bankType: " + bankType.getName());
         Collection<Expense> expenses = bankType.getDataImporter().importExpensesFromFile(fileName);
         sortExpensesByCategories(expenses);
         storeExpenses(expenses);
     }
 
     private void sortExpensesByCategories(Collection<Expense> expenses) {
-        System.out.println("[DEBUG]<sortExpensesByCategories> START");
         List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
         for (Expense e : expenses) {
-            System.out.println("[DEBUG]<sortExpensesByCategories> e: " + e);
             String expenseName = e.getName().toUpperCase();
             Category c = null;
             for (ImportPattern ip : importPatternsList) {
-                System.out.println("[DEBUG]<sortExpensesByCategories>   key: " + ip.getText());
                 String patternText = ip.getText().replaceAll(ANY_SYMBOL_TEMPLATE, ANY_SYMBOL_SUBSTITUTE);
-                System.out.println("[DEBUG]<sortExpensesByCategories>   patternText: " + patternText);
                 Pattern pattern = Pattern.compile(patternText);
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
                     c = ip.getCategory();
-                    System.out.println("[DEBUG]<sortExpensesByCategories>     category found: " + c);
                     break;
                 }
             }
             if (c == null) {
                 e.setCategory(categoriesRepository.getUnknownCategory());
-                System.out.println("[DEBUG]<sortExpensesByCategories> Unknown category set");
             } else {
                 e.setCategory(c);
-                System.out.println("[DEBUG]<sortExpensesByCategories> category set: " + c);
             }
         }
     }

@@ -3,7 +3,6 @@ package vlpa.expman.controller.imprt;
 import vlpa.expman.model.Expense;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -32,17 +31,15 @@ public abstract class CsvDataImporter implements DataImporter {
             boolean isHeaderSkipped = false;
             while ((line = br.readLine()) != null) {
                 if (isHeaderPresent() && !isHeaderSkipped) {
-                    System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> HeaderSkipped=true");
                     isHeaderSkipped = true;
                 } else {
                     String[] expensesData = line.split(FIELDS_SEPARATOR);
                     Date date = parseDate(expensesData[getTransactionDateFieldIndex()]);
-                    String msg = expensesData[getMerchantFieldIndex()];
+                    String msg = expensesData[getMerchantFieldIndex()].trim();
                     double amount = parseAmount(expensesData[getAmountFieldIndex()]);
                     if (amount > 0 || isDepositAllowed()) {
                         Expense e = new Expense(0, msg, date, amount, null);
                         expenses.add(e);
-                        System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> expense to import: " + e);
                     } else {
                         System.out.println("Deposit is not allowed. Skip line: " + line);
                     }
