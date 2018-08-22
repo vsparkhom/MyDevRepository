@@ -5,6 +5,7 @@ import vlpa.expman.dao.connection.ConnectionManager;
 import vlpa.expman.dao.imprt.ImportExpensesDAO;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
+import vlpa.expman.view.modal.pattern.PatternType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,8 +27,9 @@ public class ImportExpensesDAOImpl implements ImportExpensesDAO {
                 long id = rs.getLong("id");
                 String text = rs.getString("pattern");
                 long categoryId = rs.getLong("category_id");
+                long typeId = rs.getLong("type_id");
                 Category fakeCategory = new Category(categoryId, null, 0);
-                mapping.add(new ImportPattern(id, text, fakeCategory));
+                mapping.add(new ImportPattern(id, text, fakeCategory, PatternType.getPatternTypeById(typeId)));
             }
             return mapping;
         } catch (Exception e) {
@@ -47,6 +49,7 @@ public class ImportExpensesDAOImpl implements ImportExpensesDAO {
             PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.ADD_PATTERN);
             pstm.setString(1, p.getText());
             pstm.setLong(2, p.getCategory().getId());
+            pstm.setLong(3, p.getType().getId());
             pstm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +81,8 @@ public class ImportExpensesDAOImpl implements ImportExpensesDAO {
             PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.UPDATE_PATTERN);
             pstm.setString(1, pattern.getText());
             pstm.setLong(2, pattern.getCategory().getId());
-            pstm.setLong(3, pattern.getId());
+            pstm.setLong(3, pattern.getType().getId());
+            pstm.setLong(4, pattern.getId());
             pstm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

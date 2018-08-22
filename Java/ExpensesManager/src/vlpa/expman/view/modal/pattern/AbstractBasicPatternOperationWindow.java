@@ -21,6 +21,7 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
     private ComboBox<String> categoriesComboBox;
 
     private TextField patternTextInput;
+    private ToggleGroup patternTypeRadioButtonGroup;
 
     AbstractBasicPatternOperationWindow(UIBuilder builder, MainProcessor processor, T dataObject) {
         super(builder, processor, dataObject);
@@ -38,15 +39,20 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
         return categoriesData;
     }
 
-    public TextField getPatternTextInput() {
+    protected TextField getPatternTextInput() {
         return patternTextInput;
+    }
+
+    public ToggleGroup getPatternTypeRadioButtonGroup() {
+        return patternTypeRadioButtonGroup;
     }
 
     @Override
     protected List<Node> getMainPaneComponents() {
         Pane patternTextPane = getPatternTextPane();
         Pane patternCategoryPane = getPatternCategoryPane();
-        return Arrays.asList(patternTextPane, patternCategoryPane);
+        Pane patternTypePane = getPatternTypePane();
+        return Arrays.asList(patternTextPane, patternCategoryPane, patternTypePane);
     }
 
     protected Pane getPatternTextPane() {
@@ -66,6 +72,24 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
         initCategoriesComponents();
         patternCategoryPane.getChildren().addAll(patternCategoryText, getCategoriesComboBox());
         return patternCategoryPane;
+    }
+
+    protected Pane getPatternTypePane() {
+        HBox patternTypePane = new HBox(5);
+        Label patternTypeText = new Label("Type:");
+        patternTypeText.setPrefWidth(55);
+
+        patternTypeRadioButtonGroup = new ToggleGroup();
+
+        RadioButton rb1 = new RadioButton(PatternType.REGULAR.getDisplayName());
+        rb1.setToggleGroup(patternTypeRadioButtonGroup);
+        rb1.setSelected(true);
+
+        RadioButton rb2 = new RadioButton(PatternType.SKIP.getDisplayName());
+        rb2.setToggleGroup(patternTypeRadioButtonGroup);
+
+        patternTypePane.getChildren().addAll(patternTypeText, rb1, rb2);
+        return patternTypePane;
     }
 
     private void initCategoriesComponents() {

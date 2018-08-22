@@ -35,7 +35,16 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
         entities = loadEntities();
         entitiesData = loadEntitiesData();
         super.init();
-        setMainWindowSize(550, 420);
+    }
+
+    @Override
+    public double getWidth() {
+        return 535;
+    }
+
+    @Override
+    public double getHeight() {
+        return 400;
     }
 
     protected HBox getExistingEntitiesPane() {
@@ -145,6 +154,9 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
     protected EventHandler<ActionEvent> getModifyAction() {
         return event -> {
             int index = getExistingEntitiesList().getSelectionModel().getSelectedIndex();
+            if (index < 0) {
+                return;
+            }
             T entity = getEntities().get(index);
             AbstractBasicOperationWindow<T> modifyActionWindow = getModifyActionWindow(entity);
             modifyActionWindow.setApplyActionHandler(getModifyActionInternal(index, entity, modifyActionWindow));

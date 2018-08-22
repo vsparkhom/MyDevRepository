@@ -4,13 +4,7 @@ create table categories (
     'limit' float default '0' null
 );
 
---insert into categories(name, 'limit') values ('Unknown', 100);
---insert into categories(name, 'limit') values ('Other', 100);
---insert into categories(name, 'limit') values ('Car', 100);
---insert into categories(name, 'limit') values ('Home', 100);
---insert into categories(name, 'limit') values ('Food', 100);
---insert into categories(name, 'limit') values ('Vova', 100);
---insert into categories(name, 'limit') values ('Dog', 100);
+insert into categories(name, 'limit') values ('Unknown', 1000);
 
 create table expenses (
     id integer primary key not null,
@@ -21,24 +15,19 @@ create table expenses (
     foreign key (category_id) references categories(id)
 );
 
---insert into expenses(date, merchant, amount, category_id) values (date('now'), 'car service', 20, 3);
---insert into expenses(date, merchant, amount, category_id) values (date('now'), 'gas', 20, 3);
---insert into expenses(date, merchant, amount, category_id) values (date('now'), 'shampoo', 20, 4);
---insert into expenses(date, merchant, amount, category_id) values (date('now'), 'bread', 20, 5);
---insert into expenses(date, merchant, amount, category_id) values (date('now'), 'beer', 20, 5);
+create table expense_pattern_types (
+    id integer primary key not null,
+    name text
+);
 
+insert into expense_pattern_types(name) values('REGULAR');
+insert into expense_pattern_types(name) values('SKIP');
 
-create table expenses_mapping (
+create table expense_patterns (
     id integer  primary key not null,
     pattern text,
     category_id integer,
-    foreign key (category_id) references categories(id)
+    type_id integer,
+    foreign key (category_id) references categories(id),
+    foreign key (type_id) references expense_pattern_types(id)
 );
-
---insert into expenses_mapping values ('WWW.ALIEXPRESS.COM', 2);
---insert into expenses_mapping values ('HUMBLEBUNDLE.COM', 2);
---insert into expenses_mapping values ('1786 GB CALGARY SETON', 3);
---insert into expenses_mapping values ('IKEA CALGARY', 4);
---insert into expenses_mapping values ('REAL CANADIAN SUPERSTO', 5);
---insert into expenses_mapping values ('REAL CANADIAN LIQUOR S', 6);
---nsert into expenses_mapping values ('PET PLANET', 7);

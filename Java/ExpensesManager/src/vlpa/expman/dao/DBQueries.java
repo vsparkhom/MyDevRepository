@@ -22,10 +22,10 @@ public interface DBQueries {
         String REMOVE_EXPENSE = "delete from expenses where id = ?";
         String UPDATE_EXPENSE = "update expenses set date = ?, merchant = ?, amount = ?, category_id = ? where id = ?";
 
-        String GET_EXPENSES_MAPPING = "select * from expenses_mapping";
-        String ADD_PATTERN = "insert into expenses_mapping(pattern, category_id) values (?, ?)";
-        String REMOVE_PATTERN = "delete from expenses_mapping where id = ?";
-        String UPDATE_PATTERN = "update expenses_mapping set pattern = ?, category_id = ? where id = ?";
+        String GET_EXPENSES_MAPPING = "select * from expense_patterns";
+        String ADD_PATTERN = "insert into expense_patterns(pattern, category_id, type_id) values (?, ?, ?)";
+        String REMOVE_PATTERN = "delete from expense_patterns where id = ?";
+        String UPDATE_PATTERN = "update expense_patterns set pattern = ?, category_id = ?, type_id = ? where id = ?";
     }
 
 }

@@ -31,9 +31,13 @@ public class ModifyCategoryWindow<T extends Category> extends AbstractBasicOpera
     }
 
     @Override
-    protected void init() {
-        super.init();
-        setMainWindowSize(305, 150);
+    public double getWidth() {
+        return 290;
+    }
+
+    @Override
+    public double getHeight() {
+        return 100;
     }
 
     @Override

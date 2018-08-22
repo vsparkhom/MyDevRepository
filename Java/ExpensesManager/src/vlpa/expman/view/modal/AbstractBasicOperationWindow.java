@@ -49,13 +49,16 @@ public abstract class AbstractBasicOperationWindow<T> implements FillableWindow 
         Pane mainVerticalPane = getMainPane();
 
         mainVerticalPane.getChildren().add(getApplyCancelPane());
-        Scene dialogScene = new Scene(mainVerticalPane, 420, 110);
+        Scene dialogScene = new Scene(mainVerticalPane, getWidth(), getHeight());
         stage.setScene(dialogScene);
     }
 
-    protected void setMainWindowSize(double w, double h) {
-        stage.setWidth(w);
-        stage.setHeight(h);
+    public double getWidth() {
+        return 420;
+    }
+
+    public double getHeight() {
+        return 130;
     }
 
     protected Pane getMainPane() {

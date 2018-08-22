@@ -2,6 +2,8 @@ package vlpa.expman.view.modal.pattern;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
@@ -27,6 +29,8 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
             String updatedPatternText = getPatternTextInput().getText();
             int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
             Category updatedCategory = getCategories().get(selectedIndex);
+            String selectedTypeValue = ((RadioButton)getPatternTypeRadioButtonGroup().getSelectedToggle()).getText();
+
             if (!getDataObject().getText().equals(updatedPatternText)) {
                 setChanged(true);
                 getDataObject().setText(updatedPatternText);
@@ -36,6 +40,11 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
                 setChanged(true);
                 getDataObject().setCategory(updatedCategory);
             }
+            if (!getDataObject().getType().getDisplayName().equals(selectedTypeValue)) {
+                setChanged(true);
+                getDataObject().setType(PatternType.getPatternTypeByDisplayName(selectedTypeValue));
+            }
+
             EventHandler<ActionEvent> handler = getApplyActionHandler();
             if (handler != null) {
                 handler.handle(null);
@@ -60,5 +69,10 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
         getPatternTextInput().setText(getDataObject().getText());
+        for (Toggle t : getPatternTypeRadioButtonGroup().getToggles()) {
+            if (((RadioButton) t).getText().equals(getDataObject().getType().getDisplayName())) {
+                getPatternTypeRadioButtonGroup().selectToggle(t);
+            }
+        }
     }
 }

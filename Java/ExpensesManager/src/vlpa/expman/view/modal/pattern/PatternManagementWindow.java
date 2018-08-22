@@ -2,8 +2,6 @@ package vlpa.expman.view.modal.pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -24,13 +22,20 @@ import java.util.List;
 
 public class PatternManagementWindow<T extends ImportPattern> extends AbstractEntityManagementWindow<T> {
 
-    private TextField patternTextInput;
     private ComboBox<String> categoriesComboBox;
     private List<Category> categories;
     private ObservableList<String> categoriesData;
 
+    private TextField patternTextInput;
+    private ToggleGroup patternTypeRadioButtonGroup;
+
     public PatternManagementWindow(UIBuilder builder, MainProcessor processor) {
         super(builder, processor);
+    }
+
+    @Override
+    public double getHeight() {
+        return 430;
     }
 
     @Override
@@ -46,7 +51,7 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
 
     private Pane getAddPatternPane() {
         VBox addPatternMainPane = new VBox(5);
-        addPatternMainPane.getChildren().addAll(getAddPatternTextPane(), getAddPatternCategoryPane());
+        addPatternMainPane.getChildren().addAll(getAddPatternTextPane(), getAddPatternCategoryPane(), getAddPatternTypePane());
         return addPatternMainPane;
     }
 
@@ -75,6 +80,24 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
         Button addPatternButton = getAddButton();
         addPatternTextPane.getChildren().addAll(patternTextLabel, patternTextInput, addPatternButton);
         return addPatternTextPane;
+    }
+
+    private Pane getAddPatternTypePane() {
+        HBox patternTypePane = new HBox(5);
+        Label patternTypeText = new Label("Type:");
+        patternTypeText.setPrefWidth(55);
+
+        patternTypeRadioButtonGroup = new ToggleGroup();
+
+        RadioButton rb1 = new RadioButton(PatternType.REGULAR.getDisplayName());
+        rb1.setToggleGroup(patternTypeRadioButtonGroup);
+        rb1.setSelected(true);
+
+        RadioButton rb2 = new RadioButton(PatternType.SKIP.getDisplayName());
+        rb2.setToggleGroup(patternTypeRadioButtonGroup);
+
+        patternTypePane.getChildren().addAll(patternTypeText, rb1, rb2);
+        return patternTypePane;
     }
 
     @Override
@@ -114,7 +137,12 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
         String patternText = patternTextInput.getText();
         int categorySelectedIndex = categoriesComboBox.getSelectionModel().getSelectedIndex();
         Category category = categories.get(categorySelectedIndex);
-        return (T) new ImportPattern(0, patternText, category);
+        PatternType type = PatternType.REGULAR;
+        String selectedType = ((RadioButton) patternTypeRadioButtonGroup.getSelectedToggle()).getText();
+        if (PatternType.SKIP.getDisplayName().equals(selectedType)) {
+            type = PatternType.SKIP;
+        }
+        return (T) new ImportPattern(0, patternText, category, type);
     }
 
     @Override
@@ -151,7 +179,7 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
 
     @Override
     protected void addEntity(T addedEntity) {
-        getProcessor().addPattern(addedEntity.getText(), addedEntity.getCategory());
+        getProcessor().addPattern(addedEntity.getText(), addedEntity.getCategory(), addedEntity.getType());
     }
 
     @Override

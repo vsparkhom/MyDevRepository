@@ -2,6 +2,7 @@ package vlpa.expman.view.modal.pattern;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.RadioButton;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
@@ -25,7 +26,9 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
             String patternText = getPatternTextInput().getText();
             int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
             Category category = getCategories().get(selectedIndex);
-            getProcessor().addPattern(patternText, category);
+            String selectedTypeValue = ((RadioButton)getPatternTypeRadioButtonGroup().getSelectedToggle()).getText();
+            PatternType type = PatternType.getPatternTypeByDisplayName(selectedTypeValue);
+            getProcessor().addPattern(patternText, category, type);
             close();
         };
     }

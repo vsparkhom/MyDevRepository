@@ -1,6 +1,5 @@
 package vlpa.expman.dao.category;
 
-import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetAll;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetById;
@@ -8,13 +7,9 @@ import vlpa.expman.dao.imprt.ImportExpensesDAO;
 import vlpa.expman.dao.imprt.spec.PatternSqlSpecificationGetAll;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
+import vlpa.expman.view.modal.pattern.PatternType;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CategoriesRepository {
 
@@ -75,8 +70,8 @@ public class CategoriesRepository {
         }
     }
 
-    public void addPattern(String patternText, Category category) {
-        importExpensesDAO.addPattern(new ImportPattern(0, patternText, category));
+    public void addPattern(String patternText, Category category, PatternType type) {
+        importExpensesDAO.addPattern(new ImportPattern(0, patternText, category, type));
     }
 
     public void removePattern(long id) {

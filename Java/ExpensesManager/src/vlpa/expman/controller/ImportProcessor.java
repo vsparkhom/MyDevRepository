@@ -6,8 +6,10 @@ import vlpa.expman.dao.expense.ExpensesRepository;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ImportPattern;
+import vlpa.expman.view.modal.pattern.PatternType;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,7 +30,8 @@ public class ImportProcessor {
 
     private void sortExpensesByCategories(Collection<Expense> expenses) {
         List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
-        for (Expense e : expenses) {
+        for (Iterator<Expense> iterator = expenses.iterator(); iterator.hasNext();) {
+            Expense e = iterator.next();
             String expenseName = e.getName().toUpperCase();
             Category c = null;
             for (ImportPattern ip : importPatternsList) {
@@ -36,7 +39,11 @@ public class ImportProcessor {
                 Pattern pattern = Pattern.compile(patternText);
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
-                    c = ip.getCategory();
+                    if (PatternType.SKIP.equals(ip.getType())) {
+                        iterator.remove();
+                    } else {
+                        c = ip.getCategory();
+                    }
                     break;
                 }
             }
