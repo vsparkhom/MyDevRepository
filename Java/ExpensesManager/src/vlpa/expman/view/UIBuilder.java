@@ -1,5 +1,7 @@
 package vlpa.expman.view;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,9 +18,8 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.dao.DBConsts;
 import vlpa.expman.model.Category;
@@ -30,7 +31,8 @@ import vlpa.expman.view.modal.ModalWindowsHelper;
 
 import static vlpa.expman.view.UIDimensionsConst.*;
 
-import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
@@ -242,7 +244,15 @@ public class UIBuilder {
 
         TableColumn dateColumn = new TableColumn("Date");
         dateColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_DATE_WIDTH);
-        dateColumn.setCellValueFactory(new PropertyValueFactory<Expense, Date>("date"));//TODO; adjust date format through setCellFactory method
+        dateColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Expense, String>, ObservableValue<String>>() {//TODO: replace with lambda
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Expense, String> expense) {
+                SimpleStringProperty property = new SimpleStringProperty();
+                DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+                property.setValue(dateFormat.format(expense.getValue().getDate()));
+                return property;
+            }
+        });
 
         TableColumn merchantColumn = new TableColumn("Merchant");
         merchantColumn.setMinWidth(CATEGORY_DETAILS_COLUMN_MERCHANT_WIDTH);
@@ -274,7 +284,7 @@ public class UIBuilder {
         categoryInfoPane.setPadding(new Insets(0, 10, 0, 0));
         categoryInfoPane.setAlignment(Pos.BOTTOM_RIGHT);
         categoryInfoPane.getChildren().add(new Label("Limit: " + report.getCategory().getLimit()
-                + " / Spent: " + report.getCurrentAmount() + " (" + report.getUsagePercent() * 100 + "%) / Leftover: "
+                + " / Spent: " + report.getCurrentAmount() + " (" + report.getUsagePercent() + " %) / Leftover: "
                 + report.getLeftover()));
         HBox.setHgrow(categoryInfoPane, Priority.ALWAYS);
 
@@ -414,11 +424,11 @@ public class UIBuilder {
         return hbox;
     }
 
-    private HBox buildProgressBarPane(double usagePercent) {
+    private HBox buildProgressBarPane(int usagePercent) {
         HBox progressBarPane = new HBox();
         progressBarPane.setAlignment(Pos.CENTER);
         progressBarPane.setPrefWidth(PROGRESS_BAR_PANE_WIDTH);
-        ProgressBar pb = new ProgressBar(usagePercent);
+        ProgressBar pb = new ProgressBar(usagePercent / 100.0);
         String colorByPercent = getColorByPercent(usagePercent);
         pb.setStyle("-fx-accent: " + colorByPercent);
         ProgressIndicator pi = new ProgressIndicator(usagePercent);
@@ -429,9 +439,9 @@ public class UIBuilder {
 
     private String getColorByPercent(double perc) {
         String color = "green";
-        if (perc >= 0.7 && perc < 0.9) {
+        if (perc >= 60 && perc < 90) {
             color = "orange";
-        } else if (perc >= 0.9) {
+        } else if (perc >= 90) {
             color = "red";
         }
         return color;

@@ -57,8 +57,8 @@ public class ExpensesReport {
         return category.getLimit();
     }
 
-    public double getUsagePercent() {
-        return ExpenseUtils.round(currentAmount/category.getLimit(), 2);
+    public int getUsagePercent() {
+        return (int) Math.ceil(ExpenseUtils.round(currentAmount/category.getLimit(), 2) * 100);
     }
 
     public Date getStart() {
