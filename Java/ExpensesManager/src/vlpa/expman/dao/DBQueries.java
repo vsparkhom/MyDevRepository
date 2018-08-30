@@ -14,7 +14,7 @@ public interface DBQueries {
         String GET_ALL_EXPENSES_FOR_PERIOD = "select * from expenses where date between '%s' and '%s'";
         String GET_EXPENSES_BY_CATEGORY_ID = "select * from expenses where category_id = %d";
         String GET_EXPENSES_BY_CATEGORY_ID_FOR_SPECIFIC_PERIOD = "select * from expenses where category_id = %d\n" +
-                "and date between '%s' and date('%s', '+1 day')";
+                "and date between '%s' and '%s'";
         String ADD_EXPENSE = "insert into expenses(date, merchant, amount, category_id) values (?, ?, ?, ?)";
         String MERGE_EXPENSE = "insert or replace into expenses(id, date, merchant, amount, category_id) values (\n" +
                                                    "  (select id from expenses where date = ? and merchant = ?)\n" +
