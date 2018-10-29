@@ -83,7 +83,7 @@ public class DBQueries {
 
     public static String GET_PAYMENT_DUE_DATE =
             "select\n" +
-            "  max(p.pay_before) as due_date\n" +
+            "  max(p.due_date) as due_date\n" +
             "from\n" +
             "  accounts a,\n" +
             "  payments p\n" +
@@ -102,33 +102,33 @@ public class DBQueries {
             "  and p.account_id = a.id";
 
     public static String GET_SUPPORT_SERVICE_INFO =
-            "select sc.id as category_id, sc.name as category_name, si_ph.value as phone_number, si_email.value as email\n" +
+            "select ic.id as category_id, ic.name as category_name, inf_ph.value as phone_number, inf_email.value as email\n" +
             "from\n" +
-            "  support_categories sc,\n" +
-            "  support_info si_ph,\n" +
-            "  support_info si_email\n" +
+            "  info_categories ic,\n" +
+            "  information inf_ph,\n" +
+            "  information inf_email\n" +
             "where \n" +
-            "  sc.id in (\n" +
+            "  ic.id in (\n" +
             "    1, 2, 3, 4\n" +
             "  )\n" +
-            "  and si_ph.category_id = sc.id\n" +
-            "  and si_ph.attr_id = 100 /* Phone Number */\n" +
-            "  and si_email.category_id = sc.id\n" +
-            "  and si_email.attr_id = 101 /* Email */";
+            "  and inf_ph.category_id = ic.id\n" +
+            "  and inf_ph.attr_id = 100 /* Phone Number */\n" +
+            "  and inf_email.category_id = ic.id\n" +
+            "  and inf_email.attr_id = 101 /* Email */";
 
     public static String GET_SUPPORT_SOCIAL_INFO =
-            "select si.category_id, sc.name as category_name, si.attr_id, sa.name, si.value as link\n" +
+            "select inf.category_id, ic.name as category_name, inf.attr_id, ia.name, inf.value as link\n" +
             "from\n" +
-            "  support_info si,\n" +
-            "  support_attributes sa,\n" +
-            "  support_categories sc\n" +
+            "  information inf,\n" +
+            "  info_attributes ia,\n" +
+            "  info_categories ic\n" +
             "where \n" +
-            "  si.category_id = 5\n" +
-            "  and si.attr_id in (\n" +
+            "  inf.category_id = 5\n" +
+            "  and inf.attr_id in (\n" +
             "    102, 103\n" +
             "  )\n" +
-            "  and sa.id = si.attr_id\n" +
-            "  and sc.id = si.category_id";
+            "  and ia.id = inf.attr_id\n" +
+            "  and ic.id = inf.category_id";
 
     public static String GET_HARDWARE_FOR_ACCOUNT_BY_SERVICE_TYPE_ID =
             "select * \n" +

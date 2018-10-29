@@ -1,27 +1,49 @@
 
+-- DROP OBJECTS [START] --
+
+DROP TABLE client_services;
+DROP TABLE hardware;
+DROP TABLE internet_service_options;
+DROP TABLE tv_service_options;
+DROP TABLE phone_service_options;
+DROP TABLE services;
+DROP TABLE service_types;
+DROP TABLE payments;
+DROP TABLE plans;
 DROP TABLE accounts;
+DROP SEQUENCE accounts_seq;
+DROP TABLE information;
+DROP TABLE info_attributes;
+DROP TABLE info_categories;
+
+-- DROP OBJECTS [END] --
+
+-- CREATE OBJECTS [START] --
+
 
 CREATE TABLE accounts (
   id NUMBER(10) NOT NULL,
   login VARCHAR(50) NOT NULL,
   password VARCHAR(50),
-  first_name VARCHAR(50),
-  last_name VARCHAR(50),
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
   status VARCHAR(20) NOT NULL,
-  email VARCHAR(1000),
-  address  VARCHAR(200)
+  email VARCHAR(100),
+  address  VARCHAR(1000)
   , CONSTRAINT accounts_pk PRIMARY KEY (id)
   , CONSTRAINT accounts_login_uk UNIQUE (login)
   , CONSTRAINT accounts_status_fixed_values CHECK (status IN ('Active', 'Inactive'))
 ); 
 
-DROP SEQUENCE accounts_seq;
+
+--DROP SEQUENCE accounts_seq;
 
 CREATE SEQUENCE accounts_seq
   START WITH 1
   INCREMENT BY 1
   CACHE 100;
   
+
 CREATE OR REPLACE TRIGGER accounts_insert_trigger
   BEFORE INSERT ON accounts
   FOR EACH ROW
@@ -30,16 +52,13 @@ BEGIN
     INTO :new.id
     FROM dual;
 END;
-
-COMMIT;
+/
 
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test', 'test', 'Vasia', 'Pupkin', 'Active', 'test@gmail.com', 'New York');
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test2', 'test2', 'John', 'Smith', 'Active', 'test2@gmail.com', 'Chicago');
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('guest', 'guest', 'Bruce', 'Lee', 'Inactive', 'brlee@gmail.com', 'Japan');
 INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('phoneuser', '123', 'Kate', 'Radistka', 'Active', 'phuser@gmail.com', 'Canada');
 
-
-DROP TABLE plans;
 
 CREATE TABLE plans (
   id NUMBER(10) NOT NULL,
@@ -60,9 +79,6 @@ INSERT INTO plans VALUES(6, 'Phone Plan 2', 70);
 INSERT INTO plans VALUES(7, 'Phone Plan 3', 80);
 
 
-
-DROP TABLE service_types;
-
 CREATE TABLE service_types (
   id NUMBER(10) NOT NULL,
   name VARCHAR(200) NOT NULL
@@ -74,8 +90,6 @@ INSERT INTO service_types VALUES(100, 'Internet');
 INSERT INTO service_types VALUES(101, 'TV');
 INSERT INTO service_types VALUES(102, 'Phone');
 
-
-DROP TABLE services;
 
 CREATE TABLE services (
   id NUMBER(10) NOT NULL,
@@ -101,8 +115,6 @@ INSERT INTO services VALUES(60, 'Phone Service 2', 102, 6);
 INSERT INTO services VALUES(70, 'Phone Service 3', 102, 7);
 
 
-DROP TABLE client_services;
-
 CREATE TABLE client_services (
   account_id NUMBER(10),
   service_id NUMBER(10)
@@ -116,7 +128,6 @@ CREATE TABLE client_services (
       REFERENCES services (id)
       ON DELETE CASCADE
 ); 
-
 
 INSERT INTO client_services VALUES(1, 10); -- Internet Service 1
 --INSERT INTO client_services VALUES(1, 20); -- Internet Service 2
@@ -140,17 +151,15 @@ INSERT INTO client_services VALUES(2, 30); -- TV Service 1
 --INSERT INTO client_services VALUES(3, 60); -- Phone Service 2
 
 
-DROP TABLE payments;
-
 CREATE TABLE payments (
   id NUMBER(10),
   account_id NUMBER(10),
   period_start DATE,
   period_end DATE,
-  pay_before DATE,
+  due_date DATE,
   summa NUMBER(10) DEFAULT 0,
-  status VARCHAR2(50) DEFAULT 'Not Paid'
-  comment VARCHAR2(200)
+  status VARCHAR2(50) DEFAULT 'Not Paid',
+  "COMMENT" VARCHAR2(200)
   , CONSTRAINT payments_pk PRIMARY KEY (id)
   , CONSTRAINT payments_account_id_fk
       FOREIGN KEY (account_id)
@@ -176,9 +185,6 @@ INSERT INTO payments VALUES(1007, 1, TO_DATE('2018/01/01', 'yyyy/mm/dd'), TO_DAT
 INSERT INTO payments VALUES(1008, 2, TO_DATE('2018/01/01', 'yyyy/mm/dd'), TO_DATE('2018/01/30', 'yyyy/mm/dd'), 
     TO_DATE('2018/01/30', 'yyyy/mm/dd'), 100, 'Not Paid', 'Montly fee');
     
-
-
-DROP TABLE hardware;
 
 CREATE TABLE hardware (
   id NUMBER(10),
@@ -212,70 +218,60 @@ INSERT INTO hardware VALUES(5007, null, 102, 'Phone Device 2', 'PH002', 'Inactiv
 INSERT INTO hardware VALUES(5008, null, 102, 'Phone Device 3', 'PH003', 'Active');
 
 
-DROP TABLE support_categories;
-
-CREATE TABLE support_categories (
+CREATE TABLE info_categories (
   id NUMBER(10) NOT NULL,
   name VARCHAR(200) NOT NULL
-  , CONSTRAINT support_categories_pk PRIMARY KEY (id)
-  , CONSTRAINT support_categories_name_uk UNIQUE (name)
+  , CONSTRAINT info_categories_pk PRIMARY KEY (id)
+  , CONSTRAINT info_categories_name_uk UNIQUE (name)
 ); 
 
-INSERT INTO support_categories VALUES(1, 'Internet');
-INSERT INTO support_categories VALUES(2, 'TV');
-INSERT INTO support_categories VALUES(3, 'Phone');
-INSERT INTO support_categories VALUES(4, 'Billing');
-INSERT INTO support_categories VALUES(5, 'General');
+INSERT INTO info_categories VALUES(1, 'Internet');
+INSERT INTO info_categories VALUES(2, 'TV');
+INSERT INTO info_categories VALUES(3, 'Phone');
+INSERT INTO info_categories VALUES(4, 'Billing');
+INSERT INTO info_categories VALUES(5, 'General');
 
-DROP TABLE support_attributes;
 
-CREATE TABLE support_attributes (
+CREATE TABLE info_attributes (
   id NUMBER(10) NOT NULL,
   name VARCHAR(200) NOT NULL
-  , CONSTRAINT support_attributes_pk PRIMARY KEY (id)
-  , CONSTRAINT support_attributes_uk UNIQUE (name)
+  , CONSTRAINT info_attributes_pk PRIMARY KEY (id)
+  , CONSTRAINT info_attributes_uk UNIQUE (name)
 ); 
 
-INSERT INTO support_attributes VALUES(100, 'Phone Number');
-INSERT INTO support_attributes VALUES(101, 'Email');
-INSERT INTO support_attributes VALUES(102, 'Facebook');
-INSERT INTO support_attributes VALUES(103, 'VK');
+INSERT INTO info_attributes VALUES(100, 'Phone Number');
+INSERT INTO info_attributes VALUES(101, 'Email');
+INSERT INTO info_attributes VALUES(102, 'Facebook');
+INSERT INTO info_attributes VALUES(103, 'VK');
 
 
-DROP TABLE support_info;
-
-CREATE TABLE support_info (
+CREATE TABLE information (
   attr_id NUMBER(10) NOT NULL,
   category_id NUMBER(10) NOT NULL,
-  value VARCHAR2(200)
-  , CONSTRAINT support_info_attr_id_fk
+  value VARCHAR2(500)
+  , CONSTRAINT information_attr_id_fk
       FOREIGN KEY (attr_id)
-      REFERENCES support_attributes (id)
-  , CONSTRAINT support_info_cat_id_fk
+      REFERENCES info_attributes (id)
+  , CONSTRAINT information_cat_id_fk
       FOREIGN KEY (category_id)
-      REFERENCES support_categories (id)
+      REFERENCES info_categories (id)
 );
 
+INSERT INTO information VALUES(100, 1, '(403) 123-0001');
+INSERT INTO information VALUES(101, 1, 'internet_support@gmail.com');
 
-INSERT INTO support_info VALUES(100, 1, '(403) 123-0001');
-INSERT INTO support_info VALUES(101, 1, 'internet_support@gmail.com');
+INSERT INTO information VALUES(100, 2, '(403) 123-0002');
+INSERT INTO information VALUES(101, 2, 'tv_support@gmail.com');
 
-INSERT INTO support_info VALUES(100, 2, '(403) 123-0002');
-INSERT INTO support_info VALUES(101, 2, 'tv_support@gmail.com');
+INSERT INTO information VALUES(100, 3, '(403) 123-0003');
+INSERT INTO information VALUES(101, 3, 'phone_support@gmail.com');
 
-INSERT INTO support_info VALUES(100, 3, '(403) 123-0003');
-INSERT INTO support_info VALUES(101, 3, 'phone_support@gmail.com');
+INSERT INTO information VALUES(100, 4, '(403) 123-0004');
+INSERT INTO information VALUES(101, 4, 'billing_support@gmail.com');
 
-INSERT INTO support_info VALUES(100, 4, '(403) 123-0004');
-INSERT INTO support_info VALUES(101, 4, 'billing_support@gmail.com');
+INSERT INTO information VALUES(102, 5, 'tks-facebook');
+INSERT INTO information VALUES(103, 5, 'vk-facebook');
 
-INSERT INTO support_info VALUES(102, 5, 'tks-facebook');
-INSERT INTO support_info VALUES(103, 5, 'vk-facebook');
-
-
-
-
-DROP TABLE internet_service_options;
 
 CREATE TABLE internet_service_options (
   service_id NUMBER(10) NOT NULL,
@@ -291,9 +287,6 @@ INSERT INTO internet_service_options VALUES(10, '15 Mbps', '5 Mbps', '100 GB');
 INSERT INTO internet_service_options VALUES(20, '75 Mbps', '15 Mbps', '500 GB');
 
 
-
-DROP TABLE tv_service_options;
-
 CREATE TABLE tv_service_options (
   service_id NUMBER(10) NOT NULL,
   channels_count NUMBER(5) NOT NULL,
@@ -307,8 +300,6 @@ CREATE TABLE tv_service_options (
 INSERT INTO tv_service_options VALUES(30, 25, 'Off');
 INSERT INTO tv_service_options VALUES(40, 50, 'On');
 
-
-DROP TABLE phone_service_options;
 
 CREATE TABLE phone_service_options (
   service_id NUMBER(10) NOT NULL,
@@ -324,3 +315,5 @@ CREATE TABLE phone_service_options (
 INSERT INTO phone_service_options VALUES(50, 100, 1, 'Off');
 INSERT INTO phone_service_options VALUES(60, 500, 5, 'On');
 INSERT INTO phone_service_options VALUES(70, 1000, 10, 'On');
+
+-- CREATE OBJECTS [END] --
