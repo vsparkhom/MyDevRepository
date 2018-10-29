@@ -10,17 +10,16 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 
 public class SupportInfoHelper {
 
-    private static final int INTERNET_CATEGORY_ID = 1;
-    private static final int TV_CATEGORY_ID = 2;
-    private static final int PHONE_CATEGORY_ID = 3;
-    private static final int BILLING_CATEGORY_ID = 4;
+    private static final int INTERNET_INFO_CATEGORY_ID = 1;
+    private static final int TV_INFO_CATEGORY_ID = 2;
+    private static final int PHONE_INFO_CATEGORY_ID = 3;
+    private static final int BILLING_INFO_CATEGORY_ID = 4;
 
-    private static final int FACEBOOK_ATTR_ID = 102;
-    private static final int VK_ATTR_ID = 103;
+    private static final int FACEBOOK_INFO_ATTR_ID = 12;
+    private static final int VK_INFO_ATTR_ID = 13;
 
     public static void initSupportInfo(HttpServletRequest request) throws IOException {
         Connection conn = null;
@@ -31,13 +30,13 @@ public class SupportInfoHelper {
             for (SupportServiceInfo infoRecord : supportServiceInfo) {
                 System.out.println("SupportInfoHelper.initSupportInfo: [supportServiceInfo]:" + infoRecord);
                 switch (infoRecord.getCategoryId().intValue()) {
-                    case INTERNET_CATEGORY_ID:
+                    case INTERNET_INFO_CATEGORY_ID:
                         request.setAttribute("internetSupportInfo", infoRecord); break;
-                    case TV_CATEGORY_ID:
+                    case TV_INFO_CATEGORY_ID:
                         request.setAttribute("tvSupportInfo", infoRecord); break;
-                    case PHONE_CATEGORY_ID:
+                    case PHONE_INFO_CATEGORY_ID:
                         request.setAttribute("phoneSupportInfo", infoRecord); break;
-                    case BILLING_CATEGORY_ID:
+                    case BILLING_INFO_CATEGORY_ID:
                         request.setAttribute("billingSupportInfo", infoRecord); break;
                 }
             }
@@ -46,9 +45,9 @@ public class SupportInfoHelper {
             for (SupportSocialInfo infoRecord : supportSocialInfo) {
                 System.out.println("SupportInfoHelper.initSupportInfo: [supportSocialInfo]:" + infoRecord);
                 switch (infoRecord.getAttrId().intValue()) {
-                    case FACEBOOK_ATTR_ID :
+                    case FACEBOOK_INFO_ATTR_ID:
                         request.setAttribute("facebookSupportInfo", infoRecord); break;
-                    case VK_ATTR_ID :
+                    case VK_INFO_ATTR_ID:
                         request.setAttribute("vkSupportInfo", infoRecord); break;
                 }
             }
