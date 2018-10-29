@@ -32,7 +32,7 @@ public class DBQueries {
             "where \n" +
             "sc.account_id = ? /* Account Id */\n" +
             "and sc.service_id = s.id\n" +
-            "and s.type_id = 100 /* Internet */\n" +
+            "and s.type_id = 10 /* Internet */\n" +
             "and st.id = s.type_id\n" +
             "and p.id = s.plan_id\n" +
             "and iso.service_id = sc.service_id";
@@ -48,7 +48,7 @@ public class DBQueries {
             "where \n" +
             "sc.account_id = ? /* Account Id */\n" +
             "and sc.service_id = s.id\n" +
-            "and s.type_id = 101 /* TV */\n" +
+            "and s.type_id = 11 /* TV */\n" +
             "and st.id = s.type_id\n" +
             "and p.id = s.plan_id\n" +
             "and tvso.service_id = sc.service_id";
@@ -65,7 +65,7 @@ public class DBQueries {
             "where \n" +
             "sc.account_id = ? /* Account Id */\n" +
             "and sc.service_id = s.id\n" +
-            "and s.type_id = 102 /* Phone */\n" +
+            "and s.type_id = 12 /* Phone */\n" +
             "and st.id = s.type_id\n" +
             "and p.id = s.plan_id\n" +
             "and phso.service_id = sc.service_id";
@@ -112,9 +112,9 @@ public class DBQueries {
             "    1, 2, 3, 4\n" +
             "  )\n" +
             "  and inf_ph.category_id = ic.id\n" +
-            "  and inf_ph.attr_id = 100 /* Phone Number */\n" +
+            "  and inf_ph.attr_id = 10 /* Phone Number */\n" +
             "  and inf_email.category_id = ic.id\n" +
-            "  and inf_email.attr_id = 101 /* Email */";
+            "  and inf_email.attr_id = 11 /* Email */";
 
     public static String GET_SUPPORT_SOCIAL_INFO =
             "select inf.category_id, ic.name as category_name, inf.attr_id, ia.name, inf.value as link\n" +
@@ -125,7 +125,7 @@ public class DBQueries {
             "where \n" +
             "  inf.category_id = 5\n" +
             "  and inf.attr_id in (\n" +
-            "    102, 103\n" +
+            "    12, 13\n" +
             "  )\n" +
             "  and ia.id = inf.attr_id\n" +
             "  and ic.id = inf.category_id";

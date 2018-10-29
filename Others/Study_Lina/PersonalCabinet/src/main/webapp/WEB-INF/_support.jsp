@@ -73,8 +73,8 @@
 </div>
 <hr>
 <div class="text-center">
-    <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i>${facebookSupportInfo.link}</a>
-    <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i>${vkSupportInfo.link}</a>
+    <a class="btn btn-social-icon btn-facebook" href="${facebookSupportInfo.link}"><i class="fa fa-facebook"></i></a>
+    <a class="btn btn-social-icon btn-instagram" href="${vkSupportInfo.link}"><i class="fa fa-instagram"></i></a>
     <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
     <a class="btn btn-social-icon btn-vk"><i class="fa fa-vk"></i></a>
 </div>

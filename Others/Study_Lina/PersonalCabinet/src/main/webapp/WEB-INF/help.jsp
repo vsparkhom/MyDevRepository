@@ -18,12 +18,8 @@
         <br/>
         <jsp:include page="_support.jsp"></jsp:include>
     </div>
-    <!-- /.container-fluid -->
 </div>
-<!-- /#page-wrapper -->
-
 </div>
-<!-- /#wrapper -->
 
 <jsp:include page="_bottom.jsp"></jsp:include>
 

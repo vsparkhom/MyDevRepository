@@ -22,7 +22,7 @@ public class SupportInfoHelper {
     private static final int FACEBOOK_ATTR_ID = 102;
     private static final int VK_ATTR_ID = 103;
 
-    public static void initSupportInfo(HttpServletRequest request, boolean isPaymentHistoryRequired) throws IOException {
+    public static void initSupportInfo(HttpServletRequest request) throws IOException {
         Connection conn = null;
         try {
             conn = ConnectionUtils.getConnection();
@@ -42,16 +42,14 @@ public class SupportInfoHelper {
                 }
             }
 
-            if (isPaymentHistoryRequired) {
-                Collection<SupportSocialInfo> supportSocialInfo = DBUtils.getSupportSocialInfo(conn);
-                for (SupportSocialInfo infoRecord : supportSocialInfo) {
-                    System.out.println("SupportInfoHelper.initSupportInfo: [supportSocialInfo]:" + infoRecord);
-                    switch (infoRecord.getAttrId().intValue()) {
-                        case FACEBOOK_ATTR_ID :
-                            request.setAttribute("facebookSupportInfo", infoRecord); break;
-                        case VK_ATTR_ID :
-                            request.setAttribute("vkSupportInfo", infoRecord); break;
-                    }
+            Collection<SupportSocialInfo> supportSocialInfo = DBUtils.getSupportSocialInfo(conn);
+            for (SupportSocialInfo infoRecord : supportSocialInfo) {
+                System.out.println("SupportInfoHelper.initSupportInfo: [supportSocialInfo]:" + infoRecord);
+                switch (infoRecord.getAttrId().intValue()) {
+                    case FACEBOOK_ATTR_ID :
+                        request.setAttribute("facebookSupportInfo", infoRecord); break;
+                    case VK_ATTR_ID :
+                        request.setAttribute("vkSupportInfo", infoRecord); break;
                 }
             }
 

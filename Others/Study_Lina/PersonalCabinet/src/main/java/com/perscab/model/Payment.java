@@ -8,7 +8,7 @@ public class Payment {
     private BigInteger id;
     private Date periodStart;
     private Date periodEnd;
-    private Date payBefore;
+    private Date dueDate;
     private double sum;
     private String status;
 
@@ -16,11 +16,11 @@ public class Payment {
         this.id = id;
     }
 
-    public Payment(BigInteger id, Date periodStart, Date periodEnd, Date payBefore, double sum, String status) {
+    public Payment(BigInteger id, Date periodStart, Date periodEnd, Date dueDate, double sum, String status) {
         this.id = id;
         this.periodStart = periodStart;
         this.periodEnd = periodEnd;
-        this.payBefore = payBefore;
+        this.dueDate = dueDate;
         this.sum = sum;
         this.status = status;
     }
@@ -45,12 +45,12 @@ public class Payment {
         this.periodEnd = periodEnd;
     }
 
-    public Date getPayBefore() {
-        return payBefore;
+    public Date getDueDate() {
+        return dueDate;
     }
 
-    public void setPayBefore(Date payBefore) {
-        this.payBefore = payBefore;
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     public double getSum() {
@@ -75,7 +75,7 @@ public class Payment {
                 "id=" + id +
                 ", periodStart=" + periodStart +
                 ", periodEnd=" + periodEnd +
-                ", payBefore=" + payBefore +
+                ", dueDate=" + dueDate +
                 ", sum=" + sum +
                 ", status='" + status + '\'' +
                 '}';

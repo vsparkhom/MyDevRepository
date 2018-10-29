@@ -164,7 +164,7 @@ public class DBUtils {
             Payment payment = new Payment(new BigInteger("" + rs.getInt("id")));
             payment.setPeriodStart(rs.getDate("period_start"));
             payment.setPeriodEnd(rs.getDate("period_end"));
-            payment.setPayBefore(rs.getDate("pay_before"));
+            payment.setDueDate(rs.getDate("due_date"));
             payment.setSum(rs.getDouble("summa"));
             payment.setStatus(rs.getString("status"));
             paymentsList.add(payment);

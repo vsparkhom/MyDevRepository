@@ -20,16 +20,13 @@
     <div class="col-lg-12">
         <h1 class="page-header">Billing</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 <br/>
-<!-- /.row -->
 <jsp:include page="_mybill.jsp"></jsp:include>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Services</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 <br/>
 
@@ -199,57 +196,32 @@
 </div>
 <div class="row">
     <div class="col-lg-4 col-md-6">
-        <a href="${pageContext.request.contextPath}/plans?typeid=100">
+        <a href="${pageContext.request.contextPath}/plans?typeid=10">
             <button type="button" class="btn btn-default btn-block">Internet Plans</button>
         </a>
     </div>
     <div class="col-lg-4 col-md-6">
-        <a href="${pageContext.request.contextPath}/plans?typeid=101">
+        <a href="${pageContext.request.contextPath}/plans?typeid=11">
             <button type="button" class="btn btn-default btn-block">TV Plans</button>
         </a>
     </div>
     <div class="col-lg-4 col-md-6">
-        <a href="${pageContext.request.contextPath}/plans?typeid=102">
+        <a href="${pageContext.request.contextPath}/plans?typeid=12">
             <button type="button" class="btn btn-default btn-block">Phone Plans</button>
         </a>
     </div>
 </div>
-<!-- /.row -->
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Support</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 <br/>
-<!-- /.row -->
 <jsp:include page="_support.jsp"></jsp:include>
-<!-- /.row -->
-<%--<div class="row">--%>
-<%--<div class="col-lg-12">--%>
-<%--<h1 class="page-header">Contact us in social networks</h1>--%>
-<%--</div>--%>
-<%--<!-- /.col-lg-12 -->--%>
-<%--</div>--%>
-<!-- /.row -->
-<%--<div class="row">--%>
-<%--<div class="col-lg-12">--%>
-<%--<div class="text-center">--%>
-<%--<a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>--%>
-<%--<a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>--%>
-<%--<a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>--%>
-<%--<a class="btn btn-social-icon btn-vk"><i class="fa fa-vk"></i></a>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<!-- /.row -->
 </div>
-<!-- /.container-fluid -->
 </div>
-<!-- /#page-wrapper -->
-
 </div>
-<!-- /#wrapper -->
 
 <jsp:include page="_bottom.jsp"></jsp:include>
 

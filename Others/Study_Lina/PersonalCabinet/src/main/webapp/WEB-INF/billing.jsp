@@ -52,7 +52,7 @@
                                         <td class="center">${payment.id}</td>
                                         <td>${payment.periodStart}</td>
                                         <td>${payment.periodEnd}</td>
-                                        <td>${payment.payBefore}</td>
+                                        <td>${payment.dueDate}</td>
                                         <td>${payment.sum}</td>
                                         <td class="center">${payment.status}</td>
                                     </tr>

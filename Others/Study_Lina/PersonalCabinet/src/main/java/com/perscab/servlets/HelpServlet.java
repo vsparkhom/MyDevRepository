@@ -16,7 +16,7 @@ public class HelpServlet extends HttpServlet {
 
         System.out.println("--- HelpServlet.GET---");
 
-        SupportInfoHelper.initSupportInfo(request, true);
+        SupportInfoHelper.initSupportInfo(request);
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/help.jsp");
         dispatcher.forward(request, response);

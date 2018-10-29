@@ -33,7 +33,7 @@ public class MainServlet extends HttpServlet {
 
         ServiceHelper.initServices(request);
 
-        SupportInfoHelper.initSupportInfo(request, false);
+        SupportInfoHelper.initSupportInfo(request);
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/main.jsp");
         dispatcher.forward(request, response);
