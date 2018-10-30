@@ -43,19 +43,14 @@ CREATE TABLE accounts (
 ); 
 
 
-
-
 CREATE TABLE plans (
   id NUMBER(10) NOT NULL,
   name VARCHAR(200) NOT NULL,
-  price NUMBER DEFAULT 0
+  price FLOAT DEFAULT 0
   , CONSTRAINT plans_pk PRIMARY KEY (id)
   , CONSTRAINT plans_name_uk UNIQUE (name)
   , CONSTRAINT plans_price_not_negative CHECK (price >= 0)
 ); 
-
-
-
 
 
 CREATE TABLE service_types (
@@ -64,8 +59,6 @@ CREATE TABLE service_types (
   , CONSTRAINT service_types_pk PRIMARY KEY (id)
   , CONSTRAINT service_types_name_uk UNIQUE (name)
 ); 
-
-
 
 
 CREATE TABLE services (
@@ -84,8 +77,6 @@ CREATE TABLE services (
 ); 
 
 
-
-
 CREATE TABLE client_services (
   account_id NUMBER(10),
   service_id NUMBER(10)
@@ -101,15 +92,13 @@ CREATE TABLE client_services (
 ); 
 
 
-
-
 CREATE TABLE payments (
   id NUMBER(10) NOT NULL,
   account_id NUMBER(10) NOT NULL,
   period_start DATE NOT NULL,
   period_end DATE NOT NULL,
   due_date DATE NOT NULL,
-  summa NUMBER(10) DEFAULT 0,
+  summa FLOAT DEFAULT 0,
   status VARCHAR2(50) DEFAULT 'Not Paid',
   "COMMENT" VARCHAR2(200)
   , CONSTRAINT payments_pk PRIMARY KEY (id)
@@ -119,8 +108,6 @@ CREATE TABLE payments (
   , CONSTRAINT payments_status_values_chk CHECK (status IN ('Paid', 'Not Paid'))
   , CONSTRAINT payments_period_chk CHECK (period_start <= period_end)
 ); 
-
-
     
 
 CREATE TABLE hardware (
@@ -134,15 +121,12 @@ CREATE TABLE hardware (
 );
 
 
-
 CREATE TABLE info_categories (
   id NUMBER(10) NOT NULL,
   name VARCHAR(200) NOT NULL
   , CONSTRAINT info_categories_pk PRIMARY KEY (id)
   , CONSTRAINT info_categories_name_uk UNIQUE (name)
 ); 
-
-
 
 
 CREATE TABLE info_attributes (
@@ -153,11 +137,10 @@ CREATE TABLE info_attributes (
 ); 
 
 
-
 CREATE TABLE information (
   attr_id NUMBER(10) NOT NULL,
   category_id NUMBER(10) NOT NULL,
-  value VARCHAR2(500)
+  value VARCHAR2(2000)
   , CONSTRAINT information_attr_id_fk
       FOREIGN KEY (attr_id)
       REFERENCES info_attributes (id)
@@ -165,8 +148,6 @@ CREATE TABLE information (
       FOREIGN KEY (category_id)
       REFERENCES info_categories (id)
 );
-
-
 
 
 CREATE TABLE internet_service_options (
@@ -180,8 +161,6 @@ CREATE TABLE internet_service_options (
 ); 
 
 
-
-
 CREATE TABLE tv_service_options (
   service_id NUMBER(10) NOT NULL,
   channels_count NUMBER(5) NOT NULL,
@@ -191,8 +170,6 @@ CREATE TABLE tv_service_options (
       REFERENCES services (id)
   , CONSTRAINT tv_serv_opt_uhd_values CHECK (uhd_support IN ('On', 'Off'))
 );
-
-
 
 
 CREATE TABLE phone_service_options (
