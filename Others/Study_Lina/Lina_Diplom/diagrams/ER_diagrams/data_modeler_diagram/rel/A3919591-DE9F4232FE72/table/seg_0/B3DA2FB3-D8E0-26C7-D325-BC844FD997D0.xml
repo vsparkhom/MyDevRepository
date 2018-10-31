@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B3DA2FB3-D8E0-26C7-D325-BC844FD997D0" name="INFO_CATEGORIES">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:54:24 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="CBAA4FE1-1401-EBF1-5CAD-2DA387B2CB76">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:57:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="76B9A9EA-5137-2922-9C36-081233026A9D">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:57:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="64269E16-43F9-5CD7-1F1E-7AD5F68EC1E8" name="INFO_CATEGORIES_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:57:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CBAA4FE1-1401-EBF1-5CAD-2DA387B2CB76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

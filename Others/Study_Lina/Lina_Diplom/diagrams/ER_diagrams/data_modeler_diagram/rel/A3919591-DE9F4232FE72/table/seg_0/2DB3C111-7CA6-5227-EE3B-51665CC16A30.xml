@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2DB3C111-7CA6-5227-EE3B-51665CC16A30" name="PLANS">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:38:06 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="01AE724D-B8CF-9967-B3EA-D57486376092">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:44:17 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="453548F6-B2A5-19FD-093A-0E0F845C0D85">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:47:35 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="8D3DD8AF-0BD8-B2FC-A5F9-BA3126783063">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:47:35 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICES_ID" id="D3437597-BBAF-430D-8F2B-555CBDEC3E36">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:39:31 UTC</createdTime>
+<generatorID>6FC74D30-2AFB-76DA-CFD8-9582472427D2</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C055838-C946-3E2F-89CC-B7F35B0537C7" referredColumn="447B9523-1277-F356-0D6A-653A81706DCC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="657B339B-E49C-2A90-307E-D8B28E021F28" name="PLANS_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:44:17 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01AE724D-B8CF-9967-B3EA-D57486376092"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="33DB2CEA-7E62-50A3-6103-EB30B09FD9E5" name="PLANS_NAME_UN">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:49:05 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="453548F6-B2A5-19FD-093A-0E0F845C0D85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6DB8129B-22E5-E0C4-A9D9-5DC33D5DDBA3" name="PLANS__IDX">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:39:31 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>6C99322F-3813-0BFF-E2B4-3005D44E248A</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D3437597-BBAF-430D-8F2B-555CBDEC3E36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9168B2DE-B87D-0DED-B873-E8CC51D1CB42" name="PLANS_SERVICES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:39:31 UTC</createdTime>
+<generatorID>6C99322F-3813-0BFF-E2B4-3005D44E248A</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3437597-BBAF-430D-8F2B-555CBDEC3E36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9841486B-6D41-2B62-CA6B-451D415EF8A2" name="PHONE SERVICE OPTIONS">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>2B0C9166-A972-8C3C-723F-AB411ECD2F6E</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TALK LIMIT" id="7C4D129B-C48C-1522-A0FB-417754B0D38B">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>3C8A485D-6EF0-D2AD-E2B9-E2D0348A424E</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATA LIMIT" id="7731465C-91E2-D112-26DB-3600DCC73305">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>48AC305A-E12C-85D1-E067-D0171E3004B1</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VOICE MAIL" id="11B4C01A-184D-E250-65B3-B3B2DF747A7B">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>75D24B24-817F-6A2F-0875-FDBFF3318647</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SERVICES ID" id="E844E484-92D0-701F-56ED-D53C1C39A982">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>F0DE4ED3-AEB0-6341-8EF9-E80B1CE0FCF6</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<referedAttribute>53B99BDC-A24D-3118-4D75-8A135D539FAF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HARDWARE_SERVICE_TYPES_FK" directorySegmentName="seg_0" id="763C5C0C-C468-1E75-6106-9066F3C37967">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>69EB2979-03E2-E35F-C8C6-6099E5B04F18</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<sourcePk>82867344-389D-ADE7-E432-E544A03161C2</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>285FB03D-C0D3-88A1-B522-160BBC796860</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>723A0B7B-61B6-9022-CD61-5539B90DA8B8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

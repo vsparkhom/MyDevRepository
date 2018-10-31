@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="723A0B7B-61B6-9022-CD61-5539B90DA8B8" name="HARDWARE">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>C73B04A0-7E5A-D49A-4B97-A94F266CFCEA</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="5122A536-952A-3778-B3CC-20D646FF3BE0">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>DBDEFF5E-04F5-8D3B-767E-6ED32E452695</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="9487D158-C801-FA87-7A92-FC960077FFC7">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>CE7D474D-91BD-2824-2AF6-F8065DAA9155</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SERIAL NUMBER" id="55F53EBD-062A-EA48-8B1D-16416DEDBD64">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>472CC3A4-C024-47DB-5971-DBDEB0878176</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STATUS" id="63D3A939-F77B-517D-7B6C-16DFB2E86CC4">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>EE178E98-FDCB-6CE9-10B7-ADD84C489FFD</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ACCOUNT ID" id="3B3F6F58-E75E-FCEA-51D7-68AE4CF276C4">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>824F8A41-EF38-6012-4127-160D66DF9D60</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>785AFA9E-1EDB-9530-86A7-E590C7590108</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SERVICE TYPE ID" id="C1BA2B20-72CA-E4C5-43DC-3C65A10AD68D">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>763C5C0C-C468-1E75-6106-9066F3C37967</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<referedAttribute>2B98D230-3D82-EBE4-E0DF-05B6D7A8C0BF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="90836E4B-0E01-5608-932F-5078517AC2AA" name="HARDWARE PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>4E55088B-3D6A-3069-8218-94146E884115</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5122A536-952A-3778-B3CC-20D646FF3BE0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

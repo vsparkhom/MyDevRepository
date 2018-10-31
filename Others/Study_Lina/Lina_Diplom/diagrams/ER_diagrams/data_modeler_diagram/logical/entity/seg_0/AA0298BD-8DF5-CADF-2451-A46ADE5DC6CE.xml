@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AA0298BD-8DF5-CADF-2451-A46ADE5DC6CE" name="INFO ATTRIBUTES">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>B624044A-3000-880E-072E-3545ED02F7EF</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="6F61091B-778B-AF9D-AB19-E362D14D5A4A">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>B0E5FC24-D28F-CB06-117F-317738179BD6</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="D6F86601-B9EA-8EE0-E36B-A3FD00E47C62">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>A148A08D-545B-B975-D709-B5CEE0A3B9A8</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="608E3BC2-E6BB-487E-4610-57BAF30521B6" name="INFO ATTRIBUTES PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>4F60706B-100C-903A-3A64-597F3A27A864</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6F61091B-778B-AF9D-AB19-E362D14D5A4A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EEA261CC-642B-C93C-1EF2-343CA7890465" name="PAYMENTS">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:53:53 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="CFDBECE4-0A4D-3F97-0C4B-4E39D2E5E5AB">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERIOD_START" id="F4F9835A-14CB-F48B-68DD-702397581116">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERIOD_END" id="8156A462-55B5-7ED1-F980-B73E994B90B3">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DUE_DATE" id="F8C02BA1-8F8B-C4AA-EAC5-FE4EBA85441F">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUMMA" id="1B2F45E7-4E12-A926-863F-0EB5ADACE90F">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="7C4FB56B-4F2C-E57B-F91B-77B9D0FE8210">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMMENT" id="A68E9AC7-F699-30E1-EFDF-C399A6DE0459">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:00 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCOUNTS_ID" id="7F7443B4-056E-8345-991A-B0FF819001AA">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:19:29 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3BF3B858-5DE3-5808-F89F-129C3D69DEEC" referredColumn="6500D3E4-E3B3-40BD-3273-B193CCDF2F91"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99335A4D-6933-7C2D-7AD5-2C40D6DA1DF7" name="PAYMENTS_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:58:48 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFDBECE4-0A4D-3F97-0C4B-4E39D2E5E5AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D1B210E-B15C-34D0-F2C0-64C77EEF447B" name="PAYMENTS_ACCOUNTS_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:19:29 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F7443B4-056E-8345-991A-B0FF819001AA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

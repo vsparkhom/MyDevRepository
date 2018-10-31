@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TV_SERVICE_OPTIONS_SERVICES_FK" directorySegmentName="seg_0" id="E622F831-E568-548B-0115-5B4BCC850C64">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:30:01 UTC</createdTime>
+<generatorID>078C2A5E-D1F0-B081-C5E7-8FBF9D6C3178</generatorID>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<engineerTo>
+<item key="A3919591-303F-549B-2D98-DE9F4232FE72" value="true"/>
+</engineerTo>
+<sourcePk>0630B41F-2FF0-6D51-BC80-9578B0282CB9</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8AAD3126-2E08-795D-7C25-C22678707A08</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>EADDD875-4170-6903-EAB5-C9DD700A285B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

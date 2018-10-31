@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C73B04A0-7E5A-D49A-4B97-A94F266CFCEA" name="HARDWARE">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:54:05 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="DBDEFF5E-04F5-8D3B-767E-6ED32E452695">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:18:34 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="CE7D474D-91BD-2824-2AF6-F8065DAA9155">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:18:34 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERIAL_NUMBER" id="472CC3A4-C024-47DB-5971-DBDEB0878176">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:18:34 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="EE178E98-FDCB-6CE9-10B7-ADD84C489FFD">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:18:34 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCOUNTS_ID" id="29631498-8515-5B7B-314B-879DF7B0A5F5">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ECED511B-9067-DB82-F67E-F06AD37EA1BC" referredColumn="6500D3E4-E3B3-40BD-3273-B193CCDF2F91"/>
+</associations>
+</Column>
+<Column name="SERVICE_TYPES_ID" id="2C0446F0-76B7-B410-4D2C-5C538A602002">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:21:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="69EB2979-03E2-E35F-C8C6-6099E5B04F18" referredColumn="04554171-EDEF-C2EE-94B1-2D770C83B66C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4E55088B-3D6A-3069-8218-94146E884115" name="HARDWARE_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:18:34 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBDEFF5E-04F5-8D3B-767E-6ED32E452695"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B7907F49-A68D-BD81-73C1-8286BC241121" name="HARDWARE_ACCOUNTS_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29631498-8515-5B7B-314B-879DF7B0A5F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7CC6674E-6ECB-7E94-7FB7-0D45D213CB3A" name="HARDWARE_SERVICE_TYPES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:21:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C0446F0-76B7-B410-4D2C-5C538A602002"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

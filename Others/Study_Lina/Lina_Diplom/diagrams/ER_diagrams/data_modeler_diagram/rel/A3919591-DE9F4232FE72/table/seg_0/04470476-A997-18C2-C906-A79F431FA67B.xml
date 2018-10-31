@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04470476-A997-18C2-C906-A79F431FA67B" name="INTERNET_SERVICE_OPTIONS">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:55:55 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DOWNLOAD_SPEED" id="DE125EF8-7F04-CE1B-7201-0D233DF851D0">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:08:16 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UPLOAD_SPEED" id="C236D395-A1C6-5C36-0ACC-DFF0EAD1F162">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:08:16 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATA_LIMIT" id="46FB4574-2AD1-8A22-00C0-F9EEE2CA7A60">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:08:16 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICES_ID" id="FAF4A102-CE99-C929-F43D-6532A032E671">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:08:29 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="09F090A2-5F26-2A38-DD99-48E58D1416C7" referredColumn="447B9523-1277-F356-0D6A-653A81706DCC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="90CF174B-173D-7DDC-AE94-A14F07617E95" name="INTERNET_SERVICE_OPTIONS__IDX">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:39:31 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>AEFCC18C-77CC-4AF6-D980-70D3D050AE21</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="FAF4A102-CE99-C929-F43D-6532A032E671"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C74F7590-0F63-F065-D847-FBC4D52DE74A" name="INTERNET_SERVICE_OPTIONS_SERVICES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:08:29 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FAF4A102-CE99-C929-F43D-6532A032E671"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

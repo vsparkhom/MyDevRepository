@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D507CDB1-0E38-E6B3-80EA-FA4C772BB2A3" name="SERVICES">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 17:58:11 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="447B9523-1277-F356-0D6A-653A81706DCC">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:02:55 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="2CB42FCF-5AAD-CB8C-0516-3BE775DD959B">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:02:55 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICE_TYPES_ID" id="D10D50B6-6684-12BA-41C6-6823018B6CB0">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:03:31 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EBB020D6-2B29-0DC9-B4BC-274A52C17EB1" referredColumn="04554171-EDEF-C2EE-94B1-2D770C83B66C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="360E0D86-6510-B283-CD41-3E18EE563A00" name="SERVICES_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:02:55 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="447B9523-1277-F356-0D6A-653A81706DCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="992CD5F1-8D07-E3C6-85AA-240EBCF5D76C" name="SERVICES_NAME_UN">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:48:56 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CB42FCF-5AAD-CB8C-0516-3BE775DD959B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F591FA0B-9BFD-54ED-BCBB-17787AAA6D34" name="SERVICES_SERVICE_TYPES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:03:31 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D10D50B6-6684-12BA-41C6-6823018B6CB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B0C9166-A972-8C3C-723F-AB411ECD2F6E" name="PHONE_SERVICE_OPTIONS">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:56:17 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_17</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TALK_LIMIT" id="3C8A485D-6EF0-D2AD-E2B9-E2D0348A424E">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:17:47 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATA_LIMIT" id="48AC305A-E12C-85D1-E067-D0171E3004B1">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:17:47 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VOICE_MAIL" id="75D24B24-817F-6A2F-0875-FDBFF3318647">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:17:47 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICES_ID" id="36E40B1F-9D1E-8319-E94A-D5B8EBA12188">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:18:26 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="39C39C4F-BD95-A848-003A-8040A1BF3E8D" referredColumn="447B9523-1277-F356-0D6A-653A81706DCC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5BEF68CD-1318-830D-86D5-52F78F73538E" name="PHONE_SERVICE_OPTIONS__IDX">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:39:31 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>F0DE4ED3-AEB0-6341-8EF9-E80B1CE0FCF6</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="36E40B1F-9D1E-8319-E94A-D5B8EBA12188"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="80051952-AB5D-72BD-76E8-C9C60DABB97D" name="PHONE_SERVICE_OPTIONS_SERVICES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:18:26 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36E40B1F-9D1E-8319-E94A-D5B8EBA12188"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

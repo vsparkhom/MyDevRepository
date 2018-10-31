@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DE224E15-80DF-F47F-F679-03B4A31761DC" name="CLIENT_SERVICES">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:50:37 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SERVICES_ID" id="8225A5FF-55A8-A2B9-E20D-E730071ACC26">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:52:44 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7ED84AA2-CD13-8DF8-F00A-9E03DCB49047" referredColumn="447B9523-1277-F356-0D6A-653A81706DCC"/>
+</associations>
+</Column>
+<Column name="ACCOUNTS_ID" id="DBA5B2D4-B299-9C8A-186A-8F6F29E491B5">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:52:57 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7000DD58-65DD-0098-AA49-33AEFEBE19BE" referredColumn="6500D3E4-E3B3-40BD-3273-B193CCDF2F91"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="250A2274-BBE6-71AA-7234-B60F709C2632" name="CLIENT_SERVICES_SERVICES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:52:44 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8225A5FF-55A8-A2B9-E20D-E730071ACC26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5A20DA7E-0046-1452-A3D3-431189EB0248" name="CLIENT_SERVICES_ACCOUNTS_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:52:57 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBA5B2D4-B299-9C8A-186A-8F6F29E491B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

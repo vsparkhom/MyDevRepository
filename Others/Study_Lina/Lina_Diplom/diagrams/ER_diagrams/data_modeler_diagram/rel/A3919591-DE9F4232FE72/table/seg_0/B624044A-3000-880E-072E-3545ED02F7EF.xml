@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B624044A-3000-880E-072E-3545ED02F7EF" name="INFO_ATTRIBUTES">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:54:32 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B0E5FC24-D28F-CB06-117F-317738179BD6">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:58:43 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="A148A08D-545B-B975-D709-B5CEE0A3B9A8">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:58:43 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4F60706B-100C-903A-3A64-597F3A27A864" name="INFO_ATTRIBUTES_PK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:59:10 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0E5FC24-D28F-CB06-117F-317738179BD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

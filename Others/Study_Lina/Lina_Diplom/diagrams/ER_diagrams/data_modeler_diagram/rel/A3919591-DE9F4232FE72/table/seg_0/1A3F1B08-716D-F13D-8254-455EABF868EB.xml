@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1A3F1B08-716D-F13D-8254-455EABF868EB" name="INFORMATION">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 18:54:46 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VALUE" id="4EB2818F-980C-087F-8C9D-1166F1F27DAF">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:01:49 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INFO_CATEGORIES_ID" id="E6E67233-CE14-3A8F-97FE-2CCEA6E99507">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:02:08 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0918E086-DD2C-9E0F-F10F-44706A8CEA3E" referredColumn="CBAA4FE1-1401-EBF1-5CAD-2DA387B2CB76"/>
+</associations>
+</Column>
+<Column name="INFO_ATTRIBUTES_ID" id="790398D2-8554-2264-0930-66B8441C120A">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:02:21 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D22587D9-2563-7CDA-4BA2-939F35288881" referredColumn="B0E5FC24-D28F-CB06-117F-317738179BD6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FE0B4EB7-152B-90DC-0002-725AA8021886" name="INFORMATION_INFO_CATEGORIES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:02:08 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E6E67233-CE14-3A8F-97FE-2CCEA6E99507"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="356D6E3C-2856-A3AD-D4A1-8B73D8597027" name="INFORMATION_INFO_ATTRIBUTES_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 20:02:21 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="790398D2-8554-2264-0930-66B8441C120A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

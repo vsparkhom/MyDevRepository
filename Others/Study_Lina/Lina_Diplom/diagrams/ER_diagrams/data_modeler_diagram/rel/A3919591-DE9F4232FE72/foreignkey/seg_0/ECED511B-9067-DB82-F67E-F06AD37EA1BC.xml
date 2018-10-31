@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="ECED511B-9067-DB82-F67E-F06AD37EA1BC" containerWithKeyObject="C73B04A0-7E5A-D49A-4B97-A94F266CFCEA" localFKIndex="B7907F49-A68D-BD81-73C1-8286BC241121" name="HARDWARE_ACCOUNTS_FK">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 19:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<referredTableLongName>ACCOUNTS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>879C1C59-80F3-BF04-E9CC-DF4D33F393B3</referredTableID>
+<keyObject>95E38835-BA1A-555B-644E-32E332CF29D8</keyObject>
+<referredKeyID>95E38835-BA1A-555B-644E-32E332CF29D8</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

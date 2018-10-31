@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="data_modeler_diagram" id="AF762881-F536-40AB-EBE8-3594679BDA87" version="3.5">
+<createdBy>parkhomchuk</createdBy>
+<createdTime>2018-10-30 17:47:18 UTC</createdTime>
+<ownerDesignName>data_modeler_diagram</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>AF762881-F536-40AB-EBE8-3594679BDA87</designId>
+</OSDM_Design>
