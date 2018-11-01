@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionUtils {
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
-        return OracleConnectionUtils.getOracleConnection();
+        return new OracleConnection().getDBConnection();
     }
 
     public static void closeQuietly(Connection conn) {
