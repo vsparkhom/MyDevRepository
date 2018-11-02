@@ -3,33 +3,28 @@ package com.perscab.servlets;
 import com.perscab.controller.ServiceHelper;
 import com.perscab.db.AttributeConsts;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class PhoneServlet extends HttpServlet {
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        System.out.println("--- PhoneServlet.GET---");
-
-        ServiceHelper.initPhoneService(request);
-
-        ServiceHelper.initHardware(request, AttributeConsts.PHONE_SERVICE_TYPE_ID);
-
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/phone.jsp");
-        dispatcher.forward(request, response);
-    }
+public class PhoneServlet extends ServiceServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //DO NOTHING
+    }
+
+    @Override
+    public void initService(HttpServletRequest request) throws IOException {
+        ServiceHelper.initPhoneService(request);
+        ServiceHelper.initHardware(request, AttributeConsts.PHONE_SERVICE_TYPE_ID);
+    }
+
+    @Override
+    public String getPageToForward() {
+        return "/WEB-INF/phone.jsp";
     }
 
 }

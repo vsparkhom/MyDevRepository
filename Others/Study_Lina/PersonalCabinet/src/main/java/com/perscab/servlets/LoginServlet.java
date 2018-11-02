@@ -1,6 +1,5 @@
 package com.perscab.servlets;
 
-
 import com.perscab.db.ConnectionUtils;
 import com.perscab.db.DBUtils;
 import com.perscab.model.Account;
