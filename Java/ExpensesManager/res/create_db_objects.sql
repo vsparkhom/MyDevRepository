@@ -1,3 +1,14 @@
+
+--- DROP SECTION ---
+
+drop table expenses;
+drop table expense_patterns;
+drop table expense_pattern_types;
+drop table categories;
+
+
+--- CREATE SECTION ---
+
 create table categories (
     id integer not null primary key,
     name text  unique not null,

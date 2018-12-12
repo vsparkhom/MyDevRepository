@@ -1,7 +1,7 @@
 --- clear tables 
 
 delete from expenses;
-delete from expenses_mapping;
+delete from expense_patterns;
 delete from categories;
 
 ----- categories
@@ -94,10 +94,12 @@ insert into expenses(date, merchant, amount, category_id) values (date('now'), '
 
 
 
------ expenses_mapping
+----- expense_patterns
 
-insert into expenses_mapping(pattern, category_id) values ('%TEST%EXPENSE 1%', 3);
-insert into expenses_mapping(pattern, category_id) values ('%TEST%EXPENSE 2%', 4);
-insert into expenses_mapping(pattern, category_id) values ('%TEST%EXPENSE 3%', 5);
-insert into expenses_mapping(pattern, category_id) values ('%TEST%EXPENSE 4%', 6);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 1%', 3, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 2%', 4, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 3%', 5, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 4%', 6, 1);
 
+insert into expense_patterns(pattern, category_id, type_id) values ('%SKIP%EXPENSE 1%', 2, 2);
+insert into expense_patterns(pattern, category_id, type_id) values ('%SKIP%EXPENSE 2%', 2, 2);

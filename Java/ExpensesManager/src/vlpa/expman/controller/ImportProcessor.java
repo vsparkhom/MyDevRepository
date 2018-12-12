@@ -40,6 +40,7 @@ public class ImportProcessor {
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
                     if (PatternType.SKIP.equals(ip.getType())) {
+                        System.out.println("Skipping " + e + " (pattern: " + ip + ")");
                         iterator.remove();
                     } else {
                         c = ip.getCategory();
