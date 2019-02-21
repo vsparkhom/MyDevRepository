@@ -8,6 +8,7 @@ delete from categories;
 
 insert into categories(name, 'limit') values ('Unknown', 1000);
 insert into categories(name, 'limit') values ('Other', 1000);
+insert into categories(name, 'limit') values ('Monthly', 2500);
 insert into categories(name, 'limit') values ('Test category 1', 1000);
 insert into categories(name, 'limit') values ('Test category 2', 1000);
 insert into categories(name, 'limit') values ('Test category 3', 1000);
@@ -81,27 +82,27 @@ insert into expenses(date, merchant, amount, category_id) values (date('now'), '
 insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Other Expense 9', 90, 2);
 insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Other Expense 10', 100, 2);
 
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.8', 80, 3);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.9', 90, 3);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.10', 100, 3);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.8', 80, 4);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.9', 90, 4);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.10', 100, 4);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.8', 80, 5);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.9', 90, 5);
-insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.10', 100, 5);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.8', 80, 4);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.9', 90, 4);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 1.10', 100, 4);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.8', 80, 5);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.9', 90, 5);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 2.10', 100, 5);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.8', 80, 6);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.9', 90, 6);
+insert into expenses(date, merchant, amount, category_id) values (date('now'), 'Test Expense 3.10', 100, 6);
 
 
 
 
 ----- expense_patterns
 
-insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 1%', 3, 1);
-insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 2%', 4, 1);
-insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 3%', 5, 1);
-insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 4%', 6, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 1%', 4, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 2%', 5, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 3%', 6, 1);
+insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 4%', 7, 1);
 
 insert into expense_patterns(pattern, category_id, type_id, priority) values ('%SKIP%EXPENSE 1%', 2, 2, 100);
 insert into expense_patterns(pattern, category_id, type_id, priority) values ('%SKIP%EXPENSE 2%', 2, 2, 100);
 
-insert into expense_patterns(pattern, category_id, type_id, priority) values ('%AMOUNT%EXPENSE 1%', 2, 3, 1000, 1500.0);
+insert into expense_patterns(pattern, category_id, type_id, priority, amount) values ('%AMOUNT%EXPENSE 1%', 3, 3, 1000, 1500.0);

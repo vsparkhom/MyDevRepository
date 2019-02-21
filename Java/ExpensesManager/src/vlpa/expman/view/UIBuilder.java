@@ -291,7 +291,6 @@ public class UIBuilder {
         HBox categoryDetailsTopPane = new HBox(10);
         categoryDetailsTopPane.getChildren().add(getExpensesManageButtonsPane());
 
-        System.out.println("[DEBUG]<getCategoryDetailsTopPane> currentCategoryId: " + currentCategoryId);
         if (currentCategoryId == DBConsts.UNKNOWN_CATEGORY_ID) {
             Button createPatternButton = new Button("Create pattern");
             createPatternButton.setOnAction(event -> {
