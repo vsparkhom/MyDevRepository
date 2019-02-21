@@ -7,7 +7,6 @@ import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ExpensesReport;
 import vlpa.expman.model.ImportPattern;
-import vlpa.expman.view.modal.pattern.PatternType;
 
 import java.util.*;
 
@@ -53,8 +52,8 @@ public class MainProcessor {
         return expenseReportRepository.getExpensesReportForAllCategories(start, end);
     }
 
-    public void addCategory(String name, double limit) {
-        categoriesRepository.addCategory(name, limit);
+    public void addCategory(Category category) {
+        categoriesRepository.addCategory(category);
     }
 
     public void removeCategory(long categoryId) {
@@ -81,8 +80,8 @@ public class MainProcessor {
         return categoriesRepository.getAllPatterns();
     }
 
-    public void addPattern(String text, Category category, PatternType type) {
-        categoriesRepository.addPattern(text, category, type);
+    public void addPattern(ImportPattern pattern) {
+        categoriesRepository.addPattern(pattern);
     }
 
     public void removePattern(long id) {

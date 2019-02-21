@@ -33,12 +33,15 @@ create table expense_pattern_types (
 
 insert into expense_pattern_types(name) values('REGULAR');
 insert into expense_pattern_types(name) values('SKIP');
+insert into expense_pattern_types(name) values('AMOUNT_BASED');
 
 create table expense_patterns (
-    id integer  primary key not null,
+    id integer primary key not null,
     pattern text,
     category_id integer,
     type_id integer,
+    priority integer default '10', --MEDIUM
+    amount float default '0',
     foreign key (category_id) references categories(id),
     foreign key (type_id) references expense_pattern_types(id)
 );

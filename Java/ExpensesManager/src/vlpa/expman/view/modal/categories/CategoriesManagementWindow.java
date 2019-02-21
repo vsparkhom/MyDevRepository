@@ -134,7 +134,7 @@ public class CategoriesManagementWindow<T extends Category> extends AbstractEnti
 
     @Override
     protected void addEntity(T addedCategory) {
-        getProcessor().addCategory(addedCategory.getName(), addedCategory.getLimit());
+        getProcessor().addCategory(addedCategory);
     }
 
     @Override

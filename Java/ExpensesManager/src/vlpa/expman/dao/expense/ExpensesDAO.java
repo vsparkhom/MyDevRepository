@@ -1,6 +1,5 @@
 package vlpa.expman.dao.expense;
 
-
 import vlpa.expman.model.Expense;
 
 import java.util.List;

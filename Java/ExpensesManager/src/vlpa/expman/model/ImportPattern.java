@@ -1,22 +1,28 @@
 package vlpa.expman.model;
 
-import vlpa.expman.view.modal.pattern.PatternType;
-
 public class ImportPattern {
 
     private long id;
     private String text;
     private Category category;
     private PatternType type;
+    private PatternPriority priority;
+    private double amount;
 
     public ImportPattern() {
     }
 
     public ImportPattern(long id, String text, Category category, PatternType type) {
+        this(id, text, category, type, PatternPriority.MEDIUM, 0);
+    }
+
+    public ImportPattern(long id, String text, Category category, PatternType type, PatternPriority priority, double amount) {
         this.id = id;
         this.text = text;
         this.category = category;
         this.type = type;
+        this.priority = priority;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -51,6 +57,22 @@ public class ImportPattern {
         this.type = type;
     }
 
+    public PatternPriority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(PatternPriority priority) {
+        this.priority = priority;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
     @Override
     public String toString() {
         return "ImportPattern{" +
@@ -58,6 +80,8 @@ public class ImportPattern {
                 ", text=" + text +
                 ", category=" + category +
                 ", type=" + type +
+                ", priority=" + priority +
+                ", amount=" + amount +
                 '}';
     }
 }

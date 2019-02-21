@@ -2,9 +2,7 @@ package vlpa.expman.view.modal.pattern;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.RadioButton;
 import vlpa.expman.controller.MainProcessor;
-import vlpa.expman.model.Category;
 import vlpa.expman.view.UIBuilder;
 
 import static vlpa.expman.controller.ImportProcessor.ANY_SYMBOL_TEMPLATE;
@@ -23,26 +21,25 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
     @Override
     protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
         return event -> {
-            String patternText = getPatternTextInput().getText();
-            int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
-            Category category = getCategories().get(selectedIndex);
-            String selectedTypeValue = ((RadioButton)getPatternTypeRadioButtonGroup().getSelectedToggle()).getText();
-            PatternType type = PatternType.getPatternTypeByDisplayName(selectedTypeValue);
-            getProcessor().addPattern(patternText, category, type);
+            getProcessor().addPattern(PatternCreator.create(getPatternDataWindow()));
             close();
         };
     }
 
     @Override
     protected void selectProperCategory() {
-        getCategoriesComboBox().getSelectionModel().selectFirst();
+        getPatternDataWindow().getCategoriesComboBox().getSelectionModel().selectFirst();
+    }
+
+    @Override
+    public void selectProperPriority() {
+        getPatternDataWindow().getPrioritiesComboBox().getSelectionModel().select(1); // MEDIUM priority by default;
     }
 
     @Override
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
-        System.out.println("initial row: '" + getDataObject() + "'");
-        getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
+        getPatternDataWindow().getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)
                 + ANY_SYMBOL_TEMPLATE);
     }
 }

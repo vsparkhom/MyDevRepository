@@ -1,14 +1,11 @@
 package vlpa.expman.view.modal.expenses;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.view.UIBuilder;
 
-import java.time.ZoneId;
 import java.util.Date;
 
 public class ModifyExpenseWindow extends BaseExpenseOperationWindow {

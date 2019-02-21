@@ -3,7 +3,6 @@ package vlpa.expman.dao.category;
 import vlpa.expman.model.Category;
 
 import java.util.List;
-import java.util.Map;
 
 public interface CategoriesDAO {
 

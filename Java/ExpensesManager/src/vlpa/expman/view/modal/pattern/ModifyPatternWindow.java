@@ -5,8 +5,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import vlpa.expman.controller.MainProcessor;
-import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
+import vlpa.expman.model.PatternType;
 import vlpa.expman.view.UIBuilder;
 
 import java.util.List;
@@ -26,23 +26,27 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
     protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
         return event -> {
             System.out.println("Update category...");
-            String updatedPatternText = getPatternTextInput().getText();
-            int selectedIndex = getCategoriesComboBox().getSelectionModel().getSelectedIndex();
-            Category updatedCategory = getCategories().get(selectedIndex);
-            String selectedTypeValue = ((RadioButton)getPatternTypeRadioButtonGroup().getSelectedToggle()).getText();
+            ImportPattern updatedPattern = PatternCreator.create(getPatternDataWindow());
 
-            if (!getDataObject().getText().equals(updatedPatternText)) {
+            if (!getDataObject().getText().equals(updatedPattern.getText())) {
                 setChanged(true);
-                getDataObject().setText(updatedPatternText);
-
+                getDataObject().setText(updatedPattern.getText());
             }
-            if (!getDataObject().getCategory().equals(updatedCategory)) {
+            if (!getDataObject().getCategory().equals(updatedPattern.getCategory())) {
                 setChanged(true);
-                getDataObject().setCategory(updatedCategory);
+                getDataObject().setCategory(updatedPattern.getCategory());
             }
-            if (!getDataObject().getType().getDisplayName().equals(selectedTypeValue)) {
+            if (!getDataObject().getType().equals(updatedPattern.getType())) {
                 setChanged(true);
-                getDataObject().setType(PatternType.getPatternTypeByDisplayName(selectedTypeValue));
+                getDataObject().setType(updatedPattern.getType());
+            }
+            if (!getDataObject().getPriority().equals(updatedPattern.getPriority())) {
+                setChanged(true);
+                getDataObject().setPriority(updatedPattern.getPriority());
+            }
+            if (getDataObject().getAmount() != updatedPattern.getAmount()) {
+                setChanged(true);
+                getDataObject().setAmount(getDataObject().getAmount());
             }
 
             EventHandler<ActionEvent> handler = getApplyActionHandler();
@@ -55,24 +59,51 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
 
     @Override
     public void selectProperCategory() {
-        List<String> patternComboBoxItems = getCategoriesComboBox().getItems();
-        for (int i=0; i<patternComboBoxItems.size(); i++) {
-            String currentPatternText = patternComboBoxItems.get(i);
-            if (currentPatternText.equals(getDataObject().getCategory().getName())) {
-                getCategoriesComboBox().getSelectionModel().select(i);
-                break;
+        int categoryIndex = getIndex(getPatternDataWindow().getCategoriesComboBox().getItems(), getDataObject().getCategory().getName());
+        if (categoryIndex >= 0) {
+            getPatternDataWindow().getCategoriesComboBox().getSelectionModel().select(categoryIndex);
+        }
+    }
+
+    @Override
+    public void selectProperPriority() {
+        int priorityIndex = getIndex(getPatternDataWindow().getPrioritiesComboBox().getItems(), getDataObject().getPriority().name());
+        if (priorityIndex >= 0) {
+            getPatternDataWindow().getPrioritiesComboBox().getSelectionModel().select(priorityIndex);
+        }
+    }
+
+    private int getIndex(List<String> items, String objectToFind) {
+        for (int i=0; i<items.size(); i++) {
+            String current = items.get(i);
+            if (current.equals(objectToFind)) {
+                return i;
             }
         }
+        return -1;
+    }
+
+    private void selectProperType() {
+        getPatternDataWindow().getPatternTextInput().setText(getDataObject().getText());
+        for (Toggle t : getPatternDataWindow().getPatternTypeRadioButtonGroup().getToggles()) {
+            RadioButton rb = (RadioButton) t;
+            if (rb.getText().equals(getDataObject().getType().getDisplayName())) {
+                getPatternDataWindow().getPatternTypeRadioButtonGroup().selectToggle(t);
+                if (PatternType.AMOUNT == PatternType.getPatternTypeByDisplayName(rb.getText())) {
+                    getPatternDataWindow().getAmountInput().setDisable(false);
+                }
+            }
+        }
+    }
+
+    private void selectAmount() {
+        getPatternDataWindow().getAmountInput().setText(getDataObject().getAmount() + "");
     }
 
     @Override
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
-        getPatternTextInput().setText(getDataObject().getText());
-        for (Toggle t : getPatternTypeRadioButtonGroup().getToggles()) {
-            if (((RadioButton) t).getText().equals(getDataObject().getType().getDisplayName())) {
-                getPatternTypeRadioButtonGroup().selectToggle(t);
-            }
-        }
+        selectProperType();
+        selectAmount();
     }
 }

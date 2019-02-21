@@ -1,8 +1,5 @@
 package vlpa.expman.view.modal.expenses;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
@@ -32,13 +29,9 @@ public class AddExpenseWindow extends BaseExpenseOperationWindow {
     }
 
     @Override
-    protected void performApplyActions(String expenseName,
-                                       Date expenseDate,
-                                       double expenseAmount,
-                                       Category selectedCategory) {
+    protected void performApplyActions(String expenseName, Date expenseDate, double expenseAmount, Category selectedCategory) {
         Expense exp = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);
         getProcessor().addExpense(exp);
-
         getBuilder().updateView();
         getStage().close();
     }

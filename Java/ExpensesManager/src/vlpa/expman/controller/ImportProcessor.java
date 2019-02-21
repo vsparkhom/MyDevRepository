@@ -6,7 +6,7 @@ import vlpa.expman.dao.expense.ExpensesRepository;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
 import vlpa.expman.model.ImportPattern;
-import vlpa.expman.view.modal.pattern.PatternType;
+import vlpa.expman.model.PatternType;
 
 import java.util.Collection;
 import java.util.Iterator;

@@ -1,9 +1,10 @@
-package vlpa.expman.view.modal.pattern;
+package vlpa.expman.model;
 
 public enum PatternType {
 
     REGULAR(1, "Regular"),
-    SKIP(2, "Skip");
+    SKIP(2, "Skip"),
+    AMOUNT(3, "Amount");
 
     private long id;
     private String displayName;

@@ -58,7 +58,7 @@ public abstract class AbstractBasicOperationWindow<T> implements FillableWindow 
     }
 
     public double getHeight() {
-        return 130;
+        return 155;
     }
 
     protected Pane getMainPane() {
