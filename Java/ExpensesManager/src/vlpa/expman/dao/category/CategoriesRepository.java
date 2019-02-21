@@ -8,6 +8,8 @@ import vlpa.expman.dao.imprt.spec.PatternSqlSpecificationGetAll;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CategoriesRepository {
@@ -57,6 +59,17 @@ public class CategoriesRepository {
                 new PatternSqlSpecificationGetAll().toSqlClause());
         initCategoriesForImportPatterns(patternCategoryIdMapping);
         return patternCategoryIdMapping;
+    }
+
+    public void sortPatternsList(List<ImportPattern> patternCategoryIdMapping) {
+        Collections.sort(patternCategoryIdMapping, new Comparator<ImportPattern>() {
+            @Override
+            public int compare(ImportPattern p1, ImportPattern p2) {
+                long id1 = p1.getPriority().getId();
+                long id2 = p2.getPriority().getId();
+                return id1 > id2 ? -1 : (id1 < id2) ? 1 : 0;
+            }
+        });
     }
 
     private void initCategoriesForImportPatterns(List<ImportPattern> patternCategoryIdMapping) {

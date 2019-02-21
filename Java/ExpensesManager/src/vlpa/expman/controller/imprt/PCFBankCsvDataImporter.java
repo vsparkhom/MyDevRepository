@@ -1,15 +1,15 @@
 package vlpa.expman.controller.imprt;
 
-public class PCFBankCsvDataImporter extends CsvDataImporter {
+public class PCFBankCsvDataImporter extends AbstractCsvDataImporter {
 
     private PCFBankCsvDataImporter() {
     }
 
     private static class PCFBankCsvDataImporterHolder {
-        public static CsvDataImporter instance = new PCFBankCsvDataImporter();
+        public static DataImporter instance = new PCFBankCsvDataImporter();
     }
 
-    public static CsvDataImporter getInstance() {
+    public static DataImporter getInstance() {
         return PCFBankCsvDataImporter.PCFBankCsvDataImporterHolder.instance;
     }
 

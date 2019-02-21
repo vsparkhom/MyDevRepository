@@ -30,6 +30,7 @@ public class ImportProcessor {
 
     private void sortExpensesByCategories(Collection<Expense> expenses) {
         List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
+        categoriesRepository.sortPatternsList(importPatternsList);
         for (Iterator<Expense> iterator = expenses.iterator(); iterator.hasNext();) {
             Expense e = iterator.next();
             String expenseName = e.getName().toUpperCase();
@@ -42,6 +43,9 @@ public class ImportProcessor {
                     if (PatternType.SKIP.equals(ip.getType())) {
                         System.out.println("Skipping " + e + " (pattern: " + ip + ")");
                         iterator.remove();
+                    } else if (PatternType.AMOUNT.equals(ip.getType()) && ip.getAmount() == e.getAmount()) {
+                        System.out.println("Amount-based expense was found: " + e + " (pattern: " + ip + ")");
+                        c = ip.getCategory();
                     } else {
                         c = ip.getCategory();
                     }

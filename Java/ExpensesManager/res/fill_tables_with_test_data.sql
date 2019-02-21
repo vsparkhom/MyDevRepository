@@ -101,5 +101,7 @@ insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPEN
 insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 3%', 5, 1);
 insert into expense_patterns(pattern, category_id, type_id) values ('%TEST%EXPENSE 4%', 6, 1);
 
-insert into expense_patterns(pattern, category_id, type_id) values ('%SKIP%EXPENSE 1%', 2, 2);
-insert into expense_patterns(pattern, category_id, type_id) values ('%SKIP%EXPENSE 2%', 2, 2);
+insert into expense_patterns(pattern, category_id, type_id, priority) values ('%SKIP%EXPENSE 1%', 2, 2, 100);
+insert into expense_patterns(pattern, category_id, type_id, priority) values ('%SKIP%EXPENSE 2%', 2, 2, 100);
+
+insert into expense_patterns(pattern, category_id, type_id, priority) values ('%AMOUNT%EXPENSE 1%', 2, 3, 1000, 1500.0);

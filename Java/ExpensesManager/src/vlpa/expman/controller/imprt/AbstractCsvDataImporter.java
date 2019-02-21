@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public abstract class CsvDataImporter implements DataImporter {
+public abstract class AbstractCsvDataImporter implements DataImporter {
 
     private static final String FIELDS_SEPARATOR = ",";
     private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -24,7 +24,7 @@ public abstract class CsvDataImporter implements DataImporter {
     }
 
     protected Collection<Expense> getDataFromFile(String fileName) {
-        System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> Start importing data from file: " + fileName);
+        System.out.println("[DEBUG]<AbstractCsvDataImporter.getDataFromFile> Start importing data from file: " + fileName);
         Collection<Expense> expenses = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -45,7 +45,7 @@ public abstract class CsvDataImporter implements DataImporter {
                     }
                 }
             }
-            System.out.println("[DEBUG]<CsvDataImporter.getDataFromFile> Import finished");
+            System.out.println("[DEBUG]<AbstractCsvDataImporter.getDataFromFile> Import finished");
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }

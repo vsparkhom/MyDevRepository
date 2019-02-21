@@ -1,15 +1,15 @@
 package vlpa.expman.controller.imprt;
 
-public class TDBankCsvDataImporter extends CsvDataImporter {
+public class TDBankCsvDataImporter extends AbstractCsvDataImporter {
 
     private TDBankCsvDataImporter() {
     }
 
     private static class TDBankCsvDataImporterHolder {
-        public static CsvDataImporter instance = new TDBankCsvDataImporter();
+        public static DataImporter instance = new TDBankCsvDataImporter();
     }
 
-    public static CsvDataImporter getInstance() {
+    public static DataImporter getInstance() {
         return TDBankCsvDataImporterHolder.instance;
     }
 

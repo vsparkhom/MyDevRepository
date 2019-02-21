@@ -1,1 +1,10 @@
-out
+*.iml
+*.ipr
+*.iws
+/.settings
+/.classpath
+/out
+/.project
+.project
+/.idea
+
