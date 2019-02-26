@@ -3,7 +3,7 @@ package vlpa.expman.dao.category;
 import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetAll;
 import vlpa.expman.dao.category.spec.CategorySqlSpecificationGetById;
-import vlpa.expman.dao.imprt.ImportExpensesDAO;
+import vlpa.expman.dao.imprt.ImportPatternsDAO;
 import vlpa.expman.dao.imprt.spec.PatternSqlSpecificationGetAll;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoriesRepository {
 
     private CategoriesDAO categoriesDAO = ExpenseManagerDAOFactory.CategoriesDAOFactory.getInstance();
-    private ImportExpensesDAO importExpensesDAO = ExpenseManagerDAOFactory.ImportExpensesDAOFactory.getInstance();
+    private ImportPatternsDAO importExpensesDAO = ExpenseManagerDAOFactory.ImportExpensesDAOFactory.getInstance();
 
     public Category getCategoryById(long id) {
         return categoriesDAO.queryCategories(new CategorySqlSpecificationGetById(id).toSqlClause()).get(0);
@@ -43,7 +43,7 @@ public class CategoriesRepository {
     }
 
     public void addCategory(Category category) {
-        categoriesDAO.addCategory(category.getName(), category.getLimit());
+        categoriesDAO.addCategory(category);
     }
 
     public void removeCategory(long categoryId) {

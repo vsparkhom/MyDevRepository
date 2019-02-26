@@ -1,5 +1,8 @@
 package vlpa.expman.dao.expense.sqlite;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import vlpa.expman.Main;
 import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.connection.ConnectionManager;
@@ -14,9 +17,11 @@ import java.util.*;
 
 public class ExpensesDAOImpl implements ExpensesDAO {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(ExpensesDAOImpl.class);
+
     @Override
     public List<Expense> queryExpenses(String query) {
-        System.out.println("[DEBUG]<ExpensesDAOImpl.queryExpenses> query: " + query);
+        LOGGER.debug("Running query: {}", query);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -36,7 +41,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             }
             return expenses;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Query can't be execute due to error", e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -45,7 +50,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void addExpense(Expense expense) {
-        System.out.println("Adding expense to database... " + expense);
+        LOGGER.debug("Adding expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -56,7 +61,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.setLong(4, expense.getCategory().getId());
             pstm.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Expense can't be added due to error", e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -64,7 +69,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void mergeExpense(Expense expense) {
-        System.out.println("Merging expense to database... " + expense);
+        LOGGER.debug("Merging expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -77,7 +82,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.setLong(6, expense.getCategory().getId());
             pstm.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Expense can't be merged due to error", e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -85,7 +90,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void removeExpense(long expenseId) {
-        System.out.println("Removing expense with id=" + expenseId);
+        LOGGER.debug("Removing expense with id: {}", expenseId);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -93,7 +98,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.setLong(1, expenseId);
             pstm.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Expense can't be removed due to error", e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -101,6 +106,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void updateExpense(Expense expense) {
+        LOGGER.debug("Updating expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -112,7 +118,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.setLong(5, expense.getId());
             pstm.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Expense can't be updated due to error", e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }

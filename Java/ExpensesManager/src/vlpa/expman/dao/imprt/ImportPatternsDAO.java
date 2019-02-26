@@ -4,7 +4,7 @@ import vlpa.expman.model.ImportPattern;
 
 import java.util.List;
 
-public interface ImportExpensesDAO {
+public interface ImportPatternsDAO {
 
     List<ImportPattern> queryPatterns(String query);
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CategoriesDAO {
 
-    void addCategory(String name, double limit);
+    void addCategory(Category category);
 
     void removeCategory(long categoryId);
 

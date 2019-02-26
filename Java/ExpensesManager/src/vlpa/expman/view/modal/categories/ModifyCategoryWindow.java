@@ -79,7 +79,6 @@ public class ModifyCategoryWindow<T extends Category> extends AbstractBasicOpera
     }
 
     private void performPreApplyActions() {
-        System.out.println("Update category...");
         String updatedCategoryName = categoryNameInput.getText();
         double updatedCategoryLimit = Double.valueOf(categoryLimitInput.getText());
         if (!getDataObject().getName().equals(updatedCategoryName)) {

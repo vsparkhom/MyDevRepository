@@ -25,7 +25,6 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
     @Override
     protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
         return event -> {
-            System.out.println("Update category...");
             ImportPattern updatedPattern = PatternCreator.create(getPatternDataWindow());
 
             if (!getDataObject().getText().equals(updatedPattern.getText())) {

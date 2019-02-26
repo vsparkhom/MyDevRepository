@@ -50,7 +50,6 @@ public class PeriodDatePickerMenu extends AbstractDatePickerMenu {
 
         startDatePicker.setOnAction(event -> {
             startDate = startDatePicker.getValue();
-            System.out.println("Selected START date: " + startDate);
             getUIBuilder().updateView();
         });
 
@@ -68,7 +67,6 @@ public class PeriodDatePickerMenu extends AbstractDatePickerMenu {
 
         endDatePicker.setOnAction(event -> {
             endDate = endDatePicker.getValue();
-            System.out.println("Selected END date: " + endDate);
             getUIBuilder().updateView();
         });
 

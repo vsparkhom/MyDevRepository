@@ -11,13 +11,8 @@ public class ExpenseUtils {
 
     private static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-    public static Date fromStringToDate(String s) {
-        try {
-            return formatter.parse(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public static Date fromStringToDate(String s) throws ParseException {
+        return formatter.parse(s);
     }
 
     public static Date fromLocalDateToDate(LocalDate localDate) {

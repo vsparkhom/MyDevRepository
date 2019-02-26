@@ -83,7 +83,6 @@ public class BaseExpenseOperationWindow {
         setDate(LocalDate.now());
         datePicker.setOnAction(event -> {
             date = datePicker.getValue();
-            System.out.println("Selected date: " + date);
         });
 
         Label amountText = new Label("Amount:");

@@ -1,5 +1,7 @@
 package vlpa.expman.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.expense.ExpensesRepository;
@@ -18,6 +20,7 @@ public class ImportProcessor {
 
     public static final String ANY_SYMBOL_TEMPLATE = "%";
     private static final String ANY_SYMBOL_SUBSTITUTE = "(.*)";
+    private final Logger LOGGER = LoggerFactory.getLogger(ImportProcessor.class);
 
     private ExpensesRepository expensesRepository = new ExpensesRepository();
     private CategoriesRepository categoriesRepository = new CategoriesRepository();
@@ -41,10 +44,10 @@ public class ImportProcessor {
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
                     if (PatternType.SKIP.equals(ip.getType())) {
-                        System.out.println("Skipping " + e + " (pattern: " + ip + ")");
+                        LOGGER.debug("Skipping {} (pattern: {})", e, ip);
                         iterator.remove();
                     } else if (PatternType.AMOUNT.equals(ip.getType()) && ip.getAmount() == e.getAmount()) {
-                        System.out.println("Amount-based expense was found: " + e + " (pattern: " + ip + ")");
+                        LOGGER.debug("Amount-based expense was found: {} (pattern: {})", e, ip);
                         c = ip.getCategory();
                     } else {
                         c = ip.getCategory();

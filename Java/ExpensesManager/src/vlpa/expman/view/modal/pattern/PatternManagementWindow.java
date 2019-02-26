@@ -78,6 +78,10 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
         if (categorySelectedIndex < 0) {
             throw new EntityValidationException("Pattern", "Please select category for pattern!");
         }
+        int prioritySelectedIndex = getPatternDataWindow().getPrioritiesComboBox().getSelectionModel().getSelectedIndex();
+        if (prioritySelectedIndex < 0) {
+            throw new EntityValidationException("Pattern", "Please select priority for pattern!");
+        }
     }
 
     @Override

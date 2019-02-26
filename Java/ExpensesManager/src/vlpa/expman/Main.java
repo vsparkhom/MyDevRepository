@@ -12,9 +12,12 @@ import vlpa.expman.view.UIBuilder;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main extends Application {
+
+    protected static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,11 +29,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        LOGGER.info("Application has started.");
 //        ImportProcessor importProcessor = new ImportProcessor();
 //        importProcessor.importExpenses("res/import/td_credit_test.csv");
 
 //        testData();
         launch(args);
+        LOGGER.info("Application is closed.");
     }
 
     private static void testData() {
@@ -40,30 +45,29 @@ public class Main extends Application {
         Date start = Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date end = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
         ExpensesReport report = processor.getExpensesReportForAllCategories(start, end);
-        System.out.println("report: " + report);
+        LOGGER.info("report: {}", report);
 
-//        System.out.println("------------ CATEGORIES/EXPENSES ------------");
+//        LOGGER.info("------------ CATEGORIES/EXPENSES ------------");
 //        for (Category c : processor.getAllCategories()) {
-//            System.out.println("----- CATEGORY: " + c + " -----");
+//            LOGGER.info("----- CATEGORY: {} -----", c);
 //            for (Expense e : processor.getExpensesByCategoryId(c.getId())) {
-//                System.out.println("   - expense: " + e);
+//                LOGGER.info("   - expense: {}", e);
 //            }
 //        }
 //
-//        System.out.println("------------ SORT CONFIG MAP ------------");
+//        LOGGER.info("------------ SORT CONFIG MAP ------------");
 //        for (Map.Entry<String, Category> entry : processor.getAllPatterns().entrySet()) {
-//            System.out.println("[entry] key: " + entry.getKey() + " - " + entry.getValue());
+//            LOGGER.info("[entry] key: {} - {}", entry.getKey(), entry.getValue());
 //        }
 
 //        processor.importExpenses("res/report.csv");
 
-//        System.out.println("------------ EXPENSES REPORT FOR ALL CATEGORIES ------------");
+//        LOGGER.info("------------ EXPENSES REPORT FOR ALL CATEGORIES ------------");
 //        Date start = new Date(System.currentTimeMillis() - 86400000);
 //        Date end = new Date(System.currentTimeMillis() + 86400000);
-//        System.out.println("start: " + start);
-//        System.out.println("end: " + end);
+//        LOGGER.info("start: {}, end: {}", start, end);
 //        ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(start, end);
-//        System.out.println("allCategoriesExpensesReport: " + allCategoriesExpensesReport);
+//        LOGGER.info("allCategoriesExpensesReport: {}", allCategoriesExpensesReport);
 
     }
 

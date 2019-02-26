@@ -72,7 +72,6 @@ public class ImportExpensesWindow {
         selectFileButton.setOnAction(event -> {
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
-                System.out.println("File has been chosen:" + file.getAbsolutePath());
                 fileLocationTF.setText(file.getAbsolutePath());
             }
         });
@@ -88,13 +87,11 @@ public class ImportExpensesWindow {
         applyButton.setOnAction(event -> {
             String fileLocation = fileLocationTF.getText();
             if (fileLocation == null || "".equals(fileLocation)) {
-                System.out.println("[DEBUG] File location can't be empty!");
                 ModalWindowsHelper.getWarningDialog("File location can't be empty!",
                         "Please select file with data to import").showAndWait();
             } else {
                 int selectedBankTypeIndex = accountTypesComboBox.getSelectionModel().getSelectedIndex();
                 importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));
-                System.out.println("[DEBUG] Expenses have been imported successfully!");
                 stage.close();
                 ModalWindowsHelper.getInformationDialog("Expenses import status",
                         "Expenses import has been successfully finished!").showAndWait();

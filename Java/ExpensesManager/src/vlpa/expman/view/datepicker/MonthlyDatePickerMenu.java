@@ -59,12 +59,9 @@ public class MonthlyDatePickerMenu extends AbstractDatePickerMenu {
         monthsComboBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldIndex, Number newIndex) {
-                System.out.println("[INDEX] " + oldIndex + " -> " + newIndex);
                 MonthlyPeriod period = periodsList.get(newIndex.intValue());
                 startDate = period.start;
-                System.out.println("Selected START date: " + startDate);
                 endDate = period.end;
-                System.out.println("Selected END date: " + endDate);
                 getUIBuilder().updateView();
             }
         });

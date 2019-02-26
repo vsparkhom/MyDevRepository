@@ -322,7 +322,6 @@ public class UIBuilder {
 
         for (Category c : processor.getAllCategories()) {
             ExpensesReport reportForCurrentCategory = processor.getExpensesReportForCategory(c.getId(), start, end);
-            System.out.println("<addCenterPane>[report][from " + start + " to " + end + "]: " + reportForCurrentCategory);
             categoriesSummaryBox.getChildren().add(buildCategorySummaryPane(reportForCurrentCategory));
         }
 
@@ -336,10 +335,7 @@ public class UIBuilder {
     }
 
     private HBox buildTopSummaryPane() {
-
         ExpensesReport allCategoriesExpensesReport = processor.getExpensesReportForAllCategories(dpm.getStartDate(), dpm.getEndDate());
-        System.out.println("[DEBUG]<buildTopSummaryPane> allCategoriesExpensesReport[" + dpm.getStartDate() + "; " +
-                dpm.getEndDate() + " ]: " + allCategoriesExpensesReport);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));

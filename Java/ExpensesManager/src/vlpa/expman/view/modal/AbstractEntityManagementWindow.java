@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.exception.EntityValidationException;
@@ -16,6 +18,8 @@ import vlpa.expman.view.modal.exception.EntityValidationException;
 import java.util.*;
 
 public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOperationWindow<T> {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(AbstractEntityManagementWindow.class);
 
     private List<T> entities;
     private ObservableList<String> entitiesData;
@@ -244,20 +248,20 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
     @Override
     protected EventHandler<ActionEvent> getDefaultApplyActionHandler() {
         return event -> {
-            System.out.println("----- ADDED ENTITIES -----");
+            LOGGER.debug("----- ADDED ENTITIES -----");
             for (T addedEntity : getAddedEntities()) {
-                System.out.println("- e: " + addedEntity);
+                LOGGER.debug("- e: {}", addedEntity);
                 addEntity(addedEntity);
             }
-            System.out.println("----- REMOVED ENTITIES -----");
+            LOGGER.debug("----- REMOVED ENTITIES -----");
             for (T removedEntity : getRemovedEntities()) {
-                System.out.println("- e: " + removedEntity);
+                LOGGER.debug("- e: {}", removedEntity);
                 removeEntity(removedEntity);
             }
-            System.out.println("----- UPDATED ENTITIES -----");
-            for (T c : getUpdatedEntities()) {
-                System.out.println("- e: " + c);
-                updateEntity(c);
+            LOGGER.debug("----- UPDATED ENTITIES -----");
+            for (T e : getUpdatedEntities()) {
+                LOGGER.debug("- e: {}", e);
+                updateEntity(e);
             }
             getBuilder().updateView();
             close();

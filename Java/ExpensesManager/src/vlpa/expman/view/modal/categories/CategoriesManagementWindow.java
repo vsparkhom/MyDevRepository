@@ -44,7 +44,7 @@ public class CategoriesManagementWindow<T extends Category> extends AbstractEnti
 
         Label limitText = new Label("Limit:");
         limitInput = new TextField();
-        limitInput.setPrefWidth(70);
+        limitInput.setPrefWidth(80);
 
         Button addEntityButton = getAddButton();
 
