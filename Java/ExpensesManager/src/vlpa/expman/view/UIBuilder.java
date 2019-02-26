@@ -426,7 +426,7 @@ public class UIBuilder {
         ProgressBar pb = new ProgressBar(usagePercent / 100.0);
         String colorByPercent = getColorByPercent(usagePercent);
         pb.setStyle("-fx-accent: " + colorByPercent);
-        ProgressIndicator pi = new ProgressIndicator(usagePercent);
+        ProgressIndicator pi = new ProgressIndicator(usagePercent / 100.0);
         pi.setStyle("-fx-progress-color: " + colorByPercent);
         progressBarPane.getChildren().addAll(pb, pi);
         return progressBarPane;
