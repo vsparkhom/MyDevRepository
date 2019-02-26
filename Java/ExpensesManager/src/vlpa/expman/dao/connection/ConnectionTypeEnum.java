@@ -2,7 +2,7 @@ package vlpa.expman.dao.connection;
 
 public enum ConnectionTypeEnum {
 
-    SQLITE(SqliteConnectionType.class);
+    SQLITE(SQLiteConnectionType.class);
 
     private final Class<? extends ConnectionType> typeClass;
 
