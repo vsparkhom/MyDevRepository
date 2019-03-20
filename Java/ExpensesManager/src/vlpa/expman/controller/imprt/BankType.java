@@ -3,7 +3,8 @@ package vlpa.expman.controller.imprt;
 public enum BankType {
 
     TD_BANK_ACCOUNT("TD Bank", TDBankCsvDataImporter.getInstance()),
-    PCF_BANK_ACCOUNT("PCF Bank", PCFBankCsvDataImporter.getInstance());
+    PCF_BANK_ACCOUNT("PCF Bank", PCFBankCsvDataImporter.getInstance()),
+    CAPITAL_ONE_BANK_ACCOUNT("Capital One Bank", CapitalOneBankCsvDataImporter.getInstance());
 
     private String name;
     private DataImporter dataImporter;

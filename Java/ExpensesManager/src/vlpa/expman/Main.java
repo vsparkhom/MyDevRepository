@@ -19,6 +19,20 @@ public class Main extends Application {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
+    /**
+     * TODO list:
+     * - Add pattern name
+     * - Add description for expense
+     * - Show Category Id, Limit in categories list
+     * - Add account name for imported expenses (TD, PCF etc.)
+     * - Add Capital One bank
+     * - Implement JUnit tests for importer (at least)
+     * - Set color for negative leftover for each category
+     * - Change button icons
+     * - Add history/log of imports
+     */
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));

@@ -34,28 +34,38 @@ public class ImportProcessor {
     private void sortExpensesByCategories(Collection<Expense> expenses) {
         List<ImportPattern> importPatternsList = categoriesRepository.getAllPatterns();
         categoriesRepository.sortPatternsList(importPatternsList);
+
+//        LOGGER.debug("Sorted patterns: ");
+//        for (ImportPattern p : importPatternsList) {
+//            LOGGER.debug("  - p: {}", p);
+//        }
+
+        LOGGER.debug("Import expenses: ");
         for (Iterator<Expense> iterator = expenses.iterator(); iterator.hasNext();) {
             Expense e = iterator.next();
             String expenseName = e.getName().toUpperCase();
+//            LOGGER.debug("  - expenseName: {}", expenseName);
             Category c = null;
             for (ImportPattern ip : importPatternsList) {
                 String patternText = ip.getText().replaceAll(ANY_SYMBOL_TEMPLATE, ANY_SYMBOL_SUBSTITUTE);
                 Pattern pattern = Pattern.compile(patternText);
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
+//                    LOGGER.debug("    - match found with pattern: {}", ip);
                     if (PatternType.SKIP.equals(ip.getType())) {
                         LOGGER.debug("Skipping {} (pattern: {})", e, ip);
                         iterator.remove();
-                    } else if (PatternType.AMOUNT.equals(ip.getType()) && ip.getAmount() == e.getAmount()) {
-                        LOGGER.debug("Amount-based expense was found: {} (pattern: {})", e, ip);
+                        break;
+                    } else if ((PatternType.AMOUNT.equals(ip.getType()) && ip.getAmount() == e.getAmount())
+                            || PatternType.REGULAR.equals(ip.getType())) {
+                        LOGGER.debug("Amount-based or regular expense was found: {} (pattern: {})", e, ip);
                         c = ip.getCategory();
-                    } else {
-                        c = ip.getCategory();
+                        break;
                     }
-                    break;
                 }
             }
             if (c == null) {
+                LOGGER.debug("Pattern was not found for {}. Setting Unknown category.");
                 e.setCategory(categoriesRepository.getUnknownCategory());
             } else {
                 e.setCategory(c);

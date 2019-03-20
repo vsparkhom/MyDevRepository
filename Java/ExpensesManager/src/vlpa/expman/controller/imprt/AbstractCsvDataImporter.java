@@ -12,13 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import org.apache.commons.lang3.StringUtils;
 
 public abstract class AbstractCsvDataImporter implements DataImporter {
 
-    private static final String FIELDS_SEPARATOR = ",";
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractCsvDataImporter.class);
 
-    private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    private SimpleDateFormat defaultDateFormatter = new SimpleDateFormat("MM/dd/yyyy");
     private boolean depositAllowed = false;
 
     @Override
@@ -36,7 +36,8 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
                 if (isHeaderPresent() && !isHeaderSkipped) {
                     isHeaderSkipped = true;
                 } else {
-                    String[] expensesData = line.split(FIELDS_SEPARATOR);
+                    line = removeExcessSeparatorsInMerchantField(line);
+                    String[] expensesData = line.split(getFieldsSeparator());
                     Date date = parseDate(expensesData[getTransactionDateFieldIndex()]);
                     String msg = expensesData[getMerchantFieldIndex()].trim();
                     double amount = parseAmount(expensesData[getAmountFieldIndex()]);
@@ -55,6 +56,25 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
         return expenses;
     }
 
+    private String removeExcessSeparatorsInMerchantField(String line) {
+        if (StringUtils.countMatches(line, getFieldsSeparator()) > getTotalFieldsNumber() - 1) {
+            int charIndexToDelete = StringUtils.ordinalIndexOf(line, getFieldsSeparator(),
+                    getMerchantFieldIndex() + 1);
+            StringBuilder tempBuffer = new StringBuilder(line);
+            tempBuffer.deleteCharAt(charIndexToDelete);
+            return tempBuffer.toString();
+        }
+        return line;
+    }
+
+    protected String getFieldsSeparator() {
+        return ",";
+    }
+
+    protected SimpleDateFormat getDateFormatter() {
+        return defaultDateFormatter;
+    }
+
     private double parseAmount(String value) {
         if (value == null || "".equals(value)) {
             return 0;
@@ -65,7 +85,7 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
     }
 
     private Date parseDate(String value) throws ParseException {
-        return formatter.parse(value);
+        return getDateFormatter().parse(value);
     }
 
     public void setDepositAllowed(boolean depositAllowed) {
@@ -77,6 +97,8 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
     }
 
     public abstract boolean isHeaderPresent();
+
+    public abstract int getTotalFieldsNumber();
 
     public abstract int getTransactionDateFieldIndex();
 

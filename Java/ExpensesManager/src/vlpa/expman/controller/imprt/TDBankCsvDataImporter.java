@@ -19,6 +19,11 @@ public class TDBankCsvDataImporter extends AbstractCsvDataImporter {
     }
 
     @Override
+    public int getTotalFieldsNumber() {
+        return 5;
+    }
+
+    @Override
     public int getTransactionDateFieldIndex() {
         return 0;
     }

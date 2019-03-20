@@ -29,7 +29,8 @@ public class ImportExpensesWindow {
 
     private List<BankType> accountTypes = Arrays.asList(
         BankType.TD_BANK_ACCOUNT,
-        BankType.PCF_BANK_ACCOUNT
+        BankType.PCF_BANK_ACCOUNT,
+        BankType.CAPITAL_ONE_BANK_ACCOUNT
     );
 
     public ImportExpensesWindow(UIBuilder builder) {
