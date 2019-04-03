@@ -23,6 +23,8 @@ create table expenses (
     merchant text null,
     amount float default '0' null,
     category_id integer,
+    bank text null,
+    description text null,
     foreign key (category_id) references categories(id)
 );
 
