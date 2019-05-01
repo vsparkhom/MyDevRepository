@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
+import vlpa.expman.view.modal.exception.ImportExpensesException;
 
 public abstract class AbstractCsvDataImporter implements DataImporter {
 
@@ -36,13 +37,14 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
                 if (isHeaderPresent() && !isHeaderSkipped) {
                     isHeaderSkipped = true;
                 } else {
-                    line = removeExcessSeparatorsInMerchantField(line);
+                    line = removeUnsupportedSymbols(line);
                     String[] expensesData = line.split(getFieldsSeparator());
                     Date date = parseDate(expensesData[getTransactionDateFieldIndex()]);
                     String msg = expensesData[getMerchantFieldIndex()].trim();
                     double amount = parseAmount(expensesData[getAmountFieldIndex()]);
                     if (amount > 0 || isDepositAllowed()) {
                         Expense e = new Expense(0, msg, date, amount, null);
+                        e.setBank(getBankName());
                         expenses.add(e);
                     } else {
                         LOGGER.warn("Deposit is not allowed. Skip line: {}", line);
@@ -52,8 +54,18 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
             LOGGER.info("Import has been finished successfully.");
         } catch (ParseException | IOException e) {
             LOGGER.error("Import can't be finished due to error", e);
+            throw new ImportExpensesException("Import can't be finished due to error", e);
         }
         return expenses;
+    }
+
+    private String removeUnsupportedSymbols(String rawExpensesDataLine) {
+        String resultExpensesDataLine = removeExcessSeparatorsInMerchantField(rawExpensesDataLine);
+        String[] unsupportedSymbols = {"\""};
+        for (String charToReplace : unsupportedSymbols) {
+            resultExpensesDataLine = resultExpensesDataLine.replaceAll(charToReplace, "");
+        }
+        return resultExpensesDataLine;
     }
 
     private String removeExcessSeparatorsInMerchantField(String line) {

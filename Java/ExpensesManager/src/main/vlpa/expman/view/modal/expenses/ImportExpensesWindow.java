@@ -13,6 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import vlpa.expman.controller.ImportProcessor;
 import vlpa.expman.controller.imprt.BankType;
+import vlpa.expman.dao.exception.ExpensesDatabaseOperationException;
 import vlpa.expman.view.UIBuilder;
 import vlpa.expman.view.modal.ModalWindowsHelper;
 
@@ -92,10 +93,20 @@ public class ImportExpensesWindow {
                         "Please select file with data to import").showAndWait();
             } else {
                 int selectedBankTypeIndex = accountTypesComboBox.getSelectionModel().getSelectedIndex();
-                importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));//TODO; wrap with import exception and show msg
-                stage.close();
-                ModalWindowsHelper.getInformationDialog("Expenses import status",
-                        "Expenses import has been successfully finished!").showAndWait();
+                try {
+                    importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));//TODO; wrap with import exception and show msg
+                    stage.close();
+                    ModalWindowsHelper.getInformationDialog("Expenses import status",
+                            "Expenses import has been successfully finished!").showAndWait();
+                } catch (ExpensesDatabaseOperationException e) {
+                    stage.close();
+                    ModalWindowsHelper.getErrorDialog("Expenses import error",
+                            "Some issue occurred during storing expenses to database. Please contact administrator.").showAndWait();
+                } catch (Exception e) {
+                    stage.close();
+                    ModalWindowsHelper.getErrorDialog("Expenses import error",
+                            "Some issue occurred during expenses import. Please contact administrator.").showAndWait();
+                }
             }
         });
         Button cancelButton = new Button("Cancel");

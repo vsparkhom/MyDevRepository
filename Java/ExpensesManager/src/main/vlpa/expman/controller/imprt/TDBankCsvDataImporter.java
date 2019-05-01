@@ -37,4 +37,9 @@ public class TDBankCsvDataImporter extends AbstractCsvDataImporter {
     public int getAmountFieldIndex() {
         return 2;
     }
+
+    @Override
+    public String getBankName() {
+        return BankType.TD_BANK_ACCOUNT.getName();
+    }
 }

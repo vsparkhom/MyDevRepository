@@ -21,14 +21,10 @@ public class Main extends Application {
 
     /**
      * TODO list:
-     * - [DONE] Add bank and description fields for expense
-     * - [DONE] Add Capital One bank
      * - Add pattern name
      * - Show Category Id, Limit in categories list
-     * - Add account name for imported expenses (TD, PCF etc.)
-     * - Implement JUnit tests for importer (at least)
+     * - Implement JUnit tests for Repository classes
      * - Set color for negative leftover for each category
-     * - Change button icons
      * - Add history/log of imports
      * - Add builders for Expense and ImportPattern classes
      */

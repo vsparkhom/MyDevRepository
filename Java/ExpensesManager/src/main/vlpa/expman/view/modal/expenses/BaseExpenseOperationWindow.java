@@ -62,6 +62,7 @@ public class BaseExpenseOperationWindow {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(builder.getPrimaryStage());
         stage.setTitle(getWindowTitle());
+        stage.setResizable(false);
 
         categories = processor.getAllCategories();
         categoriesData = FXCollections.observableArrayList();
@@ -116,7 +117,7 @@ public class BaseExpenseOperationWindow {
                 new Transformer<BankType, String>() {
                     @Override
                     public String transform(BankType i) {
-                        return i.name();
+                        return i.getName();
                     }
                 }));
         bankComboBox = new ComboBox<>(bankList);
@@ -240,7 +241,7 @@ public class BaseExpenseOperationWindow {
             Date expenseDate = ExpenseUtils.fromLocalDateToDate(getDate());
             Category selectedCategory = getCategories().get(selectedCategoryIndex);
 
-            String selectedBank = getBankComboBox().getSelectionModel().getSelectedItem().toString();
+            String selectedBank = (String) getBankComboBox().getSelectionModel().getSelectedItem();
             String description = getDescrTextArea().getText();
 
             Expense updatedExpense = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);

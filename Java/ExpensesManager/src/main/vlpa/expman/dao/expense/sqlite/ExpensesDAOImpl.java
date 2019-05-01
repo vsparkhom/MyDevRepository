@@ -6,6 +6,7 @@ import vlpa.expman.Main;
 import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.connection.ConnectionManager;
+import vlpa.expman.dao.exception.ExpensesDatabaseOperationException;
 import vlpa.expman.dao.expense.ExpensesDAO;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
@@ -69,6 +70,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.executeUpdate();
         } catch (Exception e) {
             LOGGER.error("Expense can't be added due to error", e);
+            throw new ExpensesDatabaseOperationException(e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -92,6 +94,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.executeUpdate();
         } catch (Exception e) {
             LOGGER.error("Expense can't be merged due to error", e);
+            throw new ExpensesDatabaseOperationException(e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -108,6 +111,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.executeUpdate();
         } catch (Exception e) {
             LOGGER.error("Expense can't be removed due to error", e);
+            throw new ExpensesDatabaseOperationException(e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }
@@ -130,6 +134,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.executeUpdate();
         } catch (Exception e) {
             LOGGER.error("Expense can't be updated due to error", e);
+            throw new ExpensesDatabaseOperationException(e);
         } finally {
             ConnectionManager.closeConnection(conn);
         }

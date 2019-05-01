@@ -46,4 +46,9 @@ public class CapitalOneBankCsvDataImporter extends AbstractCsvDataImporter {
     public SimpleDateFormat getDateFormatter() {
         return dateFormatter;
     }
+
+    @Override
+    public String getBankName() {
+        return BankType.CAPITAL_ONE_BANK_ACCOUNT.getName();
+    }
 }

@@ -20,21 +20,26 @@ public class PCFBankCsvDataImporter extends AbstractCsvDataImporter {
 
     @Override
     public int getTotalFieldsNumber() {
-        return 10;
+        return 5;
     }
 
     @Override
     public int getTransactionDateFieldIndex() {
-        return 0;
+        return 2;
     }
 
     @Override
     public int getMerchantFieldIndex() {
-        return 3;
+        return 0;
     }
 
     @Override
     public int getAmountFieldIndex() {
-        return 2;
+        return 4;
+    }
+
+    @Override
+    public String getBankName() {
+        return BankType.PCF_BANK_ACCOUNT.getName();
     }
 }
