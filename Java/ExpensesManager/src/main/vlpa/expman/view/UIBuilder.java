@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import vlpa.expman.controller.MainProcessor;
+import vlpa.expman.controller.ReportProcessor;
 import vlpa.expman.dao.DBConsts;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.Expense;
@@ -31,6 +32,7 @@ import vlpa.expman.view.modal.ModalWindowsHelper;
 
 import static vlpa.expman.view.UIDimensionsConst.*;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -127,17 +129,31 @@ public class UIBuilder {
         hbox.setPadding(new Insets(15, 12, 15, 12));
 //        hbox.setStyle("-fx-background-color: #336699;");
 
-        Button importButton = createMenuButton("Import expense", "img/import.png", event -> {
-            ModalWindowsHelper.getImportExpensesWindow(this).show();
-        });
+        Button importButton = createMenuButton("Import expense", "img/import.png",
+                event -> ModalWindowsHelper.showImportExpensesWindow(this));
 
-        Button addPatternButton = createMenuButton("Add pattern", "img/search.png", event -> {
-            ModalWindowsHelper.getPatternManagementWindow(this, processor).show();
-        });
+        Button addPatternButton = createMenuButton("Add pattern", "img/search.png",
+                event -> ModalWindowsHelper.showPatternManagementWindow(this, processor));
+
         Button addCategoryButton = createMenuButton("Manage categories", "img/chart_pie.png",
-                event -> ModalWindowsHelper.getCategoriesManagementWindow(UIBuilder.getInstance(), processor).show());
+                event -> ModalWindowsHelper.showCategoriesManagementWindow(UIBuilder.getInstance(), processor));
 
-        hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton);
+        Button reportButton = createMenuButton("Generate report", "img/excel.png",
+                event -> {
+                    ReportProcessor reportProcessor = new ReportProcessor();
+                    try {
+                        //TODO: get time interval
+
+                        reportProcessor.generateReport();
+                        ModalWindowsHelper.getInformationDialog("Report generation is successful",
+                                "Report for the last 5 months has been generated. You can find it in reports folder.").show();
+                    } catch (IOException e) {
+                        ModalWindowsHelper.getErrorDialog("Report generation is failed",
+                                "Report can't be generated due to following error: " + e.getMessage()).show();
+                    }
+                });
+
+        hbox.getChildren().addAll(importButton, addPatternButton, addCategoryButton, reportButton);
         return hbox;
     }
 
@@ -150,23 +166,25 @@ public class UIBuilder {
         manageExpensesButtonsPane = new HBox(10);
 
         Button addButton = createManageExpenseButton("Add", event -> {
-            ModalWindowsHelper.getAddExpenseWindow(this, processor).show();
+            ModalWindowsHelper.showAddExpenseWindow(this, processor);
         });
         Button removeButton = createManageExpenseButton("Remove", event -> {
-            Alert alert = ModalWindowsHelper.getConfirmationDialog(
-                    "Records about selected expense will be removed. Please confirm.",
-                    "Are you sure you want to remove expense?");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.OK){
-                Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
-                processor.removeExpense(expenseToRemove.getId());
-                updateView();
+            Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
+            if (expenseToRemove!= null) {
+                Alert alert = ModalWindowsHelper.getConfirmationDialog(
+                        "Records about selected expense will be removed. Please confirm.",
+                        "Are you sure you want to remove expense?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK){
+                    processor.removeExpense(expenseToRemove.getId());
+                    updateView();
+                }
             }
         });
         Button changeButton = createManageExpenseButton("Modify", event -> {
             Expense expenseToRemove = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
             if (expenseToRemove != null) {
-                ModalWindowsHelper.getModifyExpenseWindow(this, processor, expenseToRemove).show();
+                ModalWindowsHelper.showModifyExpenseWindow(this, processor, expenseToRemove);
             } else {
                 ModalWindowsHelper.getWarningDialog("Expense is not selected",
                         "Please select expense to modify").showAndWait();
@@ -301,7 +319,7 @@ public class UIBuilder {
             createPatternButton.setOnAction(event -> {
                 Expense selectedExpense = currentCategoryExpensesTable.getSelectionModel().getSelectedItem();
                 if (selectedExpense != null) {
-                    ModalWindowsHelper.getGeneratePatternWindow(this, processor, selectedExpense.getName()).show();
+                    ModalWindowsHelper.showGeneratePatternWindow(this, processor, selectedExpense.getName());
                 }
             });
             categoryDetailsTopPane.getChildren().add(createPatternButton);

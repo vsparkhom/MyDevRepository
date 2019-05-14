@@ -12,6 +12,6 @@ public class SQLiteConnectionType implements ConnectionType {
 
     @Override
     public String getUrl() {
-        return TEST_DB_PATH;
+        return PRODUCTION_DB_PATH;
     }
 }

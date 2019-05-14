@@ -2,16 +2,16 @@ package vlpa.expman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import vlpa.expman.controller.ImportProcessor;
 import vlpa.expman.controller.MainProcessor;
-import vlpa.expman.model.Category;
-import vlpa.expman.model.Expense;
+import vlpa.expman.controller.ReportProcessor;
 import vlpa.expman.model.ExpensesReport;
 import vlpa.expman.view.UIBuilder;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
         primaryStage.setTitle("Expenses Manager");
@@ -39,14 +39,24 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         LOGGER.info("Application has started.");
+
 //        ImportProcessor importProcessor = new ImportProcessor();
 //        importProcessor.importExpenses("res/import/td_credit_test.csv");
 
 //        testData();
+
         launch(args);
+
+//        generateReport();
+
         LOGGER.info("Application is closed.");
+    }
+
+    private static void generateReport() throws IOException {
+        ReportProcessor reportProcessor = new ReportProcessor();
+        reportProcessor.generateReport();
     }
 
     private static void testData() {

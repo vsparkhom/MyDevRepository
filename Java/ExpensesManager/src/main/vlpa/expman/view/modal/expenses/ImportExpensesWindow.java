@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import vlpa.expman.controller.ImportProcessor;
+import vlpa.expman.controller.imprt.ImportProcessor;
 import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.exception.ExpensesDatabaseOperationException;
 import vlpa.expman.view.UIBuilder;

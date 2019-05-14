@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.view.UIBuilder;
 
-import static vlpa.expman.controller.ImportProcessor.ANY_SYMBOL_TEMPLATE;
+import static vlpa.expman.controller.imprt.ImportProcessor.ANY_SYMBOL_TEMPLATE;
 
 public class GeneratePatternWindow<T extends String> extends AbstractBasicPatternOperationWindow<T> {
 

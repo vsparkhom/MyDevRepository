@@ -17,32 +17,32 @@ import vlpa.expman.view.modal.pattern.PatternManagementWindow;
 
 public class ModalWindowsHelper {
 
-    public static CategoriesManagementWindow getCategoriesManagementWindow(UIBuilder builder, MainProcessor processor) {
-        return new CategoriesManagementWindow(builder, processor);
+    public static void showCategoriesManagementWindow(UIBuilder builder, MainProcessor processor) {
+        new CategoriesManagementWindow(builder, processor).show();
     }
 
     public static <T extends Category> ModifyCategoryWindow<T> getModifyCategoryWindow(UIBuilder builder, T category) {
         return new ModifyCategoryWindow(builder, category);
     }
 
-    public static AddExpenseWindow getAddExpenseWindow(UIBuilder builder, MainProcessor processor) {
-        return new AddExpenseWindow(builder, processor);
+    public static void showAddExpenseWindow(UIBuilder builder, MainProcessor processor) {
+        new AddExpenseWindow(builder, processor).show();
     }
 
-    public static ModifyExpenseWindow getModifyExpenseWindow(UIBuilder builder, MainProcessor processor, Expense expense) {
-        return new ModifyExpenseWindow(builder, processor, expense);
+    public static void showModifyExpenseWindow(UIBuilder builder, MainProcessor processor, Expense expense) {
+        new ModifyExpenseWindow(builder, processor, expense).show();
     }
 
-    public static ImportExpensesWindow getImportExpensesWindow(UIBuilder builder) {
-        return new ImportExpensesWindow(builder);
+    public static void showImportExpensesWindow(UIBuilder builder) {
+        new ImportExpensesWindow(builder).show();
     }
 
-    public static GeneratePatternWindow<String> getGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
-        return new GeneratePatternWindow(builder, processor, expenseMerchant);
+    public static void showGeneratePatternWindow(UIBuilder builder, MainProcessor processor, String expenseMerchant) {
+        new GeneratePatternWindow(builder, processor, expenseMerchant).show();
     }
 
-    public static PatternManagementWindow getPatternManagementWindow(UIBuilder builder, MainProcessor processor) {
-        return new PatternManagementWindow(builder, processor);
+    public static void showPatternManagementWindow(UIBuilder builder, MainProcessor processor) {
+        new PatternManagementWindow(builder, processor).show();
     }
 
     public static <T extends ImportPattern> ModifyPatternWindow<T> getModifyPatternWindow(UIBuilder builder, MainProcessor processor, T pattern) {
