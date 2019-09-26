@@ -24,7 +24,6 @@ public class Main extends Application {
      * - Add pattern name
      * - Show Category Id, Limit in categories list
      * - Implement JUnit tests for Repository classes
-     * - Set color for negative leftover for each category
      * - Add history/log of imports
      * - Add builders for Expense and ImportPattern classes
      */

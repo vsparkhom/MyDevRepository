@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -267,14 +268,12 @@ public class UIBuilder {
         currentCategoryExpensesTable.setEditable(true);
 
         TableColumn dateColumn = new TableColumn("Date");
-        dateColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Expense, String>, ObservableValue<String>>() {//TODO: replace with lambda
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Expense, String> expense) {
-                SimpleStringProperty property = new SimpleStringProperty();
-                DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
-                property.setValue(dateFormat.format(expense.getValue().getDate()));
-                return property;
-            }
+        dateColumn.setSortType(TableColumn.SortType.ASCENDING);
+        dateColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Expense, String>, ObservableValue<String>>) expense -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+            property.setValue(dateFormat.format(expense.getValue().getDate()));
+            return property;
         });
 
         TableColumn merchantColumn = new TableColumn("Merchant");
@@ -291,6 +290,7 @@ public class UIBuilder {
 
         currentCategoryExpensesTable.setItems(currentCategoryExpensesList);
         currentCategoryExpensesTable.getColumns().addAll(dateColumn, merchantColumn, amountColumn, bankColumn, descriptionColumn);
+        currentCategoryExpensesTable.getSortOrder().add(dateColumn);
 
         final VBox vbox = new VBox(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
@@ -303,12 +303,20 @@ public class UIBuilder {
 
         ExpensesReport report = processor.getExpensesReportForCategory(categoryId, dpm.getStartDate(), dpm.getEndDate());
 
-        HBox categoryInfoPane = new HBox(10);
+        HBox categoryInfoPane = new HBox();
         categoryInfoPane.setPadding(new Insets(0, 10, 0, 0));
         categoryInfoPane.setAlignment(Pos.BOTTOM_RIGHT);
-        categoryInfoPane.getChildren().add(new Label("Limit: " + report.getCategory().getLimit()
-                + " / Spent: " + report.getCurrentAmount() + " (" + report.getUsagePercent() + " %) / Leftover: "
-                + report.getLeftover()));
+        int usagePercent = report.getUsagePercent();
+        Color colorByPercent = getColorByPercent(usagePercent);
+        Label spentValueLabel = new Label(report.getCurrentAmount() + " (" + usagePercent + " %)");
+        spentValueLabel.setTextFill(colorByPercent);
+        Label leftoverValueLabel = new Label(report.getLeftover() + "");
+        leftoverValueLabel.setTextFill(colorByPercent);
+        categoryInfoPane.getChildren().addAll(
+                new Label("Limit: " + report.getCategory().getLimit()+ " / Spent: "),
+                spentValueLabel, new Label(" / Leftover: "), leftoverValueLabel
+
+        );
         HBox.setHgrow(categoryInfoPane, Priority.ALWAYS);
 
         HBox categoryDetailsTopPane = new HBox(10);
@@ -447,7 +455,7 @@ public class UIBuilder {
         progressBarPane.setAlignment(Pos.CENTER);
         progressBarPane.setPrefWidth(PROGRESS_BAR_PANE_WIDTH);
         ProgressBar pb = new ProgressBar(usagePercent / 100.0);
-        String colorByPercent = getColorByPercent(usagePercent);
+        String colorByPercent = getColorNameByPercent(usagePercent);
         pb.setStyle("-fx-accent: " + colorByPercent);
         ProgressIndicator pi = new ProgressIndicator(usagePercent / 100.0);
         pi.setStyle("-fx-progress-color: " + colorByPercent);
@@ -455,12 +463,22 @@ public class UIBuilder {
         return progressBarPane;
     }
 
-    private String getColorByPercent(double perc) {
+    private String getColorNameByPercent(double percent) {
         String color = "green";
-        if (perc >= 60 && perc < 90) {
+        if (percent >= 60 && percent < 90) {
             color = "orange";
-        } else if (perc >= 90) {
+        } else if (percent >= 90) {
             color = "red";
+        }
+        return color;
+    }
+
+    private Color getColorByPercent(double percent) {
+        Color color = Color.GREEN;
+        if (percent >= 60 && percent < 90) {
+            color = Color.ORANGE;
+        } else if (percent >= 90) {
+            color = Color.RED;
         }
         return color;
     }
