@@ -1,6 +1,7 @@
 package vlpa.expman;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.controller.ReportProcessor;
@@ -22,7 +23,6 @@ public class Main extends Application {
     /**
      * TODO list:
      * - Add pattern name
-     * - Show Category Id, Limit in categories list
      * - Implement JUnit tests for Repository classes
      * - Add history/log of imports
      * - Add builders for Expense and ImportPattern classes
@@ -34,6 +34,7 @@ public class Main extends Application {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
         primaryStage.setTitle("Expenses Manager");
+        primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("img/icon.png")));
         primaryStage.setScene(UIBuilder.getInstance().buildPrimaryScene(primaryStage));
         primaryStage.show();
     }

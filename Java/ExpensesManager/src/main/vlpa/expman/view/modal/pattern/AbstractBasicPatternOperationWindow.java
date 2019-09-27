@@ -25,7 +25,7 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
 
     @Override
     public double getWidth() {
-        return 595;
+        return 590;
     }
 
     @Override

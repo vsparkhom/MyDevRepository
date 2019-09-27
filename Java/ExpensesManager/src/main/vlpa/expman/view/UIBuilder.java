@@ -85,18 +85,18 @@ public class UIBuilder {
         BorderPane rootPane = new BorderPane();
 
         Pane topMenu = buildTopMenu(stage);
-        addBorder(topMenu, "grey");
         topMenu.setPrefWidth(TOP_MENU_WIDTH);
         rootPane.setTop(topMenu);
 
         Pane leftMenu = buildLeftMenu();
-        addBorder(leftMenu, "grey");
+        addBorder(leftMenu, "#D8D8D8");
         leftMenu.setPrefWidth(LEFT_MENU_WIDTH);
         rootPane.setLeft(leftMenu);
 
         Pane center = currentCategoryId == 0 ? buildSummaryPane() : buildCategoryDetailsMainPane(currentCategoryId);
         center.setPrefWidth(CENTER_MENU_WIDTH);
         center.setPrefHeight(CENTER_MENU_HEIGHT);
+        addBorder(center, "#D8D8D8");
         rootPane.setCenter(center);
 
         return rootPane;
