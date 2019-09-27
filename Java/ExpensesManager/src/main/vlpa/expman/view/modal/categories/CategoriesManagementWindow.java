@@ -1,7 +1,9 @@
 package vlpa.expman.view.modal.categories;
 
+import javafx.beans.binding.DoubleBinding;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import vlpa.expman.controller.MainProcessor;
@@ -53,6 +55,35 @@ public class CategoriesManagementWindow<T extends Category> extends AbstractEnti
     }
 
     @Override
+    protected TableColumn[] getTableColumns() {
+        DoubleBinding smallColumnWidth = getExistingEntitiesTable().widthProperty().multiply(0.15);
+
+        TableColumn idColumn = new TableColumn("ID");
+        idColumn.setCellValueFactory(new PropertyValueFactory<T, String>("id"));
+        idColumn.setSortType(TableColumn.SortType.ASCENDING);
+        idColumn.prefWidthProperty().bind(smallColumnWidth);
+        idColumn.setResizable(false);
+
+        TableColumn nameColumn = new TableColumn("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<T, String>("name"));
+        nameColumn.prefWidthProperty().bind(getExistingEntitiesTable().widthProperty().subtract(
+                smallColumnWidth.multiply(2)).subtract(15));
+        nameColumn.setResizable(false);
+
+        TableColumn limitColumn = new TableColumn("Limit");
+        limitColumn.setCellValueFactory(new PropertyValueFactory<T, Double>("limit"));
+        limitColumn.prefWidthProperty().bind(smallColumnWidth);
+        limitColumn.setResizable(false);
+
+        return new TableColumn[]{idColumn, nameColumn, limitColumn};
+    }
+
+    @Override
+    protected int getSortingColumnIndex() {
+        return 0;
+    }
+
+    @Override
     protected String getWindowTitle() {
         return "Manage categories";
     }
@@ -80,7 +111,7 @@ public class CategoriesManagementWindow<T extends Category> extends AbstractEnti
             throw new EntityValidationException("Category", "Category name and limit should not be empty!");
         }
 
-        double limit = 0;
+        double limit;
         try {
             limit = Double.parseDouble(limitInputText);
         } catch (NumberFormatException e) {
@@ -114,22 +145,6 @@ public class CategoriesManagementWindow<T extends Category> extends AbstractEnti
     @Override
     protected List<T> loadEntities() {
         return (List<T>) getProcessor().getAllCategories();
-    }
-
-    @Override
-    protected String getListValueForEntity(T entity) {
-        return entity.getName();
-    }
-
-    @Override
-    protected boolean areEntitiesEqual(T category1, T category2) {
-        return category1.getId() == category2.getId();
-    }
-
-    @Override
-    protected void updateEntityParameters(T fromCategory, T toCategory) {
-        toCategory.setName(fromCategory.getName());
-        toCategory.setLimit(fromCategory.getLimit());
     }
 
     @Override

@@ -3,7 +3,6 @@ package vlpa.expman.view.modal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -21,14 +20,12 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractEntityManagementWindow.class);
 
-    private List<T> entities;
-    private ObservableList<String> entitiesData;
-
     private List<T> addedEntities = new LinkedList<>();
     private List<T> removedEntities = new LinkedList<>();
     private List<T> updatedEntities = new LinkedList<>();
 
-    private ListView<String> existingEntitiesList;
+    private ObservableList<T> existingEntitiesList;
+    private TableView<T> existingEntitiesTable;
 
     public AbstractEntityManagementWindow(UIBuilder builder, MainProcessor processor) {
         super(builder, processor, null);
@@ -36,9 +33,12 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     @Override
     protected void init() {
-        entities = loadEntities();
-        entitiesData = loadEntitiesData();
+        existingEntitiesList = loadEntitiesInternal();
         super.init();
+    }
+
+    public ObservableList<T> getExistingEntitiesList() {
+        return existingEntitiesList;
     }
 
     @Override
@@ -53,11 +53,26 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     protected HBox getExistingEntitiesPane() {
         HBox existingEntitiesPane = new HBox(5);
-        existingEntitiesList = new ListView<>(getEntitiesData());
-        existingEntitiesList.setPrefSize(400, 250);
-        existingEntitiesPane.getChildren().addAll(existingEntitiesList, getExistingEntitiesButtonPanel());
+        existingEntitiesTable = new TableView<>();
+        existingEntitiesTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        existingEntitiesTable.setEditable(true);
+        existingEntitiesTable.setPrefSize(getWidth() - 135, 250);
+        existingEntitiesTable.setItems(getExistingEntitiesList());
+        TableColumn[] tableColumns = getTableColumns();
+        if (tableColumns !=null && tableColumns.length != 0) {
+            existingEntitiesTable.getColumns().addAll(tableColumns);
+            int sortingColumnIndex = getSortingColumnIndex();
+            if (sortingColumnIndex >= 0 && sortingColumnIndex < tableColumns.length) {
+                existingEntitiesTable.getSortOrder().add(tableColumns[sortingColumnIndex]);
+            }
+        }
+        existingEntitiesPane.getChildren().addAll(existingEntitiesTable, getExistingEntitiesButtonPanel());
         return existingEntitiesPane;
     }
+
+    protected abstract TableColumn[] getTableColumns();
+
+    protected abstract int getSortingColumnIndex();
 
     protected Pane getExistingEntitiesButtonPanel() {
         VBox existingEntitiesButtonPanel = new VBox(5);
@@ -79,8 +94,7 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
             try {
                 validateData();
                 T newEntity = createNewEntity();
-                getEntities().add(newEntity);
-                getEntitiesData().add(getListValueForEntity(newEntity));
+                getExistingEntitiesList().add(newEntity);
                 getAddedEntities().add(newEntity);
                 clearInputFields();
             } catch (EntityValidationException eve) {
@@ -108,39 +122,25 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
         return new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                int selectedIndex = getExistingEntitiesList().getSelectionModel().getSelectedIndex();
-                if (selectedIndex < 0) {
-                    return;
-                }
-                String removedEntityName = getEntitiesData().remove(selectedIndex);
-                boolean temporarilyAdded = removeFromAddedList(removedEntityName);
-                if (!temporarilyAdded) {
-                    deleteFromRemovedList(removedEntityName);
-                }
-            }
-
-            private boolean removeFromAddedList(String entityName) {
-                boolean temporarilyAdded = false;
-                for (int i = 0; i < getAddedEntities().size(); i++) {
-                    T addedEntity = getAddedEntities().get(i);
-                    if (getListValueForEntity(addedEntity).equals(entityName)) {
-                        temporarilyAdded = true;
-                        getAddedEntities().remove(i);
-                        break;
+                T expenseToRemove = getExistingEntitiesTable().getSelectionModel().getSelectedItem();
+                if (expenseToRemove!= null) {
+                    getExistingEntitiesTable().getItems().removeAll(expenseToRemove);
+                    if (!removeFromAddedList(expenseToRemove)) {
+                        getRemovedEntities().add(expenseToRemove);
                     }
                 }
-                return temporarilyAdded;
             }
 
-            private void deleteFromRemovedList(String removedEntityName) {
-                for (Iterator<T> iterator = getEntities().iterator(); iterator.hasNext(); ) {
+            private boolean removeFromAddedList(T entityForRemoval) {
+                Iterator<T> iterator = getAddedEntities().iterator();
+                for (; iterator.hasNext();) {
                     T e = iterator.next();
-                    if (getListValueForEntity(e).equals(removedEntityName)) {
-                        getRemovedEntities().add(e);
+                    if (e.equals(entityForRemoval)) {
                         iterator.remove();
-                        break;
+                        return true;
                     }
                 }
+                return false;
             }
         };
     }
@@ -157,71 +157,31 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
 
     protected EventHandler<ActionEvent> getModifyAction() {
         return event -> {
-            int index = getExistingEntitiesList().getSelectionModel().getSelectedIndex();
-            if (index < 0) {
-                return;
+            TableView.TableViewSelectionModel<T> selectionModel = getExistingEntitiesTable().getSelectionModel();
+            int selectedIndex = selectionModel.getSelectedIndex();
+            T selectedEntity = selectionModel.getSelectedItem();
+            if (selectedEntity != null) {
+                AbstractBasicOperationWindow<T> modifyActionWindow = getModifyActionWindow(selectedEntity);
+                modifyActionWindow.setApplyActionHandler((EventHandler) e -> {
+                    if (modifyActionWindow.isChanged()) {
+                        getExistingEntitiesTable().getItems().set(selectedIndex, selectedEntity);
+                        getUpdatedEntities().add(selectedEntity);
+                    }
+                });
+                modifyActionWindow.show();
             }
-            T entity = getEntities().get(index);
-            AbstractBasicOperationWindow<T> modifyActionWindow = getModifyActionWindow(entity);
-            modifyActionWindow.setApplyActionHandler(getModifyActionInternal(index, entity, modifyActionWindow));
-            modifyActionWindow.show();
         };
     }
 
     protected abstract AbstractBasicOperationWindow<T> getModifyActionWindow(T entity);
 
-    protected EventHandler getModifyActionInternal(int index, T entity, AbstractBasicOperationWindow<T> modifyEntityWindow) {
-        return new EventHandler() {
-            @Override
-            public void handle(Event event) {
-                if (modifyEntityWindow.isChanged()) {
-                    T updatedEntity = modifyEntityWindow.getDataObject();
-                    updateEntityParameters(updatedEntity, entity);
-                    getEntitiesData().set(index, getListValueForEntity(updatedEntity));
-                    addEntityToUpdatedList(entity);
-                }
-            }
-
-            private void addEntityToUpdatedList(T entityToAdd) {
-                boolean isExist = false;
-                for (T e : getUpdatedEntities()) {
-                    if (areEntitiesEqual(e, entityToAdd)) {
-                        updateEntityParameters(entityToAdd, e);
-                        isExist = true;
-                        break;
-                    }
-                }
-                if (!isExist) {
-                    getUpdatedEntities().add(entity);
-                }
-            }
-        };
-    }
-
     protected abstract String getWindowTitle();
 
     protected abstract List<T> loadEntities();
 
-    protected abstract boolean areEntitiesEqual(T e1, T e2);
-
-    protected abstract void updateEntityParameters(T fromEntity, T toEntity);
-
-    protected ObservableList<String> loadEntitiesData() {
-        ObservableList<String> entitiesData = FXCollections.observableArrayList();
-        for (T entity : getEntities()) {
-            entitiesData.add(getListValueForEntity(entity));
-        }
-        return entitiesData;
-    }
-
-    protected abstract String getListValueForEntity(T entity);
-
-    public List<T> getEntities() {
-        return entities;
-    }
-
-    public ObservableList<String> getEntitiesData() {
-        return entitiesData;
+    private ObservableList<T> loadEntitiesInternal() {
+        List<T> entities = loadEntities();
+        return FXCollections.observableArrayList(entities);
     }
 
     public List<T> getAddedEntities() {
@@ -236,8 +196,8 @@ public abstract class AbstractEntityManagementWindow<T> extends AbstractBasicOpe
         return updatedEntities;
     }
 
-    public ListView<String> getExistingEntitiesList() {
-        return existingEntitiesList;
+    public TableView<T> getExistingEntitiesTable() {
+        return existingEntitiesTable;
     }
 
     @Override

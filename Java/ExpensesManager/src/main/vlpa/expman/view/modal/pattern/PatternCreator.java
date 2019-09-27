@@ -1,6 +1,5 @@
 package vlpa.expman.view.modal.pattern;
 
-import javafx.scene.control.RadioButton;
 import vlpa.expman.model.Category;
 import vlpa.expman.model.ImportPattern;
 import vlpa.expman.model.PatternPriority;
@@ -20,7 +19,7 @@ public class PatternCreator {
     }
 
     private static PatternType getPatternType(PatternDataWindow window) {
-        String selectedType = ((RadioButton) window.getPatternTypeRadioButtonGroup().getSelectedToggle()).getText();
+        String selectedType = window.getPatternTypesComboBox().getSelectionModel().getSelectedItem();
         return PatternType.getPatternTypeByDisplayName(selectedType);
     }
 

@@ -1,9 +1,14 @@
 package vlpa.expman.view.modal.pattern;
 
+import javafx.beans.binding.DoubleBinding;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.util.Callback;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.ImportPattern;
 import vlpa.expman.view.UIBuilder;
@@ -33,6 +38,11 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
     @Override
     public double getHeight() {
         return 430;
+    }
+
+    @Override
+    public double getWidth() {
+        return 700;
     }
 
     @Override
@@ -70,18 +80,88 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
 
     @Override
     protected void validateData() {
-        String patternText = getPatternDataWindow().getPatternTextInput().getText();
-        if (isEmpty(patternText)) {
-            throw new EntityValidationException("Pattern", "Pattern text should not be empty!");
+        PatternDataWindow patternDataWindow = getPatternDataWindow();
+        validateTextFieldValue(patternDataWindow.getPatternTextInput(), "Pattern text should not be empty!");
+        validateComboBoxValueIsSelected(patternDataWindow.getCategoriesComboBox(), "Please select category for pattern!");
+        validateComboBoxValueIsSelected(patternDataWindow.getPrioritiesComboBox(), "Please select priority for pattern!");
+        validateComboBoxValueIsSelected(patternDataWindow.getPatternTypesComboBox(), "Please select pattern type!");
+    }
+
+    private void validateTextFieldValue(TextField input, String message) {
+        if (isEmpty(input.getText())) {
+            throw new EntityValidationException("Pattern", message);
         }
-        int categorySelectedIndex = getPatternDataWindow().getCategoriesComboBox().getSelectionModel().getSelectedIndex();
+    }
+
+    private void validateComboBoxValueIsSelected(ComboBox<String> comboBox, String message) {
+        int categorySelectedIndex = comboBox.getSelectionModel().getSelectedIndex();
         if (categorySelectedIndex < 0) {
-            throw new EntityValidationException("Pattern", "Please select category for pattern!");
+            throw new EntityValidationException("Pattern", message);
         }
-        int prioritySelectedIndex = getPatternDataWindow().getPrioritiesComboBox().getSelectionModel().getSelectedIndex();
-        if (prioritySelectedIndex < 0) {
-            throw new EntityValidationException("Pattern", "Please select priority for pattern!");
-        }
+    }
+
+    @Override
+    protected TableColumn[] getTableColumns() {
+        DoubleBinding smallColumnWidth = getExistingEntitiesTable().widthProperty().multiply(0.10);
+
+        TableColumn idColumn = new TableColumn("ID");
+        idColumn.setCellValueFactory(new PropertyValueFactory<T, String>("id"));
+        idColumn.setSortType(TableColumn.SortType.ASCENDING);
+        idColumn.prefWidthProperty().bind(smallColumnWidth);
+        idColumn.setResizable(false);
+
+        TableColumn patternColumn = new TableColumn("Pattern");
+        patternColumn.setCellValueFactory(new PropertyValueFactory<T, String>("text"));
+        patternColumn.prefWidthProperty().bind(getExistingEntitiesTable().widthProperty().subtract(
+                smallColumnWidth.multiply(5)).subtract(15));
+        patternColumn.setResizable(false);
+
+        TableColumn categoryColumn = new TableColumn("Category");
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<T, Double>("category"));
+        categoryColumn.prefWidthProperty().bind(smallColumnWidth);
+        categoryColumn.setResizable(false);
+        categoryColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>>) pattern -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            property.setValue(pattern.getValue().getCategory().getName());
+            return property;
+        });
+
+        TableColumn typeColumn = new TableColumn("Type");
+        typeColumn.setCellValueFactory(new PropertyValueFactory<T, Double>("type"));
+        typeColumn.prefWidthProperty().bind(smallColumnWidth);
+        typeColumn.setResizable(false);
+        typeColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>>) pattern -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            property.setValue(pattern.getValue().getType().getDisplayName());
+            return property;
+        });
+
+        TableColumn priorityColumn = new TableColumn("Priority");
+        priorityColumn.setCellValueFactory(new PropertyValueFactory<T, Double>("priority"));
+        priorityColumn.prefWidthProperty().bind(smallColumnWidth);
+        priorityColumn.setResizable(false);
+        priorityColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>>) pattern -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            property.setValue(pattern.getValue().getPriority().name());
+            return property;
+        });
+
+        TableColumn amountColumn = new TableColumn("Amount");
+        amountColumn.setCellValueFactory(new PropertyValueFactory<T, Double>("amount"));
+        amountColumn.prefWidthProperty().bind(smallColumnWidth);
+        amountColumn.setResizable(false);
+        amountColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>>) pattern -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            property.setValue(pattern.getValue().getAmount() + "");
+            return property;
+        });
+
+        return new TableColumn[]{idColumn, patternColumn, categoryColumn, typeColumn, priorityColumn, amountColumn};
+    }
+
+    @Override
+    protected int getSortingColumnIndex() {
+        return 2;
     }
 
     @Override
@@ -103,22 +183,6 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
     @Override
     protected List<T> loadEntities() {
         return (List<T>) getProcessor().getAllPatterns();
-    }
-
-    @Override
-    protected boolean areEntitiesEqual(T pattern1, T pattern2) {
-        return pattern1.getId() == pattern2.getId();
-    }
-
-    @Override
-    protected void updateEntityParameters(T fromEntity, T toEntity) {
-        toEntity.setText(fromEntity.getText());
-        toEntity.setCategory(fromEntity.getCategory());
-    }
-
-    @Override
-    protected String getListValueForEntity(T entity) {
-        return entity.getText();
     }
 
     @Override

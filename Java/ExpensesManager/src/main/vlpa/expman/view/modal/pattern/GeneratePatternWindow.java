@@ -37,6 +37,11 @@ public class GeneratePatternWindow<T extends String> extends AbstractBasicPatter
     }
 
     @Override
+    protected void selectProperType() {
+        getPatternDataWindow().getPatternTypesComboBox().getSelectionModel().selectFirst();
+    }
+
+    @Override
     public void fillFieldsWithData() {
         super.fillFieldsWithData();
         getPatternDataWindow().getPatternTextInput().setText(ANY_SYMBOL_TEMPLATE + getDataObject().replaceAll(" ", ANY_SYMBOL_TEMPLATE)

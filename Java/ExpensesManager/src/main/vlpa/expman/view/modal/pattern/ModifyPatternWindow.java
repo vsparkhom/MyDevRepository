@@ -2,8 +2,6 @@ package vlpa.expman.view.modal.pattern;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
 import vlpa.expman.controller.MainProcessor;
 import vlpa.expman.model.ImportPattern;
 import vlpa.expman.model.PatternType;
@@ -82,27 +80,18 @@ public class ModifyPatternWindow<T extends ImportPattern> extends AbstractBasicP
         return -1;
     }
 
-    private void selectProperType() {
+    @Override
+    protected void selectProperType() {
         getPatternDataWindow().getPatternTextInput().setText(getDataObject().getText());
-        for (Toggle t : getPatternDataWindow().getPatternTypeRadioButtonGroup().getToggles()) {
-            RadioButton rb = (RadioButton) t;
-            if (rb.getText().equals(getDataObject().getType().getDisplayName())) {
-                getPatternDataWindow().getPatternTypeRadioButtonGroup().selectToggle(t);
-                if (PatternType.AMOUNT == PatternType.getPatternTypeByDisplayName(rb.getText())) {
-                    getPatternDataWindow().getAmountInput().setDisable(false);
-                }
-            }
+        String displayName = getDataObject().getType().getDisplayName();
+        getPatternDataWindow().getPatternTypesComboBox().getSelectionModel().select(displayName);
+        if (PatternType.AMOUNT == PatternType.getPatternTypeByDisplayName(displayName)) {
+            getPatternDataWindow().getAmountInput().setDisable(false);
         }
     }
 
-    private void selectAmount() {
+    protected void selectAmount() {
         getPatternDataWindow().getAmountInput().setText(getDataObject().getAmount() + "");
     }
 
-    @Override
-    public void fillFieldsWithData() {
-        super.fillFieldsWithData();
-        selectProperType();
-        selectAmount();
-    }
 }

@@ -263,7 +263,8 @@ public class UIBuilder {
     private Pane buildCategoryDetailsMainPane(long categoryId) {
         currentCategoryExpensesTable = new TableView<>();
         currentCategoryExpensesTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        ObservableList<Expense> currentCategoryExpensesList = FXCollections.observableArrayList(processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
+        ObservableList<Expense> currentCategoryExpensesList = FXCollections.observableArrayList(
+                processor.getExpensesByCategoryId(categoryId, dpm.getStartDate(), dpm.getEndDate()));
 
         currentCategoryExpensesTable.setEditable(true);
 

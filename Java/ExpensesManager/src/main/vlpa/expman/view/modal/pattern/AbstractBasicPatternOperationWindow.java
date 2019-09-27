@@ -24,6 +24,16 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
     }
 
     @Override
+    public double getWidth() {
+        return 595;
+    }
+
+    @Override
+    public double getHeight() {
+        return 105;
+    }
+
+    @Override
     protected List<Node> getMainPaneComponents() {
         return Arrays.asList(getPatternDataWindow());
     }
@@ -32,6 +42,8 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
     public void fillFieldsWithData() {
         selectProperCategory();
         selectProperPriority();
+        selectProperType();
+        selectAmount();
     }
 
     protected void selectProperCategory() {
@@ -42,4 +54,11 @@ public abstract class AbstractBasicPatternOperationWindow<T> extends AbstractBas
         //DO NOTHING
     }
 
+    protected void selectProperType() {
+        //DO NOTHING
+    }
+
+    protected void selectAmount() {
+        //DO NOTHING
+    }
 }
