@@ -143,8 +143,6 @@ public class UIBuilder {
                 event -> {
                     ReportProcessor reportProcessor = new ReportProcessor();
                     try {
-                        //TODO: get time interval
-
                         reportProcessor.generateReport();
                         ModalWindowsHelper.getInformationDialog("Report generation is successful",
                                 "Report for the last 5 months has been generated. You can find it in reports folder.").show();

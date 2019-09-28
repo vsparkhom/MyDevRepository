@@ -9,21 +9,21 @@ public class ImportPattern {
     private PatternPriority priority;
     private double amount;
 
-    public ImportPattern() {
-    }
-
-    public ImportPattern(long id, String text, Category category, PatternType type) {
-        this(id, text, category, type, PatternPriority.MEDIUM, 0);
-    }
-
-    public ImportPattern(long id, String text, Category category, PatternType type, PatternPriority priority, double amount) {
-        this.id = id;
-        this.text = text;
-        this.category = category;
-        this.type = type;
-        this.priority = priority;
-        this.amount = amount;
-    }
+//    private ImportPattern() {
+//    }
+//
+//    private ImportPattern(long id, String text, Category category, PatternType type) {
+//        this(id, text, category, type, PatternPriority.MEDIUM, 0);
+//    }
+//
+//    private ImportPattern(long id, String text, Category category, PatternType type, PatternPriority priority, double amount) {
+//        this.id = id;
+//        this.text = text;
+//        this.category = category;
+//        this.type = type;
+//        this.priority = priority;
+//        this.amount = amount;
+//    }
 
     public long getId() {
         return id;
@@ -73,6 +73,10 @@ public class ImportPattern {
         this.amount = amount;
     }
 
+    public static Builder builder() {
+        return new ImportPattern().new Builder();
+    }
+
     @Override
     public String toString() {
         return "ImportPattern{" +
@@ -83,5 +87,45 @@ public class ImportPattern {
                 ", priority=" + priority +
                 ", amount=" + amount +
                 '}';
+    }
+
+    public class Builder {
+
+        private Builder() {
+        }
+
+        public ImportPattern build() {
+            return ImportPattern.this;
+        }
+
+        public Builder setId(long id) {
+            ImportPattern.this.id = id;
+            return this;
+        }
+
+        public Builder setText(String text) {
+            ImportPattern.this.text = text;
+            return this;
+        }
+
+        public Builder setCategory(Category category) {
+            ImportPattern.this.category = category;
+            return this;
+        }
+
+        public Builder setType(PatternType type) {
+            ImportPattern.this.type = type;
+            return this;
+        }
+
+        public Builder setPriority(PatternPriority priority) {
+            ImportPattern.this.priority = priority;
+            return this;
+        }
+
+        public Builder setAmount(double amount) {
+            ImportPattern.this.amount = amount;
+            return this;
+        }
     }
 }

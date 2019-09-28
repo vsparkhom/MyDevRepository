@@ -61,7 +61,7 @@ public class CategoriesDAOImpl implements CategoriesDAO {
 
     @Override
     public void removeCategory(long categoryId) {
-        LOGGER.debug("Removing category with id {}", categoryId);
+        LOGGER.info("Removing category with id {}", categoryId);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -77,7 +77,7 @@ public class CategoriesDAOImpl implements CategoriesDAO {
 
     @Override
     public void updateCategory(Category category) {
-        LOGGER.debug("Updating category: {}", category);
+        LOGGER.info("Updating category: {}", category);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();

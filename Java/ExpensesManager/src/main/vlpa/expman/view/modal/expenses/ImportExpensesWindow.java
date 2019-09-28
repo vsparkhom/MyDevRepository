@@ -94,7 +94,7 @@ public class ImportExpensesWindow {
             } else {
                 int selectedBankTypeIndex = accountTypesComboBox.getSelectionModel().getSelectedIndex();
                 try {
-                    importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));//TODO; wrap with import exception and show msg
+                    importProcessor.importExpenses(fileLocation, accountTypes.get(selectedBankTypeIndex));
                     stage.close();
                     ModalWindowsHelper.getInformationDialog("Expenses import status",
                             "Expenses import has been successfully finished!").showAndWait();

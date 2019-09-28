@@ -37,7 +37,14 @@ public class ImportPatternsDAOImpl implements ImportPatternsDAO {
                 PatternPriority priority = PatternPriority.getPatternPriorityById(rs.getLong("priority"));
                 double amount = rs.getDouble("amount");
                 Category fakeCategory = new Category(categoryId, null, 0);
-                mapping.add(new ImportPattern(id, text, fakeCategory, PatternType.getPatternTypeById(typeId), priority, amount));
+                mapping.add(ImportPattern.builder()
+                        .setId(id)
+                        .setText(text)
+                        .setCategory(fakeCategory)
+                        .setType(PatternType.getPatternTypeById(typeId))
+                        .setPriority(priority)
+                        .setAmount(amount).build()
+                );
             }
             return mapping;
         } catch (Exception e) {
@@ -50,7 +57,7 @@ public class ImportPatternsDAOImpl implements ImportPatternsDAO {
 
     @Override
     public void addPattern(ImportPattern p) {
-        LOGGER.debug("Adding pattern: {}", p);
+        LOGGER.info("Adding pattern: {}", p);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -70,7 +77,7 @@ public class ImportPatternsDAOImpl implements ImportPatternsDAO {
 
     @Override
     public void removePattern(long id) {
-        LOGGER.debug("Removing pattern with id: {}", id);
+        LOGGER.info("Removing pattern with id: {}", id);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -85,7 +92,7 @@ public class ImportPatternsDAOImpl implements ImportPatternsDAO {
     }
 
     public void updatePattern(ImportPattern pattern) {
-        LOGGER.debug("Updating pattern by id: {}", pattern);
+        LOGGER.info("Updating pattern by id: {}", pattern);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();

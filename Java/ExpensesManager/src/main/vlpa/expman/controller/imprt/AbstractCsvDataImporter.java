@@ -43,8 +43,11 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
                     String msg = expensesData[getMerchantFieldIndex()].trim();
                     double amount = parseAmount(expensesData[getAmountFieldIndex()]);
                     if (amount > 0 || isDepositAllowed()) {
-                        Expense e = new Expense(0, msg, date, amount, null);
-                        e.setBank(getBankName());
+                        Expense e = Expense.builder()
+                                .setName(msg)
+                                .setDate(date)
+                                .setAmount(amount)
+                                .setBank(getBankName()).build();
                         expenses.add(e);
                     } else {
                         LOGGER.warn("Deposit is not allowed. Skip line: {}", line);

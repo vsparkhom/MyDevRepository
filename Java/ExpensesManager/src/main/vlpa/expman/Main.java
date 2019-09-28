@@ -22,9 +22,8 @@ public class Main extends Application {
 
     /**
      * TODO list:
-     * - Add pattern name
      * - Implement JUnit tests for Repository classes
-     * - Add history/log of imports
+     * - Add history/log of operations
      * - Add builders for Expense and ImportPattern classes
      */
 

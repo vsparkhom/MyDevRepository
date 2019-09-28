@@ -244,9 +244,13 @@ public class BaseExpenseOperationWindow {
             String selectedBank = (String) getBankComboBox().getSelectionModel().getSelectedItem();
             String description = getDescrTextArea().getText();
 
-            Expense updatedExpense = new Expense(0, expenseName, expenseDate, expenseAmount, selectedCategory);
-            updatedExpense.setBank(selectedBank);
-            updatedExpense.setDescription(description);
+            Expense updatedExpense = Expense.builder()
+                    .setName(expenseName)
+                    .setDate(expenseDate)
+                    .setAmount(expenseAmount)
+                    .setCategory(selectedCategory)
+                    .setBank(selectedBank)
+                    .setDescription(description).build();
 
             performApplyActions(updatedExpense);
         };

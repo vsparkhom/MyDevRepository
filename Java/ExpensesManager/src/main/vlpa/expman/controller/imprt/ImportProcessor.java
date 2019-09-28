@@ -91,7 +91,10 @@ public class ImportProcessor {
        Otherwise only first transaction will be saved and others will be skipped.
      */
     protected void storeExpenses(Collection<Expense> expenses) {
-        expensesRepository.addExpenses(expenses, true);
+        expensesRepository.addExpenses(expenses, isMergeAllowed());
     }
 
+    private boolean isMergeAllowed() {
+        return true;
+    }
 }

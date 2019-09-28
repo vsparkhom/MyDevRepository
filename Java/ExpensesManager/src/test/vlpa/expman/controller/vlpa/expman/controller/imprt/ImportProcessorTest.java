@@ -34,6 +34,35 @@ public class ImportProcessorTest {
         doReturn(Collections.emptyList()).when(importProcessorInstance).importExpensesFromFile(any(String.class), any(BankType.class));
     }
 
+    private Expense buildExpense(long id, String name, Date date, double amount, Category category) {
+        return Expense.builder()
+                .setId(id)
+                .setName(name)
+                .setDate(date)
+                .setAmount(amount)
+                .setCategory(category).build();
+    }
+
+    private ImportPattern buildPattern(long id, String text, Category category) {
+        return buildPattern(id, text, category, PatternType.REGULAR, PatternPriority.MEDIUM, 0);
+    }
+
+    private ImportPattern buildPattern(long id, String text, Category category, PatternType type,
+            PatternPriority priority) {
+        return buildPattern(id, text, category, type, priority, 0);
+    }
+
+    private ImportPattern buildPattern(long id, String text, Category category, PatternType type,
+            PatternPriority priority, double amount) {
+        return ImportPattern.builder()
+                .setId(id)
+                .setText(text)
+                .setCategory(category)
+                .setType(type)
+                .setPriority(priority)
+                .setAmount(amount).build();
+    }
+
     @Test
     public void testImportExpenses_checkMethodsCalled() {
 
@@ -53,10 +82,10 @@ public class ImportProcessorTest {
         Category category4 = new Category(50, "Fourth Category", 1000.0);
 
         List<ImportPattern> patternsList = Arrays.asList(
-                new ImportPattern(2, "%PATTERN%2%", category2, PatternType.REGULAR, PatternPriority.LOW, 0),
-                new ImportPattern(1, "%PATTERN%1%", category1, PatternType.REGULAR),
-                new ImportPattern(4, "%PATTERN%4%", category4, PatternType.REGULAR, PatternPriority.CRITICAL, 0),
-                new ImportPattern(3, "%PATTERN%3%", category3, PatternType.REGULAR, PatternPriority.HIGH, 0)
+                buildPattern(2, "%PATTERN%2%", category2, PatternType.REGULAR, PatternPriority.LOW),
+                buildPattern(1, "%PATTERN%1%", category1),
+                buildPattern(4, "%PATTERN%4%", category4, PatternType.REGULAR, PatternPriority.CRITICAL),
+                buildPattern(3, "%PATTERN%3%", category3, PatternType.REGULAR, PatternPriority.HIGH)
         );
 
         doReturn(patternsList).when(categoriesRepositorySpy).getAllPatterns();
@@ -81,19 +110,19 @@ public class ImportProcessorTest {
         Category category4 = new Category(50, "Fourth Category", 1000.0);
 
         List<ImportPattern> patternsList = Arrays.asList(
-                new ImportPattern(1, "%PATTERN%1%", category1, PatternType.REGULAR),
-                new ImportPattern(2, "%PATTERN%2%", category2, PatternType.REGULAR, PatternPriority.LOW, 0),
-                new ImportPattern(3, "%PATTERN%3%", category3, PatternType.REGULAR, PatternPriority.HIGH, 0),
-                new ImportPattern(4, "%PATTERN%4%", category4, PatternType.REGULAR, PatternPriority.CRITICAL, 0)
+                buildPattern(1, "%PATTERN%1%", category1),
+                buildPattern(2, "%PATTERN%2%", category2, PatternType.REGULAR, PatternPriority.LOW),
+                buildPattern(3, "%PATTERN%3%", category3, PatternType.REGULAR, PatternPriority.HIGH),
+                buildPattern(4, "%PATTERN%4%", category4, PatternType.REGULAR, PatternPriority.CRITICAL)
         );
         doReturn(patternsList).when(categoriesRepositorySpy).getAllPatterns();
 
         List<Expense> expensesList = Arrays.asList(
-                new Expense(13, "Pattern 3 Expense", new Date(), 103, null),
-                new Expense(11, "Pattern 1 Expense", new Date(), 101, null),
-                new Expense(15, "Uncategorized Expense", new Date(), 105, null),
-                new Expense(14, "Pattern 4 Expense", new Date(), 104, null),
-                new Expense(12, "Pattern 2 Expense", new Date(), 102, null)
+                buildExpense(13, "Pattern 3 Expense", new Date(), 103, null),
+                buildExpense(11, "Pattern 1 Expense", new Date(), 101, null),
+                buildExpense(15, "Uncategorized Expense", new Date(), 105, null),
+                buildExpense(14, "Pattern 4 Expense", new Date(), 104, null),
+                buildExpense(12, "Pattern 2 Expense", new Date(), 102, null)
         );
 
         importProcessorInstance.sortExpensesByCategories(expensesList);
@@ -114,16 +143,16 @@ public class ImportProcessorTest {
         double amount1 = 444;
         double amount2 = 555;
         List<ImportPattern> patternsList = Arrays.asList(
-                new ImportPattern(1, "%TEST%PATTERN%", category1, PatternType.REGULAR),
-                new ImportPattern(2, "%TEST%PATTERN%", amountBasedCategory1, PatternType.AMOUNT, PatternPriority.CRITICAL, amount1),
-                new ImportPattern(3, "%TEST%PATTERN%", amountBasedCategory2, PatternType.AMOUNT, PatternPriority.CRITICAL, amount2)
+                buildPattern(1, "%TEST%PATTERN%", category1),
+                buildPattern(2, "%TEST%PATTERN%", amountBasedCategory1, PatternType.AMOUNT, PatternPriority.CRITICAL, amount1),
+                buildPattern(3, "%TEST%PATTERN%", amountBasedCategory2, PatternType.AMOUNT, PatternPriority.CRITICAL, amount2)
         );
         doReturn(patternsList).when(categoriesRepositorySpy).getAllPatterns();
 
         List<Expense> expensesList = Arrays.asList(
-                new Expense(11, "Test Regular Pattern Expense", new Date(), 123, null),
-                new Expense(12, "Test Amount-Based Pattern Expense", new Date(), amount1, null),
-                new Expense(13, "Test Amount-Based Pattern Expense", new Date(), amount2, null)
+                buildExpense(11, "Test Regular Pattern Expense", new Date(), 123, null),
+                buildExpense(12, "Test Amount-Based Pattern Expense", new Date(), amount1, null),
+                buildExpense(13, "Test Amount-Based Pattern Expense", new Date(), amount2, null)
         );
 
         importProcessorInstance.sortExpensesByCategories(expensesList);

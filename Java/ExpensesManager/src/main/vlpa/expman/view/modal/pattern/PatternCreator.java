@@ -15,7 +15,12 @@ public class PatternCreator {
         PatternPriority patternPriority = PatternPriority.getPatternPriorityByName(
                 window.getPrioritiesComboBox().getSelectionModel().getSelectedItem());
         double amount = getAmount(window, type);
-        return new ImportPattern(0, patternText, category, type, patternPriority, amount);
+        return ImportPattern.builder()
+                .setText(patternText)
+                .setCategory(category)
+                .setType(type)
+                .setPriority(patternPriority)
+                .setAmount(amount).build();
     }
 
     private static PatternType getPatternType(PatternDataWindow window) {

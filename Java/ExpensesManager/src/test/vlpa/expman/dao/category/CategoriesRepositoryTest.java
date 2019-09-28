@@ -1,6 +1,5 @@
 package vlpa.expman.dao.category;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import vlpa.expman.model.Category;
@@ -23,14 +22,34 @@ public class CategoriesRepositoryTest {
         categoriesRepositorySpy = spy(new CategoriesRepository());
     }
 
+    private ImportPattern buildPattern(long id, String text, Category category) {
+        return buildPattern(id, text, category, PatternType.REGULAR, PatternPriority.MEDIUM, 0);
+    }
+
+    private ImportPattern buildPattern(long id, String text, Category category, PatternType type,
+                                       PatternPriority priority) {
+        return buildPattern(id, text, category, type, priority, 0);
+    }
+
+    private ImportPattern buildPattern(long id, String text, Category category, PatternType type,
+                                       PatternPriority priority, double amount) {
+        return ImportPattern.builder()
+                .setId(id)
+                .setText(text)
+                .setCategory(category)
+                .setType(type)
+                .setPriority(priority)
+                .setAmount(amount).build();
+    }
+
     @Test
     public void testSortPatternsList() {
         List<ImportPattern> patternsList = Arrays.asList(
-                new ImportPattern(1, "Pattern 1", new Category(10, "Fist Category", 100.0), PatternType.REGULAR),
-                new ImportPattern(2, "Pattern 2", new Category(20, "Second Category", 100.0), PatternType.REGULAR, PatternPriority.LOW, 0),
-                new ImportPattern(3, "Pattern 3", new Category(30, "Third Category", 100.0), PatternType.REGULAR, PatternPriority.HIGH, 0),
-                new ImportPattern(4, "Pattern 4", new Category(40, "Fourth Category", 100.0), PatternType.REGULAR, PatternPriority.CRITICAL, 0),
-                new ImportPattern(5, "Pattern 5", new Category(50, "Fifth Category", 100.0), PatternType.REGULAR, PatternPriority.LOW, 0)
+                buildPattern(1, "Pattern 1", new Category(10, "Fist Category", 100.0)),
+                buildPattern(2, "Pattern 2", new Category(20, "Second Category", 100.0), PatternType.REGULAR, PatternPriority.LOW),
+                buildPattern(3, "Pattern 3", new Category(30, "Third Category", 100.0), PatternType.REGULAR, PatternPriority.HIGH),
+                buildPattern(4, "Pattern 4", new Category(40, "Fourth Category", 100.0), PatternType.REGULAR, PatternPriority.CRITICAL),
+                buildPattern(5, "Pattern 5", new Category(50, "Fifth Category", 100.0), PatternType.REGULAR, PatternPriority.LOW)
         );
 
         categoriesRepositorySpy.sortPatternsList(patternsList);

@@ -30,7 +30,6 @@ public class AddExpenseWindow extends BaseExpenseOperationWindow {
 
     @Override
     protected void performApplyActions(Expense updatedExpense) {
-        System.out.println("[DEBUG]<performApplyActions> updatedExpense: " + updatedExpense);
         getProcessor().addExpense(updatedExpense);
         getBuilder().updateView();
         getStage().close();

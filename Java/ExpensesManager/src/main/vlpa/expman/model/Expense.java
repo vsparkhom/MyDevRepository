@@ -12,12 +12,7 @@ public class Expense {
     private String bank;
     private String description;
 
-    public Expense(long id, String name, Date date, double amount, Category category) { //TODO: use Builder
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.amount = amount;
-        this.category = category;
+    private Expense() {
     }
 
     public long getId() {
@@ -72,6 +67,10 @@ public class Expense {
         this.description = description;
     }
 
+    public static Builder builder() {
+        return new Expense().new Builder();
+    }
+
     @Override
     public String toString() {
         return "Expense{" +
@@ -83,5 +82,50 @@ public class Expense {
                 ", bank=" + bank +
                 ", description=" + description +
                 '}';
+    }
+
+    public class Builder {
+
+        private Builder() {
+        }
+
+        public Expense build() {
+            return Expense.this;
+        }
+
+        public Builder setId(long id) {
+            Expense.this.id = id;
+            return this;
+        }
+
+        public Builder setCategory(Category category) {
+            Expense.this.category = category;
+            return this;
+        }
+
+        public Builder setAmount(double amount) {
+            Expense.this.amount = amount;
+            return this;
+        }
+
+        public Builder setDate(Date date) {
+            Expense.this.date = date;
+            return this;
+        }
+
+        public Builder setName(String name) {
+            Expense.this.name = name;
+            return this;
+        }
+
+        public Builder setBank(String bank) {
+            Expense.this.bank = bank;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            Expense.this.description = description;
+            return this;
+        }
     }
 }

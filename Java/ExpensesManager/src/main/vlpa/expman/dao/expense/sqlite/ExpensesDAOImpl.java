@@ -2,7 +2,6 @@ package vlpa.expman.dao.expense.sqlite;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vlpa.expman.Main;
 import vlpa.expman.controller.ExpenseUtils;
 import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.connection.ConnectionManager;
@@ -40,9 +39,14 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                 String bank = rs.getString("bank");
                 String description = rs.getString("description");
 
-                Expense exp = new Expense(id, merchant, date, amount, fakeCategory);
-                exp.setBank(bank);
-                exp.setDescription(description);
+                Expense exp = Expense.builder()
+                        .setId(id)
+                        .setName(merchant)
+                        .setDate(date)
+                        .setAmount(amount)
+                        .setCategory(fakeCategory)
+                        .setBank(bank)
+                        .setDescription(description).build();
                 expenses.add(exp);
             }
             return expenses;
@@ -56,7 +60,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void addExpense(Expense expense) {
-        LOGGER.debug("Adding expense: {}", expense);
+        LOGGER.info("Adding expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -78,7 +82,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void mergeExpense(Expense expense) {
-        LOGGER.debug("Merging expense: {}", expense);
+        LOGGER.info("Merging expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -102,7 +106,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void removeExpense(long expenseId) {
-        LOGGER.debug("Removing expense with id: {}", expenseId);
+        LOGGER.info("Removing expense with id: {}", expenseId);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
@@ -119,11 +123,11 @@ public class ExpensesDAOImpl implements ExpensesDAO {
 
     @Override
     public void updateExpense(Expense expense) {
-        LOGGER.debug("Updating expense: {}", expense);
+        LOGGER.info("Updating expense: {}", expense);
         Connection conn = null;
         try {
             conn = ConnectionManager.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.UPDATE_EXPENSE); //TODO exception during storing
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.UPDATE_EXPENSE);
             pstm.setString(1, ExpenseUtils.fromDateToString(expense.getDate()));
             pstm.setString(2, expense.getName());
             pstm.setDouble(3, expense.getAmount());

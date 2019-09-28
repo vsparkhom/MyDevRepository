@@ -57,9 +57,9 @@ public class ExpensesRepository {
         addExpenses(expenses, false);
     }
 
-    public void addExpenses(Collection<Expense> expenses, boolean mergeAllowed) {
+    public void addExpenses(Collection<Expense> expenses, boolean isMergeAllowed) {
         for (Expense exp : expenses) {
-            addExpense(exp, mergeAllowed);
+            addExpense(exp, isMergeAllowed);
         }
     }
 
