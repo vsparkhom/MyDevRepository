@@ -55,7 +55,7 @@ public class ServiceStrategyHolder {
         public ServiceInstance getService(Connection conn, long accountId) throws SQLException {
             ServiceInstance internetServiceInstance = DBUtils.getInternetServiceInstance(conn, accountId);
             System.out.println("InternetServiceStrategy.getService: [internetServiceInstance]:" + internetServiceInstance);
-            ServiceType serviceType = new ServiceType(AttributeConsts.INTERNET_SERVICE_TYPE_ID, "Internet");
+            ServiceType serviceType = new ServiceType(AttributeConsts.INTERNET_SERVICE_TYPE_ID, "db.lob.internet");
             return internetServiceInstance == null ? new ServiceInstance(serviceType) : internetServiceInstance;
         }
 
@@ -77,7 +77,7 @@ public class ServiceStrategyHolder {
         public ServiceInstance getService(Connection conn, long accountId) throws SQLException {
             ServiceInstance tvServiceInstance = DBUtils.getTvServiceInstance(conn, accountId);
             System.out.println("TvServiceStrategy.getService: [tvServiceInstance]:" + tvServiceInstance);
-            ServiceType serviceType = new ServiceType(AttributeConsts.TV_SERVICE_TYPE_ID, "TV");
+            ServiceType serviceType = new ServiceType(AttributeConsts.TV_SERVICE_TYPE_ID, "db.lob.tv");
             return tvServiceInstance == null ? new ServiceInstance(serviceType) : tvServiceInstance;
         }
 
@@ -99,7 +99,7 @@ public class ServiceStrategyHolder {
         public ServiceInstance getService(Connection conn, long accountId) throws SQLException {
             ServiceInstance phoneServiceInstance = DBUtils.getPhoneServiceInstance(conn, accountId);
             System.out.println("PhoneServiceStrategy.getService: [phoneServiceInstance]:" + phoneServiceInstance);
-            ServiceType serviceType = new ServiceType(AttributeConsts.PHONE_SERVICE_TYPE_ID, "Phone");
+            ServiceType serviceType = new ServiceType(AttributeConsts.PHONE_SERVICE_TYPE_ID, "db.lob.phone");
             return phoneServiceInstance == null ? new ServiceInstance(serviceType) : phoneServiceInstance;
         }
 

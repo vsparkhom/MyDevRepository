@@ -1,10 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@taglib prefix="cf" uri="/WEB-INF/tld/custom_functions.tld" %>
+<%@ page pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="messages"/>
+
+<c:set var="typeid" value="${typeid}" scope="session" />
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="${sessionScope.lang}">
 
 <jsp:include page="_header.jsp"></jsp:include>
 
@@ -26,41 +34,50 @@
                     <div class="col-lg-${columnWidth}">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="plan-head">${servicePlan.name}</div>
+                                <div class="plan-head"><fmt:message key="${servicePlan.name}" /></div>
                             </div>
                             <div class="panel-body">
-                                <div class="plan-section">Options</div>
+                                <div class="plan-section"><fmt:message key="label.plans.1" /></div>
                                 <hr>
                                 <table width="70%" align="center">
-                                    <c:forEach var="options" items="${servicePlan.options}">
+                                    <c:forEach var="option" items="${servicePlan.options}">
                                         <tr>
-                                            <td align="left"><c:out
-                                                    value="${cf:getOptionDisplayName(servicePlan.type.id, options.key)}"/>:
+                                            <td align="left">
+                                                <fmt:message key="${option.key.id}" />:
                                             </td>
-                                            <td><c:out value="${options.value}"/></td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${option.key.i18n}">
+                                                        <fmt:message key="${option.value}" />
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <c:out value="${option.value}"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </table>
                                 <br/>
 
-                                <div class="plan-section">Price</div>
+                                <div class="plan-section"><fmt:message key="label.plans.2" /></div>
                                 <hr>
-                                <div class="plan-price">$${servicePlan.price}</div>
+                                <div class="plan-price">${servicePlan.price} <fmt:message key="label.plans.6" /></div>
                             </div>
                             <div class="panel-footer">
                                 <div style="text-align: center;">
 
-                                    <c:set var="isServiceActive" value="${currentServiceInstance.status eq 'Active'}"/>
+                                    <c:set var="isServiceActive" value="${currentServiceInstance.status eq 'active'}"/>
                                     <c:choose>
                                         <c:when test="${isServiceActive}">
                                             <c:set var="installedServicePlanId" value="${currentServiceInstance.plan.id}"/>
                                             <c:choose>
                                                 <c:when test="${installedServicePlanId eq servicePlan.id}">
-                                                    <button type="button" class="btn btn-default disabled">Already installed</button>
+                                                    <button type="button" class="btn btn-default disabled"><fmt:message key="label.plans.3" /></button>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <a href="${pageContext.request.contextPath}/manage?action=update&serviceid=${servicePlan.id}&oldserviceid=${installedServicePlanId}">
-                                                        <button type="button" class="btn btn-primary">Update</button>
+                                                        <button type="button" class="btn btn-primary"><fmt:message key="label.plans.4" /></button>
                                                     </a>
                                                 </c:otherwise>
                                             </c:choose>
@@ -68,7 +85,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <a href="${pageContext.request.contextPath}/manage?action=add&serviceid=${servicePlan.id}">
-                                                <button type="button" class="btn btn-success">Install</button>
+                                                <button type="button" class="btn btn-success"><fmt:message key="label.plans.5" /></button>
                                             </a>
                                         </c:otherwise>
                                     </c:choose>

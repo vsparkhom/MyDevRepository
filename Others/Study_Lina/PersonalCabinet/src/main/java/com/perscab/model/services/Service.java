@@ -8,7 +8,7 @@ public class Service {
     private long id;
     private String name;
     private ServiceType type;
-    private Map<String, Object> options;
+    private Map<ServiceOptionKey, Object> options;
 
     public Service(ServiceType type) {
         this.type = type;
@@ -41,11 +41,11 @@ public class Service {
         this.type = type;
     }
 
-    public Map<String, Object> getOptions() {
+    public Map<ServiceOptionKey, Object> getOptions() {
         return options;
     }
 
-    public void setOptions(Map<String, Object> options) {
+    public void setOptions(Map<ServiceOptionKey, Object> options) {
         this.options = options;
     }
 

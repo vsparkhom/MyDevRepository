@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 public class MyUtils {
 
-    private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_TO_STORE_USER_NAME_IN_COOKIE";
+    private static final String ATTR_USER_NAME = "ATTRIBUTE_TO_STORE_USER_NAME_IN_COOKIE";
     public static final int COOKIE_MAX_AGE_1_DAY = 24 * 60 * 60;
 
     public static void storeAuthorizedAccount(HttpSession session, Account authorizedAccount) {
@@ -23,7 +23,7 @@ public class MyUtils {
 
     public static void storeUserCookie(HttpServletResponse response, Account account) {
         System.out.println("Store user cookie");
-        Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, account.getLogin());
+        Cookie cookieUserName = new Cookie(ATTR_USER_NAME, account.getLogin());
         cookieUserName.setMaxAge(COOKIE_MAX_AGE_1_DAY);
         response.addCookie(cookieUserName);
     }
@@ -32,7 +32,7 @@ public class MyUtils {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (ATT_NAME_USER_NAME.equals(cookie.getName())) {
+                if (ATTR_USER_NAME.equals(cookie.getName())) {
                     return cookie.getValue();
                 }
             }
@@ -41,7 +41,7 @@ public class MyUtils {
     }
 
     public static void deleteUserCookie(HttpServletResponse response) {
-        Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, null);
+        Cookie cookieUserName = new Cookie(ATTR_USER_NAME, null);
         cookieUserName.setMaxAge(0);
         response.addCookie(cookieUserName);
     }

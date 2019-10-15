@@ -10,13 +10,13 @@ public class Payment {
     private Date periodEnd;
     private Date dueDate;
     private double sum;
-    private String status;
+    private PaymentStatus status;
 
     public Payment(BigInteger id) {
         this.id = id;
     }
 
-    public Payment(BigInteger id, Date periodStart, Date periodEnd, Date dueDate, double sum, String status) {
+    public Payment(BigInteger id, Date periodStart, Date periodEnd, Date dueDate, double sum, PaymentStatus status) {
         this.id = id;
         this.periodStart = periodStart;
         this.periodEnd = periodEnd;
@@ -61,11 +61,11 @@ public class Payment {
         this.sum = sum;
     }
 
-    public String getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(PaymentStatus status) {
         this.status = status;
     }
 

@@ -6,7 +6,7 @@ public interface TvOptions {
 
     void setChannelsCount(int channelsCount);
 
-    String getUhdSupport();
+    boolean getUhdSupport();
 
-    void setUhdSupport(String uhdSupport);
+    void setUhdSupport(boolean uhdSupport);
 }

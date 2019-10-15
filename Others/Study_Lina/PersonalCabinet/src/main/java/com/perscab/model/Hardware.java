@@ -5,9 +5,9 @@ public class Hardware {
     private long serviceTypeId;
     private String name;
     private String serialNumber;
-    private String status;
+    private HardwareStatus status;
 
-    public Hardware(long serviceTypeId, String name, String serialNumber, String status) {
+    public Hardware(long serviceTypeId, String name, String serialNumber, HardwareStatus status) {
         this.serviceTypeId = serviceTypeId;
         this.name = name;
         this.serialNumber = serialNumber;
@@ -38,11 +38,11 @@ public class Hardware {
         this.serialNumber = serialNumber;
     }
 
-    public String getStatus() {
+    public HardwareStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(HardwareStatus status) {
         this.status = status;
     }
 

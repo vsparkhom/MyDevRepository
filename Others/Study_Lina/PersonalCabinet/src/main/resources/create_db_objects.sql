@@ -39,7 +39,7 @@ CREATE TABLE accounts (
   address  VARCHAR(1000)
   , CONSTRAINT accounts_pk PRIMARY KEY (id)
   , CONSTRAINT accounts_login_uk UNIQUE (login)
-  , CONSTRAINT accounts_status_fixed_values CHECK (status IN ('Active', 'Inactive'))
+  , CONSTRAINT accounts_status_fixed_values CHECK (status IN ('active', 'inactive'))
 ); 
 
 
@@ -99,13 +99,13 @@ CREATE TABLE payments (
   period_end DATE NOT NULL,
   due_date DATE NOT NULL,
   summa FLOAT DEFAULT 0,
-  status VARCHAR2(50) DEFAULT 'Not Paid',
+  status VARCHAR2(50) DEFAULT 'not_paid',
   "COMMENT" VARCHAR2(200)
   , CONSTRAINT payments_pk PRIMARY KEY (id)
   , CONSTRAINT payments_account_id_fk
       FOREIGN KEY (account_id)
       REFERENCES accounts (id)
-  , CONSTRAINT payments_status_values_chk CHECK (status IN ('Paid', 'Not Paid'))
+  , CONSTRAINT payments_status_values_chk CHECK (status IN ('paid', 'not_paid'))
   , CONSTRAINT payments_period_chk CHECK (period_start <= period_end)
 ); 
     
@@ -116,8 +116,8 @@ CREATE TABLE hardware (
   service_type_id NUMBER(10) REFERENCES service_types (id),
   name VARCHAR2(200) NOT NULL,
   serial_number VARCHAR2(200) NOT NULL,
-  status VARCHAR2(50) DEFAULT 'Inactive'
-  , CONSTRAINT hw_status_values_chk check (status in ('Active', 'Inactive'))
+  status VARCHAR2(50) DEFAULT 'inactive'
+  , CONSTRAINT hw_status_values_chk check (status in ('active', 'inactive'))
 );
 
 
@@ -152,9 +152,9 @@ CREATE TABLE information (
 
 CREATE TABLE internet_service_options (
   service_id NUMBER(10) NOT NULL,
-  download_speed VARCHAR(20) NOT NULL,
-  upload_speed VARCHAR(20) NOT NULL,
-  data_limit VARCHAR(20) NOT NULL
+  download_speed NUMBER(10) NOT NULL,
+  upload_speed NUMBER(10) NOT NULL,
+  data_limit NUMBER(10) NOT NULL
   , CONSTRAINT int_serv_opt_fk
       FOREIGN KEY (service_id)
       REFERENCES services (id)
@@ -164,11 +164,11 @@ CREATE TABLE internet_service_options (
 CREATE TABLE tv_service_options (
   service_id NUMBER(10) NOT NULL,
   channels_count NUMBER(5) NOT NULL,
-  uhd_support VARCHAR(10) NOT NULL
+  uhd_support VARCHAR2(10) DEFAULT 'no'
   , CONSTRAINT tv_serv_opt_fk
       FOREIGN KEY (service_id)
       REFERENCES services (id)
-  , CONSTRAINT tv_serv_opt_uhd_values CHECK (uhd_support IN ('On', 'Off'))
+  , CONSTRAINT tv_serv_opt_uhd_values CHECK (uhd_support IN ('yes', 'no'))
 );
 
 
@@ -176,11 +176,11 @@ CREATE TABLE phone_service_options (
   service_id NUMBER(10) NOT NULL,
   talk_limit NUMBER(10) NOT NULL,
   data_limit NUMBER(10) NOT NULL,
-  voice_mail VARCHAR2(5) DEFAULT 'Off'
+  voice_mail VARCHAR2(10) DEFAULT 'no'
   , CONSTRAINT ph_serv_opt_fk
       FOREIGN KEY (service_id)
       REFERENCES services (id)
-  , CONSTRAINT ph_serv_opt_vm_values CHECK (voice_mail IN ('On', 'Off'))
+  , CONSTRAINT ph_serv_opt_vm_values CHECK (voice_mail IN ('yes', 'no'))
 );
 
 -- CREATE TABLES [END] --
@@ -325,32 +325,32 @@ END;
 
 -- INSERT DATA [START] --
 
-INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test', 'test', 'Vasia', 'Pupkin', 'Active', 'test@gmail.com', 'New York');
-INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test2', 'test2', 'John', 'Smith', 'Active', 'test2@gmail.com', 'Chicago');
-INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('guest', 'guest', 'Bruce', 'Lee', 'Inactive', 'brlee@gmail.com', 'Japan');
-INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('phoneuser', '123', 'Kate', 'Radistka', 'Active', 'phuser@gmail.com', 'Canada');
+INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test', 'test', 'Vasia', 'Pupkin', 'active', 'test@gmail.com', 'New York');
+INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('test2', 'test2', 'John', 'Smith', 'active', 'test2@gmail.com', 'Chicago');
+INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('guest', 'guest', 'Bruce', 'Lee', 'inactive', 'brlee@gmail.com', 'Japan');
+INSERT INTO accounts(login, password, first_name, last_name, status, email, address) VALUES('phoneuser', '123', 'Kate', 'Radistka', 'active', 'phuser@gmail.com', 'Canada');
 
-INSERT INTO plans(name, price) VALUES( 'Internet Plan 1', 50.0);
-INSERT INTO plans(name, price) VALUES('Internet Plan 2', 100.0);
-INSERT INTO plans(name, price) VALUES('TV Plan 1', 45.0);
-INSERT INTO plans(name, price) VALUES('TV Plan 2', 90.0);
-INSERT INTO plans(name, price) VALUES('Phone Plan 1', 35.0);
-INSERT INTO plans(name, price) VALUES('Phone Plan 2', 70.0);
-INSERT INTO plans(name, price) VALUES('Phone Plan 3', 80.0);
-
-
-INSERT INTO service_types(name) VALUES('Internet');
-INSERT INTO service_types(name) VALUES('TV');
-INSERT INTO service_types(name) VALUES('Phone');
+INSERT INTO plans(name, price) VALUES('db.plan.internet.1', 50.0);
+INSERT INTO plans(name, price) VALUES('db.plan.internet.2', 100.0);
+INSERT INTO plans(name, price) VALUES('db.plan.tv.1', 45.0);
+INSERT INTO plans(name, price) VALUES('db.plan.tv.2', 90.0);
+INSERT INTO plans(name, price) VALUES('db.plan.phone.1', 35.0);
+INSERT INTO plans(name, price) VALUES('db.plan.phone.2', 70.0);
+INSERT INTO plans(name, price) VALUES('db.plan.phone.3', 80.0);
 
 
-INSERT INTO services(name, type_id, plan_id) VALUES('Internet Service 1', 10, 20000);
-INSERT INTO services(name, type_id, plan_id) VALUES('Internet Service 2', 10, 20001);
-INSERT INTO services(name, type_id, plan_id) VALUES('TV Service 1', 11, 20002);
-INSERT INTO services(name, type_id, plan_id) VALUES('TV Service 2', 11, 20003);
-INSERT INTO services(name, type_id, plan_id) VALUES('Phone Service 1', 12, 20004);
-INSERT INTO services(name, type_id, plan_id) VALUES('Phone Service 2', 12, 20005);
-INSERT INTO services(name, type_id, plan_id) VALUES('Phone Service 3', 12, 20006);
+INSERT INTO service_types(name) VALUES('db.lob.internet');
+INSERT INTO service_types(name) VALUES('db.lob.tv');
+INSERT INTO service_types(name) VALUES('db.lob.phone');
+
+
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.internet.1', 10, 20000);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.internet.2', 10, 20001);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.tv.1', 11, 20002);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.tv.2', 11, 20003);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.phone.1', 12, 20004);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.phone.2', 12, 20005);
+INSERT INTO services(name, type_id, plan_id) VALUES('db.service.phone.3', 12, 20006);
 
 
 INSERT INTO client_services VALUES(1, 100); -- Internet Service 1
@@ -366,41 +366,41 @@ INSERT INTO client_services VALUES(4, 105); -- Phone Service 2
 
 
 INSERT INTO payments(account_id, period_start, period_end, due_date, summa, status, "COMMENT")
-    VALUES(1, ADD_MONTHS(sysdate, -5), ADD_MONTHS(sysdate, -4), ADD_MONTHS(sysdate, -4), 100.0, 'Paid', 'Montly fee');
+    VALUES(1, ADD_MONTHS(sysdate, -5), ADD_MONTHS(sysdate, -4), ADD_MONTHS(sysdate, -4), 100.0, 'paid', 'Montly fee');
 INSERT INTO payments(account_id, period_start, period_end, due_date, summa, status, "COMMENT")
-    VALUES(1, ADD_MONTHS(sysdate, -4), ADD_MONTHS(sysdate, -3), ADD_MONTHS(sysdate, -3), 100.0, 'Paid', 'Montly fee');
+    VALUES(1, ADD_MONTHS(sysdate, -4), ADD_MONTHS(sysdate, -3), ADD_MONTHS(sysdate, -3), 100.0, 'paid', 'Montly fee');
 INSERT INTO payments(account_id, period_start, period_end, due_date, summa, status, "COMMENT")
-    VALUES(1, ADD_MONTHS(sysdate, -3), ADD_MONTHS(sysdate, -2), ADD_MONTHS(sysdate, -2), 100.0, 'Paid', 'Montly fee');
+    VALUES(1, ADD_MONTHS(sysdate, -3), ADD_MONTHS(sysdate, -2), ADD_MONTHS(sysdate, -2), 100.0, 'paid', 'Montly fee');
 INSERT INTO payments(account_id, period_start, period_end, due_date, summa, status, "COMMENT")
-    VALUES(1, ADD_MONTHS(sysdate, -2), ADD_MONTHS(sysdate, -1), ADD_MONTHS(sysdate, -1), 100.0, 'Paid', 'Montly fee');
+    VALUES(1, ADD_MONTHS(sysdate, -2), ADD_MONTHS(sysdate, -1), ADD_MONTHS(sysdate, -1), 100.0, 'paid', 'Montly fee');
 INSERT INTO payments(account_id, period_start, period_end, due_date, summa, status, "COMMENT")
-    VALUES(1, ADD_MONTHS(sysdate, -1), sysdate, sysdate, 100.0, 'Not Paid', 'Montly fee');
+    VALUES(1, ADD_MONTHS(sysdate, -1), sysdate, sysdate, 100.0, 'not_paid', 'Montly fee');
 
 -- Internet hardware
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(1, 10, 'Internet Modem 1', 'SN123', 'Active');
+    VALUES(1, 10, 'Internet Modem 1', 'SN123', 'active');
 INSERT INTO hardware(service_type_id, name, serial_number, status)
-    VALUES(10, 'Internet Modem 2', 'SN124', 'Inactive');
+    VALUES(10, 'Internet Modem 2', 'SN124', 'inactive');
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(2, 10, 'Internet Modem 3', 'SN125', 'Active');
+    VALUES(2, 10, 'Internet Modem 3', 'SN125', 'active');
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(3, 10, 'Internet Modem 4', 'SN126', 'Active');
+    VALUES(3, 10, 'Internet Modem 4', 'SN126', 'active');
     
 -- TV hardware
 INSERT INTO hardware(service_type_id, name, serial_number, status)
-    VALUES(11, 'TV Modem 1', 'SN00178', 'Inactive');
+    VALUES(11, 'TV Modem 1', 'SN00178', 'inactive');
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(2, 11, 'TV Modem 2', 'SN00179', 'Active');
+    VALUES(2, 11, 'TV Modem 2', 'SN00179', 'active');
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(3, 11, 'TV Modem 3', 'SN00180', 'Active');
+    VALUES(3, 11, 'TV Modem 3', 'SN00180', 'active');
 
 -- Phone hardware
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(3, 12, 'Phone Device 1', 'PH0001', 'Active');
+    VALUES(3, 12, 'Phone Device 1', 'PH0001', 'active');
 INSERT INTO hardware(account_id, service_type_id, name, serial_number, status)
-    VALUES(4, 12, 'Phone Device 2', 'PH0002', 'Active');
+    VALUES(4, 12, 'Phone Device 2', 'PH0002', 'active');
 INSERT INTO hardware(service_type_id, name, serial_number, status)
-    VALUES(12, 'Phone Device 3', 'PH003', 'Inactive');
+    VALUES(12, 'Phone Device 3', 'PH003', 'inactive');
     
     
 INSERT INTO info_categories(name) VALUES('Internet');
@@ -432,17 +432,17 @@ INSERT INTO information VALUES(12, 5, 'tks-facebook');
 INSERT INTO information VALUES(13, 5, 'vk-facebook');
 
 
-INSERT INTO internet_service_options VALUES(100, '15 Mbps', '5 Mbps', '100 GB');
-INSERT INTO internet_service_options VALUES(101, '75 Mbps', '15 Mbps', '500 GB');
+INSERT INTO internet_service_options VALUES(100, 15, 5, 100);
+INSERT INTO internet_service_options VALUES(101, 75, 15, 500);
 
 
-INSERT INTO tv_service_options VALUES(102, 25, 'Off');
-INSERT INTO tv_service_options VALUES(103, 50, 'On');
+INSERT INTO tv_service_options VALUES(102, 25, 'no');
+INSERT INTO tv_service_options VALUES(103, 50, 'yes');
 
 
-INSERT INTO phone_service_options VALUES(104, 100, 1, 'Off');
-INSERT INTO phone_service_options VALUES(105, 500, 5, 'On');
-INSERT INTO phone_service_options VALUES(106, 1000, 10, 'On');
+INSERT INTO phone_service_options VALUES(104, 100, 1, 'no');
+INSERT INTO phone_service_options VALUES(105, 500, 5, 'yes');
+INSERT INTO phone_service_options VALUES(106, 1000, 10, 'yes');
 
 
 

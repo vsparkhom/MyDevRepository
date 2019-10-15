@@ -1,8 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="${sessionScope.lang}">
 
 <jsp:include page="_header.jsp"></jsp:include>
 
@@ -18,7 +25,7 @@
         <div class="container-fluid">
             <br/>
 
-            <c:set var="isInternetServiceActive" value="${internetService.status eq 'Active'}"/>
+            <c:set var="isInternetServiceActive" value="${internetService.status eq 'active'}"/>
             <c:choose>
                 <c:when test="${isInternetServiceActive}">
 
@@ -28,25 +35,21 @@
                                 <div class="panel-heading">
                                     <table width="100%">
                                         <tr>
-                                            <td><strong>Internet</strong></td>
+                                            <td><strong><fmt:message key="label.internet.1" /></strong></td>
                                             <td align="right">
                                                 <a href="${pageContext.request.contextPath}/manage?action=remove&serviceid=${internetService.plan.id}">
-                                                    <button type="button" class="btn btn-danger">Disconnect</button>
+                                                    <button type="button" class="btn btn-danger"><fmt:message key="label.internet.2" /></button>
                                                 </a>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Service name: <strong>${internetService.plan.name}</strong></p>
-
-                                    <p>Price: <strong>$${internetService.plan.price}</strong></p>
-
-                                    <p>Download speed: <strong>${internetService.plan.downloadSpeed}</strong></p>
-
-                                    <p>Upload speed: <strong>${internetService.plan.uploadSpeed}</strong></p>
-
-                                    <p>Monthly data limit <strong>${internetService.plan.dataLimit}</strong></p>
+                                    <p><fmt:message key="label.internet.3" />: <strong><fmt:message key="${internetService.plan.name}" /></strong></p>
+                                    <p><fmt:message key="label.internet.4" />: <strong>${internetService.plan.price}</strong></p>
+                                    <p><fmt:message key="label.internet.5" />: <strong>${internetService.plan.downloadSpeed}</strong></p>
+                                    <p><fmt:message key="label.internet.6" />: <strong>${internetService.plan.uploadSpeed}</strong></p>
+                                    <p><fmt:message key="label.internet.7" /> <strong>${internetService.plan.dataLimit}</strong></p>
                                 </div>
                                 <!--div class="panel-footer">
                                     Panel Footer
@@ -56,14 +59,14 @@
                         <div class="col-lg-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <strong>Assigned hardware</strong>
+                                    <strong><fmt:message key="label.internet.8" /></strong>
                                 </div>
                                 <div class="panel-body">
                                     <c:forEach items="${serviceHardware}" var="pieceOfHw">
-                                        <p>Internet modem: <strong>${pieceOfHw.name}</strong></p>
-
-                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ${pieceOfHw.serialNumber} - ${pieceOfHw.status}</p>
+                                        <p><fmt:message key="label.internet.9" />: <strong>${pieceOfHw.name}</strong></p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ${pieceOfHw.serialNumber} - <fmt:message key="${pieceOfHw.status.value}" /></p>
                                     </c:forEach>
+                                    <p>&nbsp;</p>
                                 </div>
                                 <br/>
                                 <br/>
@@ -82,7 +85,7 @@
                         <div class="col-lg-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <strong>Usage</strong>
+                                    <strong><fmt:message key="label.internet.10" /></strong>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -134,7 +137,7 @@
                                     </script>
 
                                     <!-- HTML -->
-                                    <p>Used in current month: <strong>25 GB / 500 GB</strong></p>
+                                    <p><fmt:message key="label.internet.11" />: <strong>25 <fmt:message key="label.internet.12" /> / 500 <fmt:message key="label.internet.12" /></strong></p>
 
                                     <div id="chartdiv"></div>
 
@@ -146,11 +149,12 @@
                         <div class="col-lg-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <strong>Emails</strong>
+                                    <strong><fmt:message key="label.internet.13" /></strong>
                                 </div>
                                 <div class="panel-body">
                                     <p>acc1@gmail.com</p>
                                 </div>
+                                <br/>
                                 <br/>
                                 <br/>
                                 <br/>
@@ -184,17 +188,17 @@
                                 <div class="panel-heading">
                                     <table width="100%">
                                         <tr>
-                                            <td><strong>Internet</strong></td>
+                                            <td><strong><fmt:message key="label.internet.1" /></strong></td>
                                             <td align="right">
                                                 <a href="${pageContext.request.contextPath}/plans?typeid=${internetService.plan.type.id}">
-                                                    <button type="button" class="btn btn-success">Install</button>
+                                                    <button type="button" class="btn btn-success"><fmt:message key="label.internet.14" /></button>
                                                 </a>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Internet service is not installed</p>
+                                    <p><fmt:message key="label.internet.15" /></p>
                                 </div>
                                 <!--div class="panel-footer">
                                     Panel Footer

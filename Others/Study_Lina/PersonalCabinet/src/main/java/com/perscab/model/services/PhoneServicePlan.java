@@ -1,7 +1,7 @@
 package com.perscab.model.services;
 
-
 import com.perscab.model.services.options.PhoneOptions;
+import static com.perscab.model.services.PhoneServicePlan.PhoneServiceOptionsEnum.*;
 
 public class PhoneServicePlan extends ServicePlan implements PhoneOptions {
 
@@ -15,31 +15,51 @@ public class PhoneServicePlan extends ServicePlan implements PhoneOptions {
 
     @Override
     public int getTalkLimit() {
-        return (int) getOptions().get("talkLimit");
+        return (int) getOptions().get(TALK_LIMIT.getOption());
     }
 
     @Override
     public void setTalkLimit(int talkLimit) {
-        getOptions().put("talkLimit", talkLimit);
+        getOptions().put(TALK_LIMIT.getOption(), talkLimit);
     }
 
     @Override
     public int getDataLimit() {
-        return (int) getOptions().get("dataLimit");
+        return (int) getOptions().get(DATA_LIMIT.getOption());
     }
 
     @Override
     public void setDataLimit(int dataLimit) {
-        getOptions().put("dataLimit", dataLimit);
+        getOptions().put(DATA_LIMIT.getOption(), dataLimit);
     }
 
     @Override
     public boolean isVoiceMail() {
-        return (boolean) getOptions().get("voiceMail");
+        return (boolean) getOptions().get(VOICE_MAIL.getOption());
     }
 
     @Override
     public void setVoiceMail(boolean voiceMail) {
-        getOptions().put("voiceMail", voiceMail);
+        getOptions().put(VOICE_MAIL.getOption(), voiceMail);
+    }
+
+    public enum PhoneServiceOptionsEnum {
+
+//        TALK_LIMIT(new ServiceOptionKey("talkLimit")),
+//        DATA_LIMIT(new ServiceOptionKey("dataLimit")),
+//        VOICE_MAIL(new ServiceOptionKey("voiceMail", true));
+        TALK_LIMIT(new ServiceOptionKey("db.service_opts.phone.talk_limit")),
+        DATA_LIMIT(new ServiceOptionKey("db.service_opts.phone.data_limit")),
+        VOICE_MAIL(new ServiceOptionKey("db.service_opts.phone.voice_mail", true));
+
+        private ServiceOptionKey option;
+
+        PhoneServiceOptionsEnum(ServiceOptionKey option) {
+            this.option = option;
+        }
+
+        public ServiceOptionKey getOption() {
+            return option;
+        }
     }
 }

@@ -1,3 +1,12 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="messages"/>
+
 <div class="row">
     <div class="col-lg-6">
         <table width="320">
@@ -7,10 +16,10 @@
             </tr>
             <tr>
                 <td rowspan="2" width="75"> <img src="img/icon-internet.png" /></td>
-                <td><strong>Tel:</strong> ${internetSupportInfo.phoneNumber}</td>
+                <td><strong><fmt:message key="label.support.1" />:</strong> ${internetSupportInfo.phoneNumber}</td>
             </tr>
             <tr>
-                <td><strong>Email:</strong> ${internetSupportInfo.email}</td>
+                <td><strong><fmt:message key="label.support.2" />:</strong> ${internetSupportInfo.email}</td>
             </tr>
         </table>
         <br/>
@@ -24,10 +33,10 @@
             </tr>
             <tr>
                 <td rowspan="2" width="75"> <img src="img/icon-tv.png" /></td>
-                <td><strong>Tel:</strong> ${tvSupportInfo.phoneNumber}</td>
+                <td><strong><fmt:message key="label.support.1" />:</strong> ${tvSupportInfo.phoneNumber}</td>
             </tr>
             <tr>
-                <td><strong>Email:</strong> ${tvSupportInfo.email}</td>
+                <td><strong><fmt:message key="label.support.2" />:</strong> ${tvSupportInfo.email}</td>
             </tr>
         </table>
         <br/>
@@ -44,10 +53,10 @@
             </tr>
             <tr>
                 <td rowspan="2" width="75"> <img src="img/icon-phone.png" /></td>
-                <td><strong>Tel:</strong> ${phoneSupportInfo.phoneNumber}</td>
+                <td><strong><fmt:message key="label.support.1" />:</strong> ${phoneSupportInfo.phoneNumber}</td>
             </tr>
             <tr>
-                <td><strong>Email:</strong> ${phoneSupportInfo.email}</td>
+                <td><strong><fmt:message key="label.support.2" />:</strong> ${phoneSupportInfo.email}</td>
             </tr>
         </table>
         <br/>
@@ -61,10 +70,10 @@
             </tr>
             <tr>
                 <td rowspan="2" width="75"> <img src="img/icon-billing.png" /></td>
-                <td><strong>Tel:</strong> ${billingSupportInfo.phoneNumber}</td>
+                <td><strong><fmt:message key="label.support.1" />:</strong> ${billingSupportInfo.phoneNumber}</td>
             </tr>
             <tr>
-                <td><strong>Email:</strong> ${billingSupportInfo.email}</td>
+                <td><strong><fmt:message key="label.support.2" />:</strong> ${billingSupportInfo.email}</td>
             </tr>
         </table>
         <br/>

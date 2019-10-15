@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
         if (login == null || password == null || login.length() == 0 || password.length() == 0) {
             hasError = true;
-            errorString = "Required username and password!";
+            errorString = "Required username and password!";//TODO: i18n
         } else {
             Connection conn = null;
             try {

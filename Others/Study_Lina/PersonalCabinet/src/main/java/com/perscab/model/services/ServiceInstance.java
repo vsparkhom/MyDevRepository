@@ -6,7 +6,7 @@ public class ServiceInstance {
     private String status;
 
     public ServiceInstance(ServiceType type) {
-        this(new ServicePlan(0, "", type, 0), "Inactive");
+        this(new ServicePlan(0, "db.plan.no_service", type, 0), "inactive");
     }
 
     public ServiceInstance(ServicePlan plan, String status) {

@@ -1,17 +1,17 @@
 package com.perscab.model;
 
-public enum AccountStatus {
+public enum HardwareStatus {
 
     Active("active"), Inactive("inactive");
 
     private String value;
 
-    AccountStatus(String value) {
+    HardwareStatus(String value) {
         this.value = value;
     }
 
-    public static AccountStatus getAccountStatusByValue(String value) {
-        for(AccountStatus as : values()) {
+    public static HardwareStatus getAccountStatusByValue(String value) {
+        for(HardwareStatus as : values()) {
             if (as.value.equals(value)) {
                 return as;
             }
@@ -22,4 +22,5 @@ public enum AccountStatus {
     public String getValue() {
         return value;
     }
+
 }

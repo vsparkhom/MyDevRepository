@@ -2,15 +2,15 @@ package com.perscab.model.services.options;
 
 public interface InternetOptions {
 
-    String getDownloadSpeed();
+    int getDownloadSpeed();
 
-    void setDownloadSpeed(String downloadSpeed);
+    void setDownloadSpeed(int downloadSpeed);
 
-    String getUploadSpeed();
+    int getUploadSpeed();
 
-    void setUploadSpeed(String uploadSpeed);
+    void setUploadSpeed(int uploadSpeed);
 
-    String getDataLimit();
+    int getDataLimit();
 
-    void setDataLimit(String dataLimit);
+    void setDataLimit(int dataLimit);
 }

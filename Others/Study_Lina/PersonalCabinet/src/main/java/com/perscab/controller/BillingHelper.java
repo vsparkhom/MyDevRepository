@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 public class BillingHelper {
 
@@ -23,13 +22,13 @@ public class BillingHelper {
         try {
             conn = ConnectionUtils.getConnection();
 
-            double currentBallance = DBUtils.calcCurrentBallance(conn, account.getId());
-            System.out.println("MainServlet.getBillingInfo: [currentBallance]:" + currentBallance);
-            request.setAttribute("currentBallance", currentBallance);
+            double currentBalance = DBUtils.calcCurrentBalance(conn, account.getId());
+            System.out.println("MainServlet.getBillingInfo: [currentBalance]:" + currentBalance);
+            request.setAttribute("currentBalance", currentBalance);
 
             Date dueDate = DBUtils.getPaymentDueDate(conn, account.getId());
             System.out.println("MainServlet.getBillingInfo: [dueDate]:" + dueDate);
-            SimpleDateFormat formatter = new SimpleDateFormat("MMMMM dd, yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
             if (dueDate != null) {
                 request.setAttribute("dueDate", formatter.format(dueDate));

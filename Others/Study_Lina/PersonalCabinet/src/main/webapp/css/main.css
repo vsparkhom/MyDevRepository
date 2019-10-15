@@ -1,0 +1,12 @@
+#login_flags {
+    text-align: center;
+}
+
+#nav_flags {
+    padding: 10px;
+    min-height: 50px;
+}
+
+.text-success-light {
+  color: #77FF33;
+}

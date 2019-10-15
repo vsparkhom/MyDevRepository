@@ -79,7 +79,7 @@ public class DBQueries {
             "where\n" +
             "  a.id = ? /* Account Id */\n" +
             "  and p.account_id = a.id\n" +
-            "  and p.status = 'Not Paid'";
+            "  and p.status = 'not_paid'";
 
     public static String GET_PAYMENT_DUE_DATE =
             "select\n" +
@@ -90,7 +90,7 @@ public class DBQueries {
             "where\n" +
             "  a.id = ? /* Account Id */\n" +
             "  and p.account_id = a.id\n" +
-            "  and p.status = 'Not Paid'";
+            "  and p.status = 'not_paid'";
 
     public static String GET_ALL_PAYMENTS_FOR_ACCOUNT =
             "select p.*\n" +
@@ -139,7 +139,7 @@ public class DBQueries {
 
     public static String DEACTIVATE_HARDWARE_FOR_ACCOUNT_BY_SERVICE_ID =
             "update hardware\n" +
-            "set status = 'Inactive', account_id = null\n" +
+            "set status = 'inactive', account_id = null\n" +
             "where \n" +
             "account_id = ?\n" +
             "and service_type_id in (\n" +
@@ -197,13 +197,13 @@ public class DBQueries {
             "  s.id = ?\n" +
             "  and hw.service_type_id = s.type_id\n" +
             "  and hw.account_id is null\n" +
-            "  and status = 'Inactive'";
+            "  and status = 'inactive'";
 
     public static String RESERVE_HW_FOR_ACCOUNT =
             "update hardware\n" +
             "set \n" +
             "  account_id = ?,\n" +
-            "  status = 'Active'\n" +
+            "  status = 'active'\n" +
             "where\n" +
             "  id = ?";
 

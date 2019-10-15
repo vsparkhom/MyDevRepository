@@ -1,3 +1,12 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="messages"/>
+
 <head>
 
     <meta charset="utf-8">
@@ -6,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal Cabinet</title>
+    <title><fmt:message key="label.header.1" /></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -22,6 +31,9 @@
 
     <!-- DataTables CSS -->
     <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Main custom CSS -->
+        <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
