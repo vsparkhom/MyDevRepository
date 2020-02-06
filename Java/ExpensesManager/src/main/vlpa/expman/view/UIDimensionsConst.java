@@ -4,7 +4,7 @@ public interface UIDimensionsConst {
 
     //main scene
     int SCENE_WIDTH = 1000;
-    int SCENE_HEIGHT = 500;
+    int SCENE_HEIGHT = 600;
 
     //main panel
     int TOP_MENU_WIDTH = 500;

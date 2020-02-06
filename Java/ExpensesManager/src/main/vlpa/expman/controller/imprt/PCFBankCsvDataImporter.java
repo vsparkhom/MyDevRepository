@@ -20,12 +20,12 @@ public class PCFBankCsvDataImporter extends AbstractCsvDataImporter {
 
     @Override
     public int getTotalFieldsNumber() {
-        return 5;
+        return 6;
     }
 
     @Override
     public int getTransactionDateFieldIndex() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class PCFBankCsvDataImporter extends AbstractCsvDataImporter {
 
     @Override
     public int getAmountFieldIndex() {
-        return 4;
+        return 5;
     }
 
     @Override

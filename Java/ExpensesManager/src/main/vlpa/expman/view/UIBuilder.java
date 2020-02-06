@@ -204,7 +204,7 @@ public class UIBuilder {
     }
 
     private Button createManageExpenseButton(String name, EventHandler<ActionEvent> handler) {
-        return createCustomButton(name, null, null, 70, 40, handler);
+        return createCustomButton(name, null, null, 70, 20, handler);
     }
 
     private Button createCustomButton(String name, String tooltip, String imgPath, double width, double height,

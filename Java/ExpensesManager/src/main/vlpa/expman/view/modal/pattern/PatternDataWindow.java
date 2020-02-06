@@ -133,7 +133,7 @@ public class PatternDataWindow extends VBox {
             categoriesData.add(category.getName());
         }
         categoriesComboBox = new ComboBox<>(categoriesData);
-        categoriesComboBox.setPrefWidth(210);
+        categoriesComboBox.setPrefWidth(200);
     }
 
 }
