@@ -1,0 +1,10 @@
+Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit
+2020-02-01,2020-02-03,1679,Test Expense 5.1(C1),Merchandise,15.67,
+2020-02-01,2020-02-03,1679,Test Expense 4.1(C1),Dining,14.56,
+2020-02-01,2020-02-03,1679,Test Expense 3.1(C1),Merchandise,13.45,
+2020-02-01,2020-02-03,1679,Test Expense 2.1(C1),Merchandise,12.34,
+2020-02-01,2020-02-03,1679,Test Expense 1.1(C1),Dining,11.23,
+2020-02-01,2020-02-03,1679,Unknown Expense 1(C1),Merchandise,50.00,
+2020-02-01,2020-02-03,1679,Amount Expense 1(C1),Merchandise,1500.00,
+2020-02-01,2020-02-03,1679,Skip Expense 2(C1),Merchandise,200.00,
+2020-02-01,2020-02-03,1679,Skip Expense 1(C1),Dining,100.00,
