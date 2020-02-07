@@ -3,6 +3,7 @@ package vlpa.expman.dao.expense.sqlite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vlpa.expman.controller.ExpenseUtils;
+import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.DBQueries;
 import vlpa.expman.dao.connection.ConnectionManager;
 import vlpa.expman.dao.exception.ExpensesDatabaseOperationException;
@@ -13,6 +14,7 @@ import vlpa.expman.model.Expense;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ExpensesDAOImpl implements ExpensesDAO {
@@ -138,6 +140,26 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.executeUpdate();
         } catch (Exception e) {
             LOGGER.error("Expense can't be updated due to error", e);
+            throw new ExpensesDatabaseOperationException(e);
+        } finally {
+            ConnectionManager.closeConnection(conn);
+        }
+    }
+
+    @Override
+    public void addImportHistoryRecord(Date start, Date end, BankType bankType) {
+        LOGGER.info("Adding history record for expenses import for {} account. Start date: {}, End Date: {}" + bankType.getName(), start, end);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String message = String.format("Expenses have been imported for %s account. Start date: %s, End Date: %s",
+                bankType.getName(), dateFormat.format(start), dateFormat.format(end));
+        Connection conn = null;
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(DBQueries.SQLiteDBQueries.ADD_IMPORT_HISTORY_RECORD);
+            pstm.setString(1, message);
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            LOGGER.error("History record for expenses import can't be added due to error", e);
             throw new ExpensesDatabaseOperationException(e);
         } finally {
             ConnectionManager.closeConnection(conn);

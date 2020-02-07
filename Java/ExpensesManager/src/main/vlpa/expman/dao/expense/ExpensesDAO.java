@@ -1,7 +1,9 @@
 package vlpa.expman.dao.expense;
 
+import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.model.Expense;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ExpensesDAO {
@@ -15,4 +17,6 @@ public interface ExpensesDAO {
     void removeExpense(long expenseId);
 
     void updateExpense(Expense e);
+
+    void addImportHistoryRecord(Date start, Date end, BankType bankType);
 }

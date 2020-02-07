@@ -5,6 +5,7 @@ drop table expenses;
 drop table expense_patterns;
 drop table expense_pattern_types;
 drop table categories;
+drop table import_history;
 
 
 --- CREATE SECTION ---
@@ -46,4 +47,9 @@ create table expense_patterns (
     amount float default '0',
     foreign key (category_id) references categories(id),
     foreign key (type_id) references expense_pattern_types(id)
+);
+
+create table import_history (
+    date date null,
+    message text null
 );

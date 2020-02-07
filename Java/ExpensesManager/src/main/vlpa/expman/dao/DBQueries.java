@@ -27,6 +27,8 @@ public interface DBQueries {
         String REMOVE_PATTERN = "delete from expense_patterns where id = ?";
         String UPDATE_PATTERN = "update expense_patterns set pattern = ?, category_id = ?, type_id = ?, priority= ?, " +
                 "amount = ? where id = ?";
+
+        String ADD_IMPORT_HISTORY_RECORD = "insert into import_history(date, message) values (date('now'), ?)";
     }
 
 }

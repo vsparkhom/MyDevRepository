@@ -1,5 +1,6 @@
 package vlpa.expman.dao.expense;
 
+import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.ExpenseManagerDAOFactory;
 import vlpa.expman.dao.category.CategoriesRepository;
 import vlpa.expman.dao.expense.spec.ExpenseSqlSpecificationGetAll;
@@ -81,5 +82,10 @@ public class ExpensesRepository {
 
     public void updateExpense(Expense e) {
         expensesDAO.updateExpense(e);
+    }
+
+    public void addImportHistoryRecord(Date start, Date end, BankType bankType) {
+        expensesDAO.addImportHistoryRecord(start, end, bankType);
+
     }
 }

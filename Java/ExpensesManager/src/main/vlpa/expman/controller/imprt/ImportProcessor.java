@@ -10,6 +10,8 @@ import vlpa.expman.model.ImportPattern;
 import vlpa.expman.model.PatternType;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -37,6 +39,20 @@ public class ImportProcessor {
         Collection<Expense> expenses = importExpensesFromFile(fileName, bankType);
         sortExpensesByCategories(expenses);
         storeExpenses(expenses);
+        updateHistory(expenses, bankType);
+    }
+
+    protected void updateHistory(Collection<Expense> expenses, BankType bankType) {
+        expensesRepository.addImportHistoryRecord(
+                getEarliestExpense(expenses).getDate(), getLatestExpense(expenses).getDate(), bankType);
+    }
+
+    private Expense getEarliestExpense(Collection<Expense> expenses) {
+        return Collections.min(expenses, Comparator.comparing(Expense::getDate));
+    }
+
+    private Expense getLatestExpense(Collection<Expense> expenses) {
+        return Collections.max(expenses, Comparator.comparing(Expense::getDate));
     }
 
     protected Collection<Expense> importExpensesFromFile(String fileName, BankType bankType) {
