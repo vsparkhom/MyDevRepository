@@ -38,6 +38,7 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
                     isHeaderSkipped = true;
                 } else {
                     line = removeUnsupportedSymbols(line);
+                    LOGGER.debug("Importing line: {}", line);
                     String[] expensesData = line.split(getFieldsSeparator());
                     Date date = parseDate(expensesData[getTransactionDateFieldIndex()]);
                     String msg = expensesData[getMerchantFieldIndex()].trim();

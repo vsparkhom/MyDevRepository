@@ -161,7 +161,7 @@ public class PatternManagementWindow<T extends ImportPattern> extends AbstractEn
 
     @Override
     protected int getSortingColumnIndex() {
-        return 2;
+        return 4;
     }
 
     @Override

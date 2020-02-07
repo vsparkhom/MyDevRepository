@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vlpa.expman.controller.imprt.ImportProcessor;
 import vlpa.expman.controller.imprt.BankType;
 import vlpa.expman.dao.exception.ExpensesDatabaseOperationException;
@@ -22,6 +24,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ImportExpensesWindow {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(ImportExpensesWindow.class);
 
     private ImportProcessor importProcessor;
     private UIBuilder builder;
@@ -100,10 +104,12 @@ public class ImportExpensesWindow {
                             "Expenses import has been successfully finished!").showAndWait();
                 } catch (ExpensesDatabaseOperationException e) {
                     stage.close();
+                    LOGGER.debug("Expenses import error", e);
                     ModalWindowsHelper.getErrorDialog("Expenses import error",
                             "Some issue occurred during storing expenses to database. Please contact administrator.").showAndWait();
                 } catch (Exception e) {
                     stage.close();
+                    LOGGER.debug("Expenses import error", e);
                     ModalWindowsHelper.getErrorDialog("Expenses import error",
                             "Some issue occurred during expenses import. Please contact administrator.").showAndWait();
                 }

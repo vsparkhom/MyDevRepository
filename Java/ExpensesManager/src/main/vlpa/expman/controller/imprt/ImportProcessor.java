@@ -63,7 +63,6 @@ public class ImportProcessor {
                 Pattern pattern = Pattern.compile(patternText);
                 Matcher m = pattern.matcher(expenseName);
                 if (m.find()) {
-//                    LOGGER.debug("    - match found with pattern: {}", ip);
                     if (PatternType.SKIP.equals(ip.getType())) {
                         LOGGER.debug("Skipping {} (pattern: {})", e, ip);
                         iterator.remove();
@@ -77,7 +76,7 @@ public class ImportProcessor {
                 }
             }
             if (c == null) {
-                LOGGER.debug("Pattern was not found for {}. Setting Unknown category.");
+                LOGGER.debug("Pattern was not found for {}. Setting Unknown category.", e);
                 e.setCategory(categoriesRepository.getUnknownCategory());
             } else {
                 e.setCategory(c);
