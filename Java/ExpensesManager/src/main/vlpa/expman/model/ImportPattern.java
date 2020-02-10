@@ -9,22 +9,6 @@ public class ImportPattern {
     private PatternPriority priority;
     private double amount;
 
-//    private ImportPattern() {
-//    }
-//
-//    private ImportPattern(long id, String text, Category category, PatternType type) {
-//        this(id, text, category, type, PatternPriority.MEDIUM, 0);
-//    }
-//
-//    private ImportPattern(long id, String text, Category category, PatternType type, PatternPriority priority, double amount) {
-//        this.id = id;
-//        this.text = text;
-//        this.category = category;
-//        this.type = type;
-//        this.priority = priority;
-//        this.amount = amount;
-//    }
-
     public long getId() {
         return id;
     }

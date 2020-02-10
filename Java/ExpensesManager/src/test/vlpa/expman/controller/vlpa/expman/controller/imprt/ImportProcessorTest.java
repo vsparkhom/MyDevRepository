@@ -16,6 +16,8 @@ import static org.mockito.Mockito.*;
 
 public class ImportProcessorTest {
 
+    public static final String TEST_EXPENSES_FILE = "res/test/import/test_expenses.csv";
+
     private TestableImportProcessor importProcessorInstance;
     private ExpensesRepository expensesRepositoryMock;
     private CategoriesRepository categoriesRepositorySpy;
@@ -65,10 +67,11 @@ public class ImportProcessorTest {
 
     @Test
     public void testImportExpenses_checkMethodsCalled() {
+        doCallRealMethod().when(importProcessorInstance).importExpensesFromFile(eq(TEST_EXPENSES_FILE), any(BankType.class));
 
-        importProcessorInstance.importExpenses("file.csv", BankType.TD_BANK_ACCOUNT);
+        importProcessorInstance.importExpenses(TEST_EXPENSES_FILE, BankType.TD_BANK_ACCOUNT);
 
-        verify(importProcessorInstance).importExpensesFromFile(any(String.class), eq(BankType.TD_BANK_ACCOUNT));
+        verify(importProcessorInstance).importExpensesFromFile(eq(TEST_EXPENSES_FILE), eq(BankType.TD_BANK_ACCOUNT));
         verify(importProcessorInstance).sortExpensesByCategories(any());
         verify(importProcessorInstance).storeExpenses(any());
     }

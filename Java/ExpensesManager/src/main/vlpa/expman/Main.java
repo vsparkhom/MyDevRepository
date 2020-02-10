@@ -23,8 +23,7 @@ public class Main extends Application {
     /**
      * TODO list:
      * - Implement JUnit tests for Repository classes
-     * - Add history/log of operations
-     * - Add builders for Expense and ImportPattern classes
+     * - Add history/log of operations (import history is done)
      */
 
 

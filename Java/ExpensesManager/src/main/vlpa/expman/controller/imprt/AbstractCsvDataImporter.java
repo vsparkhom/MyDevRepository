@@ -63,7 +63,7 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
         return expenses;
     }
 
-    private String removeUnsupportedSymbols(String rawExpensesDataLine) {
+    protected String removeUnsupportedSymbols(String rawExpensesDataLine) {
         String resultExpensesDataLine = removeExcessSeparatorsInMerchantField(rawExpensesDataLine);
         String[] unsupportedSymbols = {"\""};
         for (String charToReplace : unsupportedSymbols) {
@@ -72,7 +72,7 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
         return resultExpensesDataLine;
     }
 
-    private String removeExcessSeparatorsInMerchantField(String line) {
+    protected String removeExcessSeparatorsInMerchantField(String line) {
         if (StringUtils.countMatches(line, getFieldsSeparator()) > getTotalFieldsNumber() - 1) {
             int charIndexToDelete = StringUtils.ordinalIndexOf(line, getFieldsSeparator(),
                     getMerchantFieldIndex() + 1);
@@ -91,7 +91,7 @@ public abstract class AbstractCsvDataImporter implements DataImporter {
         return defaultDateFormatter;
     }
 
-    private double parseAmount(String value) {
+    protected double parseAmount(String value) {
         if (value == null || "".equals(value)) {
             return 0;
         }
