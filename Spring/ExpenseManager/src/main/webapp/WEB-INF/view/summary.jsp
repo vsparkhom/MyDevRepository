@@ -1,3 +1,5 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -529,9 +531,95 @@
       <div class="row">
         <div class="col-lg-6">
 
+            <!-- Card with header and footer -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Select month</h5>
+
+                    <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged()">
+                      <option value="0" <c:out value="${numOfUnits eq 0 ? 'selected': ''}"/>>May</option>
+                      <option value="1" <c:out value="${numOfUnits eq 1 ? 'selected': ''}"/>>April</option>
+                      <option value="2" <c:out value="${numOfUnits eq 2 ? 'selected': ''}"/>>March</option>
+                      <option value="3" <c:out value="${numOfUnits eq 3 ? 'selected': ''}"/>>February</option>
+                      <option value="4" <c:out value="${numOfUnits eq 4 ? 'selected': ''}"/>>January</option>
+                      <option value="5" <c:out value="${numOfUnits eq 5 ? 'selected': ''}"/>>December</option>
+                    </select>
+
+                    <h5 class="card-title">Overall progress</h5>
+
+                    <!-- Progress Bars with Backgrounds-->
+
+                    <c:choose>
+                      <c:when test="${summary.usagePercent <= 30}">
+                      <div class="progress mt-3">
+                          <div class="progress-bar bg-success" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </c:when>
+                      <c:when test="${summary.usagePercent > 30 && summary.usagePercent <= 70}">
+                        <div class="progress mt-3">
+                          <div class="progress-bar" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </c:when>
+                      <c:when test="${summary.usagePercent > 70 && summary.usagePercent <= 90}">
+                        <div class="progress mt-3">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </c:when>
+                      <c:otherwise>
+                        <div class="progress mt-3">
+                          <div class="progress-bar bg-danger" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </c:otherwise>
+                    </c:choose>
+                    <!-- End Progress Bars with Backgrounds -->
+
+                    <!-- TODO: remove this block completely>
+                    <!--div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mt-3">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mt-3">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mt-3">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mt-3">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div--><!-- End Progress Bars with Backgrounds -->
+
+                    <h5 class="card-title">Overall statistics</h5>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                          <th scope="col">Category</th>
+                          <th scope="col">Spent</th>
+                          <th scope="col">Percentage</th>
+                          <th scope="col">Leftover</th>
+                          <th scope="col">Limit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">${summary.name}</th>
+                                <td>${summary.currentAmount}</td>
+                                <td>${summary.usagePercent}</td>
+                                <td>${summary.leftover}</td>
+                                <td>${summary.limit}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+
+                  </div>
+                <!--div class="card-footer">Footer</div-->
+            </div><!-- End Card with header and footer -->
+
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table Variants</h5>
+              <h5 class="card-title">Categories summary</h5>
               <p>Use contextual classes <code>.table-primary .table-secondary .table-success .table-danger .table-warning .table-info .table-light .table-dark</code> to color tables, table rows or individual cells.</p>
               <!-- Table Variants -->
               <table class="table">
@@ -545,155 +633,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <th scope="row">Summary</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr>
-                  <th scope="row">Other</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr>
-                  <th scope="row">Monthly</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr>
-                  <th scope="row">Unknown</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr>
-                  <th scope="row">Test category 1</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr>
-                  <th scope="row">Test category 1</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-
-                <tr>
-                  <th scope="row">Default</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr class="table-success">
-                  <th scope="row">Success</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr class="table-danger">
-                  <th scope="row">Danger</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-                <tr class="table-warning">
-                  <th scope="row">Warning</th>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                  <td>Cell</td>
-                </tr>
-
-                </tbody>
-              </table>
-              <!-- End Table Variants -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Table Variants</h5>
-              <p>Use contextual classes <code>.table-primary .table-secondary .table-success .table-danger .table-warning .table-info .table-light .table-dark</code> to color tables, table rows or individual cells.</p>
-              <!-- Table Variants -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Category</th>
-                    <th scope="col">Spent</th>
-                    <th scope="col">Leftover</th>
-                    <th scope="col">Limit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Default</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-
-                  <tr class="table-primary">
-                    <th scope="row">Primary</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th scope="row">Secondary</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-success">
-                    <th scope="row">Success</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-danger">
-                    <th scope="row">Danger</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-warning">
-                    <th scope="row">Warning</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-info">
-                    <th scope="row">Info</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-light">
-                    <th scope="row">Light</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
-                  <tr class="table-dark">
-                    <th scope="row">Dark</th>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                    <td>Cell</td>
-                  </tr>
+                    <c:forEach var="category" items="${allCategories}">
+                        <c:choose>
+                          <c:when test="${category.usagePercent <= 30}">
+                            <tr class="table-success">
+                          </c:when>
+                          <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
+                            <tr>
+                          </c:when>
+                          <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
+                            <tr class="table-warning">
+                          </c:when>
+                          <c:otherwise>
+                            <tr class="table-danger">
+                          </c:otherwise>
+                        </c:choose>
+                        <th scope="row">${category.name}</th>
+                        <td>${category.currentAmount}</td>
+                        <td>${category.usagePercent}</td>
+                        <td>${category.leftover}</td>
+                        <td>${category.limit}</td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
               </table>
               <!-- End Table Variants -->
