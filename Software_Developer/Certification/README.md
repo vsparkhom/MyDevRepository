@@ -7,6 +7,10 @@
 > 2. [Cloud](#cloud-cert)
 
 ## Java
+
+<a href="https://javarevisited.blogspot.com/2020/05/10-reasons-to-become-oracle-certified-master.html#axzz7Y5ot4fcx"><img src="img/Java_Certification_from_Oracle.gif" /></a>
+
+Certification levels:
 * Oracle Certified Associate Java Programmer
 * [OCP Oracle Certified Professional Java SE 8 Programmer](OCP_Oracle_Certified_Professional/README.md)
 * Java SE Associate
