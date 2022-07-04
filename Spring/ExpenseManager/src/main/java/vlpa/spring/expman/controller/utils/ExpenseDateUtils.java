@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class ExpenseUtils {
+public class ExpenseDateUtils {
 
     private static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 

@@ -2,6 +2,7 @@ package vlpa.spring.expman.controller.period;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MonthPeriod implements Period {
 
@@ -33,12 +34,24 @@ public class MonthPeriod implements Period {
         return endDate;
     }
 
-    @Override
-    public int getNumberOfUnits() {
-        return monthsAgo;
-    }
+//    @Override
+//    public int getNumberOfUnits() {
+//        return monthsAgo;
+//    }
 
     public void setNumberOfUnits(int numberOfUnits) {
         this.monthsAgo = numberOfUnits;
+    }
+
+    @Override
+    public String getName() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(startDate);
+        return calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.CANADA);
+    }
+
+    @Override
+    public int getIndex() {
+        return monthsAgo;
     }
 }

@@ -336,7 +336,7 @@ function periodSelectorChanged() {
 
   const pathArray = window.location.href.split("/");
   pathArray.pop();
-  var link = pathArray.join("/") + "/period?numOfUnits=" + v;
+  var link = pathArray.join("/") + "/period?currentPeriodIndex=" + v;
   console.log("link: " + link);
   window.location.href = link;
 }

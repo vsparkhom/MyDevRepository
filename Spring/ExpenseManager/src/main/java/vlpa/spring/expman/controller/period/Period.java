@@ -8,8 +8,12 @@ public interface Period {
 
     Date getEndDate();
 
-    int getNumberOfUnits();
+//    int getNumberOfUnits();
 
     void setNumberOfUnits(int numberOfUnits);
+
+    String getName();
+
+    int getIndex();
 
 }

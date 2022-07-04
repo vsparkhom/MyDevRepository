@@ -1,6 +1,6 @@
 package vlpa.spring.expman.entity;
 
-import vlpa.spring.expman.controller.utils.ExpenseUtils;
+import vlpa.spring.expman.controller.utils.ExpenseDateUtils;
 
 import java.util.Date;
 
@@ -11,11 +11,11 @@ public class ExpenseReport {
     private double currentAmount;
 
     public ExpenseReport() {
-        this(ExpenseUtils.getStartDate(), ExpenseUtils.getEndDate(), 0);
+        this(ExpenseDateUtils.getStartDate(), ExpenseDateUtils.getEndDate(), 0);
     }
 
     public ExpenseReport(double currentAmount) {
-        this(ExpenseUtils.getStartDate(), ExpenseUtils.getEndDate(), currentAmount);
+        this(ExpenseDateUtils.getStartDate(), ExpenseDateUtils.getEndDate(), currentAmount);
     }
 
     public ExpenseReport(Date start, Date end) {

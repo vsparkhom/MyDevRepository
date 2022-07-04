@@ -537,12 +537,9 @@
                     <h5 class="card-title">Select month</h5>
 
                     <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged()">
-                      <option value="0" <c:out value="${numOfUnits eq 0 ? 'selected': ''}"/>>May</option>
-                      <option value="1" <c:out value="${numOfUnits eq 1 ? 'selected': ''}"/>>April</option>
-                      <option value="2" <c:out value="${numOfUnits eq 2 ? 'selected': ''}"/>>March</option>
-                      <option value="3" <c:out value="${numOfUnits eq 3 ? 'selected': ''}"/>>February</option>
-                      <option value="4" <c:out value="${numOfUnits eq 4 ? 'selected': ''}"/>>January</option>
-                      <option value="5" <c:out value="${numOfUnits eq 5 ? 'selected': ''}"/>>December</option>
+                      <c:forEach var="period" items="${periodsList}">
+                         <option value="${period.index}" <c:out value="${currentPeriodIndex eq period.index ? 'selected': ''}"/>>${period.name}</option>
+                      </c:forEach>
                     </select>
 
                     <h5 class="card-title">Overall progress</h5>

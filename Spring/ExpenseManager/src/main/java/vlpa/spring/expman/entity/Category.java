@@ -1,6 +1,6 @@
 package vlpa.spring.expman.entity;
 
-import vlpa.spring.expman.controller.utils.ExpenseUtils;
+import vlpa.spring.expman.controller.utils.ExpenseDateUtils;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -99,7 +99,7 @@ public class Category {
 //    }
 
     private double getTotalExpenseAmountForCurrentPeriod() {
-            return getTotalExpenseAmountByDates(ExpenseUtils.getStartDate(), ExpenseUtils.getEndDate());
+            return getTotalExpenseAmountByDates(ExpenseDateUtils.getStartDate(), ExpenseDateUtils.getEndDate());
     }
 
     private double getTotalExpenseAmountByDates(Date startDate, Date endDate) {
@@ -131,14 +131,14 @@ public class Category {
     //utils methods
 
     public double getCurrentAmount() {
-        return ExpenseUtils.round(getExpenseReport().getCurrentAmount(), 2);
+        return ExpenseDateUtils.round(getExpenseReport().getCurrentAmount(), 2);
     }
 
     public int getUsagePercent() {
-        return (int) Math.ceil(ExpenseUtils.round(getExpenseReport().getCurrentAmount()/getLimit(), 2) * 100);
+        return (int) Math.ceil(ExpenseDateUtils.round(getExpenseReport().getCurrentAmount()/getLimit(), 2) * 100);
     }
 
     public double getLeftover() {
-        return ExpenseUtils.round(getLimit() - getExpenseReport().getCurrentAmount(), 2);
+        return ExpenseDateUtils.round(getLimit() - getExpenseReport().getCurrentAmount(), 2);
     }
 }
