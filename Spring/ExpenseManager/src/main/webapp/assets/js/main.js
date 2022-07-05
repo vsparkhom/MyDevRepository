@@ -329,14 +329,13 @@ $(document).ready(function(){
     });
 });
 */
-function periodSelectorChanged() {
+function periodSelectorChanged(params) {
+  console.log("params: " + params);
   var v = document.getElementById('period-selector').value;
   console.log(v);
-  //window.location.href = window.location.href + '?period=' + v;
-
   const pathArray = window.location.href.split("/");
   pathArray.pop();
-  var link = pathArray.join("/") + "/period?currentPeriodIndex=" + v;
+  var link = pathArray.join("/") + "/period?currentPeriodIndex=" + v + "&params=" + params;
   console.log("link: " + link);
   window.location.href = link;
 }

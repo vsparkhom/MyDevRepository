@@ -511,10 +511,10 @@
       </li><!-- End Summary Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="category">
-            <i class="bi bi-file-earmark"></i>
-            <span>Category</span>
-        </a>
+          <a class="nav-link collapsed" href="category">
+              <i class="bi bi-file-earmark"></i>
+              <span>Category</span>
+          </a>
       </li><!-- End Category Page Nav -->
 
     </ul>
@@ -524,11 +524,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Summary</h1>
+      <h1>Category</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Summary</li>
+          <li class="breadcrumb-item active">Category</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -542,7 +542,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Select month</h5>
 
-                    <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged('summary')">
+                    <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged('category_${category.id}')">
                       <c:forEach var="period" items="${periodsList}">
                          <option value="${period.index}" <c:out value="${currentPeriodIndex eq period.index ? 'selected': ''}"/>>${period.name}</option>
                       </c:forEach>
@@ -553,24 +553,24 @@
                     <!-- Progress Bars with Backgrounds-->
 
                     <c:choose>
-                      <c:when test="${summary.usagePercent <= 30}">
+                      <c:when test="${category.usagePercent <= 30}">
                       <div class="progress mt-3">
-                          <div class="progress-bar bg-success" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar bg-success" role="progressbar" style="width: ${category.usagePercent}%" aria-valuenow="${category.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                       </c:when>
-                      <c:when test="${summary.usagePercent > 30 && summary.usagePercent <= 70}">
+                      <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
                         <div class="progress mt-3">
-                          <div class="progress-bar" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar" role="progressbar" style="width: ${category.usagePercent}%" aria-valuenow="${category.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                       </c:when>
-                      <c:when test="${summary.usagePercent > 70 && summary.usagePercent <= 90}">
+                      <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
                         <div class="progress mt-3">
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: ${category.usagePercent}%" aria-valuenow="${category.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                       </c:when>
                       <c:otherwise>
                         <div class="progress mt-3">
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar bg-danger" role="progressbar" style="width: ${category.usagePercent}%" aria-valuenow="${category.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                       </c:otherwise>
                     </c:choose>
@@ -607,11 +607,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">${summary.name}</th>
-                                <td>${summary.currentAmount}</td>
-                                <td>${summary.usagePercent}</td>
-                                <td>${summary.leftover}</td>
-                                <td>${summary.limit}</td>
+                                <th scope="row">${category.name}</th>
+                                <td>${category.currentAmount}</td>
+                                <td>${category.usagePercent}</td>
+                                <td>${category.leftover}</td>
+                                <td>${category.limit}</td>
                             </tr>
                         </tbody>
                       </table>
@@ -621,50 +621,37 @@
             </div><!-- End Card with header and footer -->
 
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Categories summary</h5>
-              <!--p>Use contextual classes <code>.table-primary .table-secondary .table-success .table-danger .table-warning .table-info .table-light .table-dark</code> to color tables, table rows or individual cells.</p-->
-              <!-- Table Variants -->
-              <table class="table">
-                <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col">Spent</th>
-                  <th scope="col">Percentage</th>
-                  <th scope="col">Leftover</th>
-                  <th scope="col">Limit</th>
-                </tr>
-                </thead>
-                <tbody>
+              <div class="card-body">
+                <h5 class="card-title">Expenses</h5>
+                <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
 
-                    <c:forEach var="category" items="${allCategories}">
-                        <c:choose>
-                          <c:when test="${category.usagePercent <= 30}">
-                            <tr class="table-success">
-                          </c:when>
-                          <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
-                            <tr>
-                          </c:when>
-                          <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
-                            <tr class="table-warning">
-                          </c:when>
-                          <c:otherwise>
-                            <tr class="table-danger">
-                          </c:otherwise>
-                        </c:choose>
-                        <th scope="row"><a href="category?categoryId=${category.id}" style="color:black;">${category.name}</a></th>
-                        <td>${category.currentAmount}</td>
-                        <td>${category.usagePercent}</td>
-                        <td>${category.leftover}</td>
-                        <td>${category.limit}</td>
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Merchant</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Bank</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="expense" items="${expenses}">
+                        <tr>
+                          <th scope="row">${expense.id}</th>
+                          <td>${expense.date}</td>
+                          <td>${expense.merchant}</td>
+                          <td>${expense.amount}</td>
+                          <td>${expense.bank}</td>
                         </tr>
                     </c:forEach>
-                </tbody>
-              </table>
-              <!-- End Table Variants -->
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
 
+              </div>
             </div>
-          </div>
 
         </div>
 

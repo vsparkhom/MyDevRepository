@@ -22,4 +22,12 @@ public class CategoryDAOImpl implements CategoryDAO {
         List<Category> allCategories = session.createQuery("from Category", Category.class).getResultList();
         return allCategories;
     }
+
+    @Override
+    @Transactional
+    public Category getCategoryById(int categoryId) {
+        Session session = sessionFactory.getCurrentSession();
+        Category category = session.createQuery("from Category where id = " + categoryId, Category.class).getSingleResult();
+        return category;
+    }
 }

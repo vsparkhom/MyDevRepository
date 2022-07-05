@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import vlpa.spring.expman.controller.period.PeriodHolder;
 import vlpa.spring.expman.entity.Category;
+import vlpa.spring.expman.entity.Expense;
 import vlpa.spring.expman.entity.ExpenseReport;
 import vlpa.spring.expman.service.ExpenseManagerService;
 
@@ -33,8 +34,7 @@ public class MainController {
     @RequestMapping("/summary")
     public String displaySummaryPage(Model model) {
 
-        model.addAttribute("currentPeriodIndex", PeriodHolder.getInstance().getCurrentPeriod().getIndex());
-        model.addAttribute("periodsList", PeriodHolder.getInstance().getPeriodsList());
+        initPeriodParameters(model);
 
         List<Category> allCategories = expenseManagerService.getAllCategories();
         model.addAttribute("allCategories", allCategories);
@@ -51,9 +51,35 @@ public class MainController {
         return "summary";
     }
 
+    private void initPeriodParameters(Model model) {
+        model.addAttribute("currentPeriodIndex", PeriodHolder.getInstance().getCurrentPeriod().getIndex());
+        model.addAttribute("periodsList", PeriodHolder.getInstance().getPeriodsList());
+    }
+
+    @RequestMapping("/category")
+    public String displayCategoryPage(@RequestParam("categoryId") int categoryId, Model model) {
+        initPeriodParameters(model);
+
+        Category category = expenseManagerService.getCategoryById(categoryId);
+        model.addAttribute("category", category);
+
+        List<Expense> expenses = expenseManagerService.getCategoryExpensesForCurrentPeriod(category);
+        model.addAttribute("expenses", expenses);
+
+        return "category";
+    }
+
     @RequestMapping("/period")
-    public String updatePeriod(@RequestParam("currentPeriodIndex") int currentPeriodIndex, Model model) {
+    public String updatePeriod(@RequestParam("currentPeriodIndex") int currentPeriodIndex,
+                               @RequestParam("params") String params,
+                               Model model) {
         PeriodHolder.getInstance().setCurrentPeriod(currentPeriodIndex);
+
+        if (params.startsWith("category")) {
+            String[] parameters = params.split("_");
+            Integer categoryId = Integer.valueOf(parameters[1]);
+            return displayCategoryPage(categoryId, model);
+        }
         return displaySummaryPage(model);
     }
 
