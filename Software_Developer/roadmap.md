@@ -30,6 +30,7 @@
 >        3. Frameworks
 >        4. Cloud
 >        5. Other
+>     7. [Time Management](Time_Management/README.md)
 > 
 > 2. [Java](Java/README.md)<img src="img/medal_1st.png" /> 
 >     1. Generics
