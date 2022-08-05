@@ -6,27 +6,17 @@
 > 2. [Frameworks](#frameworks-cert)
 > 2. [Cloud](#cloud-cert)
 
-## Java
+## <a name="java-cert"></a> Java
 
-<a href="https://javarevisited.blogspot.com/2020/05/10-reasons-to-become-oracle-certified-master.html#axzz7Y5ot4fcx"><img src="img/Java_Certification_from_Oracle.gif" /></a>
+[Oracle Certification](Oracle_Certified_Java/README.md)
 
-Certification levels:
-* Oracle Certified Associate Java Programmer
-* [OCP Oracle Certified Professional Java SE 8 Programmer](OCP_Oracle_Certified_Professional/README.md)
-* Java SE Associate
-* Java SE Professional
-* Java SE Master
-* Java EE Master
-* Java EE Certified Expert
-* [Oracle Certified Master Java Enterprise Architect](Oracle_Certified_Master_Java_Enterprise_Architect/README.md)
-
-## Oracle database
+## <a name="oracle-db-cert"></a> Oracle database
 * TBD
 
-## Frameworks
+## <a name="frameworks-cert"></a> Frameworks
 * Spring Professional
 
-## Cloud
+## <a name="cloud-cert"></a> Cloud
 * TBD
 
 ## Other

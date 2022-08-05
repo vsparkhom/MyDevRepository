@@ -24,8 +24,7 @@
 >        1. JIRA
 >        2. ServiceNow
 >     6. [Certification](Certification/README.md)
->        1. Java
->           1. [OCP Oracle Certified Professional Java SE 8 Programmer](Certification/OCP_Oracle_Certified_Professional/README.md)
+>        1. [Java](Certification/Oracle_Certified_Java/README.md)
 >        2. Oracle database
 >        3. Frameworks
 >        4. Cloud

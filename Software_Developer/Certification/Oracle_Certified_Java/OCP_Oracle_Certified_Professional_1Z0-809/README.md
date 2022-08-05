@@ -12,7 +12,6 @@ Other training materials:
 - [A_Programmer’s_Guide_to_Java_SCJP_Certification_Third_Edition.pdf](A_Programmer’s_Guide_to_Java_SCJP_Certification_Third_Edition.pdf)
 - [OCA_Java_SE_8_Programmer_I_Certification_Guide.pdf](OCA_Java_SE_8_Programmer_I_Certification_Guide.pdf)
 - [OCP_Java_SE_6_Programmer_Practice_Exams_Exam_310-065.pdf](OCP_Java_SE_6_Programmer_Practice_Exams_Exam_310-065.pdf)
-- [Oracle_Certified_Associate_Java_SE_7_Programmer_Study_Guide.pdf](Oracle_Certified_Associate_Java_SE_7_Programmer_Study_Guide.pdf)
 - [Oracle_Certified_Java_SE_8_Programmer_I_Certification_Guide.pdf](Oracle_Certified_Java_SE_8_Programmer_I_Certification_Guide.pdf)
 
 Articles:
