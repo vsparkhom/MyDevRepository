@@ -1,5 +1,7 @@
 ## Oracle Java Certifications
 
+### Common information
+
 <a href="https://javarevisited.blogspot.com/2020/05/10-reasons-to-become-oracle-certified-master.html#axzz7Y5ot4fcx"><img src="img/Java_Certification_from_Oracle.gif" /></a>
 
 Certification levels:
@@ -19,8 +21,18 @@ List of certification available on <a href="https://education.oracle.com/oracle-
     * Oracle Certified Foundations Associate, Java
     * <a href="https://education.oracle.com/products/trackp_OCPJAV11">Oracle Certified Professional: Java SE 11 Developer</a>
     * Oracle Certified Professional: Java SE 17 Developer
+    
+### Preparation recommendations
 
-#### OCA Oracle Certified Associate, Java SE 8 Programmer, 1Z0-808
+How to Pass Oracle's Java Certifications — a <a href="https://www.freecodecamp.org/news/how-to-pass-oracles-java-certifications-a-practical-guide-for-developers-e9b607ba6173/">Practical Guide for Developers</a>:
+* Code Every Day. There is no substitute for coding
+* Join a Good Course
+* Read a Good Study Book
+* Choose a Good Exam Simulator
+* Regularly Participate on Forums
+* Solve As Many Practice Questions As Possible
+
+### OCA Oracle Certified Associate, Java SE 8 Programmer, 1Z0-808
 
 Training materials:
 - [OCA-Oracle_Certified_Associate_Java_SE_8_Programmer_I_Study_Guide_Exam_1Z0-808.pdf](OCA_Oracle_Certified_Associate_1Z0-808/OCA-Oracle_Certified_Associate_Java_SE_8_Programmer_I_Study_Guide_Exam_1Z0-808.pdf)
@@ -29,7 +41,7 @@ Training materials:
 Other training materials:
 - [OCA_Java_SE_8_Programmer_I_Certification_Guide.pdf](OCP_Oracle_Certified_Professional_1Z0-809/OCA_Java_SE_8_Programmer_I_Certification_Guide.pdf)
 
-#### OCP Oracle Certified Professional, Java SE 8 Programmer, 1Z0-809
+### OCP Oracle Certified Professional, Java SE 8 Programmer, 1Z0-809
 
 *<p style="color:red;">Prior Certification Requirements: Oracle Certified Associate, Java SE 8 Programmer, 1Z0-808</p>*
 
@@ -49,7 +61,12 @@ Articles:
 Material sources:
 - [Java-Training-2018, PDF Books, GitHub](https://github.com/gopinathankm/Java-Training-2018)
 
-#### Oracle Certified Master Java Enterprise Architect
+### OCP Oracle Certified Professional, Java SE 11 Programmer, 1Z0-816 / 1Z0-817
+
+Training materials:
+- [OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide.pdf](Boyarsky_J__Selikoff_S_-_OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide_-_2020.pdf)
+
+### Oracle Certified Master Java Enterprise Architect
 
 Training materials:
 - [McGraw Hill SCEA Sun Certified Enterprise Architect for Java EE Study Guide Exam.310-051.Jul.2007](Oracle_Certified_Master_Java_Enterprise_Architect/McGraw.Hill.SCEA.Sun.Certified.Enterprise.Architect.for.Java.EE.Study.Guide.Exam.310-051.Jul.2007.pdf)
