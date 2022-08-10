@@ -64,7 +64,8 @@ Material sources:
 ### OCP Oracle Certified Professional, Java SE 11 Programmer, 1Z0-816 / 1Z0-817
 
 Training materials:
-- [OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide.pdf](OCP_Oracle_Certified_Professional_1Z0-816_1Z0-817/Boyarsky_J__Selikoff_S_-_OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide_-_2020.pdf)
+- [OCP_Java_SE_11_Programmer_I_1Z0-815_Study_guide_-_2019.pdf](OCP_Oracle_Certified_Professional_1Z0-815_1Z0-816_1Z0-817/Deshmukh_H_-_OCP_Java_SE_11_Programmer_I_1Z0-815_Study_guide_-_2019.pdf)
+- [OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide.pdf](OCP_Oracle_Certified_Professional_1Z0-815_1Z0-816_1Z0-817/Boyarsky_J__Selikoff_S_-_OCP_Oracle_Certified_Professional_Java_SE_11_Programmer_II_Study_Guide_-_2020.pdf)
 
 ### Oracle Certified Master Java Enterprise Architect
 
