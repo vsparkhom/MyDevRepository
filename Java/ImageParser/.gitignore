@@ -1,0 +1,7 @@
+#folder
+
+.idea
+target
+*.iml
+*.ipr
+*.iws
