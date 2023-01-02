@@ -30,4 +30,22 @@ public class CategoryDAOImpl implements CategoryDAO {
         Category category = session.createQuery("from Category where id = " + categoryId, Category.class).getSingleResult();
         return category;
     }
+
+    @Override
+    @Transactional
+    public void saveCategory(Category category) {
+        System.out.println("[DEBUG] Saving category to database: " + category);
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(category);
+        System.out.println("[DEBUG] Category has been successfully stored.");
+    }
+
+    @Override
+    @Transactional
+    public void removeCategory(Category category) {
+        System.out.println("[DEBUG] Removing category from database: " + category);
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(category);
+        System.out.println("[DEBUG] Category has been removed.");
+    }
 }

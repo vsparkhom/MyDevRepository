@@ -1,4 +1,5 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="c"    uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / General - NiceAdmin Bootstrap Template</title>
+  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -361,12 +362,12 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="forms-elements.html" class="active">
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
@@ -389,12 +390,12 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html" class="active">
+            <a href="tables-general.html">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
@@ -503,38 +504,6 @@
         </a>
       </li><!-- End Blank Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="summary">
-          <i class="bi bi-file-earmark"></i>
-          <span>Summary</span>
-        </a>
-      </li><!-- End Summary Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="category">
-            <i class="bi bi-file-earmark"></i>
-            <span>Category</span>
-        </a>
-      </li><!-- End Category Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-layout-text-window-reverse"></i><span>Management</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-              <li>
-                <a href="management-categories">
-                  <i class="bi bi-circle"></i><span>Categories</span>
-                </a>
-              </li>
-              <li>
-                <a href="management-expenses">
-                  <i class="bi bi-circle"></i><span>Expenses</span>
-                </a>
-              </li>
-            </ul>
-          </li><!-- End Management Nav -->
-
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -542,11 +511,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Summary</h1>
+      <h1>Manage categories</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Summary</li>
+          <li class="breadcrumb-item">Management</li>
+          <li class="breadcrumb-item active">Categories</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -554,135 +524,79 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
+        
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Create new category</h5>
 
-            <!-- Card with header and footer -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Select month</h5>
-
-                    <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged('summary')">
-                      <c:forEach var="period" items="${periodsList}">
-                         <option value="${period.index}" <c:out value="${currentPeriodIndex eq period.index ? 'selected': ''}"/>>${period.name}</option>
-                      </c:forEach>
-                    </select>
-
-                    <h5 class="card-title">Overall progress</h5>
-
-                    <!-- Progress Bars with Backgrounds-->
-
-                    <c:choose>
-                      <c:when test="${summary.usagePercent <= 30}">
-                      <div class="progress mt-3">
-                          <div class="progress-bar bg-success" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:when test="${summary.usagePercent > 30 && summary.usagePercent <= 70}">
-                        <div class="progress mt-3">
-                          <div class="progress-bar" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:when test="${summary.usagePercent > 70 && summary.usagePercent <= 90}">
-                        <div class="progress mt-3">
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:otherwise>
-                        <div class="progress mt-3">
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:otherwise>
-                    </c:choose>
-                    <!-- End Progress Bars with Backgrounds -->
-
-                    <!-- TODO: remove this block completely>
-                    <!--div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                <!-- Multi Columns Form -->
+                <!--form class="row g-3" action="saveCategory" method="post"-->
+                <form:form cssClass="row g-3" action="saveCategory" modelAttribute="category" method="post">  
+                    <div class="col-md-10">
+                        <label for="categoryName" class="form-label">Name</label>
+                        <!--input type="text" class="form-control" id="inputName5"/-->
+                        <form:input path="name" type="text" cssClass="form-control" />
                     </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="col-md-2">
+                        <label for="categoryLimit" class="form-label">Limit</label>
+                        <!--input type="text" class="form-control" id="inputZip"/-->
+                        <form:input path="limit" type="text" cssClass="form-control" />
                     </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div--><!-- End Progress Bars with Backgrounds -->
+                </form:form>
+                <!--/form><!-- End Multi Columns Form -->
 
-                    <h5 class="card-title">Overall statistics</h5>
+            </div>
+          </div>
+          
+          <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Existing categories</h5>
+                <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
 
-                    <table class="table">
-                        <thead>
+                <table class="table">
+                    <thead>
                         <tr>
                           <th scope="col">Category</th>
                           <th scope="col">Spent</th>
                           <th scope="col">Percentage</th>
                           <th scope="col">Leftover</th>
                           <th scope="col">Limit</th>
+                          <th scope="col">Action</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">${summary.name}</th>
-                                <td>${summary.currentAmount}</td>
-                                <td>${summary.usagePercent}</td>
-                                <td>${summary.leftover}</td>
-                                <td>${summary.limit}</td>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="category" items="${allCategories}">
+                            <c:choose>
+                              <c:when test="${category.usagePercent <= 30}">
+                                <tr class="table-success">
+                              </c:when>
+                              <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
+                                <tr>
+                              </c:when>
+                              <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
+                                <tr class="table-warning">
+                              </c:when>
+                              <c:otherwise>
+                                <tr class="table-danger">
+                              </c:otherwise>
+                            </c:choose>
+                                <th scope="row"><a href="category?categoryId=${category.id}" style="color:black;">${category.name}</a></th>
+                                <td>${category.currentAmount}</td>
+                                <td>${category.usagePercent}</td>
+                                <td>${category.leftover}</td>
+                                <td>${category.limit}</td>
+                                <td><a href="removeCategory?id=${category.id}"><img src="assets/img/remove_action.png" alt="Remove" /></a><a href="editCategory?id=${category.id}"><img src="assets/img/edit_action.png" alt="Edit" /></a></td>
                             </tr>
-                        </tbody>
-                      </table>
+                        </c:forEach>
+                    </tbody>
+                  </table>
 
-                  </div>
-                <!--div class="card-footer">Footer</div-->
-            </div><!-- End Card with header and footer -->
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Categories summary</h5>
-              <!--p>Use contextual classes <code>.table-primary .table-secondary .table-success .table-danger .table-warning .table-info .table-light .table-dark</code> to color tables, table rows or individual cells.</p-->
-              <!-- Table Variants -->
-              <table class="table">
-                <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col">Spent</th>
-                  <th scope="col">Percentage</th>
-                  <th scope="col">Leftover</th>
-                  <th scope="col">Limit</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                    <c:forEach var="category" items="${allCategories}">
-                        <c:choose>
-                          <c:when test="${category.usagePercent <= 30}">
-                            <tr class="table-success">
-                          </c:when>
-                          <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
-                            <tr>
-                          </c:when>
-                          <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
-                            <tr class="table-warning">
-                          </c:when>
-                          <c:otherwise>
-                            <tr class="table-danger">
-                          </c:otherwise>
-                        </c:choose>
-                            <th scope="row"><a href="category?categoryId=${category.id}" style="color:black;">${category.name}</a></th>
-                            <td>${category.currentAmount}</td>
-                            <td>${category.usagePercent}</td>
-                            <td>${category.leftover}</td>
-                            <td>${category.limit}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-              </table>
-              <!-- End Table Variants -->
-
-            </div>
-          </div>
+              </div>
+            </div>          
 
         </div>
 

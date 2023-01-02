@@ -55,4 +55,12 @@ public class ExpenseManagerService {
         }
         return expenses;
     }
+
+    public void saveCategory(Category category) {
+        categoryDAO.saveCategory(category);
+    }
+
+    public void removeCategory(Category category) {
+        categoryDAO.removeCategory(category);
+    }
 }

@@ -3,12 +3,12 @@ package vlpa.spring.expman.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import vlpa.spring.expman.controller.period.PeriodHolder;
 import vlpa.spring.expman.entity.Category;
 import vlpa.spring.expman.entity.Expense;
-import vlpa.spring.expman.entity.ExpenseReport;
 import vlpa.spring.expman.service.ExpenseManagerService;
 
 import java.util.List;
@@ -69,6 +69,22 @@ public class MainController {
         return "category";
     }
 
+    @RequestMapping("/management-categories")
+    public String displayManagementCategoriesPage(Model model) {
+        model.addAttribute("category", new Category());
+
+        List<Category> allCategories = expenseManagerService.getAllCategories();
+        model.addAttribute("allCategories", allCategories);
+
+        return "management-categories";
+    }
+
+    @RequestMapping("/management-expenses")
+    public String displayManagementExpensesPage() {
+        //TODO: implement
+        return "management-expenses";
+    }
+
     @RequestMapping("/period")
     public String updatePeriod(@RequestParam("currentPeriodIndex") int currentPeriodIndex,
                                @RequestParam("params") String params,
@@ -83,6 +99,31 @@ public class MainController {
         return displaySummaryPage(model);
     }
 
+    @RequestMapping("/saveCategory")
+    public String saveCategory(@ModelAttribute("category") Category category) {
+        expenseManagerService.saveCategory(category);
+
+        return "redirect:management-categories";
+    }
+
+    @RequestMapping("/removeCategory")
+    public String removeCategory(@RequestParam("id") int categoryId) {
+        Category category = expenseManagerService.getCategoryById(categoryId);
+        expenseManagerService.removeCategory(category);
+
+        return "redirect:management-categories";
+    }
+
+    @RequestMapping("/editCategory")
+    public String editCategory(@RequestParam("id") int categoryId, Model model) {
+        Category category = expenseManagerService.getCategoryById(categoryId);
+        debug("Prepare category object for update: " + category);
+
+        model.addAttribute("category", category);
+
+        return "edit-category";
+    }
+
     public ExpenseManagerService getExpenseManagerService() {
         return expenseManagerService;
     }
@@ -93,7 +134,7 @@ public class MainController {
 
     private void debug(Object message) {
         if (isDebugEnabled) {
-            System.out.println("[DEBUG]" + message);
+            System.out.println("[DEBUG] " + message);
         }
     }
 }

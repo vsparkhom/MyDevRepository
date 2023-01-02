@@ -9,4 +9,8 @@ public interface CategoryDAO {
     List<Category> getAllCategories();
 
     Category getCategoryById(int categoryId);
+
+    void saveCategory(Category c);
+
+    void removeCategory(Category c);
 }

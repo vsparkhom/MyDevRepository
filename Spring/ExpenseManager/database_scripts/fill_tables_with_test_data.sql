@@ -56,7 +56,7 @@ INSERT INTO
     expenses(date, merchant, amount, category_id)
 VALUES
     (NOW(), 'Other Expense 1.1',   125,  1),
-    (NOW(), 'Other Expense 1.1',   125,  1),
+    (NOW(), 'Other Expense 1.2',   125,  1),
     (NOW(), 'Monthly 1.1',         2250, 2),
     (NOW(), 'Unknown Expense 1.1', 50,   3),
     /* Test category 1 */

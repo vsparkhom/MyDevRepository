@@ -1,4 +1,4 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %><%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / General - NiceAdmin Bootstrap Template</title>
+  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -361,12 +361,12 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="forms-elements.html" class="active">
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
@@ -389,12 +389,12 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html" class="active">
+            <a href="tables-general.html">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
@@ -503,38 +503,6 @@
         </a>
       </li><!-- End Blank Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="summary">
-          <i class="bi bi-file-earmark"></i>
-          <span>Summary</span>
-        </a>
-      </li><!-- End Summary Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="category">
-            <i class="bi bi-file-earmark"></i>
-            <span>Category</span>
-        </a>
-      </li><!-- End Category Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-layout-text-window-reverse"></i><span>Management</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-              <li>
-                <a href="management-categories">
-                  <i class="bi bi-circle"></i><span>Categories</span>
-                </a>
-              </li>
-              <li>
-                <a href="management-expenses">
-                  <i class="bi bi-circle"></i><span>Expenses</span>
-                </a>
-              </li>
-            </ul>
-          </li><!-- End Management Nav -->
-
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -542,11 +510,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Summary</h1>
+      <h1>Manage categories</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Summary</li>
+          <li class="breadcrumb-item">Management</li>
+          <li class="breadcrumb-item active">Categories</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -554,132 +523,151 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
-
-            <!-- Card with header and footer -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Select month</h5>
-
-                    <select id="period-selector" class="form-select-custom" aria-label="Default select example" onchange="periodSelectorChanged('summary')">
-                      <c:forEach var="period" items="${periodsList}">
-                         <option value="${period.index}" <c:out value="${currentPeriodIndex eq period.index ? 'selected': ''}"/>>${period.name}</option>
-                      </c:forEach>
-                    </select>
-
-                    <h5 class="card-title">Overall progress</h5>
-
-                    <!-- Progress Bars with Backgrounds-->
-
-                    <c:choose>
-                      <c:when test="${summary.usagePercent <= 30}">
-                      <div class="progress mt-3">
-                          <div class="progress-bar bg-success" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:when test="${summary.usagePercent > 30 && summary.usagePercent <= 70}">
-                        <div class="progress mt-3">
-                          <div class="progress-bar" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:when test="${summary.usagePercent > 70 && summary.usagePercent <= 90}">
-                        <div class="progress mt-3">
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:when>
-                      <c:otherwise>
-                        <div class="progress mt-3">
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: ${summary.usagePercent}%" aria-valuenow="${summary.usagePercent}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </c:otherwise>
-                    </c:choose>
-                    <!-- End Progress Bars with Backgrounds -->
-
-                    <!-- TODO: remove this block completely>
-                    <!--div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-3">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div--><!-- End Progress Bars with Backgrounds -->
-
-                    <h5 class="card-title">Overall statistics</h5>
-
-                    <table class="table">
-                        <thead>
-                        <tr>
-                          <th scope="col">Category</th>
-                          <th scope="col">Spent</th>
-                          <th scope="col">Percentage</th>
-                          <th scope="col">Leftover</th>
-                          <th scope="col">Limit</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">${summary.name}</th>
-                                <td>${summary.currentAmount}</td>
-                                <td>${summary.usagePercent}</td>
-                                <td>${summary.leftover}</td>
-                                <td>${summary.limit}</td>
-                            </tr>
-                        </tbody>
-                      </table>
-
-                  </div>
-                <!--div class="card-footer">Footer</div-->
-            </div><!-- End Card with header and footer -->
-
+        
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Categories summary</h5>
-              <!--p>Use contextual classes <code>.table-primary .table-secondary .table-success .table-danger .table-warning .table-info .table-light .table-dark</code> to color tables, table rows or individual cells.</p-->
-              <!-- Table Variants -->
-              <table class="table">
-                <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col">Spent</th>
-                  <th scope="col">Percentage</th>
-                  <th scope="col">Leftover</th>
-                  <th scope="col">Limit</th>
-                </tr>
-                </thead>
-                <tbody>
+              <h5 class="card-title">Create new category</h5>
 
-                    <c:forEach var="category" items="${allCategories}">
-                        <c:choose>
-                          <c:when test="${category.usagePercent <= 30}">
-                            <tr class="table-success">
-                          </c:when>
-                          <c:when test="${category.usagePercent > 30 && category.usagePercent <= 70}">
-                            <tr>
-                          </c:when>
-                          <c:when test="${category.usagePercent > 70 && category.usagePercent <= 90}">
-                            <tr class="table-warning">
-                          </c:when>
-                          <c:otherwise>
-                            <tr class="table-danger">
-                          </c:otherwise>
-                        </c:choose>
-                            <th scope="row"><a href="category?categoryId=${category.id}" style="color:black;">${category.name}</a></th>
-                            <td>${category.currentAmount}</td>
-                            <td>${category.usagePercent}</td>
-                            <td>${category.leftover}</td>
-                            <td>${category.limit}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-              </table>
-              <!-- End Table Variants -->
+              <!-- General Form Elements -->
+              <form>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Text</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+                  <div class="col-sm-10">
+                    <input type="time" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputColor" class="col-sm-2 col-form-label">Color Picker</label>
+                  <div class="col-sm-10">
+                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#4154f1" title="Choose your color">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Textarea</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" style="height: 100px"></textarea>
+                  </div>
+                </div>
+                <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        First radio
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">
+                        Second radio
+                      </label>
+                    </div>
+                    <div class="form-check disabled">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="option" disabled>
+                      <label class="form-check-label" for="gridRadios3">
+                        Third disabled radio
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">Checkboxes</legend>
+                  <div class="col-sm-10">
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck1">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck2" checked>
+                      <label class="form-check-label" for="gridCheck2">
+                        Example checkbox 2
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Disabled</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" value="Read only / Disabled" disabled>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Multi Select</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" multiple aria-label="multiple select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
 
             </div>
           </div>

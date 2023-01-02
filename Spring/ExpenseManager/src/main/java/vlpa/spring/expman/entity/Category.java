@@ -48,6 +48,10 @@ public class Category {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -122,9 +126,9 @@ public class Category {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", limit=" + limit +
-                ", CurrentAmount=" + getCurrentAmount() +
-                ", UsagePercent=" + getUsagePercent() +
-                ", Leftover()=" + getLeftover() +
+//                ", CurrentAmount=" + getCurrentAmount() +
+//                ", UsagePercent=" + getUsagePercent() +
+//                ", Leftover()=" + getLeftover() +
                 '}';
     }
 
