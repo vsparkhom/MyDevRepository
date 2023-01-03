@@ -3,13 +3,14 @@ package vlpa.spring.expman.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vlpa.spring.expman.controller.period.PeriodHolder;
 import vlpa.spring.expman.entity.Category;
-import vlpa.spring.expman.entity.Expense;
+import vlpa.spring.expman.service.CategoryManagerService;
 import vlpa.spring.expman.service.ExpenseManagerService;
+import vlpa.spring.expman.service.ExpenseServiceUtils;
 
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class MainController {
     @Autowired
     private ExpenseManagerService expenseManagerService;
 
-    private boolean isDebugEnabled = true;//TODO: move logging setting to Log4J
+    @Autowired
+    private CategoryManagerService categoryManagerService;
 
     @RequestMapping("/")
     public String showIndexPage() {
@@ -34,49 +36,21 @@ public class MainController {
     @RequestMapping("/summary")
     public String displaySummaryPage(Model model) {
 
-        initPeriodParameters(model);
+        ControllerUtils.initPeriodParameters(model);
 
-        List<Category> allCategories = expenseManagerService.getAllCategories();
+        List<Category> allCategories = categoryManagerService.getAllCategories();
         model.addAttribute("allCategories", allCategories);
 
-        debug("Categories list:");
+        ControllerUtils.debug("Categories list:");
         for (Category category : allCategories) {
-            debug(category);
+            ControllerUtils.debug(category);
         }
 
-        Category summary = expenseManagerService.calculateSummary(allCategories);
+        Category summary = ExpenseServiceUtils.calculateSummary(allCategories);
         model.addAttribute("summary", summary);
-        debug("Summary: " + summary);
+        ControllerUtils.debug("Summary: " + summary);
 
         return "summary";
-    }
-
-    private void initPeriodParameters(Model model) {
-        model.addAttribute("currentPeriodIndex", PeriodHolder.getInstance().getCurrentPeriod().getIndex());
-        model.addAttribute("periodsList", PeriodHolder.getInstance().getPeriodsList());
-    }
-
-    @RequestMapping("/category")
-    public String displayCategoryPage(@RequestParam("categoryId") int categoryId, Model model) {
-        initPeriodParameters(model);
-
-        Category category = expenseManagerService.getCategoryById(categoryId);
-        model.addAttribute("category", category);
-
-        List<Expense> expenses = expenseManagerService.getCategoryExpensesForCurrentPeriod(category);
-        model.addAttribute("expenses", expenses);
-
-        return "category";
-    }
-
-    @RequestMapping("/management-categories")
-    public String displayManagementCategoriesPage(Model model) {
-        model.addAttribute("category", new Category());
-
-        List<Category> allCategories = expenseManagerService.getAllCategories();
-        model.addAttribute("allCategories", allCategories);
-
-        return "management-categories";
     }
 
     @RequestMapping("/management-expenses")
@@ -88,40 +62,18 @@ public class MainController {
     @RequestMapping("/period")
     public String updatePeriod(@RequestParam("currentPeriodIndex") int currentPeriodIndex,
                                @RequestParam("params") String params,
+                               RedirectAttributes redirectAttributes,
                                Model model) {
         PeriodHolder.getInstance().setCurrentPeriod(currentPeriodIndex);
 
         if (params.startsWith("category")) {
             String[] parameters = params.split("_");
             Integer categoryId = Integer.valueOf(parameters[1]);
-            return displayCategoryPage(categoryId, model);
+//            return displayCategoryPage(categoryId, model);//TODO: test if it's working as expected
+            redirectAttributes.addAttribute("categoryId", categoryId);
+            return "redirect:/category";//redirect to another controller with parameters
         }
         return displaySummaryPage(model);
-    }
-
-    @RequestMapping("/saveCategory")
-    public String saveCategory(@ModelAttribute("category") Category category) {
-        expenseManagerService.saveCategory(category);
-
-        return "redirect:management-categories";
-    }
-
-    @RequestMapping("/removeCategory")
-    public String removeCategory(@RequestParam("id") int categoryId) {
-        Category category = expenseManagerService.getCategoryById(categoryId);
-        expenseManagerService.removeCategory(category);
-
-        return "redirect:management-categories";
-    }
-
-    @RequestMapping("/editCategory")
-    public String editCategory(@RequestParam("id") int categoryId, Model model) {
-        Category category = expenseManagerService.getCategoryById(categoryId);
-        debug("Prepare category object for update: " + category);
-
-        model.addAttribute("category", category);
-
-        return "edit-category";
     }
 
     public ExpenseManagerService getExpenseManagerService() {
@@ -132,9 +84,11 @@ public class MainController {
         this.expenseManagerService = expenseManagerService;
     }
 
-    private void debug(Object message) {
-        if (isDebugEnabled) {
-            System.out.println("[DEBUG] " + message);
-        }
+    public CategoryManagerService getCategoryManagerService() {
+        return categoryManagerService;
+    }
+
+    public void setCategoryManagerService(CategoryManagerService categoryManagerService) {
+        this.categoryManagerService = categoryManagerService;
     }
 }
