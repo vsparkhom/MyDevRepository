@@ -3,7 +3,7 @@
 Index:
 
 > 1. [Generics](#generics)
-> 1. Collections
+> 1. [Collections](Collections/README.md)
 > 1. Functional programming
 > 1. Dates
 > 1. Localization
@@ -12,11 +12,10 @@ Index:
 > 1. NIO
 > 1. JDBC
 > 1. Lambda Expressions
-> 1. [Garbage Collector](#garbage_collector)
+> 1. [Garbage Collector](Garbage_Collector/README.md)
+> 1. [CLI Tools](CLI_Tools/README.md)
 
 ### <a name="generics"></a> Generics
-
-### Collections
 
 ### Functional programming
 
@@ -34,12 +33,3 @@ Index:
 
 ### Lambda Expressions
 
-### <a name="garbage_collector"></a> Garbage Collector
-
-**Basics**
-
-Source: [oracle.com](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
-
-**JVM Garbage Collectors**
-
-Source: [www.baeldung.com](https://www.baeldung.com/jvm-garbage-collectors)

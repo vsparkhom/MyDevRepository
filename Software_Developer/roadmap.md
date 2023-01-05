@@ -1,9 +1,9 @@
 # Java Software Developer Roadmap
 
-#### Version: 16-Sep-21, v1.1
+#### Version: 8-Oct-2022, v1.2
 
 **Index:**
-> 0. Materials
+> 0. [Materials](Materials/README.md)
 >    1. [Tutorials](Materials/Tutorials.md)
 >    2. [Articles](Materials/Articles.md)
 >    3. [Video](Materials/Video.md)
@@ -17,7 +17,7 @@
 >        1. Scrum
 >        2. Agile
 >        3. Kanban
->     4. OOP principles
+>     4. [OOP principles](Essential_Skills/OOP_principles.md)
 >        1. SOLID
 >        2. TBD
 >     5. Ticketing systems
@@ -33,7 +33,7 @@
 > 
 > 2. [Java](Java/README.md)<img src="img/medal_1st.png" /> 
 >     1. Generics
->     2. Collections
+>     2. [Collections](Java/Collections/README.md)
 >     3. Functional programming
 >     4. Dates
 >     5. Localization
@@ -42,8 +42,8 @@
 >     8. NIO
 >     9. JDBC
 >     10. Lambda Expressions
->     11. [CLI Tools](Java/CLI_tools.md) <img src="img/medal_2nd.png" /> 
->     12. [Garbage Collector](Java/README.md#garbage_collector) <img src="img/medal_2nd.png" /> 
+>     11. [CLI Tools](Java/CLI_Tools/README.md) <img src="img/medal_2nd.png" /> 
+>     12. [Garbage Collector](Java/Garbage_Collector/README.md#garbage_collector) <img src="img/medal_2nd.png" /> 
 > 
 > 3. Build tools
 >     1. Maven <img src="img/medal_1st.png" /> 
@@ -109,7 +109,7 @@
 >         1. Google Cloud Platform (GCP)
 >         2. Amazon Web Services (AWS)
 > 
->     2. Microservices
+>     2. [Microservices](Next_Level/Microservices/README.md)
 > 
 >     3. Caching
 >         1. [EHCache](http://www.ehcache.org/)
