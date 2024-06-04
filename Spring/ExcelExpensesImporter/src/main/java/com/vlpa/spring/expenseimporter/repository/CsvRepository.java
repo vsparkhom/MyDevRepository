@@ -12,17 +12,28 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.vlpa.spring.expenseimporter.LoggerUtils.info;
+
 public class CsvRepository {
 
-    public ArrayList<Expense> readCsvFile(String path, BankStatementImporter importer) throws IOException, ParseException {
-        FileReader filereader = new FileReader(this.getClass().getClassLoader().getResource(path).getFile());
+    public ArrayList<Expense> readCsvFile(BankStatementImporter importer) throws IOException, ParseException {
+        info("Read CSV file - START");
+
+        String fileName = importer.getFileName();
+        info("File name: " + fileName);
+
+        String file = this.getClass().getClassLoader().getResource(fileName).getFile();
+        FileReader filereader = new FileReader(file);
 
         CSVReader csvReader = new CSVReader(filereader);
         String[] nextRecord;
 
         ArrayList<Expense> expenses = new ArrayList<>();
+        boolean isHeaderSkipped = false;
+
         while ((nextRecord = csvReader.readNext()) != null) {
-            if (importer.isHeaderPresent()) {
+            if (importer.isHeaderPresent() && !isHeaderSkipped) {
+                isHeaderSkipped = true;
                 continue;
             }
             int currentColumnIndex = 0;
@@ -33,12 +44,16 @@ public class CsvRepository {
                 } else if (currentColumnIndex == importer.getMerchantColumnIndex()) {
                     currentExpense.setMerchant(cell);
                 } else if (currentColumnIndex == importer.getAmountColumnIndex() && StringUtils.isNotEmpty(cell)) {
-                    currentExpense.setAmount(Double.parseDouble(cell));
+                    double value = Double.parseDouble(cell);
+                    currentExpense.setAmount(importer.isCreditNegative() ? -value : value);
                 }
                 currentColumnIndex++;
             }
-            expenses.add(currentExpense);
+            if (currentExpense.getAmount() > 0) { //Do not include debit or zero transactions
+                expenses.add(currentExpense);
+            }
         }
+        info("Read CSV file - END\n");
         return expenses;
     }
 

@@ -1,23 +1,34 @@
 package com.vlpa.spring.expenseimporter;
 
-import com.vlpa.spring.expenseimporter.model.ExpenseCategory;
-import com.vlpa.spring.expenseimporter.model.ExpensePattern;
+import com.vlpa.spring.expenseimporter.model.Bank;
+import com.vlpa.spring.expenseimporter.model.CardType;
+import com.vlpa.spring.expenseimporter.model.ImportRequestData;
+import com.vlpa.spring.expenseimporter.repository.ExpenseParsingHelper;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.net.URL;
 
 public class MainApplicationRunner {
 
-    public static void main( String[] args ) throws Exception {
+    public static void main(String[] args) throws Exception {
+
+        LoggerUtils.setCurrentLevel(LoggerUtils.LogLevel.ALL);
 
         //input parameters
-        String inputCommand = "import";
-        String inputBank = "td";
+//        String inputBank = "td";
+        String inputBank = "pcf";
         String inputCardType = "credit";
-        String inputDate = "01-01-2024";//dd-MM-yyyy
-//        String inputDate = "01-12-2023";
+//        String inputCardType = "debit";
+        String monthNumber = "5";//dd-MM-yyyy
+//        String monthNumber = "01-12-2023";
+
+        // prepare request data
+        ImportRequestData requestData = new ImportRequestData();
+        requestData.setBank(Bank.resolveBank(inputBank));
+        requestData.setCardType(CardType.resolveCardType(inputCardType));
+        requestData.setBeginningOfTheMonth(Integer.valueOf(monthNumber));
+
+        /* START EXPORTING */
 
         ExpensesImporterApplication application = new ExpensesImporterApplication();
 
@@ -25,7 +36,18 @@ public class MainApplicationRunner {
 
 //        Map<String, List<ExpensePattern>> patternsMapping = application.getPatternsMappingFromExcel();
 
-        application.execute(inputBank, inputCardType, inputDate);
+//        application.execute(requestData);//TODO
+        application.storeData(requestData);//TODO
+
+        // prepare request data
+        ImportRequestData requestData2 = new ImportRequestData();
+        requestData2.setBank(Bank.resolveBank("td"));
+        requestData2.setCardType(CardType.resolveCardType("credit"));
+        requestData2.setBeginningOfTheMonth(Integer.valueOf(monthNumber));
+
+        application.storeData(requestData2);//TODO
+
+
 
 //        application.storeExpensesIntoExcel();
 
@@ -36,6 +58,17 @@ public class MainApplicationRunner {
 //        System.out.println("date: " + c.getTime());
 //        System.out.println("current month: " + c.get(Calendar.MONTH));
 
+//        URL resource = MainApplicationRunner.class.getResource("resource/Housing_2024_vlpa.xlsx");
+//        System.out.println("path: " + resource);
+//
+//        File directory = new File("resource/Housing_2024_vlpa.xlsx");
+//        System.out.println(directory.getAbsolutePath());
 
+
+        //--------------
+
+        String cellValue = "E-TRANSFER<amount=1800>";
+        System.out.println("Expression: " + ExpenseParsingHelper.parseExpressionFromAmountBasedPattern(cellValue));
+        System.out.println("Amount: " + ExpenseParsingHelper.parseAmountValue(cellValue));
     }
 }

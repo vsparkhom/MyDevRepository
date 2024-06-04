@@ -1,6 +1,13 @@
-package com.vlpa.spring.expenseimporter;
+package com.vlpa.spring.expenseimporter.importers;
+
+import com.vlpa.spring.expenseimporter.BankStatementImporter;
 
 public class TdCreditCardImporter implements BankStatementImporter {
+
+    @Override
+    public String getFileName() {
+        return "TD_CC.csv";
+    }
 
     public boolean isHeaderPresent() {
         return false;
@@ -20,5 +27,13 @@ public class TdCreditCardImporter implements BankStatementImporter {
 
     public String getDateFormatPattern() {
         return "MM/dd/yyyy";
+    }
+
+    public int getTemplateColumnNumber() {
+        return 4;
+    }
+
+    public boolean isCreditNegative() {
+        return false;
     }
 }

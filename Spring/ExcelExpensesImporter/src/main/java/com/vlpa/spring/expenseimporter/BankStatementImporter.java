@@ -2,6 +2,8 @@ package com.vlpa.spring.expenseimporter;
 
 public interface BankStatementImporter {
 
+    String getFileName();
+
     boolean isHeaderPresent();
 
     int getDateColumnIndex();
@@ -11,4 +13,8 @@ public interface BankStatementImporter {
     int getAmountColumnIndex();
 
     String getDateFormatPattern();
+
+    int getTemplateColumnNumber();
+
+    boolean isCreditNegative();
 }

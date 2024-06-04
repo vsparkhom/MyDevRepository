@@ -4,6 +4,7 @@ public class ExpensePattern {
 
     private String expression;
     private String category;
+    private boolean isAmountBased;
 
     public ExpensePattern() {
         this("","");
@@ -28,5 +29,9 @@ public class ExpensePattern {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public boolean isAmountBased() {
+        return isAmountBased;
     }
 }

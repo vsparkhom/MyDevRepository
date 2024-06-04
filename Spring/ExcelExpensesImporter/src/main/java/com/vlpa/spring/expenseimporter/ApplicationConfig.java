@@ -6,13 +6,16 @@ public interface ApplicationConfig {
 
     interface Excel {
 
-        String HOUSE_EXCEL_FILE = "Housing_2024_test.xlsx";
+        String HOUSE_EXCEL_FILE = "Housing_2024_vlpa.xlsx";
 
         interface Tabs {
-            int CATEGORIES_TAB_INDEX = 1;
-            int MAPPING_TAB_INDEX = 2;
+            int CATEGORIES_TAB_INDEX = 0;
+            int MAPPING_TAB_INDEX = 1;
 
-            int MONTH_JANUARY = 4;
+            int START_ROW_INDEX = 20;
+            int START_COLUMN_INDEX = 8;
+
+            int TAB_INDEX_PREFIX = 2;
         }
     }
 
