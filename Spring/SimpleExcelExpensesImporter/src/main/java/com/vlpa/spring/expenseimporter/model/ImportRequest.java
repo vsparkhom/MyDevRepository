@@ -1,6 +1,5 @@
 package com.vlpa.spring.expenseimporter.model;
 
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 

@@ -64,11 +64,6 @@ public class Expense {
             return Expense.this;
         }
 
-//        public Builder setId(long id) {
-//            Expense.this.id = id;
-//            return this;
-//        }
-
         public Builder setCategory(Category category) {
             Expense.this.category = category;
             return this;
@@ -88,16 +83,6 @@ public class Expense {
             Expense.this.merchant = merchant;
             return this;
         }
-//
-//        public Builder setBank(String bank) {
-//            Expense.this.bank = bank;
-//            return this;
-//        }
-//
-//        public Builder setDescription(String description) {
-//            Expense.this.description = description;
-//            return this;
-//        }
     }
 
 }

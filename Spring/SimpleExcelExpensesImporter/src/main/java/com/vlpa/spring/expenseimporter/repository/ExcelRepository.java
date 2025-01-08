@@ -125,30 +125,6 @@ public class ExcelRepository {
             iterator.next();
         }
 
-//        debug("    Load header");
-//        List<String> headers = new ArrayList<>();
-//        //header
-//        if (iterator.hasNext()) {
-//            Row currentRow = iterator.next();
-//            Iterator<Cell> cellIterator = currentRow.iterator();
-//
-//            while (cellIterator.hasNext()) {
-//                Cell currentCell = cellIterator.next();
-//                if (currentCell.getCellType() == CellType.STRING && !currentCell.getStringCellValue().isEmpty()) {
-//                    debug(String.format("[%d;%d][%s]", rowNumber, currentCell.getColumnIndex(), currentCell.getStringCellValue()));
-//                    headers.add(currentCell.getStringCellValue());
-//                } else if (!currentCell.getStringCellValue().isEmpty()) {
-//                    warning("Incorrect cell format (Other). Skip the cell.");
-//                }
-//            }
-//        }
-
-//        debug();
-//        debug("    HEADERS: " + headers);
-
-//        Map<String, List<Pattern>> patternsMap = new LinkedHashMap<>();
-        //patterns
-
         Map<String, String> patternRows = new HashMap<>();
 
         debug("    Load patterns");
@@ -162,8 +138,6 @@ public class ExcelRepository {
 
             while (cellIterator.hasNext()) {
                 Cell currentCell = cellIterator.next();
-//                List<Pattern> patterns = getListOfExpensePatternsForCategory(patternsMap, headers.get(currentCell.getColumnIndex() / 2));
-
                 if (currentCell.getColumnIndex() == 0 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
                     patternText = currentCell.getStringCellValue();
                 } else if (currentCell.getColumnIndex() == 1 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
@@ -192,15 +166,6 @@ public class ExcelRepository {
     private Category findCategoryByName(List<Category> categories, String categoryName) {
         return categories.stream().filter(category -> category.getName().equals(categoryName)).findFirst().get();
     }
-
-//    private List<Pattern> getListOfExpensePatternsForCategory(Map<String, List<Pattern>> patternsMap, String key) {
-//        List<Pattern> patterns = patternsMap.get(key);
-//        if (patterns == null) {
-//            patternsMap.put(key, new LinkedList<>());
-//            return patternsMap.get(key);
-//        }
-//        return patterns;
-//    }
 
     public void exportExpenses(List<Expense> expenses, ImportRequest requestData) throws IOException {
         info("Store matched expenses into Excel file - START");

@@ -33,7 +33,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                 pstm.setString(1, e.getMerchant());
                 pstm.setDouble(2, e.getAmount());
                 pstm.setString(3, ExpenseUtils.fromDateToString(e.getDate()));
-                if (e.getCategory() != null) {//TODO: handle unknown expenses where category is null
+                if (e.getCategory() != null) {
                     pstm.setLong(4, e.getCategory().getId());
                 } else {
                     pstm.setLong(4, 0);

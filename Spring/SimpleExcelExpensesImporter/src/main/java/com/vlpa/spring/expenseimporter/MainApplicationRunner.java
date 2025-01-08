@@ -40,8 +40,7 @@ public class MainApplicationRunner {
             if ("import".equalsIgnoreCase(cmdParts[0])) {
                 System.out.println("perform IMPORT command");
 
-//                runImportCommand("import -m 12 -b=TD -t credit");
-                runImportCommand(command);
+                runImportCommand(command); // example: import -m 12 -b=TD -t credit
 
             } else if ("export".equalsIgnoreCase(cmdParts[0])) {
                 System.out.println("perform EXPORT command");
