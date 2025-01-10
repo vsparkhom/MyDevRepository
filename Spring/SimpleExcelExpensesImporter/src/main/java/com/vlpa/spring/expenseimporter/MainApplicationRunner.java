@@ -40,12 +40,23 @@ public class MainApplicationRunner {
             if ("import".equalsIgnoreCase(cmdParts[0])) {
                 System.out.println("perform IMPORT command");
 
-                runImportCommand(command); // example: import -m 12 -b=TD -t credit
+                /* examples:
+                import -m 12 -b=td -t credit
+                import -m 12 -b=td -t debit
+                import -m 12 -b=pcf -t credit
+                 */
+                runImportCommand(command);
 
             } else if ("export".equalsIgnoreCase(cmdParts[0])) {
                 System.out.println("perform EXPORT command");
 
+                //execAll -m 12
                 runExportCommand(command);
+
+            } else if ("execAll".equalsIgnoreCase(cmdParts[0])) {
+                System.out.println("perform EXECUTE ALL command");
+
+                runExecuteAllCommand(command);
 
             } else if ("config".equalsIgnoreCase(cmdParts[0])) {
                 System.out.println("perform CONFIG command");
@@ -70,6 +81,31 @@ public class MainApplicationRunner {
                 .hasArg()
                 .required(required)
                 .build();
+    }
+
+    private static void runExecuteAllCommand(String command) throws IOException {
+        Options options = new Options();
+        Option monthOption = createOption("m", "month", "MONTH", "Month number for expenses that are being imported/exported", true);
+        options.addOption(monthOption);
+
+        CommandLineParser parser = new DefaultParser();
+        try {
+            CommandLine line = parser.parse(options, command.split(" "));
+
+            if (line.hasOption("m")) {
+                String monthNumber = line.getOptionValue("m");
+                info("Month number: " + monthNumber);
+
+                runImportCommand(String.format("import -m %s -b=td -t credit", monthNumber));
+                runImportCommand(String.format("import -m %s -b=td -t debit", monthNumber));
+                runImportCommand(String.format("import -m %s -b=pcf -t credit", monthNumber));
+
+                runExportCommand(String.format("export -m %s", monthNumber));
+            }
+        } catch (ParseException | java.text.ParseException exp) {
+            error("Parsing failed. Reason: " + exp.getMessage());
+            exp.printStackTrace();
+        }
     }
 
     private static void runImportCommand(String command) throws java.text.ParseException, IOException {
@@ -124,9 +160,9 @@ public class MainApplicationRunner {
             BankStatementImporter importer = application.getImporter(request);
             List<Expense> expenses = application.importExpensesFromCsv(request, importer);
 
-            for (Expense e : expenses) {
-                debug("    - " + e);
-            }
+//            for (Expense e : expenses) {
+//                debug("    - " + e);
+//            }
 
             application.storeExpensesToDatabase(expenses, request);
 

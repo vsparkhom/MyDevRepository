@@ -36,7 +36,7 @@ public abstract class AbstractCreditCardImporter implements BankStatementImporte
     @Override
     public boolean isHeaderPresent() {
         String value = getProperties().getProperty(getPropertiesPrefix() + ".header");
-        return Boolean.getBoolean(value);
+        return Boolean.valueOf(value);
     }
 
     @Override
@@ -65,7 +65,7 @@ public abstract class AbstractCreditCardImporter implements BankStatementImporte
     @Override
     public boolean isCreditNegative() {
         String value = getProperties().getProperty(getPropertiesPrefix() + ".negative_credit");
-        return Boolean.getBoolean(value);
+        return Boolean.valueOf(value);
     }
 
     public abstract String getPropertiesPrefix();

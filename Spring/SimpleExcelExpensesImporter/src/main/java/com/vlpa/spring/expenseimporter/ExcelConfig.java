@@ -9,8 +9,4 @@ public interface ExcelConfig {
         int CATEGORIES = 0;
         int MAPPING = 1;
     }
-
-    interface Categories {
-        int START_ROW_INDEX = 15;
-    }
 }

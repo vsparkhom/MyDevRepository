@@ -5,8 +5,10 @@ import com.vlpa.spring.expenseimporter.importers.BankStatementImporter;
 import com.vlpa.spring.expenseimporter.model.Expense;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,8 +24,13 @@ public class CsvRepository {
         String fileName = importer.getDefaultFileName();
         info("File name: " + fileName);
 
-        String file = this.getClass().getClassLoader().getResource(fileName).getFile();
-        FileReader filereader = new FileReader(file);
+        URL resource = this.getClass().getClassLoader().getResource(fileName);
+
+        if (resource == null) {
+            throw new FileNotFoundException("File to import from was not found by URL");
+        }
+
+        FileReader filereader = new FileReader(resource.getFile());
 
         CSVReader csvReader = new CSVReader(filereader);
         String[] nextRecord;

@@ -33,16 +33,17 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                 pstm.setString(1, e.getMerchant());
                 pstm.setDouble(2, e.getAmount());
                 pstm.setString(3, ExpenseUtils.fromDateToString(e.getDate()));
+                pstm.setString(4, e.getExpenseType().name());
                 if (e.getCategory() != null) {
-                    pstm.setLong(4, e.getCategory().getId());
+                    pstm.setLong(5, e.getCategory().getId());
                 } else {
-                    pstm.setLong(4, 0);
+                    pstm.setLong(5, 0);
                 }
-                pstm.setString(5, request.getCard().name());
+                pstm.setString(6, request.getCard().name());
                 pstm.executeUpdate();
             }
 
-            info("All expenses have been imported successfully");
+            info("All expenses (" + expenses.size() + ") have been imported successfully");
 
         } catch (Exception e) {
             error("Expense can't be added due to error: " + e.getMessage());
@@ -57,8 +58,8 @@ public class ExpensesDAOImpl implements ExpensesDAO {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(request.getBeginningOfTheMonth());
         int monthNumber = calendar.get(Calendar.MONTH) + 1;
-        info("Removing all expenses for monthNumber = " + monthNumber);
-        debug("request.getBeginningOfTheMonth: " + request.getBeginningOfTheMonth());
+        info("Removing all expenses for monthNumber = " + monthNumber + " and card " + request.getCard());
+
 
         Connection conn = null;
         try {
@@ -67,7 +68,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
             pstm.setString(1, ExpenseUtils.fromDateToString(request.getBeginningOfTheMonth()));
 
             calendar.add(Calendar.MONTH, 1);
-            debug("End Date: " + calendar.getTime());
+            info("Period: [" + request.getBeginningOfTheMonth() + ", " + calendar.getTime() + "]");
             pstm.setString(2, ExpenseUtils.fromDateToString(calendar.getTime()));
 
             pstm.setString(3, request.getCard().name());
@@ -105,6 +106,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                 String merchant = rs.getString("merchant");
                 double amount = rs.getDouble("amount");
                 Date date = ExpenseUtils.fromStringToDate(rs.getString("purchase_date"));
+                String expType = rs.getString("type");
 
                 long categoryId = rs.getLong("category_id");
                 String categoryName = rs.getString("category_name");
@@ -121,6 +123,7 @@ public class ExpensesDAOImpl implements ExpensesDAO {
                         .setMerchant(merchant)
                         .setAmount(amount)
                         .setDate(date)
+                        .setExpenseType(expType)
                         .setCategory(category)
                         .build();
                 expenses.add(exp);

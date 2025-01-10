@@ -11,7 +11,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.*;
 
-import static com.vlpa.spring.expenseimporter.ExcelConfig.Categories.*;
 import static com.vlpa.spring.expenseimporter.ExpenseUtils.fromDateToString;
 import static com.vlpa.spring.expenseimporter.LoggerUtils.*;
 
@@ -27,44 +26,42 @@ public class ExcelRepository {
 
         List<CategoryRow> categoryRows = new LinkedList<>();
 
-        int rowNumber = 0;
+        boolean isTableHeaderFound = false;
+
         while (iterator.hasNext()) {
 
             Row currentRow = iterator.next();
 
-            debug("Current row number: " + rowNumber);
-            if (rowNumber >= START_ROW_INDEX) {//TODO: do not rely on index here and make it more generic
+            Iterator<Cell> cellIterator = currentRow.iterator();
+            CategoryRow categoryRow = new CategoryRow();
 
-                Iterator<Cell> cellIterator = currentRow.iterator();
-                CategoryRow categoryRow = new CategoryRow();
-
-                while (cellIterator.hasNext()) {
-                    Cell currentCell = cellIterator.next();
-                    if (currentCell.getColumnIndex() == 0 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
-                        debug(String.format("[%d;%d][%s]", rowNumber, currentCell.getColumnIndex(), currentCell.getNumericCellValue()));
-                        categoryRow.setId(Double.valueOf(currentCell.getNumericCellValue()).intValue());
-                    }
-                    if (currentCell.getColumnIndex() == 1 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
-                        debug(String.format("[%d;%d][%s]", rowNumber, currentCell.getColumnIndex(), currentCell.getStringCellValue()));
-                        categoryRow.setCategory(currentCell.getStringCellValue());
-                    }
-                    if (currentCell.getColumnIndex() == 2 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
-                        debug(String.format("[%d;%d][%s]", rowNumber, currentCell.getColumnIndex(), currentCell.getStringCellValue()));
-                        categoryRow.setParentCategory(currentCell.getStringCellValue());
-                    }
-                    if (currentCell.getColumnIndex() == 3 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
-                        debug(String.format("[%d;%d][%s]", rowNumber, currentCell.getColumnIndex(), currentCell.getStringCellValue()));
-                        categoryRow.setTopCategory(currentCell.getStringCellValue());
-                    }
+            if (!isTableHeaderFound && cellIterator.hasNext()) {
+                Cell firstCell = cellIterator.next();
+                if (firstCell.getStringCellValue().equals("#")) {
+                    isTableHeaderFound = true;
                 }
-
-                info(categoryRow.toString());
-                categoryRows.add(categoryRow);
-
+                continue;
             }
 
-            debug();
-            rowNumber++;
+            while (cellIterator.hasNext()) {
+                Cell currentCell = cellIterator.next();
+
+                if (currentCell.getColumnIndex() == 0) {
+                    categoryRow.setId(Double.valueOf(currentCell.getNumericCellValue()).intValue());
+                }
+                if (currentCell.getColumnIndex() == 1) {
+                    categoryRow.setCategory(currentCell.getStringCellValue());
+                }
+                if (currentCell.getColumnIndex() == 2) {
+                    categoryRow.setParentCategory(currentCell.getStringCellValue());
+                }
+                if (currentCell.getColumnIndex() == 3) {
+                    categoryRow.setTopCategory(currentCell.getStringCellValue());
+                }
+            }
+
+            info(categoryRow.toString());
+            categoryRows.add(categoryRow);
         }
 
         //init parent categories
@@ -72,8 +69,10 @@ public class ExcelRepository {
         debug("------------- PARENT CATEGORIES RESOLUTION -------------");
 
         Set<Category> parentCategories = getParentCategories(categoryRows);
-        debug("parentCategories:");
-        debug(parentCategories.toString());
+        info("parentCategories:");
+        for (Category parentCategory : parentCategories) {
+            info("   - " + parentCategory);
+        }
 
         //init regular categories
 
@@ -125,7 +124,7 @@ public class ExcelRepository {
             iterator.next();
         }
 
-        Map<String, String> patternRows = new HashMap<>();
+        List<Pattern> patterns = new LinkedList<>();
 
         debug("    Load patterns");
         while (iterator.hasNext()) {
@@ -135,36 +134,31 @@ public class ExcelRepository {
 
             String patternText = "";
             String patternCategory = "";
+            String patternType = "";
 
             while (cellIterator.hasNext()) {
                 Cell currentCell = cellIterator.next();
-                if (currentCell.getColumnIndex() == 0 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
+                if (currentCell.getColumnIndex() == 0) {
                     patternText = currentCell.getStringCellValue();
-                } else if (currentCell.getColumnIndex() == 1 /*&& !currentCell.getStringCellValue().isEmpty()*/) {
+                } else if (currentCell.getColumnIndex() == 1 && !currentCell.getStringCellValue().isEmpty()) {
                     patternCategory = currentCell.getStringCellValue();
+                } else if (currentCell.getColumnIndex() == 2) {
+                    patternType = currentCell.getStringCellValue();
                 }
             }
 
-            debug("    - add: " + patternText + " - " + patternCategory);
-            patternRows.put(patternText, patternCategory);
-
-            debug();
-        }
-
-        List<Pattern> patterns = new LinkedList<>();
-        for (Map.Entry<String, String> patternEntry : patternRows.entrySet()) {
-            Pattern p = new Pattern();
-            p.setExpression(patternEntry.getKey());
-            p.setCategory(findCategoryByName(categories, patternEntry.getValue()));
+            Pattern p = new Pattern(patternText, findCategoryByName(categories, patternCategory), ExpenseType.resolveExpenseType(patternType));
             patterns.add(p);
+
+            debug("    - " + p);
         }
 
-        info("Load mapping - END\n");
+        info("Patterns mapping is loaded successfully - END\n");
         return patterns;
     }
 
     private Category findCategoryByName(List<Category> categories, String categoryName) {
-        return categories.stream().filter(category -> category.getName().equals(categoryName)).findFirst().get();
+        return categories.stream().filter(category -> category.getName().equals(categoryName)).findFirst().orElse(null);
     }
 
     public void exportExpenses(List<Expense> expenses, ImportRequest requestData) throws IOException {
@@ -173,7 +167,25 @@ public class ExcelRepository {
         String excelFilePath = "src\\main\\resources\\Exported_Expenses_" + fromDateToString(requestData.getBeginningOfTheMonth()) + ".xlsx";
 
         XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet newSheet = workbook.createSheet("Expenses");
+
+        exportExpensesByType(expenses, workbook, ExpenseType.Floating);
+        exportExpensesByType(expenses, workbook, ExpenseType.Fixed);
+        exportExpensesByType(expenses, workbook, ExpenseType.Unknown);
+
+        try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
+            workbook.write(outputStream);
+        }
+        info("Saved to the file " + excelFilePath);
+
+        workbook.close();
+
+        info("Store expenses into Excel file - END\n");
+    }
+
+    private void exportExpensesByType(List<Expense> expenses, XSSFWorkbook workbook, ExpenseType expenseType) {
+        info("Export expenses of " + expenseType + " type");
+
+        XSSFSheet newSheet = workbook.createSheet(expenseType.name());
 
         int currentRowIndex = 0;
 
@@ -204,9 +216,13 @@ public class ExcelRepository {
         CellStyle cellDateStyle = newSheet.getWorkbook().createCellStyle();
         cellDateStyle.setDataFormat((short) 14);
 
-        debug("Exported expenses (" + expenses.size() + "):");
         for (Expense expense : expenses) {
-            debug("    - " + expense);
+
+            if (!expenseType.equals(expense.getExpenseType())) {
+                continue;
+            } else {
+                debug("    - " + expense);
+            }
 
             XSSFRow currentRow = newSheet.createRow(currentRowIndex++);
 
@@ -236,15 +252,6 @@ public class ExcelRepository {
                 }
             }
         }
-
-        try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
-            workbook.write(outputStream);
-        }
-        info("Saved to the file " + excelFilePath);
-
-        workbook.close();
-
-        info("Store expenses into Excel file - END\n");
     }
 
 //    private void setCellsData(Sheet currentMonthSheet, int currentRowIndex, int startColumnIndex, int selectedCardColumnIndex,

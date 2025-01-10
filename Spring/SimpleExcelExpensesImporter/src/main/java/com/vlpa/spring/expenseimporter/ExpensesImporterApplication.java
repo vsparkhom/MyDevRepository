@@ -53,26 +53,41 @@ public class ExpensesImporterApplication {
         List<Category> categoriesFromExcel = getCategoriesFromExcel();
         List<Pattern> patterns = getPatternsMappingFromExcel(categoriesFromExcel);
 
-        List<Expense> selectedExpenses = new ArrayList<>();
+        List<Expense> importedExpenses = new ArrayList<>();
 
-        debug("Expenses:");
+        debug("Expenses (" + expenses.size() + "):");
+        int numberOfSkippedExpenses = 0;
+
         for (Expense expense : expenses) {
             debug("    - " + expense);
-            if (expense.getAmount() != 0 && isInTimeInterval(expense.getDate(), requestData.getBeginningOfTheMonth())) {
-                Category matchedCategory = findCategoryByPattern(expense, patterns);
-                if (matchedCategory == null) {
-                    warning("         [WARNING] No matching category was found for " + expense);
-                } else {
-                    debug("         [MATCHED] Category: " + matchedCategory);
-                    expense.setCategory(matchedCategory);
-                }
-                selectedExpenses.add(expense);
-            } else {
-                warning("         [WARNING] Skip the expense");
-            }
+            if (isExpenseApplicable(expense, requestData.getBeginningOfTheMonth())) {
+                Pattern matchedPattern = findPatternByExpenseMerchant(expense, patterns);
 
+                if (matchedPattern == null) {
+                    warning("         [WARNING] No pattern matches the " + expense);
+                    expense.setExpenseType(ExpenseType.Unknown);
+                } else {
+                    Category matchedCategory = matchedPattern.getCategory();
+                    if (matchedCategory == null && matchedPattern.getExpenseType() != ExpenseType.Skip) {
+                        error("         [ERROR] No matching category was found for " + expense);
+                    } else {
+                        debug("         [MATCHED] Matched pattern: " + matchedPattern);
+                        expense.setCategory(matchedCategory);
+                    }
+                    expense.setExpenseType(matchedPattern.getExpenseType());
+                }
+                importedExpenses.add(expense);
+            } else {
+                warning("         [WARNING] Skip the " + expense);
+                numberOfSkippedExpenses++;
+            }
         }
-        return selectedExpenses;
+        debug("Number of skipped expenses: " + numberOfSkippedExpenses + ", added: " + (expenses.size() - numberOfSkippedExpenses));
+        return importedExpenses;
+    }
+
+    private boolean isExpenseApplicable(Expense expense, Date beginningOfTheMonth) {
+        return expense.getAmount() != 0 && isInTimeInterval(expense.getDate(), beginningOfTheMonth);
     }
 
     protected BankStatementImporter getImporter(ImportRequest requestData) {
@@ -85,7 +100,6 @@ public class ExpensesImporterApplication {
         debug("Patterns Mapping:");
         for (Pattern pattern : patterns) {
             debug("   - " + pattern);
-            debug();
         }
         return patterns;
     }
@@ -94,10 +108,10 @@ public class ExpensesImporterApplication {
         return getExcelRepository().readCategoriesFromExcel();
     }
 
-    private Category findCategoryByPattern(Expense expense, List<Pattern> patterns) {
+    private Pattern findPatternByExpenseMerchant(Expense expense, List<Pattern> patterns) {
         for (Pattern pattern : patterns) {
             if (expense.getMerchant().toUpperCase().contains(pattern.getExpression().toUpperCase())) {
-                return pattern.getCategory();
+                return pattern;
             }
         }
         return null;

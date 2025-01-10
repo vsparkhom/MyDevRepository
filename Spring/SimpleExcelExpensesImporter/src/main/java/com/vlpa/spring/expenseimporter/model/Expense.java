@@ -8,6 +8,7 @@ public class Expense {
     private String merchant;
     private double amount;
     private Category category;
+    private ExpenseType expenseType;
 
     public Date getDate() {
         return date;
@@ -41,6 +42,14 @@ public class Expense {
         this.category = category;
     }
 
+    public ExpenseType getExpenseType() {
+        return expenseType;
+    }
+
+    public void setExpenseType(ExpenseType expenseType) {
+        this.expenseType = expenseType;
+    }
+
     @Override
     public String toString() {
         return "Expense{" +
@@ -48,6 +57,7 @@ public class Expense {
                 ", merchant='" + merchant + '\'' +
                 ", amount=" + amount +
                 ", category=" + category +
+                ", expenseType=" + expenseType +
                 '}';
     }
 
@@ -81,6 +91,11 @@ public class Expense {
 
         public Builder setMerchant(String merchant) {
             Expense.this.merchant = merchant;
+            return this;
+        }
+
+        public Builder setExpenseType(String expenseType) {
+            Expense.this.expenseType = ExpenseType.resolveExpenseType(expenseType);
             return this;
         }
     }

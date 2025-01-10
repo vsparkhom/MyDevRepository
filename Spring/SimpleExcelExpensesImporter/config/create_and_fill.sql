@@ -39,10 +39,11 @@ CREATE TABLE Expenses (
     merchant      VARCHAR (500),
     amount        DECIMAL,
     purchase_date DATE          NOT NULL,
+    type          VARCHAR,
     category_id   INTEGER       REFERENCES Categories (id) ON DELETE SET NULL,
     card_id       INTEGER       REFERENCES Cards (id) 
 );
 
-insert into expenses(merchant, amount, purchase_date, category_id, card_id) values ('ENMAX ENERGY', 355.63, date('2024-12-01'), 3, (select id from cards where name = 'TdCredit'));
+insert into expenses(merchant, amount, purchase_date, type, category_id, card_id) values ('ENMAX ENERGY', 355.63, date('2024-12-01'), 'Unknown', 3, (select id from cards where name = 'TdCredit'));
 
 
