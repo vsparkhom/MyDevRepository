@@ -44,6 +44,7 @@ public class MainApplicationRunner {
                 import -m 12 -b=td -t credit
                 import -m 12 -b=td -t debit
                 import -m 12 -b=pcf -t credit
+                import -m 12 -b=cibc -t credit
                  */
                 runImportCommand(command);
 
@@ -99,6 +100,7 @@ public class MainApplicationRunner {
                 runImportCommand(String.format("import -m %s -b=td -t credit", monthNumber));
                 runImportCommand(String.format("import -m %s -b=td -t debit", monthNumber));
                 runImportCommand(String.format("import -m %s -b=pcf -t credit", monthNumber));
+                runImportCommand(String.format("import -m %s -b=cibc -t credit", monthNumber));
 
                 runExportCommand(String.format("export -m %s", monthNumber));
             }

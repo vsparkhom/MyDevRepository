@@ -3,6 +3,7 @@ package com.vlpa.spring.expenseimporter;
 import com.vlpa.spring.expenseimporter.dao.category.CategoriesRepository;
 import com.vlpa.spring.expenseimporter.dao.expense.ExpensesRepository;
 import com.vlpa.spring.expenseimporter.importers.BankStatementImporter;
+import com.vlpa.spring.expenseimporter.importers.CibcCreditCardImporter;
 import com.vlpa.spring.expenseimporter.importers.PcfCreditCardImporter;
 import com.vlpa.spring.expenseimporter.importers.TdCreditCardImporter;
 import com.vlpa.spring.expenseimporter.importers.TdDebitCardImporter;
@@ -24,7 +25,7 @@ public class ExpensesImporterApplication {
         BANK_DATA_IMPORTERS.put(Card.TdCredit, new TdCreditCardImporter());
         BANK_DATA_IMPORTERS.put(Card.TdDebit, new TdDebitCardImporter());
         BANK_DATA_IMPORTERS.put(Card.PcfCredit, new PcfCreditCardImporter());
-        //TODO: add CIBC bank importer
+        BANK_DATA_IMPORTERS.put(Card.CibcCredit, new CibcCreditCardImporter());
     }
 
     private ExcelRepository excelRepository;
