@@ -2,8 +2,8 @@ package com.vlpa.spring.expenseimporter;
 
 public interface ExcelConfig {
 
-    // Excel data
     String FILE_NAME = "Configuration.xlsx";
+    String TABLE_HEADER_SYMBOL = "#";
 
     interface TabIndex {
         int CATEGORIES = 0;

@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.*;
 
+import static com.vlpa.spring.expenseimporter.ExcelConfig.TABLE_HEADER_SYMBOL;
 import static com.vlpa.spring.expenseimporter.ExpenseUtils.fromDateToString;
 import static com.vlpa.spring.expenseimporter.LoggerUtils.*;
 
@@ -35,10 +36,12 @@ public class ExcelRepository {
             Iterator<Cell> cellIterator = currentRow.iterator();
             CategoryRow categoryRow = new CategoryRow();
 
-            if (!isTableHeaderFound && cellIterator.hasNext()) {
-                Cell firstCell = cellIterator.next();
-                if (firstCell.getStringCellValue().equals("#")) {
-                    isTableHeaderFound = true;
+            if (!isTableHeaderFound) {
+                if (cellIterator.hasNext()) { // there might be empty lines returned, so need to skip them
+                    Cell firstCell = cellIterator.next();
+                    if (firstCell.getStringCellValue().equals(TABLE_HEADER_SYMBOL)) {
+                        isTableHeaderFound = true;
+                    }
                 }
                 continue;
             }
@@ -81,7 +84,7 @@ public class ExcelRepository {
         List<Category> categories = new LinkedList<>(parentCategories);
 
         for (CategoryRow categoryRow : categoryRows) {
-            Category parentCategory = parentCategories.stream().filter(c -> c.getName().equals(categoryRow.getParentCategory())).findFirst().get();
+            Category parentCategory = parentCategories.stream().filter(c -> c.getName().equals(categoryRow.getParentCategory())).findFirst().orElse(null);
             Category category = new Category(categoryRow.getId(), categoryRow.getCategory(), parentCategory, TopCategory.resolve(categoryRow.getTopCategory()));
             categories.add(category);
         }

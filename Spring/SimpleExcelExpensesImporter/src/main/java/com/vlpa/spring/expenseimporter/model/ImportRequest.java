@@ -3,9 +3,9 @@ package com.vlpa.spring.expenseimporter.model;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ImportRequest {
+import static com.vlpa.spring.expenseimporter.LoggerUtils.warning;
 
-    private final static int CURRENT_YEAR = 2024;//TODO: make configurable
+public class ImportRequest {
 
     private Card card;
     private Date beginningOfTheMonth;
@@ -27,8 +27,13 @@ public class ImportRequest {
     }
 
     public void setBeginningOfTheMonth(int monthNumber) {
+        warning("Year has not been provided! Using current one.");
+        setBeginningOfTheMonth(monthNumber, Calendar.getInstance().getWeekYear());
+    }
+
+    public void setBeginningOfTheMonth(int monthNumber, int year) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(CURRENT_YEAR, monthNumber-1, 1, 0, 0, 0);
+        calendar.set(year, monthNumber-1, 1, 0, 0, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         this.beginningOfTheMonth = calendar.getTime();
     }

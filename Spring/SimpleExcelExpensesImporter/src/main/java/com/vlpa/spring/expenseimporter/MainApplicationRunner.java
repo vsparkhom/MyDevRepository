@@ -14,6 +14,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -87,23 +88,31 @@ public class MainApplicationRunner {
     private static void runExecuteAllCommand(String command) throws IOException {
         Options options = new Options();
         Option monthOption = createOption("m", "month", "MONTH", "Month number for expenses that are being imported/exported", true);
-        options.addOption(monthOption);
+        Option yearOption = createOption("y", "year", "YEAR", "Year number for expenses that are being imported/exported", false);
+        options.addOption(monthOption).addOption(yearOption);
 
         CommandLineParser parser = new DefaultParser();
         try {
             CommandLine line = parser.parse(options, command.split(" "));
 
+            String monthNumber = "";
+            String yearNumber = Calendar.getInstance().getWeekYear() + "";
+
             if (line.hasOption("m")) {
-                String monthNumber = line.getOptionValue("m");
+                monthNumber = line.getOptionValue("m");
                 info("Month number: " + monthNumber);
-
-                runImportCommand(String.format("import -m %s -b=td -t credit", monthNumber));
-                runImportCommand(String.format("import -m %s -b=td -t debit", monthNumber));
-                runImportCommand(String.format("import -m %s -b=pcf -t credit", monthNumber));
-                runImportCommand(String.format("import -m %s -b=cibc -t credit", monthNumber));
-
-                runExportCommand(String.format("export -m %s", monthNumber));
             }
+            if (line.hasOption("y")) {
+                yearNumber = line.getOptionValue("y");
+                info("Yeah number: " + yearNumber);
+            }
+
+            runImportCommand(String.format("import -m %s -y %s -b=td -t credit", monthNumber, yearNumber));
+            runImportCommand(String.format("import -m %s -y %s -b=td -t debit", monthNumber, yearNumber));
+            runImportCommand(String.format("import -m %s -y %s -b=pcf -t credit", monthNumber, yearNumber));
+            runImportCommand(String.format("import -m %s -y %s -b=cibc -t credit", monthNumber, yearNumber));
+
+            runExportCommand(String.format("export -m %s", monthNumber));
         } catch (ParseException | java.text.ParseException exp) {
             error("Parsing failed. Reason: " + exp.getMessage());
             exp.printStackTrace();
@@ -114,11 +123,13 @@ public class MainApplicationRunner {
         Options options = new Options();
 
         Option monthOption = createOption("m", "month", "MONTH", "Month number for expenses that are being imported/exported", true);
+        Option yearOption = createOption("y", "year", "YEAR", "Year number for expenses that are being imported/exported", false);
         Option bankOption = createOption("b", "bank", "BANK", "Bank (TD, PCF, CIBC)", true);
         Option cardTypeOption = createOption("t", "type", "TYPE", "Card type (credit, debit)", true);
         Option fileNameOption = createOption("f", "file", "FILE", "Name of the CSV file with exported expenses", false);
 
         options.addOption(monthOption)
+                .addOption(yearOption)
                 .addOption(bankOption)
                 .addOption(cardTypeOption)
                 .addOption(fileNameOption);
@@ -127,6 +138,7 @@ public class MainApplicationRunner {
         String inputBank = "";
         String inputCardType = "";
         String monthNumber = "";
+        String yearNumber = "";
 
         // see API - https://commons.apache.org/proper/commons-cli/usage.html
         CommandLineParser parser = new DefaultParser();
@@ -136,6 +148,10 @@ public class MainApplicationRunner {
             if (line.hasOption("m")) {
                 monthNumber = line.getOptionValue("m");
                 info("Month number: " + monthNumber);
+            }
+            if (line.hasOption("y")) {
+                yearNumber = line.getOptionValue("y");
+                info("Yeah number: " + yearNumber);
             }
             if (line.hasOption("b")) {
                 inputBank = line.getOptionValue("b");
@@ -149,7 +165,12 @@ public class MainApplicationRunner {
             // prepare request data
             ImportRequest request = new ImportRequest();
             request.setCard(Card.resolveCard(inputBank, inputCardType));
-            request.setBeginningOfTheMonth(Integer.valueOf(monthNumber));
+
+            if (yearNumber.isEmpty()) {
+                request.setBeginningOfTheMonth(Integer.valueOf(monthNumber), Integer.valueOf(yearNumber));
+            } else {
+                request.setBeginningOfTheMonth(Integer.valueOf(monthNumber));
+            }
 
             ExpensesImporterApplication application = new ExpensesImporterApplication();
 
