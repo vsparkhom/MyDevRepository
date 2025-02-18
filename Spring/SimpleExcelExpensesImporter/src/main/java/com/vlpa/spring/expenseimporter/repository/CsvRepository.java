@@ -18,7 +18,7 @@ import static com.vlpa.spring.expenseimporter.LoggerUtils.info;
 
 public class CsvRepository {
 
-    public ArrayList<Expense> readCsvFile(BankStatementImporter importer) throws IOException, ParseException {
+    public ArrayList<Expense> readExpensesFromCsvFile(BankStatementImporter importer) throws IOException, ParseException {
         info("Read CSV file - START");
 
         String fileName = importer.getDefaultFileName();

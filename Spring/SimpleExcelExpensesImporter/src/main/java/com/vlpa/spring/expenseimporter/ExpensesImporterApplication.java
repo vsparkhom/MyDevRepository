@@ -37,19 +37,41 @@ public class ExpensesImporterApplication {
         getCategoriesRepository().saveCategories(categories);
     }
 
-    protected void storeExpensesToDatabase(List<Expense> expenses, ImportRequest request) {
+    public void storeExpensesToDatabase(List<Expense> expenses, ImportRequest request) {
         getExpensesRepository().removeExpenses(request);
         getExpensesRepository().saveExpenses(expenses, request);
     }
 
-    protected List<Expense> getExpensesFromDatabase(ImportRequest request) {
+    public List<Expense> getExpensesFromDatabase(ImportRequest request) {
         return getExpensesRepository().readExpenses(request);
+    }
+
+    public void storeExpensesIntoExcel(List<Expense> expenses, ImportRequest requestData) throws IOException {
+        getExcelRepository().exportExpenses(expenses, requestData);
+    }
+
+    public List<Pattern> getPatternsMappingFromExcel(List<Category> categories) throws IOException {
+        List<Pattern> patterns = getExcelRepository().readMapping(categories);
+
+        debug("Patterns Mapping:");
+        for (Pattern pattern : patterns) {
+            debug("   - " + pattern);
+        }
+        return patterns;
+    }
+
+    public List<Category> getCategoriesFromExcel() throws IOException {
+        return getExcelRepository().readCategoriesFromExcel();
+    }
+
+    public BankStatementImporter getImporter(ImportRequest requestData) {
+        return BANK_DATA_IMPORTERS.get(requestData.getCard());
     }
 
     public List<Expense> importExpensesFromCsv(ImportRequest requestData, BankStatementImporter importer)
             throws IOException, ParseException {
         CsvRepository csvRepository = new CsvRepository();
-        ArrayList<Expense> expenses = csvRepository.readCsvFile(importer);
+        ArrayList<Expense> expenses = csvRepository.readExpensesFromCsvFile(importer);
 
         List<Category> categoriesFromExcel = getCategoriesFromExcel();
         List<Pattern> patterns = getPatternsMappingFromExcel(categoriesFromExcel);
@@ -68,14 +90,7 @@ public class ExpensesImporterApplication {
                     warning("         [WARNING] No pattern matches the " + expense);
                     expense.setExpenseType(ExpenseType.Unknown);
                 } else {
-                    Category matchedCategory = matchedPattern.getCategory();
-                    if (matchedCategory == null && matchedPattern.getExpenseType() != ExpenseType.Skip) {
-                        error("         [ERROR] No matching category was found for " + expense);
-                    } else {
-                        debug("         [MATCHED] Matched pattern: " + matchedPattern);
-                        expense.setCategory(matchedCategory);
-                    }
-                    expense.setExpenseType(matchedPattern.getExpenseType());
+                    assignCategoryBasedOnPattern(expense, matchedPattern);
                 }
                 importedExpenses.add(expense);
             } else {
@@ -87,26 +102,19 @@ public class ExpensesImporterApplication {
         return importedExpenses;
     }
 
+    private void assignCategoryBasedOnPattern(Expense expense, Pattern matchedPattern) {
+        Category matchedCategory = matchedPattern.getCategory();
+        if (matchedCategory == null && matchedPattern.getExpenseType() != ExpenseType.Skip) {
+            error("         [ERROR] No matching category was found for " + expense);
+        } else {
+            debug("         [MATCHED] Matched pattern: " + matchedPattern);
+            expense.setCategory(matchedCategory);
+        }
+        expense.setExpenseType(matchedPattern.getExpenseType());
+    }
+
     private boolean isExpenseApplicable(Expense expense, Date beginningOfTheMonth) {
         return expense.getAmount() != 0 && isInTimeInterval(expense.getDate(), beginningOfTheMonth);
-    }
-
-    protected BankStatementImporter getImporter(ImportRequest requestData) {
-        return BANK_DATA_IMPORTERS.get(requestData.getCard());
-    }
-
-    public List<Pattern> getPatternsMappingFromExcel(List<Category> categories) throws IOException {
-        List<Pattern> patterns = getExcelRepository().readMapping(categories);
-
-        debug("Patterns Mapping:");
-        for (Pattern pattern : patterns) {
-            debug("   - " + pattern);
-        }
-        return patterns;
-    }
-
-    public List<Category> getCategoriesFromExcel() throws IOException {
-        return getExcelRepository().readCategoriesFromExcel();
     }
 
     private Pattern findPatternByExpenseMerchant(Expense expense, List<Pattern> patterns) {
@@ -145,9 +153,5 @@ public class ExpensesImporterApplication {
             expensesRepository = new ExpensesRepository();
         }
         return expensesRepository;
-    }
-
-    protected void storeExpensesIntoExcel(List<Expense> expenses, ImportRequest requestData) throws IOException {
-        getExcelRepository().exportExpenses(expenses, requestData);
     }
 }
