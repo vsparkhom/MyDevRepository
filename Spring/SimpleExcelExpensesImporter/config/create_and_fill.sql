@@ -15,6 +15,8 @@ CREATE TABLE Categories (
 
 insert into categories(id, name, parent_id, type) values (?, ?, ?, ?);
 
+-- delete from categories;
+
 
 
 
@@ -46,4 +48,5 @@ CREATE TABLE Expenses (
 
 insert into expenses(merchant, amount, purchase_date, type, category_id, card_id) values ('ENMAX ENERGY', 355.63, date('2024-12-01'), 'Unknown', 3, (select id from cards where name = 'TdCredit'));
 
+-- delete from Expenses;
 

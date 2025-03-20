@@ -5,6 +5,7 @@ public class Pattern {
     private String expression;
     private Category category;
     private ExpenseType expenseType;
+    private int priority;
 
     public Pattern() {
         this("", null, null);
@@ -40,12 +41,21 @@ public class Pattern {
         this.expenseType = expenseType;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
     @Override
     public String toString() {
         return "Pattern{" +
                 "expression='" + expression + '\'' +
                 ", category=" + category +
                 ", expenseType=" + expenseType +
+                ", priority=" + priority +
                 '}';
     }
 }

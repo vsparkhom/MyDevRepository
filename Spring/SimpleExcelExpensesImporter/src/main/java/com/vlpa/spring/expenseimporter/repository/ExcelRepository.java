@@ -138,6 +138,7 @@ public class ExcelRepository {
             String patternText = "";
             String patternCategory = "";
             String patternType = "";
+            int patternPriority = 0;
 
             while (cellIterator.hasNext()) {
                 Cell currentCell = cellIterator.next();
@@ -147,10 +148,13 @@ public class ExcelRepository {
                     patternCategory = currentCell.getStringCellValue();
                 } else if (currentCell.getColumnIndex() == 2) {
                     patternType = currentCell.getStringCellValue();
+                } else if (currentCell.getColumnIndex() == 3) {
+                    patternPriority = (int) currentCell.getNumericCellValue();
                 }
             }
 
             Pattern p = new Pattern(patternText, findCategoryByName(categories, patternCategory), ExpenseType.resolveExpenseType(patternType));
+            p.setPriority(patternPriority);
             patterns.add(p);
 
             debug("    - " + p);

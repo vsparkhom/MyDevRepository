@@ -51,13 +51,7 @@ public class ExpensesImporterApplication {
     }
 
     public List<Pattern> getPatternsMappingFromExcel(List<Category> categories) throws IOException {
-        List<Pattern> patterns = getExcelRepository().readMapping(categories);
-
-        debug("Patterns Mapping:");
-        for (Pattern pattern : patterns) {
-            debug("   - " + pattern);
-        }
-        return patterns;
+        return getExcelRepository().readMapping(categories);
     }
 
     public List<Category> getCategoriesFromExcel() throws IOException {
@@ -75,6 +69,12 @@ public class ExpensesImporterApplication {
 
         List<Category> categoriesFromExcel = getCategoriesFromExcel();
         List<Pattern> patterns = getPatternsMappingFromExcel(categoriesFromExcel);
+        Collections.sort(patterns, Comparator.comparingInt(Pattern::getPriority).reversed());
+
+        debug("Patterns Mapping(sorted by priority):");
+        for (Pattern pattern : patterns) {
+            debug("   - " + pattern);
+        }
 
         List<Expense> importedExpenses = new ArrayList<>();
 

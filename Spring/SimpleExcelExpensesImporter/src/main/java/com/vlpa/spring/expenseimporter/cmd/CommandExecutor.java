@@ -150,10 +150,10 @@ public class CommandExecutor {
                 info("Yeah number: " + yearNumber);
             }
 
-            executeImport(String.format("import -m %s -y %s -b=td -t credit", monthNumber, yearNumber));
-            executeImport(String.format("import -m %s -y %s -b=td -t debit", monthNumber, yearNumber));
-            executeImport(String.format("import -m %s -y %s -b=pcf -t credit", monthNumber, yearNumber));
-            executeImport(String.format("import -m %s -y %s -b=cibc -t credit", monthNumber, yearNumber));
+            executeImport(String.format("import -m %s -y %s -b td -t credit", monthNumber, yearNumber));
+            executeImport(String.format("import -m %s -y %s -b td -t debit", monthNumber, yearNumber));
+            executeImport(String.format("import -m %s -y %s -b pcf -t credit", monthNumber, yearNumber));
+            executeImport(String.format("import -m %s -y %s -b cibc -t credit", monthNumber, yearNumber));
 
             executeExport(String.format("export -m %s", monthNumber));
 
