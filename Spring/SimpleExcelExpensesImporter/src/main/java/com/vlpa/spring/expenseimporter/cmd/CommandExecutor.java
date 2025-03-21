@@ -69,7 +69,7 @@ public class CommandExecutor {
             ImportRequest request = new ImportRequest();
             request.setCard(Card.resolveCard(inputBank, inputCardType));
 
-            if (yearNumber.isEmpty()) {
+            if (!yearNumber.isEmpty()) {
                 request.setBeginningOfTheMonth(Integer.valueOf(monthNumber), Integer.valueOf(yearNumber));
             } else {
                 request.setBeginningOfTheMonth(Integer.valueOf(monthNumber));
@@ -159,7 +159,6 @@ public class CommandExecutor {
 
         } catch (ParseException | java.text.ParseException exp) {
             error("Parsing failed. Reason: " + exp.getMessage());
-            exp.printStackTrace();
         }
     }
 
